@@ -1,0 +1,816 @@
+<style>
+    legend {
+        font-weight: bold;
+        background: rgb(24, 24, 24);
+        color: white;
+        padding: 0 2em;
+        border: 3px double rgb(21, 78, 10);
+        text-transform: uppercase;
+    }
+
+    fieldset {
+        margin: 1em;
+        border: 1px solid #000;
+    }
+
+    * {
+        border-radius: 8px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    .question_root {
+        display: block;
+    }
+
+    .question_body {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        border: 1px solid #000;
+        padding: 4px 8px;
+        margin: 4px 0;
+    }
+
+    .question_options {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    p {
+        display: inline-block;
+    }
+
+    #remuneracoes {
+        border: 1px solid blueviolet;
+    }
+
+</style>
+<form action="{{ route('app.contracheque_form') }}" method="post">
+    @csrf
+
+<fieldset class="question_root">
+        <legend>Soldo</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual tipo de <strong>soldo</strong> o examinado recebe?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_tiposoldo">
+                    <option value="1">Integral</option>
+                    <option value="2">Soldo Proporcional para Cota</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Soldo Proporcional para Cota</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual proporção do <strong>soldo proporcional para cota</strong> o examinado recebe?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" name="x" value="1" min="1" max="100">
+                <input type="number" name="y" value="1" min="1" max="100">
+            </div>
+        </section>
+    </fieldset>
+
+<fieldset class="body_question">
+        <legend>Complemento de cota de soldo</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Recebe <strong>complemento de cota de soldo</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="complementocotasoldo" id="complementocotasoldosim"><label
+                    for="complementocotasoldo">Sim</label>
+                <input type="radio" name="complementocotasoldo" id="complementocotasoldonao"><label
+                    for="complementocotasoldo">Não</label>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Tempo de Serviço</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual o percentual que o examinado recebe de <strong>Adicional de Tempo de Serviço</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" min="0" value="0" max="100">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Compensação por Disponibilidade Militar</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual o percentual/ posto ou gradução que o examinado recebe de <strong>Adicional de Compensação por
+                        Disponibilidade Militar</strong>?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_percentualadicionaldisp">
+                    <option value="0">- Não recebe -</option>
+                    <option value="1">Gen Ex Inat - 41%</option>
+                    <option value="2">Gen Ex - 40%</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional Habilitação</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Qual nível de babilitação do examinado?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_comporg_pg" required>
+                    <option value="0">- Selecione o tipo -</option>
+                    <option value="1">54% - Altos estudos Categoria I</option>
+                    <option value="2">41% - Altos estudos Categoria II</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Permanência</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Qual o percentual que o examinado recebe de <strong>Adicional de Permanência</strong>?</p>
+            </div>
+            <div class="question_options">
+
+                <input type="number" value="0" min="0" max="100" step="5">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Compensação Organica</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Recebe <strong>Adicional de Compensação Organica</strong>?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_comporg">
+                    <option value="0">- Não recebe -</option>
+                    <option value="1">Paraquedista - PDQT</option>
+                    <option value="2">Raio-X - RAIOX</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual percentual?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" value="0" min="0" max="100">
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Sobre o soldo de qual soldo?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_comporg_pg">
+                    <option value="0">- Selecione o Post/Grad -</option>
+                    <option value="1">Gen Ex</option>
+                    <option value="2">Gen Div</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Horas de Voo (ART24MP)</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Recebe <strong>Adicional de Compensação Organica</strong>?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_comporg">
+                    <option value="0">- Não recebe -</option>
+                    <option value="1">Paraquedista - PDQT</option>
+                    <option value="2">Raio-X - RAIOX</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Qual percentual?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" value="0" min="0" max="100">
+            </div>
+        </section>
+
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Sobre o soldo de qual soldo?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_comporg_pg">
+                    <option value="0">- Selecione o Post/Grad -</option>
+                    <option value="1">Gen Ex</option>
+                    <option value="2">Gen Div</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional Militar</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Analizar a implementação</p>
+            </div>
+            <div class="question_options">
+                <select name="select_comporg_pg" required>
+                    <option value="0">- Selecione o tipo -</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+
+    <fieldset class="body_question">
+        <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Recebe <strong>acréscimo de 25% sobre o soldo</strong>?</p>
+            </div>
+            <div class="question_options">
+                <section>
+                    <input type="radio" name="acres25soldo" id="acres25soldosim"><label for="acres25soldo">Sim</label>
+                    <input type="radio" name="acres25soldo" id="acres25soldonao"><label for="acres25soldo">Não</label>
+                </section>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Recebe <strong>acréscimo de 25% sobre o soldo</strong>?</p>
+            </div>
+            <div class="question_options">
+                <section>
+                    <input type="radio" name="acres25soldo" id="acres25soldosim"><label for="acres25soldo">Sim</label>
+                    <input type="radio" name="acres25soldo" id="acres25soldonao"><label for="acres25soldo">Não</label>
+                </section>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Salário família</legend>
+        <section class="question_body">
+
+            <div class="question_title">
+                <p>Possui quantos dependentes para fins de <strong>Salário Família</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" value="0" min="0" max="16">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional de Férias</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá gozar <strong>Férias</strong>?</p>
+            </div>
+            <div class="question_options">
+                <section>
+                    <input type="radio" name="ferias" id="feriassim"><label for="ferias">Sim</label>
+                    <input type="radio" name="ferias" id="feriasnao"><label for="ferias">Não</label>
+                </section>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional PTTC</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar é Prestador de Trabalho por Tempo Certo<strong>(PTTC)</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="pttc" id="pttcsim"><label for="pttc">Sim</label>
+                <input type="radio" name="pttc" id="pttcnao"><label for="pttc">Não</label>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Adicional Natalino</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar é Prestador de Trabalho por Tempo Certo<strong>(PTTC)</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="adicnatalino" id="adicnatalinosim"><label for="adicnatalino">Sim</label>
+                <input type="radio" name="adicnatalino" id="adicnatalinonao"><label for="adicnatalino">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Referenta a quantos meses?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" value="1" min="0" max="12">
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar já recebeu alguma <strong>Adiantamento do Adicional Natino</strong> durante o ano? Qual
+                    valor?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" value="0" min="0">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Auxílio Pré-escolar</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Possui quantos filhos que recebem<strong>Auxílio Pré-escolar</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" value="0" min="0" max="16">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Auxílio Inavalidez</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar recebe<strong>Auxílio Inavalidez</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="auxinv" id="auxinvsim"><label for="auxinv">Sim</label>
+                <input type="radio" name="auxinv" id="auxinvnao"><label for="auxinv">Não</label>
+            </div>
+        </section>
+    </fieldset>
+
+
+    <fieldset class="body_question">
+        <legend>Auxílio Transporte</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar recebe <strong>Auxílio Transporte</strong>? Qual valor solicitado?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" min="0" value="0">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Auxílio Fardamento</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá receber <strong>Auxílio Fardamento</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="auxfard" id="auxfardsim"><label for="auxfard">Sim</label>
+                <input type="radio" name="auxfard" id="auxfardnao"><label for="auxfard">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>É a primeira vez que receberá o <strong>Auxílio Fardamento</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="auxfardprimeiro" id="auxfardprimeironao"><label
+                    for="auxfardprimeiro">Não</label>
+                <input type="radio" name="auxfardprimeiro" id="auxfardprimeirosim"><label
+                    for="auxfardprimeiro">Sim</label>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Auxílio Alimentação - Tipo "C"</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá receber <strong>Auxílio Alimentação - Tipo "C"</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="auxalimc" id="auxalimcsim"><label for="auxalimc">Sim</label>
+                <input type="radio" name="auxalimc" id="auxalimcnao"><label for="auxalimc">Não</label>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Auxílio Alimentação - 5x</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá receber <strong>Auxílio Alimentação - 5x</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="auxalim5x" id="auxalim5xsim"><label for="auxalim5x">Sim</label>
+                <input type="radio" name="auxalim5x" id="auxalim5xnao"><label for="auxalim5x">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Referente a quantos dias?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" min="0" value="0">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Auxílio Natalidade</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá receber <strong>Auxílio Natalidade</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="auxnatalidade" id="auxnatalidadesim"><label for="auxnatalidade">Sim</label>
+                <input type="radio" name="auxnatalidade" id="auxnatalidadenao"><label for="auxnatalidade">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Referente a quantos filhos?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" min="0" value="0" step="1">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Gratificação de Localidade Especial</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá receber <strong>Gratificação de Localidade Especial</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="gratlocesp" id="gratlocespsim"><label for="gratlocesp">Sim</label>
+                <input type="radio" name="gratlocesp" id="gratlocespnao"><label for="gratlocesp">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual valor?</p>
+            </div>
+            <div class="question_options">
+                <input type="number" min="0" value="0">
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Gratificação de Representação de Comando</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar recebe <strong>Gratificação de Representação de Comando</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="gratrepcmdo" id="gratrepcmdosim"><label for="gratrepcmdo">Sim</label>
+                <input type="radio" name="gratrepcmdo" id="gratrepcmdonao"><label for="gratrepcmdo">Não</label>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="body_question">
+        <legend>Gratificação de Representação 2%</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar irá receber <strong>Gratificação de Representação 2%</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="gratrep2" id="gratrep2sim"><label for="gratrep2">Sim</label>
+                <input type="radio" name="gratrep2" id="gratrep2nao"><label for="gratrep2">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>Sobre qual posto ou graduação?</strong>?</p>
+            </div>
+            <div class="question_options">
+                <select name="select_pg">
+                    <option value="0">- Não recebe -</option>
+                    <option value="1">Gen Ex Inat</option>
+                    <option value="2">Gen Ex</option>
+                    <option value="3">Gen Div</option>
+                </select>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>Pensão Militar</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar contribui para a <strong>Pensão militar</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pmil" id="pmilsim"><label for="pmil">Sim</label>
+                    <input type="radio" name="pmil" id="pmilnao"><label for="pmil">Não</label>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>Pensão Militar 1.5%</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Fez a opção pelo desconto de <strong>Pensão militar 1.5%</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pmil15" id="pmil15sim"><label for="pmil15">Sim</label>
+                    <input type="radio" name="pmil15" id="pmil15nao"><label for="pmil15">Não</label>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>Pensão Militar 3%</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>A Pensionista é <strong>filha do instituidor da pensão</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pmil3filha" id="pmil3filhasim"><label for="pmil3filha">Sim</label>
+                    <input type="radio" name="pmil3filha" id="pmil3filhanao"><label for="pmil3filha">Não</label>
+                </div>
+            </div>
+        </section>
+        <section class="question_body">
+            <div class="question_title">
+                <p>A Pensionista é <strong>pensionista vitalícia ou temporária</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pmil3vital" id="pmil3vitalsim"><label for="pmil3vital">Sim</label>
+                    <input type="radio" name="pmil3vital" id="pmil3vitalnao"><label for="pmil3vital">Não</label>
+                </div>
+            </div>
+        </section>
+        <section class="question_body">
+            <div class="question_title">
+                <p>É <strong>Pensionista de Ex-combatente</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pmil3excmbt" id="pmil3excmbtsim"><label for="pmil3excmbt">Sim</label>
+                    <input type="radio" name="pmil3excmbt" id="pmil3excmbtnao"><label for="pmil3excmbt">Não</label>
+                </div>
+            </div>
+        </section>
+        <section class="question_body">
+            <div class="question_title">
+                <p>A Pensionista é <strong>inválida</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pmil3invalida" id="pmil3invalidasim"><label
+                        for="pmil3invalida">Sim</label>
+                    <input type="radio" name="pmil3invalida" id="pmil3invalidanao"><label
+                        for="pmil3invalida">Não</label>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>FuSEx 3%</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Contribui para o <strong>FuSEx</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="fusex" id="fusexsim"><label for="fusex">Sim</label>
+                    <input type="radio" name="fusex" id="fusexnao"><label for="fusex">Não</label>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>Desconto de dependentes no FuSEx</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Possui quantos dependentes, <u>excluíndo a esposa</u>, como dependente no
+                    <strong>FuSEx</strong>?
+                </p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" step="1">
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>PNR</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar mora em <strong>PNR</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="radio" name="pnr" id="pnrsim"><label for="pnr">Sim</label>
+                    <input type="radio" name="pnr" id="pnrnao"><label for="pnr">Não</label>
+                </div>
+            </div>
+        </section>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Qual o tipo de desconto de <strong>PNR</strong> da unidade?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <select name="select_pnr">
+                        <option value="0">- Selecione um tipo -</option>
+                        <option value="1">Desconto normal - 5%</option>
+                        <option value="2">Desconto especial - 3,5%</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>Dependentes para Imposto de Renda</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>Possui quantos dependentes para fins de <strong>Imposto de Renda</strong>?</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" step="1">
+                </div>
+            </div>
+        </section>
+    </fieldset>
+
+    <fieldset class="question_root">
+        <legend>Pensão Judiciária</legend>
+        <section class="question_body">
+            <div class="question_title">
+                <p>O militar paga <strong>Pensão Judiciária</strong>?</p>
+            </div>
+            <div class="question_options">
+                <input type="radio" name="pj" id="pjsim"><label for="pj">Sim</label>
+                <input type="radio" name="pj" id="pjnao"><label for="pj">Não</label>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>1. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>2. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>3. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>4. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>5. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>6. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>7. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>8. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>9. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="question_body">
+            <div class="question_title">
+                <p>10. Valor da Pensão Judiciária:</p>
+            </div>
+            <div class="question_options">
+                <div class="question_options">
+                    <input type="number" min="0" value="0">
+                </div>
+            </div>
+        </section>
+    </fieldset>
+    <button type="submit">GERAR</button>
+</form>

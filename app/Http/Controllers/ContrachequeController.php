@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contracheque;
 use App\Http\Requests\StoreContrachequeRequest;
 use App\Http\Requests\UpdateContrachequeRequest;
+use Illuminate\Http\Request;
 
 class ContrachequeController extends Controller
 {
@@ -13,9 +14,14 @@ class ContrachequeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function formulario()
     {
-        //
+        return view('app.formulario');
+    }
+
+    public function fichaauxiliar(Request $request)
+    {
+        dd($request->request);
     }
 
     /**

@@ -22,7 +22,7 @@ class CreateContrachequeDescontosTable extends Migration
             $table->integer('pmil_30');
             $table->integer('fsuex_3');
             $table->integer('desc_dep_fusex');
-            $table->integer('dep_ir');
+            $table->integer('imposto_renda_dep');
             $table->integer('pnr');
             $table->float('ded_ad_adic_natal', 10, 2);
             $table->float('pens_judiciaria_1', 10, 2);

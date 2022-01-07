@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::prefix('/app')->group(function () {
+    Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'formulario'])->name('app.formulario');
+    Route::post('/fichaauxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
+});
