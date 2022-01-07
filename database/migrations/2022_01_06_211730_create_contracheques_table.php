@@ -16,6 +16,10 @@ class CreateContrachequesTable extends Migration
         Schema::create('contracheques', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // $table->integer('contracheque_dados');
+            // $table->integer('users');
+            // $table->integer('contracheque_descontos');
+            // $table->integer('contracheque_receitas');
         });
     }
 

@@ -16,6 +16,9 @@ class CreatePgConstatesTable extends Migration
         Schema::create('pg_constates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('pg', 255);
+            $table->float('adic_mil', 4, 2);
+            $table->float('soldo', 10, 2);
         });
     }
 

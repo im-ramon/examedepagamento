@@ -17,9 +17,9 @@ class CreateContrachequeDadosTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nome_examinado', 255);
+            $table->string('universo', 255);
             $table->integer('maior_65');
             $table->integer('isento_IR');
-            $table->string('universo', 255);
             $table->date('data_contracheque');
         });
     }
