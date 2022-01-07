@@ -33,6 +33,7 @@ class CreateContrachequeReceitasTable extends Migration
             $table->string('hvoo_pg', 128);
             $table->integer('acres_25_soldo');
             $table->integer('salario_familia_dep');
+
             $table->integer('adic_ferias');
             $table->integer('adic_pttc');
             $table->integer('adic_natalino');
@@ -48,16 +49,12 @@ class CreateContrachequeReceitasTable extends Migration
             $table->integer('aux_alim_5x_qtd_dias');
             $table->integer('aux_natalidade');
             $table->integer('aux_natalidade_qtd_filhos');
-
-
-
-
             $table->float('grat_loc_esp', 10, 2);
+            $table->integer('grat_repr_cmdo');
             $table->integer('grat_repr_2_dias');
             $table->string('grat_repr_2_pg', 128);
-            $table->integer('grat_repr_10');
-            $table->float('dp_excmb_art_9', 10, 2);
-            $table->integer('comp_pecuniaria');
+            $table->float('dp_excmb_art_9_valor', 10, 2);
+
             $table->string('pg_real', 128);
             $table->string('pg_soldo', 128);
         });

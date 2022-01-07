@@ -17,6 +17,12 @@
             transition: all 1s;
         }
 
+        form {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
         legend {
             font-weight: bold;
             background: rgb(24, 24, 24);
@@ -41,6 +47,7 @@
 
         .question_root {
             display: block;
+            background: #e2e2e2;
         }
 
         .question_body {
@@ -99,7 +106,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Soldo Proporcional para Cota</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -114,7 +121,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Complemento de cota de soldo</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -123,13 +130,13 @@
                 <div class="question_options">
                     <input type="radio" name="compl_ct_soldo" value="1" id="complementocotasoldosim"><label
                         for="complementocotasoldosim">Sim</label>
-                    <input type="radio" name="compl_ct_soldo" value="0" id="complementocotasoldonao"><label
+                    <input type="radio" name="compl_ct_soldo" value="0" id="complementocotasoldonao" checked><label
                         for="complementocotasoldonao">Não</label>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Tempo de Serviço</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -142,7 +149,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Compensação por Disponibilidade Militar</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -160,7 +167,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional Habilitação</legend>
             <section class="question_body">
 
@@ -180,7 +187,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Permanência</legend>
             <section class="question_body">
 
@@ -193,7 +200,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Compensação Organica</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -238,7 +245,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Horas de Voo (ART24MP)</legend>
             <section class="question_body">
 
@@ -247,12 +254,11 @@
                 </div>
                 <div class="question_options">
                     <input type="radio" name="hvoo" value="1" id="hvoosim"><label for="hvoosim">Sim</label>
-                    <input type="radio" name="hvoo" value="0" id="hvoonao"><label for="hvoonao">Não</label>
+                    <input type="radio" name="hvoo" value="0" id="hvoonao" checked><label for="hvoonao">Não</label>
                 </div>
             </section>
 
             <section class="question_body">
-
                 <div class="question_title">
                     <p>Qual percentual?</p>
                 </div>
@@ -262,12 +268,11 @@
             </section>
 
             <section class="question_body">
-
                 <div class="question_title">
                     <p>Sobre o soldo de qual soldo?</p>
                 </div>
                 <div class="question_options">
-                    <select name="select_comporg_pg">
+                    <select name="adic_comp_org_pg">
                         <option value="0">- Selecione o Post/Grad -</option>
                         <option value="1">Gen Ex</option>
                         <option value="2">Gen Div</option>
@@ -277,23 +282,7 @@
             </section>
         </fieldset>
 
-        {{-- <fieldset class="body_question">
-            <legend>Adicional Militar</legend>
-            <section class="question_body">
-
-                <div class="question_title">
-                    <p>Analizar a implementação</p>
-                </div>
-                <div class="question_options">
-                    <select name="select_comporg_pg" required>
-                        <option value="0">- Selecione o tipo -</option>
-                    </select>
-                </div>
-            </section>
-        </fieldset> --}}
-
-
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
             <section class="question_body">
 
@@ -304,14 +293,14 @@
                     <section>
                         <input type="radio" value="1" name="acres_25_soldo" id="acres25soldosim"><label
                             for="acres25soldosim">Sim</label>
-                        <input type="radio" value="0" name="acres_25_soldo" id="acres25soldonao"><label
+                        <input type="radio" value="0" name="acres_25_soldo" id="acres25soldonao" checked><label
                             for="acres25soldonao">Não</label>
                     </section>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Salário família/ Imposto de Renda</legend>
             <section class="question_body">
 
@@ -336,7 +325,7 @@
         </fieldset>
 
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional de Férias</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -346,14 +335,14 @@
                     <section>
                         <input type="radio" value="1" name=" adic_ferias" id="feriassim"><label
                             for="feriassim">Sim</label>
-                        <input type="radio" value="0" name="adic_ferias" id="feriasnao"><label
+                        <input type="radio" value="0" name="adic_ferias" id="feriasnao" checked><label
                             for="feriasnao">Não</label>
                     </section>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional PTTC</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -361,12 +350,12 @@
                 </div>
                 <div class="question_options">
                     <input type="radio" value="1" name="adic_pttc" id="pttcsim"><label for="pttcsim">Sim</label>
-                    <input type="radio" value="0" name="adic_pttc" id="pttcnao"><label for="pttcnao">Não</label>
+                    <input type="radio" value="0" name="adic_pttc" id="pttcnao" checked><label for="pttcnao">Não</label>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Adicional Natalino</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -375,7 +364,7 @@
                 <div class="question_options">
                     <input type="radio" value="1" name="adic_natalino" id="adicnatalinosim"><label
                         for="adicnatalinosim">Sim</label>
-                    <input type="radio" value="0" name="adic_natalino" id="adicnatalinonao"><label
+                    <input type="radio" value="0" name="adic_natalino" id="adicnatalinonao" checked><label
                         for="adicnatalinonao">Não</label>
                 </div>
             </section>
@@ -401,7 +390,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Pré-escolar</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -413,7 +402,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Inavalidez</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -421,13 +410,14 @@
                 </div>
                 <div class="question_options">
                     <input type="radio" value="1" name="aux_invalidez" id="auxinvsim"><label for="auxinvsim">Sim</label>
-                    <input type="radio" value="0" name="aux_invalidez" id="auxinvnao"><label for="auxinvnao">Não</label>
+                    <input type="radio" value="0" name="aux_invalidez" id="auxinvnao" checked><label
+                        for="auxinvnao">Não</label>
                 </div>
             </section>
         </fieldset>
 
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Transporte</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -441,7 +431,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Fardamento</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -449,7 +439,8 @@
                 </div>
                 <div class="question_options">
                     <input type="radio" value="1" name="aux_fard" id="auxfardsim"><label for="auxfardsim">Sim</label>
-                    <input type="radio" value="0" name="aux_fard" id="auxfardnao"><label for="auxfardnao">Não</label>
+                    <input type="radio" value="0" name="aux_fard" id="auxfardnao" checked><label
+                        for="auxfardnao">Não</label>
                 </div>
             </section>
 
@@ -460,13 +451,13 @@
                 <div class="question_options">
                     <input type="radio" value="1" name="aux_fard_primeiro" id="auxfardprimeirosim"><label
                         for="auxfardprimeiro">Sim</label>
-                    <input type="radio" value="0" name="aux_fard_primeiro" id="auxfardprimeironao"><label
+                    <input type="radio" value="0" name="aux_fard_primeiro" id="auxfardprimeironao" checked><label
                         for="auxfardprimeiro">Não</label>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Alimentação - Tipo "C"</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -475,13 +466,13 @@
                 <div class="question_options">
                     <input type="radio" value="1" name="aux_alim_c" id="auxalimcsim"><label
                         for="auxalimcsim">Sim</label>
-                    <input type="radio" value="0" name="aux_alim_c" id="auxalimcnao"><label
+                    <input type="radio" value="0" name="aux_alim_c" id="auxalimcnao" checked><label
                         for="auxalimcnao">Não</label>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Alimentação - 5x</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -490,7 +481,7 @@
                 <div class="question_options">
                     <input type="radio" value="1" name="aux_alim_5x" id="auxalim5xsim"><label
                         for="auxalim5xsim">Sim</label>
-                    <input type="radio" value="0" name="aux_alim_5x" id="auxalim5xsim"><label
+                    <input type="radio" value="0" name="aux_alim_5x" id="auxalim5xsim" checked><label
                         for="auxalim5xsim">Não</label>
                 </div>
             </section>
@@ -505,7 +496,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Auxílio Natalidade</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -514,7 +505,7 @@
                 <div class="question_options">
                     <input type="radio" value="1" name="aux_natalidade" id="auxnatalidadesim"><label
                         for="auxnatalidadesim">Sim</label>
-                    <input type="radio" value="0" name="aux_natalidade" id="auxnatalidadenao"><label
+                    <input type="radio" value="0" name="aux_natalidade" id="auxnatalidadenao" checked><label
                         for="auxnatalidadenao">Não</label>
                 </div>
             </section>
@@ -528,51 +519,54 @@
                 </div>
             </section>
         </fieldset>
-        {{-- PAREI AQUI --}}
-        <fieldset class="body_question">
+
+        <fieldset class="question_root">
             <legend>Gratificação de Localidade Especial</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>O examinado irá receber <strong>Gratificação de Localidade Especial</strong>?</p>
+                    <p>O examinado irá receber <strong>Gratificação de Localidade Especial</strong>? Se sim, qual valor?
+                    </p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" name="gratlocesp" id="gratlocespsim"><label for="gratlocesp">Sim</label>
-                    <input type="radio" name="gratlocesp" id="gratlocespnao"><label for="gratlocesp">Não</label>
-                </div>
-            </section>
-
-            <section class="question_body">
-                <div class="question_title">
-                    <p>Qual valor?</p>
-                </div>
-                <div class="question_options">
-                    <input type="number" min="0" value="0">
+                    <input type="number" name="grat_loc_esp_valor" min="0" value="0" step="0.01" max="99999">
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Gratificação de Representação de Comando</legend>
             <section class="question_body">
                 <div class="question_title">
                     <p>O examinado recebe <strong>Gratificação de Representação de Comando</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" name="gratrepcmdo" id="gratrepcmdosim"><label for="gratrepcmdo">Sim</label>
-                    <input type="radio" name="gratrepcmdo" id="gratrepcmdonao"><label for="gratrepcmdo">Não</label>
+                    <input type="radio" value="1" name="grat_repr_cmdo" id="gratrepcmdosim"><label
+                        for="gratrepcmdosim">Sim</label>
+                    <input type="radio" value="0" name="grat_repr_cmdo" id="gratrepcmdonao" checked><label
+                        for="gratrepcmdonao">Não</label>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="body_question">
+        <fieldset class="question_root">
             <legend>Gratificação de Representação 2%</legend>
             <section class="question_body">
                 <div class="question_title">
                     <p>O examinado irá receber <strong>Gratificação de Representação 2%</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" name="gratrep2" id="gratrep2sim"><label for="gratrep2">Sim</label>
-                    <input type="radio" name="gratrep2" id="gratrep2nao"><label for="gratrep2">Não</label>
+                    <input type="radio" value="1" name="grat_repr_2" id="gratrep2sim"><label for="gratrep2">Sim</label>
+                    <input type="radio" value="0" name="grat_repr_2" id="gratrep2nao" checked><label
+                        for="gratrep2">Não</label>
+                </div>
+            </section>
+
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Referente a quantos dias?</p>
+                </div>
+                <div class="question_options">
+                    <input type="number" name="grat_repr_2_dias" max="365" min="0" value="0">
                 </div>
             </section>
 
@@ -581,21 +575,51 @@
                     <p>Sobre qual posto ou graduação?</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <select name="select_pg">
+                    <select name="grat_repr_2_pg">
                         <option value="0">- Não recebe -</option>
                         <option value="1">Gen Ex Inat</option>
                         <option value="2">Gen Ex</option>
                         <option value="3">Gen Div</option>
+                        {{-- SOLDOS - PG - ARRAY --}}
                     </select>
                 </div>
             </section>
         </fieldset>
 
         <fieldset class="question_root">
-            <legend>PensãO examinado</legend>
+            <legend>Pensionada Pensionista de Ex-Combatente - Art. 9</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>O examinado contribui para a <strong>PensãO examinado</strong>?</p>
+                    <p>A pensionista é <strong>Pensionada de Ex-Combatente</strong>?</p>
+                </div>
+                <div class="question_options">
+                    <input type="radio" value="1" name="dp_excmb_art_9" id="dp_excmb_art_9_sim"><label
+                        for="dp_excmb_art_9_sim">Sim</label>
+                    <input type="radio" value="0" name="dp_excmb_art_9" id="dp_excmb_art_9_nao" checked><label
+                        for="dp_excmb_art_9_nao">Não</label>
+                </div>
+            </section>
+
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Quanto a pensionista recebe?</p>
+                </div>
+                <div class="question_options">
+                    <input type="number" name="dp_excmb_art_9_valor" max="99999" min="0" value="0" step="0.01">
+                </div>
+            </section>
+        </fieldset>
+
+        {{-- DESCONTOS --}}
+        <hr>
+        <hr>
+        <hr>
+
+        <fieldset class="question_root">
+            <legend>Pensão Militar</legend>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>O examinado contribui para a <strong>Pensão Militar</strong>?</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
