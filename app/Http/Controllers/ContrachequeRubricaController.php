@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContrachequeReceita;
-use App\Http\Requests\StoreContrachequeReceitaRequest;
-use App\Http\Requests\UpdateContrachequeReceitaRequest;
+use App\Models\ContrachequeRubrica;
+use App\Http\Requests\StoreContrachequeRubricaRequest;
+use App\Http\Requests\UpdateContrachequeRubricaRequest;
 
-class ContrachequeReceitaController extends Controller
+class ContrachequeRubricaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class ContrachequeReceitaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreContrachequeReceitaRequest  $request
+     * @param  \App\Http\Requests\StoreContrachequeRubricaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreContrachequeReceitaRequest $request)
+    public function store(StoreContrachequeRubricaRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ContrachequeReceitaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ContrachequeReceita  $contrachequeReceita
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Http\Response
      */
-    public function show(ContrachequeReceita $contrachequeReceita)
+    public function show(ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -53,10 +53,10 @@ class ContrachequeReceitaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ContrachequeReceita  $contrachequeReceita
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContrachequeReceita $contrachequeReceita)
+    public function edit(ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -64,11 +64,11 @@ class ContrachequeReceitaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateContrachequeReceitaRequest  $request
-     * @param  \App\Models\ContrachequeReceita  $contrachequeReceita
+     * @param  \App\Http\Requests\UpdateContrachequeRubricaRequest  $request
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateContrachequeReceitaRequest $request, ContrachequeReceita $contrachequeReceita)
+    public function update(UpdateContrachequeRubricaRequest $request, ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -76,10 +76,10 @@ class ContrachequeReceitaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ContrachequeReceita  $contrachequeReceita
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContrachequeReceita $contrachequeReceita)
+    public function destroy(ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\ContrachequeDescontos;
+use App\Models\ContrachequeRubrica;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ContrachequeDescontosPolicy
+class ContrachequeRubricaPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ContrachequeDescontosPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContrachequeDescontos  $contrachequeDescontos
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, ContrachequeDescontos $contrachequeDescontos)
+    public function view(User $user, ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -48,10 +48,10 @@ class ContrachequeDescontosPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContrachequeDescontos  $contrachequeDescontos
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, ContrachequeDescontos $contrachequeDescontos)
+    public function update(User $user, ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -60,10 +60,10 @@ class ContrachequeDescontosPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContrachequeDescontos  $contrachequeDescontos
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, ContrachequeDescontos $contrachequeDescontos)
+    public function delete(User $user, ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -72,10 +72,10 @@ class ContrachequeDescontosPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContrachequeDescontos  $contrachequeDescontos
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, ContrachequeDescontos $contrachequeDescontos)
+    public function restore(User $user, ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }
@@ -84,10 +84,10 @@ class ContrachequeDescontosPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ContrachequeDescontos  $contrachequeDescontos
+     * @param  \App\Models\ContrachequeRubrica  $contrachequeRubrica
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, ContrachequeDescontos $contrachequeDescontos)
+    public function forceDelete(User $user, ContrachequeRubrica $contrachequeRubrica)
     {
         //
     }

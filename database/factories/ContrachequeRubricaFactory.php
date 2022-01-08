@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ContrachequeDescontosFactory extends Factory
+class ContrachequeRubricaFactory extends Factory
 {
     /**
      * Define the model's default state.

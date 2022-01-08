@@ -92,7 +92,7 @@
             </section>
         </fieldset>
 
-        <!-- Filtra só pra pensionistas aqui -->
+        {{-- Filtra só pra pensionistas aqui --}}
         <fieldset class="question_root">
             <legend>Cota-parte do Soldo</legend>
             <section class="question_body">
@@ -612,8 +612,11 @@
 
         {{-- DESCONTOS --}}
         <hr>
+        .
         <hr>
+        .
         <hr>
+        .
 
         <fieldset class="question_root">
             <legend>Pensão Militar</legend>
@@ -623,29 +626,54 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" name="pmil" id="pmilsim"><label for="pmil">Sim</label>
-                        <input type="radio" name="pmil" id="pmilnao"><label for="pmil">Não</label>
+                        <input type="radio" value="1" name="pmil" id="pmilsim"><label for="pmilsim">Sim</label>
+                        <input type="radio" value="0" name="pmil" id="pmilnao" checked><label for="pmilnao">Não</label>
                     </div>
+                </div>
+            </section>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Sobre o mesmo posto/ gradução?</p>
+                </div>
+                <div class="question_options">
+                    <input type="radio" value="1" name="pmilpg" id="pmilpgsim" checked><label
+                        for="pmilpgsim">Sim</label>
+                    <input type="radio" value="0" name="pmilpg" id="pmilpgnao"><label for="pmilpgnao">Não</label>
+                </div>
+            </section>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Sobre qual posto/ gradução o examinado contribui para a Pensão Militar?</p>
+                </div>
+                <div class="question_options">
+                    <select name="pmil_pg">
+                        <option value="0">- Não recebe -</option>
+                        <option value="1">Gen Ex Inat</option>
+                        <option value="2">Gen Ex</option>
+                        <option value="3">Gen Div</option>
+                        {{-- SOLDOS - PG - ARRAY --}}
+                    </select>
                 </div>
             </section>
         </fieldset>
 
         <fieldset class="question_root">
-            <legend>PensãO examinado 1.5%</legend>
+            <legend>Pensão Militar 1.5%</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>Fez a opção pelo desconto de <strong>PensãO examinado 1.5%</strong>?</p>
+                    <p>Fez a opção pelo desconto de <strong>Pensão Militar de 1.5%</strong>?</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" name="pmil15" id="pmil15sim"><label for="pmil15">Sim</label>
-                        <input type="radio" name="pmil15" id="pmil15nao"><label for="pmil15">Não</label>
+                        <input type="radio" value="1" name="pmil_15" id="pmil15sim"><label for="pmil15sim">Sim</label>
+                        <input type="radio" value="0" name="pmil_15" id="pmil15nao" checked><label
+                            for="pmil15nao">Não</label>
                     </div>
                 </div>
             </section>
         </fieldset>
 
-        <fieldset class="question_root">
+        {{-- <fieldset class="question_root">
             <legend>PensãO examinado 3%</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -693,6 +721,23 @@
                     </div>
                 </div>
             </section>
+        </fieldset> --}}
+
+        <fieldset class="question_root">
+            <legend>Pensão Militar 3.0%</legend>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>A pensionista contribui com o desconto <strong>extraordinário de Pensão Militar de 3.0%</strong>?
+                    </p>
+                </div>
+                <div class="question_options">
+                    <div class="question_options">
+                        <input type="radio" value="1" name="pmil_30" id="pmil30sim"><label for="pmil30sim">Sim</label>
+                        <input type="radio" value="0" name="pmil_30" id="pmil30nao" checked><label
+                            for="pmil30nao">Não</label>
+                    </div>
+                </div>
+            </section>
         </fieldset>
 
         <fieldset class="question_root">
@@ -703,8 +748,9 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" name="fusex" id="fusexsim"><label for="fusex">Sim</label>
-                        <input type="radio" name="fusex" id="fusexnao"><label for="fusex">Não</label>
+                        <input type="radio" value="1" name="fusex_3" id="fusexsim" checked><label
+                            for="fusexsim">Sim</label>
+                        <input type="radio" value="0" name="fusex_3" id="fusexnao"><label for="fusexnao">Não</label>
                     </div>
                 </div>
             </section>
@@ -720,7 +766,12 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" step="1">
+                        <input type="radio" value="0" name="desc_dep_fusex" id="desc_dep_fusex_nao" checked>
+                        <label for="desc_dep_fusex_nao">Não desconta</label>
+                        <input type="radio" value="0.4" name="desc_dep_fusex" id="desc_dep_fusex_04">
+                        <label for="desc_dep_fusex_04">0.4%</label>
+                        <input type="radio" value="0.5" name="desc_dep_fusex" id="desc_dep_fusex_05">
+                        <label for="desc_dep_fusex_05">0.5%</label>
                     </div>
                 </div>
             </section>
@@ -734,8 +785,11 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" name="pnr" id="pnrsim"><label for="pnr">Sim</label>
-                        <input type="radio" name="pnr" id="pnrnao"><label for="pnr">Não</label>
+                        <input type="radio" name="pnr" id="pnrsim">
+                        <label for="pnrsim">Sim</label>
+
+                        <input type="radio" name="pnr" id="pnrnao" checked>
+                        <label for="pnrnao">Não</label>
                     </div>
                 </div>
             </section>
@@ -745,7 +799,7 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <select name="select_pnr">
+                        <select name="pnr_tipo">
                             <option value="0">- Selecione um tipo -</option>
                             <option value="1">Desconto normal - 5%</option>
                             <option value="2">Desconto especial - 3,5%</option>
@@ -762,120 +816,123 @@
                     <p>O examinado paga <strong>Pensão Judiciária</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" name="pj" id="pjsim"><label for="pj">Sim</label>
-                    <input type="radio" name="pj" id="pjnao"><label for="pj">Não</label>
+                    <input type="radio" value="1" name="pens_judiciaria" id="pjsim">
+                    <label for="pjsim">Sim</label>
+                    <input type="radio" value="0" name="pens_judiciaria" id="pjnao" checked>
+                    <label for="pjnao">Não</label>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>1. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 1:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_1" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>2. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 2:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_2" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>3. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 3:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_3" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>4. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 4:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_4" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>5. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 5:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_5" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>6. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 6:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_6" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>7. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 7:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_7" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>8. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 8:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_8" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>9. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 9:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_9" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>10. Valor da Pensão Judiciária:</p>
+                    <p>Valor da Pensão Judiciária nº 10:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" min="0" value="0">
+                        <input type="number" name="pens_judiciaria_10" min="0" value="0" step="0.01" max="99999">
                     </div>
                 </div>
             </section>
         </fieldset>
+
         <button type="submit" id="gerar">GERAR</button>
     </form>

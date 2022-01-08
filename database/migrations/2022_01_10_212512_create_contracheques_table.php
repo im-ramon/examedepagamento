@@ -18,14 +18,12 @@ class CreateContrachequesTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('contracheque_dados_id');
             $table->unsignedBigInteger('users_id');
-            $table->unsignedBigInteger('contracheque_descontos_id');
-            $table->unsignedBigInteger('contracheque_receitas_id');
+            $table->unsignedBigInteger('contracheque_rubricas_id');
 
             // Constraints (FKs)
             $table->foreign('contracheque_dados_id')->references('id')->on('contracheque_dados');
             $table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('contracheque_descontos_id')->references('id')->on('contracheque_descontos');
-            $table->foreign('contracheque_receitas_id')->references('id')->on('contracheque_receitas');
+            $table->foreign('contracheque_rubricas_id')->references('id')->on('contracheque_rubricas');
         });
     }
 
