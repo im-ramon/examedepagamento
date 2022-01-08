@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PgConstate;
-use App\Http\Requests\StorePgConstateRequest;
-use App\Http\Requests\UpdatePgConstateRequest;
+use App\Models\PgConstante;
+use App\Http\Requests\StorePgConstanteRequest;
+use App\Http\Requests\UpdatePgConstanteRequest;
 
-class PgConstateController extends Controller
+class PgConstanteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class PgConstateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePgConstateRequest  $request
+     * @param  \App\Http\Requests\StorePgConstanteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePgConstateRequest $request)
+    public function store(StorePgConstanteRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class PgConstateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Http\Response
      */
-    public function show(PgConstate $pgConstate)
+    public function show(PgConstante $pgConstante)
     {
         //
     }
@@ -53,10 +53,10 @@ class PgConstateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Http\Response
      */
-    public function edit(PgConstate $pgConstate)
+    public function edit(PgConstante $pgConstante)
     {
         //
     }
@@ -64,11 +64,11 @@ class PgConstateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePgConstateRequest  $request
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Http\Requests\UpdatePgConstanteRequest  $request
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePgConstateRequest $request, PgConstate $pgConstate)
+    public function update(UpdatePgConstanteRequest $request, PgConstante $pgConstante)
     {
         //
     }
@@ -76,10 +76,10 @@ class PgConstateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PgConstate $pgConstate)
+    public function destroy(PgConstante $pgConstante)
     {
         //
     }

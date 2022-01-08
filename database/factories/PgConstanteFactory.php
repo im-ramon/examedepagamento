@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PgConstateFactory extends Factory
+class PgConstanteFactory extends Factory
 {
     /**
      * Define the model's default state.

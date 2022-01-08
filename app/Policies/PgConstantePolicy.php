@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\PgConstate;
+use App\Models\PgConstante;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PgConstatePolicy
+class PgConstantePolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class PgConstatePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, PgConstate $pgConstate)
+    public function view(User $user, PgConstante $pgConstante)
     {
         //
     }
@@ -48,10 +48,10 @@ class PgConstatePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, PgConstate $pgConstate)
+    public function update(User $user, PgConstante $pgConstante)
     {
         //
     }
@@ -60,10 +60,10 @@ class PgConstatePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, PgConstate $pgConstate)
+    public function delete(User $user, PgConstante $pgConstante)
     {
         //
     }
@@ -72,10 +72,10 @@ class PgConstatePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, PgConstate $pgConstate)
+    public function restore(User $user, PgConstante $pgConstante)
     {
         //
     }
@@ -84,10 +84,10 @@ class PgConstatePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PgConstate  $pgConstate
+     * @param  \App\Models\PgConstante  $pgConstante
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, PgConstate $pgConstate)
+    public function forceDelete(User $user, PgConstante $pgConstante)
     {
         //
     }

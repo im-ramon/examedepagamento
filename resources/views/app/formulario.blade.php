@@ -78,6 +78,47 @@
         @csrf
 
         <fieldset class="question_root">
+            <legend>P/G Soldo</legend>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Qual o P/G em que o examinado recebe o <strong>soldo</strong>?</p>
+                </div>
+                <div class="question_options">
+                    <select name="adic_comp_disp">
+                        <option value="0">- Não recebe -</option>
+                        <option value="41">Gen Ex Inat - 41%</option>
+                        <option value="40">Gen Ex - 40%</option>
+                        {{-- COMPLETAR DINAMICAMENTE --}}
+                    </select>
+                </div>
+            </section>
+        </fieldset>
+
+        <fieldset class="question_root">
+            <legend>P/G Real</legend>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Qual o P/G <strong>real</strong> do examinado?</p>
+                </div>
+                <div class="question_options">
+                    <select name="adic_comp_disp">
+                        <option value="0">- Não recebe -</option>
+                        <option value="41">Gen Ex Inat - 41%</option>
+                        <option value="40">Gen Ex - 40%</option>
+                        {{-- COMPLETAR DINAMICAMENTE --}}
+                    </select>
+                </div>
+            </section>
+        </fieldset>
+
+        <hr>
+        .
+        <hr>
+        .
+        <hr>
+        .
+
+        <fieldset class="question_root">
             <legend>Soldo</legend>
             <section class="question_body">
                 <div class="question_title">

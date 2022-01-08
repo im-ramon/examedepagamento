@@ -16,6 +16,12 @@ class CreateContrachequeRubricasTable extends Migration
         Schema::create('contracheque_rubricas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            // BASE
+            $table->string('pg_real', 128);
+            $table->string('pg_soldo', 128);
+
+            // RECEITAS
             $table->integer('tipo_soldo');
             $table->float('soldo_cota_porcentagem', 6, 2);
             $table->integer('soldo_prop_divisor');
@@ -32,7 +38,6 @@ class CreateContrachequeRubricasTable extends Migration
             $table->float('hvoo_percet', 6, 2);
             $table->string('hvoo_pg', 128);
             $table->integer('acres_25_soldo');
-            $table->integer('salario_familia_dep');
             $table->integer('adic_ferias');
             $table->integer('adic_pttc');
             $table->integer('adic_natalino');
@@ -53,16 +58,14 @@ class CreateContrachequeRubricasTable extends Migration
             $table->integer('grat_repr_2_dias');
             $table->string('grat_repr_2_pg', 128);
             $table->float('dp_excmb_art_9_valor', 10, 2);
-            $table->string('pg_real', 128);
-            $table->string('pg_soldo', 128);
-            // descontos
+
+            // DESCONTOS
             $table->integer('pmil');
             $table->string('pmil_pg', 255);
             $table->integer('pmil_15');
             $table->integer('pmil_30');
             $table->integer('fusex_3');
             $table->integer('desc_dep_fusex');
-            $table->integer('imposto_renda_dep');
             $table->integer('pnr');
             $table->integer('pnr_tipo');
             $table->float('pens_judiciaria_1', 10, 2);
@@ -75,6 +78,10 @@ class CreateContrachequeRubricasTable extends Migration
             $table->float('pens_judiciaria_8', 10, 2);
             $table->float('pens_judiciaria_9', 10, 2);
             $table->float('pens_judiciaria_10', 10, 2);
+
+            // DADOS DOS DEPENDENTES
+            $table->integer('salario_familia_dep');
+            $table->integer('imposto_renda_dep');
         });
     }
 
