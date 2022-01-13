@@ -45,5 +45,6 @@ class PgConstanteSeeder extends Seeder
         PgConstante::create(['pg' => 'TAIFEIRO-MOR', 'pg_abrev' => 'TF Mor', 'adic_mil' => 13, 'soldo' => 2627]);
         PgConstante::create(['pg' => 'TAIFEIRO 1 CL', 'pg_abrev' => 'TF 1Cl', 'adic_mil' => 13, 'soldo' => 2325]);
         PgConstante::create(['pg' => 'TAIFEIRO 2 CL', 'pg_abrev' => 'TF 2Cl', 'adic_mil' => 13, 'soldo' => 2210]);
+        PgConstante::create(['pg' => '- Não recebe -', '- Não recebe -' => '- Não recebe -', 'adic_mil' => 0, 'soldo' => 0]);
     }
 }

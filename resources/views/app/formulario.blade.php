@@ -17,7 +17,7 @@
             transition: all 1s;
         }
 
-        form {
+        #formulario {
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -74,8 +74,11 @@
 
     </style>
 
-    <form action="{{ route('app.fichaauxiliar') }}" method="post">
+    <form id="formulario" action="{{ route('app.fichaauxiliar') }}" method="post">
         @csrf
+
+        <input name="data_contracheque" id="date" type="date" value="2022-01-12">
+
 
         <fieldset class="question_root">
             <legend>P/G Soldo</legend>
@@ -84,11 +87,8 @@
                     <p>Qual o P/G em que o examinado recebe o <strong>soldo</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <select name="adic_comp_disp">
-                        <option value="0">- Não recebe -</option>
-                        <option value="41">Gen Ex Inat - 41%</option>
-                        <option value="40">Gen Ex - 40%</option>
-                        {{-- COMPLETAR DINAMICAMENTE --}}
+                    <select name="pg_soldo">
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -101,11 +101,8 @@
                     <p>Qual o P/G <strong>real</strong> do examinado?</p>
                 </div>
                 <div class="question_options">
-                    <select name="adic_comp_disp">
-                        <option value="0">- Não recebe -</option>
-                        <option value="41">Gen Ex Inat - 41%</option>
-                        <option value="40">Gen Ex - 40%</option>
-                        {{-- COMPLETAR DINAMICAMENTE --}}
+                    <select name="pg_real">
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -151,13 +148,11 @@
             <legend>Soldo Proporcional para Cota</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>Qual proporção do <strong>soldo proporcional para cota</strong> o examinado recebe?</p>
+                    <p>Qual porcentagem de <strong>soldo proporcional para cota</strong> o examinado recebe?</p>
                 </div>
                 <div class="question_options">
-                    <input type="number" value="1" min="1" max="100" name="soldo_prop_divisor"
-                        id="soldo_prop_divisor">_/_
-                    <input type="number" value="1" min="1" max="100" name="soldo_prop_dividendo"
-                        id="soldo_prop_dividendo">
+                    <input type="number" min="0" max="100" value="100.00" step="0.01" name="soldo_prop_cota_porcentagem"
+                        id="soldo_prop_cota_porcentagem"> %
                 </div>
             </section>
         </fieldset>
@@ -199,10 +194,7 @@
                 </div>
                 <div class="question_options">
                     <select name="adic_comp_disp">
-                        <option value="0">- Não recebe -</option>
-                        <option value="41">Gen Ex Inat - 41%</option>
-                        <option value="40">Gen Ex - 40%</option>
-                        {{-- COMPLETAR DINAMICAMENTE --}}
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -277,10 +269,7 @@
                 </div>
                 <div class="question_options">
                     <select name="adic_comp_org_pg">
-                        <option value="0">- Selecione o Post/Grad -</option>
-                        <option value="1">Gen Ex</option>
-                        <option value="2">Gen Div</option>
-                        {{-- SOLDOS - PG - ARRAY --}}
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -314,10 +303,7 @@
                 </div>
                 <div class="question_options">
                     <select name="adic_comp_org_pg">
-                        <option value="0">- Selecione o Post/Grad -</option>
-                        <option value="1">Gen Ex</option>
-                        <option value="2">Gen Div</option>
-                        {{-- SOLDOS - PG - ARRAY --}}
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -617,11 +603,7 @@
                 </div>
                 <div class="question_options">
                     <select name="grat_repr_2_pg">
-                        <option value="0">- Não recebe -</option>
-                        <option value="1">Gen Ex Inat</option>
-                        <option value="2">Gen Ex</option>
-                        <option value="3">Gen Div</option>
-                        {{-- SOLDOS - PG - ARRAY --}}
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -688,11 +670,7 @@
                 </div>
                 <div class="question_options">
                     <select name="pmil_pg">
-                        <option value="0">- Não recebe -</option>
-                        <option value="1">Gen Ex Inat</option>
-                        <option value="2">Gen Ex</option>
-                        <option value="3">Gen Div</option>
-                        {{-- SOLDOS - PG - ARRAY --}}
+                        @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
             </section>
@@ -826,10 +804,10 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" name="pnr" id="pnrsim">
+                        <input type="radio" value="1" name="pnr" id="pnrsim">
                         <label for="pnrsim">Sim</label>
 
-                        <input type="radio" name="pnr" id="pnrnao" checked>
+                        <input type="radio" value="0" name="pnr" id="pnrnao" checked>
                         <label for="pnrnao">Não</label>
                     </div>
                 </div>

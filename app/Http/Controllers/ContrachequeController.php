@@ -9,84 +9,108 @@ use Illuminate\Http\Request;
 
 class ContrachequeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // SAQUES
+    public $data_contracheque = 0;
+    public $soldo = 0;
+    public $soldo_prop = 0;
+    public $compl_ct_soldo = 0;
+    public $adic_tp_sv = 0;
+    public $adic_comp_disp = 0;
+    public $adic_hab = 0;
+    public $adic_perm = 0;
+    public $adic_comp_org = 0;
+    public $hvoo = 0;
+    public $acres_25_soldo = 0;
+    public $salario_familia = 0;
+    public $adic_ferias = 0;
+    public $adic_pttc = 0;
+    public $adic_natalino = 0;
+    public $aux_pre_escolar = 0;
+    public $aux_invalidez = 0;
+    public $aux_transporte = 0;
+    public $aux_fard = 0;
+    public $aux_alim_c = 0;
+    public $aux_alim_5x = 0;
+    public $aux_natalidade = 0;
+    public $grat_loc_esp = 0;
+    public $grat_repr_cmdo = 0;
+    public $grat_repr_2 = 0;
+    public $dp_excmb_art_9 = 0;
+
+    // DESCONTOS
+    // public $pmil;
+    // public $pmil_15;
+    // public $pmil_30;
+    // public $fusex_3;
+    // public $desc_dep_fusex;
+    // public $pnr;
+    // public $pens_judiciaria_1;
+    // public $pens_judiciaria_2;
+    // public $pens_judiciaria_3;
+    // public $pens_judiciaria_4;
+    // public $pens_judiciaria_5;
+    // public $pens_judiciaria_6;
+    // public $pens_judiciaria_7;
+    // public $pens_judiciaria_8;
+    // public $pens_judiciaria_9;
+    // public $pens_judiciaria_10;
+    // public $imposto_renda;
+
+
     public function formulario()
     {
-        return view('app.formulario');
+        $pg_info = \App\Models\PgConstante::all();
+        return view('app.formulario', ['pg_info' => $pg_info]);
     }
 
-    public function fichaauxiliar(Request $request)
+    public function fichaauxiliar()
     {
-        dd($request->request);
+        $formulario = $_POST;
+        $todos_pg_info = \App\Models\PgConstante::all()->toArray();
+        $pg_real_info = \App\Models\PgConstante::find($_POST['pg_real'])->toArray();
+        $pg_soldo_info = \App\Models\PgConstante::find($_POST['pg_soldo'])->toArray();
+        $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $_POST['data_contracheque'])
+            ->where('periodo_fim', '>', $_POST['data_contracheque'])
+            ->get()
+            ->toArray()[0];
+
+
+        // TESTES
+        echo ('<pre>');
+
+        echo ('<h1>pg_real_info</h1>');
+        var_dump($pg_real_info);
+        echo ('<hr>');
+
+        echo ('<h1>pg_soldo_info</h1>');
+        var_dump($pg_soldo_info);
+        echo ('<hr>');
+
+        echo ('<h1>adic_hab_info</h1>');
+        var_dump($adic_hab_info);
+        echo ('<hr>');
+
+        // echo ('<h1>todos_pg_info</h1>');
+        // var_dump($todos_pg_info);
+        // echo ('<hr>');
+
+        echo ('<h1>formulario</h1>');
+        // dd($formulario);
+        echo ('<hr>');
+
+        $this->soldo($formulario, $pg_soldo_info);
+        echo ('</pre>');
+
+        return view('app.fichaauxiliar', [
+            'soldo' => $this->soldo
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function soldo($formulario, $pg_soldo_info)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreContrachequeRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreContrachequeRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Contracheque  $contracheque
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contracheque $contracheque)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contracheque  $contracheque
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contracheque $contracheque)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateContrachequeRequest  $request
-     * @param  \App\Models\Contracheque  $contracheque
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateContrachequeRequest $request, Contracheque $contracheque)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contracheque  $contracheque
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contracheque $contracheque)
-    {
-        //
+        if ($formulario["tipo_soldo"] == '1') {
+            $this->soldo = $pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
+        } else {
+        }
     }
 }
