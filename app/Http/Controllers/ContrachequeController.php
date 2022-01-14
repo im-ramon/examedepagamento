@@ -14,11 +14,17 @@ class ContrachequeController extends Controller
 
     public $soldo = 0;
     public $soldo_prop = 0;
-    public $soldo_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um IF para escolher entre soldo normal e soldo proporcional, não é exibido no Front-End.
+    public $soldo_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um "IF" para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
+
+    public $soldo_pg_real_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um IF para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
+    public $soldo_pg_real_normal = 0; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
+    public $soldo_pg_real_prop = 0; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
 
     public $compl_ct_soldo = 0;
     public $adic_tp_sv = 0;
     public $adic_comp_disp = 0;
+
+
     public $adic_hab = 0;
     public $adic_perm = 0;
     public $adic_comp_org = 0;
@@ -69,11 +75,12 @@ class ContrachequeController extends Controller
     public function fichaauxiliar()
     {
         $formulario = $_POST;
+
         $todos_pg_info = \App\Models\PgConstante::all()->toArray();
-        $pg_real_info = \App\Models\PgConstante::find($_POST['pg_real'])->toArray();
-        $pg_soldo_info = \App\Models\PgConstante::find($_POST['pg_soldo'])->toArray();
-        $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $_POST['data_contracheque'])
-            ->where('periodo_fim', '>', $_POST['data_contracheque'])
+        $pg_real_info = \App\Models\PgConstante::find($formulario['pg_real'])->toArray();
+        $pg_soldo_info = \App\Models\PgConstante::find($formulario['pg_soldo'])->toArray();
+        $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])
+            ->where('periodo_fim', '>', $formulario['data_contracheque'])
             ->get()
             ->toArray()[0];
 
@@ -81,9 +88,9 @@ class ContrachequeController extends Controller
         //  ------------------------------------------------- TESTES -----------------------------------------------------//
         echo ('<pre>');
 
-        // echo ('<h1>pg_real_info</h1>');
-        // var_dump($pg_real_info);
-        // echo ('<hr>');
+        echo ('<h1>pg_real_info</h1>');
+        var_dump($pg_real_info);
+        echo ('<hr>');
 
         echo ('<h1>pg_soldo_info</h1>');
         var_dump($pg_soldo_info);
@@ -100,14 +107,14 @@ class ContrachequeController extends Controller
         echo ('<h1>formulario</h1>');
         // dd($formulario);
         echo ('<hr>');
+
         echo ('</pre>');
         //  ------------------------------------------------- TESTES -----------------------------------------------------//
 
 
-        $this->soldo($formulario, $pg_soldo_info);
-        $this->adicTpSv($formulario);
-
+        $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
         if ($this->soldo > 0 or $this->soldo_prop > 0) {
+            $this->adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info);
         }
 
 
@@ -116,6 +123,7 @@ class ContrachequeController extends Controller
             'soldo_prop' => $this->soldo_prop,
             'compl_ct_soldo' => $this->compl_ct_soldo,
             'adic_tp_sv' => $this->adic_tp_sv,
+            'adic_comp_disp' => $this->adic_comp_disp,
         ]);
     }
 
@@ -124,24 +132,34 @@ class ContrachequeController extends Controller
         return floor($numero * 100) / 100;
     }
 
-    public function soldo($formulario, $pg_soldo_info)
+    public function soldo($formulario, $pg_soldo_info, $pg_real_info)
     {
         if ($formulario["tipo_soldo"] == '1') {
             $pg_soldo_info["pg"] == "- Não recebe -" ? $this->soldo = 0 : $this->soldo = $pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
+            $pg_real_info["pg"] == "- Não recebe -" ? $this->soldo_pg_real_normal = 0 : $this->soldo_pg_real_normal = $pg_real_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
         } elseif ($formulario["tipo_soldo"] == '2') {
             $pg_soldo_info["pg"] == "- Não recebe -" ? $this->soldo_prop = 0 : $this->soldo_prop = ($pg_soldo_info["soldo"] * ($formulario["soldo_prop_cota_porcentagem"] / 100)) * ($formulario["soldo_cota_porcentagem"] / 100);
+            $pg_real_info["pg"] == "- Não recebe -" ? $this->soldo_pg_real_prop = 0 : $this->soldo_pg_real_prop = ($pg_real_info["soldo"] * ($formulario["soldo_prop_cota_porcentagem"] / 100)) * ($formulario["soldo_cota_porcentagem"] / 100);
 
             if ($formulario["compl_ct_soldo"] == '1') {
                 $this->compl_ct_soldo = ($pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100)) - $this->soldo_prop;
             }
         }
         $this->soldo_base = $this->soldo + $this->soldo_prop;
+        $this->soldo_pg_real_base = $this->soldo_pg_real_normal + $this->soldo_pg_real_prop;
     }
 
-    public function adicTpSv($formulario)
+    public function adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info)
     {
-        if ($formulario["adic_tp_sv"] > 0) {
+        $tpsv = $pg_soldo_info["soldo"] * $formulario["adic_tp_sv"];
+        $adic_disp = $pg_real_info["soldo"] * $pg_real_info["adic_disp"];
+
+        if ($tpsv > $adic_disp) {
             $this->adic_tp_sv = $this->truncar($this->soldo_base * ($formulario["adic_tp_sv"]) / 100);
+            $this->adic_comp_disp = 0;
+        } else {
+            $this->adic_comp_disp = $this->truncar($this->soldo_pg_real_base * ($pg_real_info["adic_disp"]) / 100);
+            $this->adic_tp_sv = 0;
         }
     }
 }

@@ -18,8 +18,10 @@ class CreatePgConstantesTable extends Migration
             $table->timestamps();
             $table->string('pg', 255);
             $table->string('pg_abrev', 255);
-            $table->float('adic_mil', 4, 2);
             $table->float('soldo', 10, 2);
+            $table->float('adic_mil', 4, 2);
+            $table->float('adic_disp', 4, 2);
+            $table->string('tipo', 255);
         });
     }
 

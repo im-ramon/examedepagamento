@@ -185,7 +185,7 @@
             </section>
         </fieldset>
 
-        <fieldset class="question_root">
+        {{-- <fieldset class="question_root">
             <legend>Adicional de Compensação por Disponibilidade Militar</legend>
             <section class="question_body">
                 <div class="question_title">
@@ -198,7 +198,7 @@
                     </select>
                 </div>
             </section>
-        </fieldset>
+        </fieldset> --}}
 
         <fieldset class="question_root">
             <legend>Adicional Habilitação</legend>
