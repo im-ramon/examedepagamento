@@ -135,7 +135,7 @@
             <legend>Cota-parte do Soldo</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>Qual porcetagem de <strong>cota-parte</strong>a pensionista recebe?</p>
+                    <p>Qual porcetagem de <strong>cota-parte</strong> a pensionista recebe?</p>
                 </div>
                 <div class="question_options">
                     <input type="number" min="0" max="100" value="100.00" step="0.01" name="soldo_cota_porcentagem"
