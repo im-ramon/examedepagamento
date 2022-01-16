@@ -12,59 +12,64 @@ class ContrachequeController extends Controller
     // SAQUES
     public $data_contracheque = 0;
 
-    public $soldo = 0;
-    public $soldo_prop = 0;
+    public $soldo = 0; // OK
+    public $soldo_prop = 0; // OK
     public $soldo_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um "IF" para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
+
+    public $bruto_ir_descontos = 0;
+    public $bruto_total = 0;
 
     public $soldo_pg_real_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um IF para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
     public $soldo_pg_real_normal = 0; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
     public $soldo_pg_real_prop = 0; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
 
-    public $compl_ct_soldo = 0;
-    public $adic_tp_sv = 0;
-    public $adic_comp_disp = 0;
+    public $compl_ct_soldo = 0; // OK
+    public $adic_tp_sv = 0; // OK
+    public $adic_comp_disp = 0; // OK
+    public $adic_hab = 0; // OK
+    public $adic_perm = 0; // OK
 
+    public $adic_comp_org = 0; // IMPLEMENTAR COM CALMA DEPOIS
+    public $hvoo = 0; // IMPLEMENTAR COM CALMA DEPOIS
 
-    public $adic_hab = 0;
-    public $adic_perm = 0;
-    public $adic_comp_org = 0;
-    public $hvoo = 0;
-    public $acres_25_soldo = 0;
-    public $salario_familia = 0;
+    public $acres_25_soldo = 0; // OK
+    public $salario_familia = 0; // OK
     public $adic_ferias = 0;
     public $adic_pttc = 0;
     public $adic_natalino = 0;
     public $aux_pre_escolar = 0;
-    public $aux_invalidez = 0;
+    public $aux_invalidez = 0;  // OK
     public $aux_transporte = 0;
-    public $aux_fard = 0;
+    public $aux_fard = 0; // OK
     public $aux_alim_c = 0;
     public $aux_alim_5x = 0;
     public $aux_natalidade = 0;
     public $grat_loc_esp = 0;
-    public $grat_repr_cmdo = 0;
+    public $grat_repr_cmdo = 0; // OK
     public $grat_repr_2 = 0;
+
     public $dp_excmb_art_9 = 0;
 
-    // DESCONTOS
-    // public $pmil;
-    // public $pmil_15;
-    // public $pmil_30;
-    // public $fusex_3;
-    // public $desc_dep_fusex;
-    // public $pnr;
-    // public $pens_judiciaria_1;
-    // public $pens_judiciaria_2;
-    // public $pens_judiciaria_3;
-    // public $pens_judiciaria_4;
-    // public $pens_judiciaria_5;
-    // public $pens_judiciaria_6;
-    // public $pens_judiciaria_7;
-    // public $pens_judiciaria_8;
-    // public $pens_judiciaria_9;
-    // public $pens_judiciaria_10;
-    // public $imposto_renda;
-
+    /*
+    DESCONTOS
+    public $pmil;
+    public $pmil_15;
+    public $pmil_30;
+    public $fusex_3;
+    public $desc_dep_fusex;
+    public $pnr;
+    public $pens_judiciaria_1;
+    public $pens_judiciaria_2;
+    public $pens_judiciaria_3;
+    public $pens_judiciaria_4;
+    public $pens_judiciaria_5;
+    public $pens_judiciaria_6;
+    public $pens_judiciaria_7;
+    public $pens_judiciaria_8;
+    public $pens_judiciaria_9;
+    public $pens_judiciaria_10;
+    public $imposto_renda;
+*/
 
     public function formulario()
     {
@@ -86,15 +91,15 @@ class ContrachequeController extends Controller
 
 
         //  ------------------------------------------------- TESTES -----------------------------------------------------//
-        echo ('<pre>');
+        // echo ('<pre>');
 
-        echo ('<h1>pg_real_info</h1>');
-        var_dump($pg_real_info);
-        echo ('<hr>');
+        // echo ('<h1>pg_real_info</h1>');
+        // var_dump($pg_real_info);
+        // echo ('<hr>');
 
-        echo ('<h1>pg_soldo_info</h1>');
-        var_dump($pg_soldo_info);
-        echo ('<hr>');
+        // echo ('<h1>pg_soldo_info</h1>');
+        // var_dump($pg_soldo_info);
+        // echo ('<hr>');
 
         // echo ('<h1>adic_hab_info</h1>');
         // var_dump($adic_hab_info);
@@ -104,18 +109,31 @@ class ContrachequeController extends Controller
         var_dump($formulario);
         echo ('<hr>');
 
-        echo ('<h1>formulario</h1>');
-        // dd($formulario);
-        echo ('<hr>');
+        // echo ('<h1>formulario</h1>');
+        // // dd($formulario);
+        // echo ('<hr>');
 
-        echo ('</pre>');
+        // echo ('</pre>');+
         //  ------------------------------------------------- TESTES -----------------------------------------------------//
 
 
         $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
         if ($this->soldo > 0 or $this->soldo_prop > 0) {
             $this->adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info);
+            $this->adicHab($formulario, $adic_hab_info);
+            $this->adicPerm($formulario);
+            $this->acres25Soldo($formulario);
+            $this->salarioFamilia($formulario);
+            $this->auxInvalidez($formulario);
+            $this->auxFard($formulario);
+            $this->gratReprCmdo($formulario);
+
+            // Dependem do bruto (IR e Descontos):
+            $this->adicFerias($formulario);
+            $this->adicPttc($formulario);
         }
+        $this->bruto_total = $this->brutoTotal();
+        $this->bruto_ir_descontos = $this->brutoIrDescontos();
 
 
         return view('app.fichaauxiliar', [
@@ -124,15 +142,74 @@ class ContrachequeController extends Controller
             'compl_ct_soldo' => $this->compl_ct_soldo,
             'adic_tp_sv' => $this->adic_tp_sv,
             'adic_comp_disp' => $this->adic_comp_disp,
+            'adic_hab' => $this->adic_hab,
+            'adic_perm' => $this->adic_perm,
+            'adic_pttc' => $this->adic_pttc,
+            'adic_ferias' => $this->adic_ferias,
+            'acres_25_soldo' => $this->acres_25_soldo,
+            'salario_familia' => $this->salario_familia,
+            'aux_invalidez' => $this->aux_invalidez,
+            'aux_fard' => $this->aux_fard,
+            'grat_repr_cmdo' => $this->grat_repr_cmdo,
+            'bruto_total' => $this->bruto_total,
+            'bruto_ir_descontos' => $this->bruto_ir_descontos,
         ]);
     }
 
-    public function truncar($numero)
+    private function truncar($numero)
     {
         return floor($numero * 100) / 100;
     }
 
-    public function soldo($formulario, $pg_soldo_info, $pg_real_info)
+    private function brutoTotal()
+    {
+        return array_sum([
+            $this->soldo_base,
+            $this->compl_ct_soldo,
+            $this->adic_tp_sv,
+            $this->adic_comp_disp,
+            $this->adic_hab,
+            $this->adic_perm,
+            $this->adic_comp_org,
+            $this->hvoo,
+            $this->acres_25_soldo,
+            $this->salario_familia,
+            $this->adic_ferias,
+            $this->adic_pttc,
+            $this->adic_natalino,
+            $this->aux_pre_escolar,
+            $this->aux_invalidez,
+            $this->aux_transporte,
+            $this->aux_fard,
+            $this->aux_alim_c,
+            $this->aux_alim_5x,
+            $this->aux_natalidade,
+            $this->grat_loc_esp,
+            $this->grat_repr_cmdo,
+            $this->grat_repr_2
+        ]);
+    }
+
+    private function brutoIrDescontos()
+    {
+        return array_sum([
+            $this->soldo_base,
+            $this->compl_ct_soldo,
+            $this->adic_tp_sv,
+            $this->adic_comp_disp,
+            $this->adic_hab,
+            $this->adic_perm,
+            $this->adic_comp_org,
+            $this->hvoo,
+            $this->acres_25_soldo,
+            $this->adic_pttc,
+            $this->grat_loc_esp,
+            $this->grat_repr_cmdo,
+            // $this->grat_repr_2
+        ]);
+    }
+
+    private function soldo($formulario, $pg_soldo_info, $pg_real_info)
     {
         if ($formulario["tipo_soldo"] == '1') {
             $pg_soldo_info["pg"] == "- Não recebe -" ? $this->soldo = 0 : $this->soldo = $pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
@@ -149,7 +226,7 @@ class ContrachequeController extends Controller
         $this->soldo_pg_real_base = $this->soldo_pg_real_normal + $this->soldo_pg_real_prop;
     }
 
-    public function adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info)
+    private function adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info)
     {
         $tpsv = $pg_soldo_info["soldo"] * $formulario["adic_tp_sv"];
         $adic_disp = $pg_real_info["soldo"] * $pg_real_info["adic_disp"];
@@ -160,6 +237,98 @@ class ContrachequeController extends Controller
         } else {
             $this->adic_comp_disp = $this->truncar($this->soldo_pg_real_base * ($pg_real_info["adic_disp"]) / 100);
             $this->adic_tp_sv = 0;
+        }
+    }
+
+    private function adicHab($formulario, $adic_hab_info)
+    {
+        if ($formulario["adic_hab_tipo"] != 'sem_formacao') {
+            $this->adic_hab = $this->truncar($adic_hab_info[$formulario["adic_hab_tipo"]] * $this->soldo_base / 100);
+        }
+    }
+
+    private function adicPerm($formulario)
+    {
+        if ($formulario["adic_perm"] > 0) {
+            $this->adic_perm = $this->truncar($formulario["adic_perm"] * $this->soldo_base / 100);
+        }
+    }
+
+    // private function adicCompOrg($formulario)
+    // {
+    //     $formulario["adic_comp_org_tipo"];
+    //     $formulario["adic_comp_org_percet"];
+    //     $formulario["adic_comp_org_pg"];
+    // }
+
+    private function acres25Soldo($formulario)
+    {
+        if ($formulario["acres_25_soldo"] == '1') {
+            $this->acres_25_soldo = $this->truncar($this->soldo_base * 0.25);
+        }
+    }
+
+    private function salarioFamilia($formulario)
+    {
+        if ($formulario["salario_familia_dep"] > 0) {
+            $this->salario_familia = $formulario["salario_familia_dep"] * 0.16;
+        }
+    }
+
+    private function auxInvalidez($formulario)
+    {
+        $valor_minimo = 1520;
+        $valor_a_pagar = 0;
+        if ($formulario["aux_invalidez"] == 1) {
+            $valor_a_pagar = $this->soldo_base * 0.25;
+            $this->aux_invalidez = $this->truncar($valor_minimo > $valor_a_pagar ? $valor_minimo : $valor_a_pagar);
+        }
+    }
+
+    private function auxFard($formulario)
+    {
+        if ($formulario["aux_fard"] == 1) {
+            $this->aux_fard = $this->soldo_base;
+
+            if ($formulario["aux_fard_primeiro"] == 1) {
+                $this->aux_fard = $this->aux_fard + ($this->soldo_base / 2);
+            }
+        }
+    }
+
+    private function gratReprCmdo($formulario)
+    {
+        if ($formulario["grat_repr_cmdo"] == 1) {
+            $this->grat_repr_cmdo = $this->truncar($this->soldo_base * 0.10);
+        }
+    }
+
+    private function adicFerias($formulario)
+    {
+        if ($formulario["adic_ferias"] == 1) {
+            if ($formulario["adic_pttc"] == 1) {
+                $this->adic_ferias = $this->truncar($this->adic_pttc / 3);
+            } else {
+                $this->adic_ferias = $this->truncar($this->brutoIrDescontos() / 3);
+            }
+        }
+    }
+
+    private function adicPttc($formulario)
+    {
+        if ($formulario["adic_pttc"] == 1) {
+            $this->adic_pttc = $this->truncar(array_sum([
+                $this->soldo_base,
+                $this->adic_tp_sv,
+                $this->adic_comp_disp,
+                $this->adic_hab,
+                $this->adic_perm,
+                $this->adic_comp_org,
+                $this->hvoo,
+                $this->acres_25_soldo,
+                $this->grat_loc_esp,
+                $this->grat_repr_cmdo,
+            ]) * 0.3);
         }
     }
 }

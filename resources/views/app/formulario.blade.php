@@ -209,12 +209,13 @@
                 </div>
                 <div class="question_options">
                     <select name="adic_hab_tipo" required>
-                        <option value="0">- Selecione o tipo -</option>
-                        <option value="Altos estudos Categoria I">Altos estudos Categoria I</option>
-                        <option value="Altos estudos Categoria II">Altos estudos Categoria II</option>
-                        <option value="Apefeiçoamento">Apefeiçoamento</option>
-                        <option value="Especialização">Especialização</option>
-                        <option value="Formação">Formação</option>
+                        <option value="sem_formacao">- Selecione o tipo -</option>
+                        <option value="altos_estudos_I">Altos estudos Categoria I</option>
+                        <option value="altos_estudos_II">Altos estudos Categoria II</option>
+                        <option value="aperfeicoamento">Apefeiçoamento</option>
+                        <option value="especializacao">Especialização</option>
+                        <option value="formacao">Formação</option>
+                        <option value="sem_formacao">Sem formação</option>
                     </select>
                 </div>
             </section>
@@ -360,7 +361,7 @@
                 </div>
                 <div class="question_options">
                     <section>
-                        <input type="radio" value="1" name=" adic_ferias" id="feriassim"><label
+                        <input type="radio" value="1" name="adic_ferias" id="feriassim"><label
                             for="feriassim">Sim</label>
                         <input type="radio" value="0" name="adic_ferias" id="feriasnao" checked><label
                             for="feriasnao">Não</label>
