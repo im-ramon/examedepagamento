@@ -37,14 +37,14 @@ class ContrachequeController extends Controller
     public $adic_ferias = 0; // OK
     public $adic_pttc = 0; // OK
     public $adic_natalino = 0; // OK
-    public $aux_pre_escolar = 0;
+    public $aux_pre_escolar = 0; // OK
     public $aux_invalidez = 0;  // OK
     public $aux_transporte = 0;
     public $aux_fard = 0; // OK
-    public $aux_alim_c = 0;
-    public $aux_alim_5x = 0;
-    public $aux_natalidade = 0;
-    public $grat_loc_esp = 0;
+    public $aux_alim_c = 0; // OK
+    public $aux_alim_5x = 0; // OK
+    public $aux_natalidade = 0; // OK
+    public $grat_loc_esp = 0; // OK
     public $grat_repr_cmdo = 0; // OK
     public $grat_repr_2 = 0;
 
@@ -128,6 +128,10 @@ class ContrachequeController extends Controller
             $this->auxFard($formulario);
             $this->gratReprCmdo($formulario);
             $this->adicPttc($formulario);
+            $this->auxAlimC($formulario, $pg_real_info);
+            $this->auxAlim5x($formulario);
+            $this->auxNatalidade($formulario);
+            $this->gratLocEsp($formulario);
 
             // Dependem do bruto (IR e Descontos):
             $this->auxPreEscolar($formulario);
@@ -148,10 +152,14 @@ class ContrachequeController extends Controller
             'adic_perm' => $this->adic_perm,
             'adic_pttc' => $this->adic_pttc,
             'adic_ferias' => $this->adic_ferias,
+            'grat_loc_esp' => $this->grat_loc_esp,
             'acres_25_soldo' => $this->acres_25_soldo,
             'adic_natalino' => $this->adic_natalino,
             'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
             'aux_pre_escolar' => $this->aux_pre_escolar,
+            'aux_alim_c' => $this->aux_alim_c,
+            'aux_alim_5x' => $this->aux_alim_5x,
+            'aux_natalidade' => $this->aux_natalidade,
             'salario_familia' => $this->salario_familia,
             'aux_invalidez' => $this->aux_invalidez,
             'aux_fard' => $this->aux_fard,
@@ -353,9 +361,70 @@ class ContrachequeController extends Controller
         $valor_base_pres_escolar = 321;
         $bruto = $this->brutoIrDescontos();
         $soldo_Sd = \App\Models\PgConstante::where('pg', '=', 'SOLDADO DO EXERCITO')->get()->toArray()[0]['soldo'];
+        $cota_parte = $bruto / $soldo_Sd;
+
         if ($formulario["aux_pre_escolar_qtd"] > 0) {
-            $this->aux_pre_escolar =  ceil($bruto / $soldo_Sd);
-            // $this->aux_pre_escolar =  ceil(($bruto / $soldo_Sd) * 0.1);
+            if ($cota_parte > 0 and $cota_parte <= 5) {
+                $cota_parte = 0.05;
+            } elseif ($cota_parte > 5 and $cota_parte <= 10) {
+                $cota_parte = 0.10;
+            } elseif ($cota_parte > 10 and $cota_parte <= 15) {
+                $cota_parte = 0.15;
+            } elseif ($cota_parte > 15 and $cota_parte <= 20) {
+                $cota_parte = 0.20;
+            } elseif ($cota_parte > 20) {
+                $cota_parte = 0.25;
+            }
+
+            $this->aux_pre_escolar = $valor_base_pres_escolar - ($cota_parte * $valor_base_pres_escolar);
+        }
+    }
+
+    private function auxAlimC($formulario, $pg_real_info)
+    {
+        if ($formulario["aux_alim_c"] == 1) {
+            if (
+                $pg_real_info["pg_abrev"] == 'Cb Eng' or
+                $pg_real_info["pg_abrev"] == 'Cb N Eng' or
+                $pg_real_info["pg_abrev"] == 'Sd Esp' or
+                $pg_real_info["pg_abrev"] == 'Sd 2A Cl' or
+                $pg_real_info["pg_abrev"] == 'Sd 3A Cl' or
+                $pg_real_info["pg_abrev"] == 'Sd Eng' or
+                $pg_real_info["pg_abrev"] == 'Sd Rcr' or
+                $pg_real_info["pg_abrev"] == 'TF Mor' or
+                $pg_real_info["pg_abrev"] == 'TF 1Cl' or
+                $pg_real_info["pg_abrev"] == 'TF 2Cl'
+            ) {
+                $this->aux_alim_c = 270;
+            }
+        }
+    }
+
+    private function auxAlim5x($formulario)
+    {
+        if ($formulario["aux_alim_5x"] > 0) {
+            $this->aux_alim_5x = $formulario["aux_alim_5x"] * 9;
+        }
+    }
+    private function auxNatalidade($formulario)
+    {
+        if ($formulario["aux_natalidade"] > 0) {
+            if ($formulario["aux_natalidade"] == 1) {
+                $this->aux_natalidade = $this->soldo_base;
+            } elseif ($formulario["aux_natalidade"] == 2) {
+                $this->aux_natalidade = $this->soldo_base + ($this->soldo_base / 2);
+            } elseif ($formulario["aux_natalidade"] > 2) {
+                $this->aux_natalidade = $this->soldo_base + ($this->soldo_base / 2) + (($formulario["aux_natalidade"] - 1) * ($this->soldo_base / 2));
+            }
+        }
+    }
+
+    private function gratLocEsp($formulario)
+    {
+        if ($formulario["grat_loc_esp"] == 'A') {
+            $this->grat_loc_esp = $this->soldo_base * 0.2;
+        } elseif ($formulario["grat_loc_esp"] == 'B') {
+            $this->grat_loc_esp = $this->soldo_base * 0.1;
         }
     }
 }

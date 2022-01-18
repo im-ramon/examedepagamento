@@ -53,7 +53,7 @@ class CreateContrachequeRubricasTable extends Migration
             $table->integer('aux_alim_5x_qtd_dias');
             $table->integer('aux_natalidade');
             $table->integer('aux_natalidade_qtd_filhos');
-            $table->float('grat_loc_esp', 10, 2);
+            $table->string('grat_loc_esp', 3);
             $table->integer('grat_repr_cmdo');
             $table->integer('grat_repr_2_dias');
             $table->string('grat_repr_2_pg', 128);

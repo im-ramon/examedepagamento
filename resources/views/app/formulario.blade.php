@@ -507,9 +507,9 @@
                     <p>O examinado irá receber <strong>Auxílio Alimentação - 5x</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="1" name="aux_alim_5x" id="auxalim5xsim"><label
+                    <input type="radio" value="1" name="f_aux_alim_5x" id="auxalim5xsim"><label
                         for="auxalim5xsim">Sim</label>
-                    <input type="radio" value="0" name="aux_alim_5x" id="auxalim5xsim" checked><label
+                    <input type="radio" value="0" name="f_aux_alim_5x" id="auxalim5xnao" checked><label
                         for="auxalim5xsim">Não</label>
                 </div>
             </section>
@@ -519,7 +519,7 @@
                     <p>Referente a quantos dias?</p>
                 </div>
                 <div class="question_options">
-                    <input type="number" name="aux_alim_5x_qtd_dias" min="0" value="0" max="365">
+                    <input type="number" name="aux_alim_5x" min="0" value="0" max="365">
                 </div>
             </section>
         </fieldset>
@@ -531,9 +531,9 @@
                     <p>O examinado irá receber <strong>Auxílio Natalidade</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="1" name="aux_natalidade" id="auxnatalidadesim"><label
+                    <input type="radio" value="1" name="f_aux_natalidade" id="auxnatalidadesim"><label
                         for="auxnatalidadesim">Sim</label>
-                    <input type="radio" value="0" name="aux_natalidade" id="auxnatalidadenao" checked><label
+                    <input type="radio" value="0" name="f_aux_natalidade" id="auxnatalidadenao" checked><label
                         for="auxnatalidadenao">Não</label>
                 </div>
             </section>
@@ -543,7 +543,7 @@
                     <p>Referente a quantos filhos?</p>
                 </div>
                 <div class="question_options">
-                    <input type="number" name="aux_natalidade_qtd_filhos" min="0" value="0" step="1" max="10">
+                    <input type="number" name="aux_natalidade" min="0" value="0" step="1" max="10">
                 </div>
             </section>
         </fieldset>
@@ -552,11 +552,16 @@
             <legend>Gratificação de Localidade Especial</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>O examinado irá receber <strong>Gratificação de Localidade Especial</strong>? Se sim, qual valor?
+                    <p>Qual tipo de <strong>Gratificação de Localidade Especial</strong> o examinado recebe?
                     </p>
                 </div>
                 <div class="question_options">
-                    <input type="number" name="grat_loc_esp_valor" min="0" value="0" step="0.01" max="99999">
+                    <input type="radio" value="0" id="grat_loc_esp_nao" name="grat_loc_esp" min="0" value="0"
+                        step="0.01" max="99999"><label for="grat_loc_esp_nao">Não recebe</label>
+                    <input type="radio" value="A" id="grat_loc_esp_A" name="grat_loc_esp" min="0" value="0" step="0.01"
+                        max="99999"><label for="grat_loc_esp_A">Tipo "A"</label>
+                    <input type="radio" value="B" id="grat_loc_esp_B" name="grat_loc_esp" min="0" value="0" step="0.01"
+                        max="99999"><label for="grat_loc_esp_B">Tipo "B"</label>
                 </div>
             </section>
         </fieldset>
