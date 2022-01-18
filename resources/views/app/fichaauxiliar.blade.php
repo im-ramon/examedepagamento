@@ -10,6 +10,9 @@
     <li>Adic Férias: {{ $adic_ferias }}</li>
     <li>Adic Perm: {{ $adic_perm }}</li>
     <li>Adic PTTC: {{ $adic_pttc }}</li>
+    <li>Aux Pré Escolar: {{ $aux_pre_escolar }}</li>
+    <li>Adic Natalino: {{ $adic_natalino }}</li>
+    <li>Adic Natalino DED: {{ $adic_natalino_valor_adiantamento }}</li>
     <li>Acréscimo 25% soldo: {{ $acres_25_soldo }}</li>
     <li>Salário Família: {{ $salario_familia }}</li>
     <li>Auxílio Invalidez: {{ $aux_invalidez }}</li>

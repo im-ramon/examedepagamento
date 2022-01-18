@@ -34,9 +34,9 @@ class ContrachequeController extends Controller
 
     public $acres_25_soldo = 0; // OK
     public $salario_familia = 0; // OK
-    public $adic_ferias = 0;
-    public $adic_pttc = 0;
-    public $adic_natalino = 0;
+    public $adic_ferias = 0; // OK
+    public $adic_pttc = 0; // OK
+    public $adic_natalino = 0; // OK
     public $aux_pre_escolar = 0;
     public $aux_invalidez = 0;  // OK
     public $aux_transporte = 0;
@@ -50,26 +50,26 @@ class ContrachequeController extends Controller
 
     public $dp_excmb_art_9 = 0;
 
-    /*
-    DESCONTOS
-    public $pmil;
-    public $pmil_15;
-    public $pmil_30;
-    public $fusex_3;
-    public $desc_dep_fusex;
-    public $pnr;
-    public $pens_judiciaria_1;
-    public $pens_judiciaria_2;
-    public $pens_judiciaria_3;
-    public $pens_judiciaria_4;
-    public $pens_judiciaria_5;
-    public $pens_judiciaria_6;
-    public $pens_judiciaria_7;
-    public $pens_judiciaria_8;
-    public $pens_judiciaria_9;
-    public $pens_judiciaria_10;
-    public $imposto_renda;
-*/
+    // DESCONTOS
+    // public $pmil;
+    // public $pmil_15;
+    // public $pmil_30;
+    // public $fusex_3;
+    // public $desc_dep_fusex;
+    public $adic_natalino_valor_adiantamento = 0;
+    // public $pnr;
+    // public $pens_judiciaria_1;
+    // public $pens_judiciaria_2;
+    // public $pens_judiciaria_3;
+    // public $pens_judiciaria_4;
+    // public $pens_judiciaria_5;
+    // public $pens_judiciaria_6;
+    // public $pens_judiciaria_7;
+    // public $pens_judiciaria_8;
+    // public $pens_judiciaria_9;
+    // public $pens_judiciaria_10;
+    // public $imposto_renda;
+
 
     public function formulario()
     {
@@ -127,10 +127,12 @@ class ContrachequeController extends Controller
             $this->auxInvalidez($formulario);
             $this->auxFard($formulario);
             $this->gratReprCmdo($formulario);
+            $this->adicPttc($formulario);
 
             // Dependem do bruto (IR e Descontos):
+            $this->auxPreEscolar($formulario);
             $this->adicFerias($formulario);
-            $this->adicPttc($formulario);
+            $this->adicNatalino($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -147,6 +149,9 @@ class ContrachequeController extends Controller
             'adic_pttc' => $this->adic_pttc,
             'adic_ferias' => $this->adic_ferias,
             'acres_25_soldo' => $this->acres_25_soldo,
+            'adic_natalino' => $this->adic_natalino,
+            'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
+            'aux_pre_escolar' => $this->aux_pre_escolar,
             'salario_familia' => $this->salario_familia,
             'aux_invalidez' => $this->aux_invalidez,
             'aux_fard' => $this->aux_fard,
@@ -329,6 +334,28 @@ class ContrachequeController extends Controller
                 $this->grat_loc_esp,
                 $this->grat_repr_cmdo,
             ]) * 0.3);
+        }
+    }
+
+    private function adicNatalino($formulario)
+    {
+        if ($formulario["adic_natalino"] == 1) {
+            $this->adic_natalino = $this->truncar($formulario["adic_natalino_qtd_meses"] / 12 * ($this->brutoIrDescontos()));
+        }
+
+        if ($formulario["adic_natalino_valor_adiantamento"] > 0) {
+            $this->adic_natalino_valor_adiantamento = $formulario["adic_natalino_valor_adiantamento"];
+        }
+    }
+
+    private function auxPreEscolar($formulario)
+    {
+        $valor_base_pres_escolar = 321;
+        $bruto = $this->brutoIrDescontos();
+        $soldo_Sd = \App\Models\PgConstante::where('pg', '=', 'SOLDADO DO EXERCITO')->get()->toArray()[0]['soldo'];
+        if ($formulario["aux_pre_escolar_qtd"] > 0) {
+            $this->aux_pre_escolar =  ceil($bruto / $soldo_Sd);
+            // $this->aux_pre_escolar =  ceil(($bruto / $soldo_Sd) * 0.1);
         }
     }
 }
