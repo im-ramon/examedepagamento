@@ -284,8 +284,8 @@
                     <p>Recebe <strong>Adicional de Horas de Voo</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" name="hvoo" value="1" id="hvoosim"><label for="hvoosim">Sim</label>
-                    <input type="radio" name="hvoo" value="0" id="hvoonao" checked><label for="hvoonao">Não</label>
+                    <input type="radio" name="f_hvoo" value="1" id="hvoosim"><label for="hvoosim">Sim</label>
+                    <input type="radio" name="f_hvoo" value="0" id="hvoonao" checked><label for="hvoonao">Não</label>
                 </div>
             </section>
 
@@ -303,7 +303,7 @@
                     <p>Sobre o soldo de qual soldo?</p>
                 </div>
                 <div class="question_options">
-                    <select name="adic_comp_org_pg">
+                    <select name="hvoo_pg">
                         @include('app.layouts._partials.select_pg')
                     </select>
                 </div>
@@ -556,11 +556,11 @@
                     </p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="0" id="grat_loc_esp_nao" name="grat_loc_esp" min="0" value="0"
+                    <input type="radio" value="0" id="grat_loc_esp_nao" name="grat_loc_esp" checked min="0" value="0"
                         step="0.01" max="99999"><label for="grat_loc_esp_nao">Não recebe</label>
-                    <input type="radio" value="A" id="grat_loc_esp_A" name="grat_loc_esp" min="0" value="0" step="0.01"
+                    <input type="radio" value="A" id="grat_loc_esp_A" name="grat_loc_esp" min="0" value="A" step="0.01"
                         max="99999"><label for="grat_loc_esp_A">Tipo "A"</label>
-                    <input type="radio" value="B" id="grat_loc_esp_B" name="grat_loc_esp" min="0" value="0" step="0.01"
+                    <input type="radio" value="B" id="grat_loc_esp_B" name="grat_loc_esp" min="0" value="B" step="0.01"
                         max="99999"><label for="grat_loc_esp_B">Tipo "B"</label>
                 </div>
             </section>
@@ -588,8 +588,9 @@
                     <p>O examinado irá receber <strong>Gratificação de Representação 2%</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="1" name="grat_repr_2" id="gratrep2sim"><label for="gratrep2">Sim</label>
-                    <input type="radio" value="0" name="grat_repr_2" id="gratrep2nao" checked><label
+                    <input type="radio" value="1" name="f_grat_repr_2" id="gratrep2sim"><label
+                        for="gratrep2">Sim</label>
+                    <input type="radio" value="0" name="f_grat_repr_2" id="gratrep2nao" checked><label
                         for="gratrep2">Não</label>
                 </div>
             </section>
@@ -599,7 +600,7 @@
                     <p>Referente a quantos dias?</p>
                 </div>
                 <div class="question_options">
-                    <input type="number" name="grat_repr_2_dias" max="365" min="0" value="0">
+                    <input type="number" name="grat_repr_2" max="365" min="0" value="0">
                 </div>
             </section>
 
@@ -622,9 +623,9 @@
                     <p>A pensionista é <strong>Pensionada de Ex-Combatente</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="1" name="dp_excmb_art_9" id="dp_excmb_art_9_sim"><label
+                    <input type="radio" value="1" name="f_dp_excmb_art_9" id="dp_excmb_art_9_sim"><label
                         for="dp_excmb_art_9_sim">Sim</label>
-                    <input type="radio" value="0" name="dp_excmb_art_9" id="dp_excmb_art_9_nao" checked><label
+                    <input type="radio" value="0" name="f_dp_excmb_art_9" id="dp_excmb_art_9_nao" checked><label
                         for="dp_excmb_art_9_nao">Não</label>
                 </div>
             </section>
@@ -634,7 +635,7 @@
                     <p>Quanto a pensionista recebe?</p>
                 </div>
                 <div class="question_options">
-                    <input type="number" name="dp_excmb_art_9_valor" max="99999" min="0" value="0" step="0.01">
+                    <input type="number" name="dp_excmb_art_9" max="99999" min="0" value="0" step="0.01">
                 </div>
             </section>
         </fieldset>

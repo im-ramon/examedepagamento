@@ -12,45 +12,42 @@ class ContrachequeController extends Controller
     // SAQUES
     public $data_contracheque = 0;
 
-    public $soldo = 0; // OK
-    public $soldo_prop = 0; // OK
+    public $soldo = 0;
+    public $soldo_prop = 0;
     public $soldo_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um "IF" para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
-
+    // -------------------------- //
     public $bruto_ir_descontos = 0;
     public $bruto_total = 0;
-
+    // -------------------------- //
     public $soldo_pg_real_base = 0; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um IF para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
     public $soldo_pg_real_normal = 0; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
     public $soldo_pg_real_prop = 0; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
-
-    public $compl_ct_soldo = 0; // OK
-    public $adic_tp_sv = 0; // OK
-    public $adic_comp_disp = 0; // OK
-    public $adic_hab = 0; // OK
-    public $adic_perm = 0; // OK
-
-    public $adic_comp_org = 0; // IMPLEMENTAR COM CALMA DEPOIS
-    public $hvoo = 0; // IMPLEMENTAR COM CALMA DEPOIS
-
-    public $acres_25_soldo = 0; // OK
-    public $salario_familia = 0; // OK
-    public $adic_ferias = 0; // OK
-    public $adic_pttc = 0; // OK
-    public $adic_natalino = 0; // OK
-    public $aux_pre_escolar = 0; // OK
-    public $aux_invalidez = 0;  // OK
+    // -------------------------- //
+    public $compl_ct_soldo = 0;
+    public $adic_tp_sv = 0;
+    public $adic_comp_disp = 0;
+    public $adic_hab = 0;
+    public $adic_perm = 0;
+    public $adic_comp_org = 0;
+    public $hvoo = 0;
+    public $acres_25_soldo = 0;
+    public $salario_familia = 0;
+    public $adic_ferias = 0;
+    public $adic_pttc = 0;
+    public $adic_natalino = 0;
+    public $aux_pre_escolar = 0;
+    public $aux_invalidez = 0;
     public $aux_transporte = 0;
-    public $aux_fard = 0; // OK
-    public $aux_alim_c = 0; // OK
-    public $aux_alim_5x = 0; // OK
-    public $aux_natalidade = 0; // OK
-    public $grat_loc_esp = 0; // OK
-    public $grat_repr_cmdo = 0; // OK
+    public $aux_fard = 0;
+    public $aux_alim_c = 0;
+    public $aux_alim_5x = 0;
+    public $aux_natalidade = 0;
+    public $grat_loc_esp = 0;
+    public $grat_repr_cmdo = 0;
     public $grat_repr_2 = 0;
-
     public $dp_excmb_art_9 = 0;
 
-    // DESCONTOS
+    // DESCONTOS ---------------- //
     // public $pmil;
     // public $pmil_15;
     // public $pmil_30;
@@ -128,15 +125,21 @@ class ContrachequeController extends Controller
             $this->auxFard($formulario);
             $this->gratReprCmdo($formulario);
             $this->adicPttc($formulario);
+            $this->adicCompOrg($formulario);
+            $this->hVoo($formulario);
             $this->auxAlimC($formulario, $pg_real_info);
             $this->auxAlim5x($formulario);
             $this->auxNatalidade($formulario);
             $this->gratLocEsp($formulario);
+            $this->gratRepr2($formulario);
 
             // Dependem do bruto (IR e Descontos):
             $this->auxPreEscolar($formulario);
             $this->adicFerias($formulario);
             $this->adicNatalino($formulario);
+
+            //Exclusivo para pensionada de Ex-Cmbt:
+            $this->dpExcmbArt9($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -150,9 +153,12 @@ class ContrachequeController extends Controller
             'adic_comp_disp' => $this->adic_comp_disp,
             'adic_hab' => $this->adic_hab,
             'adic_perm' => $this->adic_perm,
+            'adic_comp_org' => $this->adic_comp_org,
+            'hvoo' => $this->hvoo,
             'adic_pttc' => $this->adic_pttc,
             'adic_ferias' => $this->adic_ferias,
             'grat_loc_esp' => $this->grat_loc_esp,
+            'grat_repr_2' => $this->grat_repr_2,
             'acres_25_soldo' => $this->acres_25_soldo,
             'adic_natalino' => $this->adic_natalino,
             'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
@@ -164,6 +170,7 @@ class ContrachequeController extends Controller
             'aux_invalidez' => $this->aux_invalidez,
             'aux_fard' => $this->aux_fard,
             'grat_repr_cmdo' => $this->grat_repr_cmdo,
+            'dp_excmb_art_9' => $this->dp_excmb_art_9,
             'bruto_total' => $this->bruto_total,
             'bruto_ir_descontos' => $this->bruto_ir_descontos,
         ]);
@@ -267,12 +274,25 @@ class ContrachequeController extends Controller
         }
     }
 
-    // private function adicCompOrg($formulario)
-    // {
-    //     $formulario["adic_comp_org_tipo"];
-    //     $formulario["adic_comp_org_percet"];
-    //     $formulario["adic_comp_org_pg"];
-    // }
+    private function adicCompOrg($formulario)
+    {
+        if ($formulario["adic_comp_org_tipo"] != '0') {
+            $soldo_base_adic = \App\Models\PgConstante::find($formulario['adic_comp_org_pg'])->toArray()["soldo"];
+            $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_cota_porcentagem"] / 100);
+            $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_prop_cota_porcentagem"] / 100);
+            $this->adic_comp_org = $this->truncar($soldo_base_adic * $formulario['adic_comp_org_percet'] / 100);
+        }
+    }
+
+    private function hVoo($formulario)
+    {
+        if ($formulario["f_hvoo"] == 1) {
+            $soldo_base_adic = \App\Models\PgConstante::find($formulario['hvoo_pg'])->toArray()["soldo"];
+            $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_cota_porcentagem"] / 100);
+            $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_prop_cota_porcentagem"] / 100);
+            $this->hvoo = $this->truncar($soldo_base_adic * $formulario['hvoo_percet'] / 100);
+        }
+    }
 
     private function acres25Soldo($formulario)
     {
@@ -425,6 +445,21 @@ class ContrachequeController extends Controller
             $this->grat_loc_esp = $this->soldo_base * 0.2;
         } elseif ($formulario["grat_loc_esp"] == 'B') {
             $this->grat_loc_esp = $this->soldo_base * 0.1;
+        }
+    }
+
+    private function gratRepr2($formulario)
+    {
+        if ($formulario["grat_repr_2"] > 0) {
+            $soldoBase = \App\Models\PgConstante::find($formulario['grat_repr_2_pg'])->toArray()["soldo"];
+            $this->grat_repr_2 = $this->truncar($soldoBase * 2 * $formulario["grat_repr_2"] / 100);
+        }
+    }
+
+    private function dpExcmbArt9($formulario)
+    {
+        $this->dp_excmb_art_9 = $formulario["dp_excmb_art_9"];
+        if ($formulario["dp_excmb_art_9"] > 0) {
         }
     }
 }
