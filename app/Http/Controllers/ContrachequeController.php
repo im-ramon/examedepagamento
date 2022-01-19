@@ -49,9 +49,9 @@ class ContrachequeController extends Controller
     public $dp_excmb_art_9 = 0;
 
     // DESCONTOS ---------------- //
-    // public $pmil;
-    // public $pmil_15;
-    // public $pmil_30;
+    public $pmil = 0;
+    public $pmil_15 = 0;
+    public $pmil_30 = 0;
     // public $fusex_3;
     // public $desc_dep_fusex;
     public $adic_natalino_valor_adiantamento = 0;
@@ -117,6 +117,12 @@ class ContrachequeController extends Controller
 
             //Exclusivo para pensionada de Ex-Cmbt:
             $this->dpExcmbArt9($formulario);
+
+
+            //DESCONTOS
+            $this->pMil($formulario);
+            $this->pMil15($formulario);
+            $this->pMil30($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -152,6 +158,10 @@ class ContrachequeController extends Controller
             'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
             'bruto_total' => $this->bruto_total,
             'bruto_ir_descontos' => $this->bruto_ir_descontos,
+
+            'pmil' => $this->pmil,
+            'pmil_15' => $this->pmil_15,
+            'pmil_30' => $this->pmil_30,
         ]);
     }
 
@@ -455,8 +465,59 @@ class ContrachequeController extends Controller
 
     private function dpExcmbArt9($formulario)
     {
-        $this->dp_excmb_art_9 = $formulario["dp_excmb_art_9"];
         if ($formulario["dp_excmb_art_9"] > 0) {
+            $this->dp_excmb_art_9 = $formulario["dp_excmb_art_9"];
+        }
+    }
+
+    private function pMil($formulario)
+    {
+        if ($formulario["pmil"] == '1') {
+            if ($formulario["pmilmesmopg"] != '1') {
+                $soldo_base_pmil = \App\Models\PgConstante::find($formulario['pmil_pg'])->toArray()["soldo"];
+                $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_cota_porcentagem"] / 100);
+                $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
+
+                $porcentagem = (($soldo_base_pmil - $this->soldo_base) * 100) / $this->soldo_base;
+                $novo_bruto = $this->brutoIrDescontos() + (($this->brutoIrDescontos() * $porcentagem) / 100);
+                $this->pmil = $this->truncar($novo_bruto * 0.105);
+            } else {
+                $this->pmil = $this->truncar($this->brutoIrDescontos() * 0.105);
+            }
+        }
+    }
+
+    private function pMil15($formulario)
+    {
+        if ($formulario["pmil_15"] == '1') {
+            if ($formulario["pmilmesmopg"] != '1') {
+                $soldo_base_pmil = \App\Models\PgConstante::find($formulario['pmil_pg'])->toArray()["soldo"];
+                $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_cota_porcentagem"] / 100);
+                $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
+
+                $porcentagem = (($soldo_base_pmil - $this->soldo_base) * 100) / $this->soldo_base;
+                $novo_bruto = $this->brutoIrDescontos() + (($this->brutoIrDescontos() * $porcentagem) / 100);
+                $this->pmil_15 = $this->truncar($novo_bruto * 0.015);
+            } else {
+                $this->pmil_15 = $this->truncar($this->brutoIrDescontos() * 0.015);
+            }
+        }
+    }
+
+    private function pMil30($formulario)
+    {
+        if ($formulario["pmil_30"] == '1') {
+            if ($formulario["pmilmesmopg"] != '1') {
+                $soldo_base_pmil = \App\Models\PgConstante::find($formulario['pmil_pg'])->toArray()["soldo"];
+                $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_cota_porcentagem"] / 100);
+                $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
+
+                $porcentagem = (($soldo_base_pmil - $this->soldo_base) * 100) / $this->soldo_base;
+                $novo_bruto = $this->brutoIrDescontos() + (($this->brutoIrDescontos() * $porcentagem) / 100);
+                $this->pmil_30 = $this->truncar($novo_bruto * 0.03);
+            } else {
+                $this->pmil_30 = $this->truncar($this->brutoIrDescontos() * 0.03);
+            }
         }
     }
 }

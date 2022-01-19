@@ -685,8 +685,8 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" value="1" name="pmil" id="pmilsim"><label for="pmilsim">Sim</label>
-                        <input type="radio" value="0" name="pmil" id="pmilnao" checked><label for="pmilnao">Não</label>
+                        <input type="radio" value="1" name="pmil" id="pmilsim" checked><label for="pmilsim">Sim</label>
+                        <input type="radio" value="0" name="pmil" id="pmilnao"><label for="pmilnao">Não</label>
                     </div>
                 </div>
             </section>
@@ -695,9 +695,10 @@
                     <p>Sobre o mesmo posto/ gradução?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="1" name="pmilpg" id="pmilpgsim" checked><label
-                        for="pmilpgsim">Sim</label>
-                    <input type="radio" value="0" name="pmilpg" id="pmilpgnao"><label for="pmilpgnao">Não</label>
+                    <input type="radio" value="1" name="pmilmesmopg" id="pmilmesmopgsim" checked>
+                    <label for="pmilpgsim">Sim</label>
+                    <input type="radio" value="0" name="pmilmesmopg" id="pmilmesmopgnao">
+                    <label for="pmilmesmopgnao">Não</label>
                 </div>
             </section>
             <section class="question_body">

@@ -1,5 +1,10 @@
 <h1>Ficha auxiliar</h1>
 
+<h3>Descontos</h3>
+<p>P Mil 10,5%: {{ $pmil }}</p>
+<p>P Mil 1,5%: {{ $pmil_15 }}</p>
+<p>P Mil 3,0%: {{ $pmil_30 }}</p>
+
 <ul>
     <li>Soldo: {{ $soldo }}</li>
     <li>Soldo Proporcional: {{ $soldo_prop }}</li>
