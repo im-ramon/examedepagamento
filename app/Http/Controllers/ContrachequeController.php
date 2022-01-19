@@ -52,8 +52,8 @@ class ContrachequeController extends Controller
     public $pmil = 0;
     public $pmil_15 = 0;
     public $pmil_30 = 0;
-    // public $fusex_3;
-    // public $desc_dep_fusex;
+    public $fusex_3 = 0;
+    public $desc_dep_fusex = 0;
     public $adic_natalino_valor_adiantamento = 0;
     // public $pnr;
     // public $pens_judiciaria_1;
@@ -123,6 +123,8 @@ class ContrachequeController extends Controller
             $this->pMil($formulario);
             $this->pMil15($formulario);
             $this->pMil30($formulario);
+            $this->fusex3($formulario);
+            $this->descDepFusex($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -162,6 +164,8 @@ class ContrachequeController extends Controller
             'pmil' => $this->pmil,
             'pmil_15' => $this->pmil_15,
             'pmil_30' => $this->pmil_30,
+            'fusex_3' => $this->fusex_3,
+            'desc_dep_fusex' => $this->desc_dep_fusex,
         ]);
     }
 
@@ -518,6 +522,22 @@ class ContrachequeController extends Controller
             } else {
                 $this->pmil_30 = $this->truncar($this->brutoIrDescontos() * 0.03);
             }
+        }
+    }
+
+    private function fusex3($formulario)
+    {
+        if ($formulario["fusex_3"] == '1') {
+            $this->fusex_3 = $this->truncar($this->brutoIrDescontos() * 0.03);
+        }
+    }
+
+    private function descDepFusex($formulario)
+    {
+        if ($formulario["desc_dep_fusex"] == '0.4') {
+            $this->desc_dep_fusex = $this->truncar($this->brutoIrDescontos() * 0.004);
+        } elseif ($formulario["desc_dep_fusex"] == '0.5') {
+            $this->desc_dep_fusex = $this->truncar($this->brutoIrDescontos() * 0.005);
         }
     }
 }

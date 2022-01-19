@@ -4,6 +4,8 @@
 <p>P Mil 10,5%: {{ $pmil }}</p>
 <p>P Mil 1,5%: {{ $pmil_15 }}</p>
 <p>P Mil 3,0%: {{ $pmil_30 }}</p>
+<p>FuSEx 3%: {{ $fusex_3 }}</p>
+<p>desc_dep_fusex: {{ $desc_dep_fusex }}</p>
 
 <ul>
     <li>Soldo: {{ $soldo }}</li>
