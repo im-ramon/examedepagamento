@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ContrachequeController extends Controller
 {
-    // SAQUES
+    // RECEITAS
     public $data_contracheque = 0;
 
     public $soldo = 0;
@@ -25,6 +25,7 @@ class ContrachequeController extends Controller
     // -------------------------- //
     public $compl_ct_soldo = 0;
     public $adic_tp_sv = 0;
+    public $adic_mil = 0;
     public $adic_comp_disp = 0;
     public $adic_hab = 0;
     public $adic_perm = 0;
@@ -78,60 +79,36 @@ class ContrachequeController extends Controller
     {
         $formulario = $_POST;
 
-        $todos_pg_info = \App\Models\PgConstante::all()->toArray();
         $pg_real_info = \App\Models\PgConstante::find($formulario['pg_real'])->toArray();
         $pg_soldo_info = \App\Models\PgConstante::find($formulario['pg_soldo'])->toArray();
-        $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])
-            ->where('periodo_fim', '>', $formulario['data_contracheque'])
-            ->get()
-            ->toArray()[0];
-
+        $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
 
         //  ------------------------------------------------- TESTES -----------------------------------------------------//
-        // echo ('<pre>');
-
-        // echo ('<h1>pg_real_info</h1>');
-        // var_dump($pg_real_info);
-        // echo ('<hr>');
-
-        // echo ('<h1>pg_soldo_info</h1>');
-        // var_dump($pg_soldo_info);
-        // echo ('<hr>');
-
-        // echo ('<h1>adic_hab_info</h1>');
-        // var_dump($adic_hab_info);
-        // echo ('<hr>');
-
         echo ('<h1>formulario</h1>');
         var_dump($formulario);
         echo ('<hr>');
-
-        // echo ('<h1>formulario</h1>');
-        // // dd($formulario);
-        // echo ('<hr>');
-
-        // echo ('</pre>');+
         //  ------------------------------------------------- TESTES -----------------------------------------------------//
-
 
         $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
         if ($this->soldo > 0 or $this->soldo_prop > 0) {
-            $this->adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info);
+            $this->adicMil($formulario, $pg_soldo_info, $this->soldo_base);
             $this->adicHab($formulario, $adic_hab_info);
-            $this->adicPerm($formulario);
-            $this->acres25Soldo($formulario);
-            $this->salarioFamilia($formulario);
-            $this->auxInvalidez($formulario);
-            $this->auxFard($formulario);
-            $this->gratReprCmdo($formulario);
-            $this->adicPttc($formulario);
+            $this->adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info);
             $this->adicCompOrg($formulario);
             $this->hVoo($formulario);
-            $this->auxAlimC($formulario, $pg_real_info);
-            $this->auxAlim5x($formulario);
-            $this->auxNatalidade($formulario);
+            $this->adicPerm($formulario);
+            $this->adicPttc($formulario);
             $this->gratLocEsp($formulario);
             $this->gratRepr2($formulario);
+            $this->gratReprCmdo($formulario);
+            $this->acres25Soldo($formulario);
+            $this->auxTransporte($formulario);
+            $this->auxFard($formulario);
+            $this->auxAlimC($formulario, $pg_real_info);
+            $this->auxAlim5x($formulario);
+            $this->auxInvalidez($formulario);
+            $this->auxNatalidade($formulario);
+            $this->salarioFamilia($formulario);
 
             // Dependem do bruto (IR e Descontos):
             $this->auxPreEscolar($formulario);
@@ -152,25 +129,27 @@ class ContrachequeController extends Controller
             'adic_tp_sv' => $this->adic_tp_sv,
             'adic_comp_disp' => $this->adic_comp_disp,
             'adic_hab' => $this->adic_hab,
+            'adic_mil' => $this->adic_mil,
             'adic_perm' => $this->adic_perm,
             'adic_comp_org' => $this->adic_comp_org,
             'hvoo' => $this->hvoo,
+            'adic_natalino' => $this->adic_natalino,
             'adic_pttc' => $this->adic_pttc,
             'adic_ferias' => $this->adic_ferias,
+            'acres_25_soldo' => $this->acres_25_soldo,
             'grat_loc_esp' => $this->grat_loc_esp,
             'grat_repr_2' => $this->grat_repr_2,
-            'acres_25_soldo' => $this->acres_25_soldo,
-            'adic_natalino' => $this->adic_natalino,
-            'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
+            'grat_repr_cmdo' => $this->grat_repr_cmdo,
             'aux_pre_escolar' => $this->aux_pre_escolar,
+            'aux_transporte' => $this->aux_transporte,
             'aux_alim_c' => $this->aux_alim_c,
             'aux_alim_5x' => $this->aux_alim_5x,
             'aux_natalidade' => $this->aux_natalidade,
-            'salario_familia' => $this->salario_familia,
             'aux_invalidez' => $this->aux_invalidez,
+            'salario_familia' => $this->salario_familia,
             'aux_fard' => $this->aux_fard,
-            'grat_repr_cmdo' => $this->grat_repr_cmdo,
             'dp_excmb_art_9' => $this->dp_excmb_art_9,
+            'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
             'bruto_total' => $this->bruto_total,
             'bruto_ir_descontos' => $this->bruto_ir_descontos,
         ]);
@@ -189,6 +168,7 @@ class ContrachequeController extends Controller
             $this->adic_tp_sv,
             $this->adic_comp_disp,
             $this->adic_hab,
+            $this->adic_mil,
             $this->adic_perm,
             $this->adic_comp_org,
             $this->hvoo,
@@ -218,6 +198,7 @@ class ContrachequeController extends Controller
             $this->adic_tp_sv,
             $this->adic_comp_disp,
             $this->adic_hab,
+            $this->adic_mil,
             $this->adic_perm,
             $this->adic_comp_org,
             $this->hvoo,
@@ -225,7 +206,7 @@ class ContrachequeController extends Controller
             $this->adic_pttc,
             $this->grat_loc_esp,
             $this->grat_repr_cmdo,
-            // $this->grat_repr_2
+            $this->grat_repr_2
         ]);
     }
 
@@ -254,7 +235,7 @@ class ContrachequeController extends Controller
         if ($tpsv > $adic_disp) {
             $this->adic_tp_sv = $this->truncar($this->soldo_base * ($formulario["adic_tp_sv"]) / 100);
             $this->adic_comp_disp = 0;
-        } else {
+        } elseif ($formulario["adic_disp"] == '1') {
             $this->adic_comp_disp = $this->truncar($this->soldo_pg_real_base * ($pg_real_info["adic_disp"]) / 100);
             $this->adic_tp_sv = 0;
         }
@@ -264,6 +245,13 @@ class ContrachequeController extends Controller
     {
         if ($formulario["adic_hab_tipo"] != 'sem_formacao') {
             $this->adic_hab = $this->truncar($adic_hab_info[$formulario["adic_hab_tipo"]] * $this->soldo_base / 100);
+        }
+    }
+
+    private function adicMil($formulario, $pg_soldo_info, $soldo_base)
+    {
+        if ($formulario["adic_mil"] == 1) {
+            $this->adic_mil = $this->truncar($pg_soldo_info["adic_mil"] * $soldo_base / 100);
         }
     }
 
@@ -318,6 +306,14 @@ class ContrachequeController extends Controller
         }
     }
 
+    private function auxTransporte($formulario)
+    {
+        $cota_parte = $this->truncar(($this->soldo_base / 30 * 22) * 0.06);
+        if ($formulario["aux_transporte"] > 0) {
+            $this->aux_transporte = $formulario["aux_transporte"] - $cota_parte;
+        }
+    }
+
     private function auxFard($formulario)
     {
         if ($formulario["aux_fard"] == 1) {
@@ -355,6 +351,7 @@ class ContrachequeController extends Controller
                 $this->adic_tp_sv,
                 $this->adic_comp_disp,
                 $this->adic_hab,
+                $this->adic_mil,
                 $this->adic_perm,
                 $this->adic_comp_org,
                 $this->hvoo,

@@ -185,20 +185,21 @@
             </section>
         </fieldset>
 
-        {{-- <fieldset class="question_root">
+        <fieldset class="question_root">
             <legend>Adicional de Compensação por Disponibilidade Militar</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>Qual o percentual/ posto ou gradução que o examinado recebe de <strong>Adicional de Compensação
-                            por Disponibilidade Militar</strong>?</p>
+                    <p>O militar recebe <strong>Adicional de Compensação por Disponibilidade Militar</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <select name="adic_comp_disp">
-                        @include('app.layouts._partials.select_pg')
-                    </select>
+                    <input type="radio" name="adic_disp" value="1" id="adic_dispsim" checked>
+                    <label for="adic_dispsim">Sim</label>
+
+                    <input type="radio" name="adic_disp" value="0" id="adic_dispnao">
+                    <label for="adic_dispnao">Não</label>
                 </div>
             </section>
-        </fieldset> --}}
+        </fieldset>
 
         <fieldset class="question_root">
             <legend>Adicional Habilitação</legend>
@@ -217,6 +218,22 @@
                         <option value="formacao">Formação</option>
                         <option value="sem_formacao">Sem formação</option>
                     </select>
+                </div>
+            </section>
+        </fieldset>
+
+        <fieldset class="question_root">
+            <legend>Adicional Militar</legend>
+            <section class="question_body">
+
+                <div class="question_title">
+                    <p>O militar receber <strong>Adicional Militar</strong></p>
+                </div>
+                <div class="question_options">
+                    <input type="radio" name="adic_mil" value="1" id="adic_mil_sim" checked><label
+                        for="adic_hab_sim">Sim</label>
+                    <input type="radio" name="adic_mil" value="0" id="adic_mil_nao"><label
+                        for="adic_hab_nao">Não</label>
                 </div>
             </section>
         </fieldset>
@@ -449,9 +466,21 @@
             <legend>Auxílio Transporte</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>O examinado recebe <strong>Auxílio Transporte</strong>? Se sim, qual valor solicitado na
-                        <u>SAT</u>?
-                    </p>
+                    <p>O examinado recebe <strong>Auxílio Transporte</strong>?</p>
+                </div>
+                <div class="question_options">
+                    <div class="question_options">
+                        <input type="radio" value="1" name="f_aux_transporte" id="f_aux_transportesim"><label
+                            for="f_aux_transportesim">Sim</label>
+                        <input type="radio" value="0" name="f_aux_transporte" id="f_aux_transportenao" checked><label
+                            for="f_aux_transportenao">Não</label>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Qual valor solictado na SAT?</p>
                 </div>
                 <div class="question_options">
                     <input type="number" name="aux_transporte" min="0" value="0" step="0.01" max="10000">
