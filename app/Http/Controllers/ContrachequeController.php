@@ -66,7 +66,7 @@ class ContrachequeController extends Controller
     public $pens_judiciaria_8 = 0;
     public $pens_judiciaria_9 = 0;
     public $pens_judiciaria_10 = 0;
-    public $imposto_renda = 0;
+    public $imposto_renda_mensal = 0;
 
 
     public function formulario()
@@ -127,7 +127,7 @@ class ContrachequeController extends Controller
             $this->descDepFusex($formulario);
             $this->pnr($formulario);
             $this->pensJudiciaria($formulario);
-            $this->impostoRenda($formulario);
+            $this->impostoRendaMensal($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -180,13 +180,39 @@ class ContrachequeController extends Controller
             'pens_judiciaria_8' => $this->pens_judiciaria_8,
             'pens_judiciaria_9' => $this->pens_judiciaria_9,
             'pens_judiciaria_10' => $this->pens_judiciaria_10,
-            'imposto_renda' => $this->imposto_renda,
+            'imposto_renda_mensal' => $this->imposto_renda_mensal,
         ]);
     }
 
     private function truncar($numero)
     {
         return floor($numero * 100) / 100;
+    }
+
+    private function impostoRenda($bruto,  $deducoes, $qtd_dependentes, $maior_65)
+    {
+        $base = $bruto - $deducoes - ($qtd_dependentes * 189.59) - ($maior_65 ? 1903.98 : 0);
+
+        $aliquota = 0;
+        $parcela = 0;
+        if ($base <= 1903.98) {
+            $aliquota = 0;
+            $parcela = 0;
+        } elseif ($base >= 1903.99 and $base <= 2826.65) {
+            $aliquota = 0.075;
+            $parcela = 142.8;
+        } elseif ($base >= 2826.66 and $base <= 3751.05) {
+            $aliquota = 0.15;
+            $parcela = 354.8;
+        } elseif ($base >= 3751.06 and $base <= 4664.68) {
+            $aliquota = 0.225;
+            $parcela = 636.13;
+        } elseif ($base >= 4664.69) {
+            $aliquota = 0.275;
+            $parcela = 869.36;
+        }
+
+        return round((($base * $aliquota) - $parcela), 2);
     }
 
     private function brutoTotal()
@@ -236,6 +262,27 @@ class ContrachequeController extends Controller
             $this->grat_loc_esp,
             $this->grat_repr_cmdo,
             $this->grat_repr_2
+        ]);
+    }
+
+    private function somaDescontosParaIR()
+    {
+        return array_sum([
+            $this->pmil,
+            $this->pmil_15,
+            $this->pmil_30,
+            $this->fusex_3,
+            $this->desc_dep_fusex,
+            $this->pens_judiciaria_1,
+            $this->pens_judiciaria_2,
+            $this->pens_judiciaria_3,
+            $this->pens_judiciaria_4,
+            $this->pens_judiciaria_5,
+            $this->pens_judiciaria_6,
+            $this->pens_judiciaria_7,
+            $this->pens_judiciaria_8,
+            $this->pens_judiciaria_9,
+            $this->pens_judiciaria_10,
         ]);
     }
 
@@ -579,8 +626,10 @@ class ContrachequeController extends Controller
         $this->pens_judiciaria_10 = $formulario["pens_judiciaria_10"];
     }
 
-    private function impostoRenda($formulario)
+    private function impostoRendaMensal($formulario)
     {
-        $formulario["imposto_renda_dep"];
+        if (!$formulario["isento_ir"]) {
+            $this->imposto_renda_mensal = $this->impostoRenda($this->brutoIrDescontos(),  $this->somaDescontosParaIR(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
+        }
     }
 }

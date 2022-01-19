@@ -17,7 +17,7 @@
 <p>pens_judiciaria_8: {{ $pens_judiciaria_8 }}</p>
 <p>pens_judiciaria_9: {{ $pens_judiciaria_9 }}</p>
 <p>pens_judiciaria_10: {{ $pens_judiciaria_10 }}</p>
-<p>imposto_renda: {{ $imposto_renda }}</p>
+<p>imposto_renda_mensal: {{ $imposto_renda_mensal }}</p>
 
 <ul>
     <li>Soldo: {{ $soldo }}</li>

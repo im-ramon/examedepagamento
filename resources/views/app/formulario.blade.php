@@ -79,6 +79,37 @@
 
         <input name="data_contracheque" id="date" type="date" value="2022-01-12">
 
+        <fieldset class="question_root">
+            <legend>Idade</legend>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>O examinado tem <strong>mais de 65 anos</strong>?
+                    <p>
+                </div>
+                <div class="question_options">
+                    <input type="radio" name="maior_65" value="1" id="maior_65sim">
+                    <label for="maior_65sim">Sim</label>
+                    <input type="radio" name="maior_65" value="0" id="maior_65nao" checked>
+                    <label for="maior_65nao">Não</label>
+                </div>
+            </section>
+        </fieldset>
+
+        <fieldset class="question_root">
+            <legend>Idade</legend>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>O examinado é <strong>isento de Imposrto de Renda</strong>?
+                    <p>
+                </div>
+                <div class="question_options">
+                    <input type="radio" name="isento_ir" value="1" id="isento_irsim">
+                    <label for="isento_irsim">Sim</label>
+                    <input type="radio" name="isento_ir" value="0" id="isento_irnao" checked>
+                    <label for="isento_irnao">Não</label>
+                </div>
+            </section>
+        </fieldset>
 
         <fieldset class="question_root">
             <legend>P/G Soldo</legend>
