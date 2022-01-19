@@ -837,14 +837,14 @@
             <legend>PNR</legend>
             <section class="question_body">
                 <div class="question_title">
-                    <p>O examinado mora em <strong>PNR</strong>?</p>
+                    <p>O examinado reside em <strong>PNR</strong>?</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="radio" value="1" name="pnr" id="pnrsim">
+                        <input type="radio" value="1" name="f_pnr" id="pnrsim">
                         <label for="pnrsim">Sim</label>
 
-                        <input type="radio" value="0" name="pnr" id="pnrnao" checked>
+                        <input type="radio" value="0" name="f_pnr" id="pnrnao" checked>
                         <label for="pnrnao">Não</label>
                     </div>
                 </div>
@@ -855,7 +855,7 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <select name="pnr_tipo">
+                        <select name="pnr">
                             <option value="0">- Selecione um tipo -</option>
                             <option value="1">Desconto normal - 5%</option>
                             <option value="2">Desconto especial - 3,5%</option>
@@ -872,9 +872,9 @@
                     <p>O examinado paga <strong>Pensão Judiciária</strong>?</p>
                 </div>
                 <div class="question_options">
-                    <input type="radio" value="1" name="pens_judiciaria" id="pjsim">
+                    <input type="radio" value="1" name="f_pens_judiciaria" id="pjsim">
                     <label for="pjsim">Sim</label>
-                    <input type="radio" value="0" name="pens_judiciaria" id="pjnao" checked>
+                    <input type="radio" value="0" name="f_pens_judiciaria" id="pjnao" checked>
                     <label for="pjnao">Não</label>
                 </div>
             </section>

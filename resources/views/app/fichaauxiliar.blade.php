@@ -6,6 +6,18 @@
 <p>P Mil 3,0%: {{ $pmil_30 }}</p>
 <p>FuSEx 3%: {{ $fusex_3 }}</p>
 <p>desc_dep_fusex: {{ $desc_dep_fusex }}</p>
+<p>pnr: {{ $pnr }}</p>
+<p>pens_judiciaria_1: {{ $pens_judiciaria_1 }}</p>
+<p>pens_judiciaria_2: {{ $pens_judiciaria_2 }}</p>
+<p>pens_judiciaria_3: {{ $pens_judiciaria_3 }}</p>
+<p>pens_judiciaria_4: {{ $pens_judiciaria_4 }}</p>
+<p>pens_judiciaria_5: {{ $pens_judiciaria_5 }}</p>
+<p>pens_judiciaria_6: {{ $pens_judiciaria_6 }}</p>
+<p>pens_judiciaria_7: {{ $pens_judiciaria_7 }}</p>
+<p>pens_judiciaria_8: {{ $pens_judiciaria_8 }}</p>
+<p>pens_judiciaria_9: {{ $pens_judiciaria_9 }}</p>
+<p>pens_judiciaria_10: {{ $pens_judiciaria_10 }}</p>
+<p>imposto_renda: {{ $imposto_renda }}</p>
 
 <ul>
     <li>Soldo: {{ $soldo }}</li>

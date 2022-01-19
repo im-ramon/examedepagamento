@@ -55,18 +55,18 @@ class ContrachequeController extends Controller
     public $fusex_3 = 0;
     public $desc_dep_fusex = 0;
     public $adic_natalino_valor_adiantamento = 0;
-    // public $pnr;
-    // public $pens_judiciaria_1;
-    // public $pens_judiciaria_2;
-    // public $pens_judiciaria_3;
-    // public $pens_judiciaria_4;
-    // public $pens_judiciaria_5;
-    // public $pens_judiciaria_6;
-    // public $pens_judiciaria_7;
-    // public $pens_judiciaria_8;
-    // public $pens_judiciaria_9;
-    // public $pens_judiciaria_10;
-    // public $imposto_renda;
+    public $pnr = 0;
+    public $pens_judiciaria_1 = 0;
+    public $pens_judiciaria_2 = 0;
+    public $pens_judiciaria_3 = 0;
+    public $pens_judiciaria_4 = 0;
+    public $pens_judiciaria_5 = 0;
+    public $pens_judiciaria_6 = 0;
+    public $pens_judiciaria_7 = 0;
+    public $pens_judiciaria_8 = 0;
+    public $pens_judiciaria_9 = 0;
+    public $pens_judiciaria_10 = 0;
+    public $imposto_renda = 0;
 
 
     public function formulario()
@@ -125,6 +125,9 @@ class ContrachequeController extends Controller
             $this->pMil30($formulario);
             $this->fusex3($formulario);
             $this->descDepFusex($formulario);
+            $this->pnr($formulario);
+            $this->pensJudiciaria($formulario);
+            $this->impostoRenda($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -166,6 +169,18 @@ class ContrachequeController extends Controller
             'pmil_30' => $this->pmil_30,
             'fusex_3' => $this->fusex_3,
             'desc_dep_fusex' => $this->desc_dep_fusex,
+            'pnr' => $this->pnr,
+            'pens_judiciaria_1' => $this->pens_judiciaria_1,
+            'pens_judiciaria_2' => $this->pens_judiciaria_2,
+            'pens_judiciaria_3' => $this->pens_judiciaria_3,
+            'pens_judiciaria_4' => $this->pens_judiciaria_4,
+            'pens_judiciaria_5' => $this->pens_judiciaria_5,
+            'pens_judiciaria_6' => $this->pens_judiciaria_6,
+            'pens_judiciaria_7' => $this->pens_judiciaria_7,
+            'pens_judiciaria_8' => $this->pens_judiciaria_8,
+            'pens_judiciaria_9' => $this->pens_judiciaria_9,
+            'pens_judiciaria_10' => $this->pens_judiciaria_10,
+            'imposto_renda' => $this->imposto_renda,
         ]);
     }
 
@@ -539,5 +554,33 @@ class ContrachequeController extends Controller
         } elseif ($formulario["desc_dep_fusex"] == '0.5') {
             $this->desc_dep_fusex = $this->truncar($this->brutoIrDescontos() * 0.005);
         }
+    }
+
+    private function pnr($formulario)
+    {
+        if ($formulario["pnr"] == '1') {
+            $this->pnr = $this->truncar($this->soldo_base * 0.05);
+        } elseif ($formulario["pnr"] == '2') {
+            $this->pnr = $this->truncar($this->soldo_base * 0.035);
+        }
+    }
+
+    private function pensJudiciaria($formulario)
+    {
+        $this->pens_judiciaria_1 = $formulario["pens_judiciaria_1"];
+        $this->pens_judiciaria_2 = $formulario["pens_judiciaria_2"];
+        $this->pens_judiciaria_3 = $formulario["pens_judiciaria_3"];
+        $this->pens_judiciaria_4 = $formulario["pens_judiciaria_4"];
+        $this->pens_judiciaria_5 = $formulario["pens_judiciaria_5"];
+        $this->pens_judiciaria_6 = $formulario["pens_judiciaria_6"];
+        $this->pens_judiciaria_7 = $formulario["pens_judiciaria_7"];
+        $this->pens_judiciaria_8 = $formulario["pens_judiciaria_8"];
+        $this->pens_judiciaria_9 = $formulario["pens_judiciaria_9"];
+        $this->pens_judiciaria_10 = $formulario["pens_judiciaria_10"];
+    }
+
+    private function impostoRenda($formulario)
+    {
+        $formulario["imposto_renda_dep"];
     }
 }
