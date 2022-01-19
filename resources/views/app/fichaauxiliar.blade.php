@@ -13,10 +13,13 @@
 <p>pens_judiciaria_4: {{ $pens_judiciaria_4 }}</p>
 <p>pens_judiciaria_5: {{ $pens_judiciaria_5 }}</p>
 <p>pens_judiciaria_6: {{ $pens_judiciaria_6 }}</p>
-<p>pens_judiciaria_7: {{ $pens_judiciaria_7 }}</p>
-<p>pens_judiciaria_8: {{ $pens_judiciaria_8 }}</p>
-<p>pens_judiciaria_9: {{ $pens_judiciaria_9 }}</p>
-<p>pens_judiciaria_10: {{ $pens_judiciaria_10 }}</p>
+<p>pens_judiciaria_adic_natal_1: {{ $pens_judiciaria_adic_natal_1 }}</p>
+<p>pens_judiciaria_adic_natal_2: {{ $pens_judiciaria_adic_natal_2 }}</p>
+<p>pens_judiciaria_adic_natal_3: {{ $pens_judiciaria_adic_natal_3 }}</p>
+<p>pens_judiciaria_adic_natal_4: {{ $pens_judiciaria_adic_natal_4 }}</p>
+<p>pens_judiciaria_adic_natal_5: {{ $pens_judiciaria_adic_natal_5 }}</p>
+<p>pens_judiciaria_adic_natal_6: {{ $pens_judiciaria_adic_natal_6 }}</p>
+
 <p>imposto_renda_mensal: {{ $imposto_renda_mensal }}</p>
 
 <ul>

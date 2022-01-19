@@ -62,11 +62,14 @@ class ContrachequeController extends Controller
     public $pens_judiciaria_4 = 0;
     public $pens_judiciaria_5 = 0;
     public $pens_judiciaria_6 = 0;
-    public $pens_judiciaria_7 = 0;
-    public $pens_judiciaria_8 = 0;
-    public $pens_judiciaria_9 = 0;
-    public $pens_judiciaria_10 = 0;
+    public $pens_judiciaria_adic_natal_1 = 0;
+    public $pens_judiciaria_adic_natal_2 = 0;
+    public $pens_judiciaria_adic_natal_3 = 0;
+    public $pens_judiciaria_adic_natal_4 = 0;
+    public $pens_judiciaria_adic_natal_5 = 0;
+    public $pens_judiciaria_adic_natal_6 = 0;
     public $imposto_renda_mensal = 0;
+    public $imposto_renda_adic_natal = 0;
 
 
     public function formulario()
@@ -128,6 +131,7 @@ class ContrachequeController extends Controller
             $this->pnr($formulario);
             $this->pensJudiciaria($formulario);
             $this->impostoRendaMensal($formulario);
+            $this->impostoRendaAdicNatal($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoIrDescontos();
@@ -176,10 +180,12 @@ class ContrachequeController extends Controller
             'pens_judiciaria_4' => $this->pens_judiciaria_4,
             'pens_judiciaria_5' => $this->pens_judiciaria_5,
             'pens_judiciaria_6' => $this->pens_judiciaria_6,
-            'pens_judiciaria_7' => $this->pens_judiciaria_7,
-            'pens_judiciaria_8' => $this->pens_judiciaria_8,
-            'pens_judiciaria_9' => $this->pens_judiciaria_9,
-            'pens_judiciaria_10' => $this->pens_judiciaria_10,
+            'pens_judiciaria_adic_natal_1' => $this->pens_judiciaria_adic_natal_1,
+            'pens_judiciaria_adic_natal_2' => $this->pens_judiciaria_adic_natal_2,
+            'pens_judiciaria_adic_natal_3' => $this->pens_judiciaria_adic_natal_3,
+            'pens_judiciaria_adic_natal_4' => $this->pens_judiciaria_adic_natal_4,
+            'pens_judiciaria_adic_natal_5' => $this->pens_judiciaria_adic_natal_5,
+            'pens_judiciaria_adic_natal_6' => $this->pens_judiciaria_adic_natal_6,
             'imposto_renda_mensal' => $this->imposto_renda_mensal,
         ]);
     }
@@ -265,7 +271,7 @@ class ContrachequeController extends Controller
         ]);
     }
 
-    private function somaDescontosParaIR()
+    private function somaDescontosParaIRMensal()
     {
         return array_sum([
             $this->pmil,
@@ -278,11 +284,19 @@ class ContrachequeController extends Controller
             $this->pens_judiciaria_3,
             $this->pens_judiciaria_4,
             $this->pens_judiciaria_5,
-            $this->pens_judiciaria_6,
-            $this->pens_judiciaria_7,
-            $this->pens_judiciaria_8,
-            $this->pens_judiciaria_9,
-            $this->pens_judiciaria_10,
+            $this->pens_judiciaria_6
+        ]);
+    }
+
+    private function somaDescontosParaIRAdicNatal()
+    {
+        return array_sum([
+            $this->pens_judiciaria_adic_natal_1,
+            $this->pens_judiciaria_adic_natal_2,
+            $this->pens_judiciaria_adic_natal_3,
+            $this->pens_judiciaria_adic_natal_4,
+            $this->pens_judiciaria_adic_natal_5,
+            $this->pens_judiciaria_adic_natal_6,
         ]);
     }
 
@@ -620,16 +634,25 @@ class ContrachequeController extends Controller
         $this->pens_judiciaria_4 = $formulario["pens_judiciaria_4"];
         $this->pens_judiciaria_5 = $formulario["pens_judiciaria_5"];
         $this->pens_judiciaria_6 = $formulario["pens_judiciaria_6"];
-        $this->pens_judiciaria_7 = $formulario["pens_judiciaria_7"];
-        $this->pens_judiciaria_8 = $formulario["pens_judiciaria_8"];
-        $this->pens_judiciaria_9 = $formulario["pens_judiciaria_9"];
-        $this->pens_judiciaria_10 = $formulario["pens_judiciaria_10"];
+        $this->pens_judiciaria_adic_natal_1 = $formulario["pens_judiciaria_adic_natal_1"];
+        $this->pens_judiciaria_adic_natal_2 = $formulario["pens_judiciaria_adic_natal_2"];
+        $this->pens_judiciaria_adic_natal_3 = $formulario["pens_judiciaria_adic_natal_3"];
+        $this->pens_judiciaria_adic_natal_4 = $formulario["pens_judiciaria_adic_natal_4"];
+        $this->pens_judiciaria_adic_natal_5 = $formulario["pens_judiciaria_adic_natal_5"];
+        $this->pens_judiciaria_adic_natal_6 = $formulario["pens_judiciaria_adic_natal_6"];
     }
 
     private function impostoRendaMensal($formulario)
     {
         if (!$formulario["isento_ir"]) {
-            $this->imposto_renda_mensal = $this->impostoRenda($this->brutoIrDescontos(),  $this->somaDescontosParaIR(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
+            $this->imposto_renda_mensal = $this->impostoRenda($this->brutoIrDescontos(),  $this->somaDescontosParaIRMensal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
+        }
+    }
+
+    private function impostoRendaAdicNatal($formulario)
+    {
+        if (!$formulario["isento_ir"] and $this->adic_natalino > 0 and $this->adic_natalino_valor_adiantamento > 0) {
+            $this->imposto_renda_adic_natal = $this->impostoRenda($this->adic_natalino,  $this->somaDescontosParaIRAdicNatal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
         }
     }
 }

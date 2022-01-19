@@ -916,7 +916,8 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_1" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_1" min="0" value="0" step="0.01" max="99999"
+                            required>
                     </div>
                 </div>
             </section>
@@ -927,7 +928,8 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_2" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_2" min="0" value="0" step="0.01" max="99999"
+                            required>
                     </div>
                 </div>
             </section>
@@ -938,7 +940,8 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_3" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_3" min="0" value="0" step="0.01" max="99999"
+                            required>
                     </div>
                 </div>
             </section>
@@ -949,7 +952,8 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_4" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_4" min="0" value="0" step="0.01" max="99999"
+                            required>
                     </div>
                 </div>
             </section>
@@ -960,7 +964,8 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_5" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_5" min="0" value="0" step="0.01" max="99999"
+                            required>
                     </div>
                 </div>
             </section>
@@ -971,55 +976,83 @@
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_6" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_6" min="0" value="0" step="0.01" max="99999"
+                            required>
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>Valor da Pensão Judiciária nº 7:</p>
+                    <p>Valor da Pensão Judiciária do Adicional Natalino nº 1:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_7" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_adic_natal_1" min="0" value="0" step="0.01"
+                            max="99999" required>
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>Valor da Pensão Judiciária nº 8:</p>
+                    <p>Valor da Pensão Judiciária do Adicional Natalino nº 2:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_8" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_adic_natal_2" min="0" value="0" step="0.01"
+                            max="99999" required>
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>Valor da Pensão Judiciária nº 9:</p>
+                    <p>Valor da Pensão Judiciária do Adicional Natalino nº 3:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_9" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_adic_natal_3" min="0" value="0" step="0.01"
+                            max="99999" required>
                     </div>
                 </div>
             </section>
 
             <section class="question_body">
                 <div class="question_title">
-                    <p>Valor da Pensão Judiciária nº 10:</p>
+                    <p>Valor da Pensão Judiciária do Adicional Natalino nº 4:</p>
                 </div>
                 <div class="question_options">
                     <div class="question_options">
-                        <input type="number" name="pens_judiciaria_10" min="0" value="0" step="0.01" max="99999">
+                        <input type="number" name="pens_judiciaria_adic_natal_4" min="0" value="0" step="0.01"
+                            max="99999" required>
                     </div>
                 </div>
             </section>
-        </fieldset>
 
-        <button type="submit" id="gerar">GERAR</button>
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Valor da Pensão Judiciária do Adicional Natalino nº 5:</p>
+                </div>
+                <div class="question_options">
+                    <div class="question_options">
+                        <input type="number" name="pens_judiciaria_adic_natal_5" min="0" value="0" step="0.01"
+                            max="99999" required>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question_body">
+                <div class="question_title">
+                    <p>Valor da Pensão Judiciária do Adicional Natalino nº 6:</p>
+                </div>
+                <div class="question_options">
+                    <div class="question_options">
+                        <input type="number" name="pens_judiciaria_adic_natal_6" min="0" value="0" step="0.01"
+                            max="99999" required>
+                    </div>
+                </div>
+            </section>
+
+            <button type="submit" id="gerar">GERAR</button>
     </form>
