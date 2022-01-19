@@ -21,6 +21,8 @@
 <p>pens_judiciaria_adic_natal_6: {{ $pens_judiciaria_adic_natal_6 }}</p>
 
 <p>imposto_renda_mensal: {{ $imposto_renda_mensal }}</p>
+<p>imposto_renda_adic_natal: {{ $imposto_renda_adic_natal }}</p>
+<p>descontos_ir: {{ $descontos_ir }}</p>
 
 <ul>
     <li>Soldo: {{ $soldo }}</li>

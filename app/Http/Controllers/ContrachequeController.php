@@ -71,6 +71,8 @@ class ContrachequeController extends Controller
     public $imposto_renda_mensal = 0;
     public $imposto_renda_adic_natal = 0;
 
+    public $descontos_ir = 0;
+    public $descontos_total = 0;
 
     public function formulario()
     {
@@ -134,7 +136,8 @@ class ContrachequeController extends Controller
             $this->impostoRendaAdicNatal($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
-        $this->bruto_ir_descontos = $this->brutoIrDescontos();
+        $this->bruto_ir_descontos = $this->brutoDescontoIR();
+        $this->descontos_ir = $this->somaDescontosParaIRMensal();
 
 
         return view('app.fichaauxiliar', [
@@ -187,6 +190,8 @@ class ContrachequeController extends Controller
             'pens_judiciaria_adic_natal_5' => $this->pens_judiciaria_adic_natal_5,
             'pens_judiciaria_adic_natal_6' => $this->pens_judiciaria_adic_natal_6,
             'imposto_renda_mensal' => $this->imposto_renda_mensal,
+            'imposto_renda_adic_natal' => $this->imposto_renda_adic_natal,
+            'descontos_ir' => $this->descontos_ir,
         ]);
     }
 
@@ -251,7 +256,7 @@ class ContrachequeController extends Controller
         ]);
     }
 
-    private function brutoIrDescontos()
+    private function brutoDescontoIR()
     {
         return array_sum([
             $this->soldo_base,
@@ -428,7 +433,7 @@ class ContrachequeController extends Controller
             if ($formulario["adic_pttc"] == 1) {
                 $this->adic_ferias = $this->truncar($this->adic_pttc / 3);
             } else {
-                $this->adic_ferias = $this->truncar($this->brutoIrDescontos() / 3);
+                $this->adic_ferias = $this->truncar($this->brutoDescontoIR() / 3);
             }
         }
     }
@@ -455,7 +460,7 @@ class ContrachequeController extends Controller
     private function adicNatalino($formulario)
     {
         if ($formulario["adic_natalino"] == 1) {
-            $this->adic_natalino = $this->truncar($formulario["adic_natalino_qtd_meses"] / 12 * ($this->brutoIrDescontos()));
+            $this->adic_natalino = $this->truncar($formulario["adic_natalino_qtd_meses"] / 12 * ($this->brutoDescontoIR()));
         }
 
         if ($formulario["adic_natalino_valor_adiantamento"] > 0) {
@@ -466,7 +471,7 @@ class ContrachequeController extends Controller
     private function auxPreEscolar($formulario)
     {
         $valor_base_pres_escolar = 321;
-        $bruto = $this->brutoIrDescontos();
+        $bruto = $this->brutoDescontoIR();
         $soldo_Sd = \App\Models\PgConstante::where('pg', '=', 'SOLDADO DO EXERCITO')->get()->toArray()[0]['soldo'];
         $cota_parte = $bruto / $soldo_Sd;
 
@@ -559,10 +564,10 @@ class ContrachequeController extends Controller
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
 
                 $porcentagem = (($soldo_base_pmil - $this->soldo_base) * 100) / $this->soldo_base;
-                $novo_bruto = $this->brutoIrDescontos() + (($this->brutoIrDescontos() * $porcentagem) / 100);
+                $novo_bruto = $this->brutoDescontoIR() + (($this->brutoDescontoIR() * $porcentagem) / 100);
                 $this->pmil = $this->truncar($novo_bruto * 0.105);
             } else {
-                $this->pmil = $this->truncar($this->brutoIrDescontos() * 0.105);
+                $this->pmil = $this->truncar($this->brutoDescontoIR() * 0.105);
             }
         }
     }
@@ -576,10 +581,10 @@ class ContrachequeController extends Controller
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
 
                 $porcentagem = (($soldo_base_pmil - $this->soldo_base) * 100) / $this->soldo_base;
-                $novo_bruto = $this->brutoIrDescontos() + (($this->brutoIrDescontos() * $porcentagem) / 100);
+                $novo_bruto = $this->brutoDescontoIR() + (($this->brutoDescontoIR() * $porcentagem) / 100);
                 $this->pmil_15 = $this->truncar($novo_bruto * 0.015);
             } else {
-                $this->pmil_15 = $this->truncar($this->brutoIrDescontos() * 0.015);
+                $this->pmil_15 = $this->truncar($this->brutoDescontoIR() * 0.015);
             }
         }
     }
@@ -593,10 +598,10 @@ class ContrachequeController extends Controller
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
 
                 $porcentagem = (($soldo_base_pmil - $this->soldo_base) * 100) / $this->soldo_base;
-                $novo_bruto = $this->brutoIrDescontos() + (($this->brutoIrDescontos() * $porcentagem) / 100);
+                $novo_bruto = $this->brutoDescontoIR() + (($this->brutoDescontoIR() * $porcentagem) / 100);
                 $this->pmil_30 = $this->truncar($novo_bruto * 0.03);
             } else {
-                $this->pmil_30 = $this->truncar($this->brutoIrDescontos() * 0.03);
+                $this->pmil_30 = $this->truncar($this->brutoDescontoIR() * 0.03);
             }
         }
     }
@@ -604,16 +609,16 @@ class ContrachequeController extends Controller
     private function fusex3($formulario)
     {
         if ($formulario["fusex_3"] == '1') {
-            $this->fusex_3 = $this->truncar($this->brutoIrDescontos() * 0.03);
+            $this->fusex_3 = $this->truncar($this->brutoDescontoIR() * 0.03);
         }
     }
 
     private function descDepFusex($formulario)
     {
         if ($formulario["desc_dep_fusex"] == '0.4') {
-            $this->desc_dep_fusex = $this->truncar($this->brutoIrDescontos() * 0.004);
+            $this->desc_dep_fusex = $this->truncar($this->brutoDescontoIR() * 0.004);
         } elseif ($formulario["desc_dep_fusex"] == '0.5') {
-            $this->desc_dep_fusex = $this->truncar($this->brutoIrDescontos() * 0.005);
+            $this->desc_dep_fusex = $this->truncar($this->brutoDescontoIR() * 0.005);
         }
     }
 
@@ -645,7 +650,7 @@ class ContrachequeController extends Controller
     private function impostoRendaMensal($formulario)
     {
         if (!$formulario["isento_ir"]) {
-            $this->imposto_renda_mensal = $this->impostoRenda($this->brutoIrDescontos(),  $this->somaDescontosParaIRMensal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
+            $this->imposto_renda_mensal = $this->impostoRenda($this->brutoDescontoIR(),  $this->somaDescontosParaIRMensal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
         }
     }
 
