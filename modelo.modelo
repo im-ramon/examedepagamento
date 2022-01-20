@@ -115,7 +115,7 @@
             </div>
             <div class="question_options">
                 <select name="select_percentualadicionaldisp">
-                    <option value="0">- Não recebe -</option>
+                    <option value="0"> - Selecione uma opção -</option>
                     <option value="1">Gen Ex Inat - 41%</option>
                     <option value="2">Gen Ex - 40%</option>
                 </select>
@@ -162,7 +162,7 @@
             </div>
             <div class="question_options">
                 <select name="select_comporg">
-                    <option value="0">- Não recebe -</option>
+                    <option value="0"> - Selecione uma opção -</option>
                     <option value="1">Paraquedista - PDQT</option>
                     <option value="2">Raio-X - RAIOX</option>
                 </select>
@@ -201,7 +201,7 @@
             </div>
             <div class="question_options">
                 <select name="select_comporg">
-                    <option value="0">- Não recebe -</option>
+                    <option value="0"> - Selecione uma opção -</option>
                     <option value="1">Paraquedista - PDQT</option>
                     <option value="2">Raio-X - RAIOX</option>
                 </select>
@@ -527,7 +527,7 @@
             </div>
             <div class="question_options">
                 <select name="select_pg">
-                    <option value="0">- Não recebe -</option>
+                    <option value="0"> - Selecione uma opção -</option>
                     <option value="1">Gen Ex Inat</option>
                     <option value="2">Gen Ex</option>
                     <option value="3">Gen Div</option>

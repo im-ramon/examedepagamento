@@ -70,6 +70,7 @@ class ContrachequeController extends Controller
     public $pens_judiciaria_adic_natal_6 = 0;
     public $imposto_renda_mensal = 0;
     public $imposto_renda_adic_natal = 0;
+    public $imposto_renda_adic_ferias = 0;
 
     public $descontos_ir = 0;
     public $descontos_total = 0;
@@ -83,28 +84,24 @@ class ContrachequeController extends Controller
     public function fichaauxiliar()
     {
         $formulario = $_POST;
-
+        $todos_pg_info = \App\Models\PgConstante::all()->toArray();
         $pg_real_info = \App\Models\PgConstante::find($formulario['pg_real'])->toArray();
         $pg_soldo_info = \App\Models\PgConstante::find($formulario['pg_soldo'])->toArray();
         $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
 
-        //  ------------------------------------------------- TESTES -----------------------------------------------------//
-        echo ('<h1>formulario</h1>');
-        var_dump($formulario);
-        echo ('<hr>');
-        //  ------------------------------------------------- TESTES -----------------------------------------------------//
-
         $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
-        if ($this->soldo > 0 or $this->soldo_prop > 0) {
+        //Exclusivo para pensionada de Ex-Cmbt:
+        $this->dpExcmbArt9($formulario);
+        if ($this->soldo_base > 0) {
             $this->adicMil($formulario, $pg_soldo_info, $this->soldo_base);
             $this->adicHab($formulario, $adic_hab_info);
             $this->adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info);
-            $this->adicCompOrg($formulario);
-            $this->hVoo($formulario);
+            $this->adicCompOrg($formulario, $todos_pg_info);
+            $this->hVoo($formulario, $todos_pg_info);
             $this->adicPerm($formulario);
             $this->adicPttc($formulario);
             $this->gratLocEsp($formulario);
-            $this->gratRepr2($formulario);
+            $this->gratRepr2($formulario, $todos_pg_info);
             $this->gratReprCmdo($formulario);
             $this->acres25Soldo($formulario);
             $this->auxTransporte($formulario);
@@ -120,78 +117,81 @@ class ContrachequeController extends Controller
             $this->adicFerias($formulario);
             $this->adicNatalino($formulario);
 
-            //Exclusivo para pensionada de Ex-Cmbt:
-            $this->dpExcmbArt9($formulario);
-
-
             //DESCONTOS
-            $this->pMil($formulario);
-            $this->pMil15($formulario);
-            $this->pMil30($formulario);
+            $this->pMil($formulario, $todos_pg_info);
+            $this->pMil15($formulario, $todos_pg_info);
+            $this->pMil30($formulario, $todos_pg_info);
             $this->fusex3($formulario);
             $this->descDepFusex($formulario);
             $this->pnr($formulario);
             $this->pensJudiciaria($formulario);
             $this->impostoRendaMensal($formulario);
             $this->impostoRendaAdicNatal($formulario);
+            $this->impostoRendaAdicFerias($formulario);
         }
         $this->bruto_total = $this->brutoTotal();
         $this->bruto_ir_descontos = $this->brutoDescontoIR();
         $this->descontos_ir = $this->somaDescontosParaIRMensal();
+        $this->descontos_total = $this->somaDescontosTotal();
 
 
         return view('app.fichaauxiliar', [
-            'soldo' => $this->soldo,
-            'soldo_prop' => $this->soldo_prop,
-            'compl_ct_soldo' => $this->compl_ct_soldo,
-            'adic_tp_sv' => $this->adic_tp_sv,
-            'adic_comp_disp' => $this->adic_comp_disp,
-            'adic_hab' => $this->adic_hab,
-            'adic_mil' => $this->adic_mil,
-            'adic_perm' => $this->adic_perm,
-            'adic_comp_org' => $this->adic_comp_org,
-            'hvoo' => $this->hvoo,
-            'adic_natalino' => $this->adic_natalino,
-            'adic_pttc' => $this->adic_pttc,
-            'adic_ferias' => $this->adic_ferias,
-            'acres_25_soldo' => $this->acres_25_soldo,
-            'grat_loc_esp' => $this->grat_loc_esp,
-            'grat_repr_2' => $this->grat_repr_2,
-            'grat_repr_cmdo' => $this->grat_repr_cmdo,
-            'aux_pre_escolar' => $this->aux_pre_escolar,
-            'aux_transporte' => $this->aux_transporte,
-            'aux_alim_c' => $this->aux_alim_c,
-            'aux_alim_5x' => $this->aux_alim_5x,
-            'aux_natalidade' => $this->aux_natalidade,
-            'aux_invalidez' => $this->aux_invalidez,
-            'salario_familia' => $this->salario_familia,
-            'aux_fard' => $this->aux_fard,
-            'dp_excmb_art_9' => $this->dp_excmb_art_9,
-            'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
-            'bruto_total' => $this->bruto_total,
-            'bruto_ir_descontos' => $this->bruto_ir_descontos,
-
-            'pmil' => $this->pmil,
-            'pmil_15' => $this->pmil_15,
-            'pmil_30' => $this->pmil_30,
-            'fusex_3' => $this->fusex_3,
-            'desc_dep_fusex' => $this->desc_dep_fusex,
-            'pnr' => $this->pnr,
-            'pens_judiciaria_1' => $this->pens_judiciaria_1,
-            'pens_judiciaria_2' => $this->pens_judiciaria_2,
-            'pens_judiciaria_3' => $this->pens_judiciaria_3,
-            'pens_judiciaria_4' => $this->pens_judiciaria_4,
-            'pens_judiciaria_5' => $this->pens_judiciaria_5,
-            'pens_judiciaria_6' => $this->pens_judiciaria_6,
-            'pens_judiciaria_adic_natal_1' => $this->pens_judiciaria_adic_natal_1,
-            'pens_judiciaria_adic_natal_2' => $this->pens_judiciaria_adic_natal_2,
-            'pens_judiciaria_adic_natal_3' => $this->pens_judiciaria_adic_natal_3,
-            'pens_judiciaria_adic_natal_4' => $this->pens_judiciaria_adic_natal_4,
-            'pens_judiciaria_adic_natal_5' => $this->pens_judiciaria_adic_natal_5,
-            'pens_judiciaria_adic_natal_6' => $this->pens_judiciaria_adic_natal_6,
-            'imposto_renda_mensal' => $this->imposto_renda_mensal,
-            'imposto_renda_adic_natal' => $this->imposto_renda_adic_natal,
-            'descontos_ir' => $this->descontos_ir,
+            'receitas' => [
+                'soldo' => $this->soldo,
+                'soldo_prop' => $this->soldo_prop,
+                'compl_ct_soldo' => $this->compl_ct_soldo,
+                'adic_tp_sv' => $this->adic_tp_sv,
+                'adic_comp_disp' => $this->adic_comp_disp,
+                'adic_hab' => $this->adic_hab,
+                'adic_mil' => $this->adic_mil,
+                'adic_perm' => $this->adic_perm,
+                'adic_comp_org' => $this->adic_comp_org,
+                'hvoo' => $this->hvoo,
+                'adic_natalino' => $this->adic_natalino,
+                'adic_pttc' => $this->adic_pttc,
+                'adic_ferias' => $this->adic_ferias,
+                'acres_25_soldo' => $this->acres_25_soldo,
+                'grat_loc_esp' => $this->grat_loc_esp,
+                'grat_repr_2' => $this->grat_repr_2,
+                'grat_repr_cmdo' => $this->grat_repr_cmdo,
+                'aux_pre_escolar' => $this->aux_pre_escolar,
+                'aux_transporte' => $this->aux_transporte,
+                'aux_alim_c' => $this->aux_alim_c,
+                'aux_alim_5x' => $this->aux_alim_5x,
+                'aux_natalidade' => $this->aux_natalidade,
+                'aux_invalidez' => $this->aux_invalidez,
+                'salario_familia' => $this->salario_familia,
+                'aux_fard' => $this->aux_fard,
+                'dp_excmb_art_9' => $this->dp_excmb_art_9,
+                'bruto_total' => $this->bruto_total,
+                'bruto_ir_descontos' => $this->bruto_ir_descontos,
+            ],
+            'descontos' => [
+                'pmil' => $this->pmil,
+                'pmil_15' => $this->pmil_15,
+                'pmil_30' => $this->pmil_30,
+                'fusex_3' => $this->fusex_3,
+                'desc_dep_fusex' => $this->desc_dep_fusex,
+                'adic_natalino_valor_adiantamento' => $this->adic_natalino_valor_adiantamento,
+                'pnr' => $this->pnr,
+                'pens_judiciaria_1' => $this->pens_judiciaria_1,
+                'pens_judiciaria_2' => $this->pens_judiciaria_2,
+                'pens_judiciaria_3' => $this->pens_judiciaria_3,
+                'pens_judiciaria_4' => $this->pens_judiciaria_4,
+                'pens_judiciaria_5' => $this->pens_judiciaria_5,
+                'pens_judiciaria_6' => $this->pens_judiciaria_6,
+                'pens_judiciaria_adic_natal_1' => $this->pens_judiciaria_adic_natal_1,
+                'pens_judiciaria_adic_natal_2' => $this->pens_judiciaria_adic_natal_2,
+                'pens_judiciaria_adic_natal_3' => $this->pens_judiciaria_adic_natal_3,
+                'pens_judiciaria_adic_natal_4' => $this->pens_judiciaria_adic_natal_4,
+                'pens_judiciaria_adic_natal_5' => $this->pens_judiciaria_adic_natal_5,
+                'pens_judiciaria_adic_natal_6' => $this->pens_judiciaria_adic_natal_6,
+                'imposto_renda_mensal' => $this->imposto_renda_mensal,
+                'imposto_renda_adic_natal' => $this->imposto_renda_adic_natal,
+                'imposto_renda_adic_ferias' => $this->imposto_renda_adic_ferias,
+                'descontos_ir' => $this->descontos_ir,
+                'descontos_total' => $this->descontos_total,
+            ]
         ]);
     }
 
@@ -249,6 +249,7 @@ class ContrachequeController extends Controller
             $this->aux_fard,
             $this->aux_alim_c,
             $this->aux_alim_5x,
+            $this->dp_excmb_art_9,
             $this->aux_natalidade,
             $this->grat_loc_esp,
             $this->grat_repr_cmdo,
@@ -293,6 +294,34 @@ class ContrachequeController extends Controller
         ]);
     }
 
+    private function somaDescontosTotal()
+    {
+        return array_sum([
+            $this->pmil,
+            $this->pmil_15,
+            $this->pmil_30,
+            $this->fusex_3,
+            $this->desc_dep_fusex,
+            $this->adic_natalino_valor_adiantamento,
+            $this->pnr,
+            $this->pens_judiciaria_1,
+            $this->pens_judiciaria_2,
+            $this->pens_judiciaria_3,
+            $this->pens_judiciaria_4,
+            $this->pens_judiciaria_5,
+            $this->pens_judiciaria_6,
+            $this->pens_judiciaria_adic_natal_1,
+            $this->pens_judiciaria_adic_natal_2,
+            $this->pens_judiciaria_adic_natal_3,
+            $this->pens_judiciaria_adic_natal_4,
+            $this->pens_judiciaria_adic_natal_5,
+            $this->pens_judiciaria_adic_natal_6,
+            $this->imposto_renda_mensal,
+            $this->imposto_renda_adic_natal,
+            $this->imposto_renda_adic_ferias,
+        ]);
+    }
+
     private function somaDescontosParaIRAdicNatal()
     {
         return array_sum([
@@ -308,11 +337,11 @@ class ContrachequeController extends Controller
     private function soldo($formulario, $pg_soldo_info, $pg_real_info)
     {
         if ($formulario["tipo_soldo"] == '1') {
-            $pg_soldo_info["pg"] == "- Não recebe -" ? $this->soldo = 0 : $this->soldo = $pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
-            $pg_real_info["pg"] == "- Não recebe -" ? $this->soldo_pg_real_normal = 0 : $this->soldo_pg_real_normal = $pg_real_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
+            $pg_soldo_info["pg"] == " - Selecione uma opção -" ? $this->soldo = 0 : $this->soldo = $pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
+            $pg_real_info["pg"] == " - Selecione uma opção -" ? $this->soldo_pg_real_normal = 0 : $this->soldo_pg_real_normal = $pg_real_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100);
         } elseif ($formulario["tipo_soldo"] == '2') {
-            $pg_soldo_info["pg"] == "- Não recebe -" ? $this->soldo_prop = 0 : $this->soldo_prop = ($pg_soldo_info["soldo"] * ($formulario["soldo_prop_cota_porcentagem"] / 100)) * ($formulario["soldo_cota_porcentagem"] / 100);
-            $pg_real_info["pg"] == "- Não recebe -" ? $this->soldo_pg_real_prop = 0 : $this->soldo_pg_real_prop = ($pg_real_info["soldo"] * ($formulario["soldo_prop_cota_porcentagem"] / 100)) * ($formulario["soldo_cota_porcentagem"] / 100);
+            $pg_soldo_info["pg"] == " - Selecione uma opção -" ? $this->soldo_prop = 0 : $this->soldo_prop = ($pg_soldo_info["soldo"] * ($formulario["soldo_prop_cota_porcentagem"] / 100)) * ($formulario["soldo_cota_porcentagem"] / 100);
+            $pg_real_info["pg"] == " - Selecione uma opção -" ? $this->soldo_pg_real_prop = 0 : $this->soldo_pg_real_prop = ($pg_real_info["soldo"] * ($formulario["soldo_prop_cota_porcentagem"] / 100)) * ($formulario["soldo_cota_porcentagem"] / 100);
 
             if ($formulario["compl_ct_soldo"] == '1') {
                 $this->compl_ct_soldo = ($pg_soldo_info["soldo"] * ($formulario["soldo_cota_porcentagem"] / 100)) - $this->soldo_prop;
@@ -357,20 +386,20 @@ class ContrachequeController extends Controller
         }
     }
 
-    private function adicCompOrg($formulario)
+    private function adicCompOrg($formulario, $todos_pg_info)
     {
         if ($formulario["adic_comp_org_tipo"] != '0') {
-            $soldo_base_adic = \App\Models\PgConstante::find($formulario['adic_comp_org_pg'])->toArray()["soldo"];
+            $soldo_base_adic = $todos_pg_info[$formulario['adic_comp_org_pg']]["soldo"];
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_cota_porcentagem"] / 100);
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_prop_cota_porcentagem"] / 100);
             $this->adic_comp_org = $this->truncar($soldo_base_adic * $formulario['adic_comp_org_percet'] / 100);
         }
     }
 
-    private function hVoo($formulario)
+    private function hVoo($formulario, $todos_pg_info)
     {
         if ($formulario["f_hvoo"] == 1) {
-            $soldo_base_adic = \App\Models\PgConstante::find($formulario['hvoo_pg'])->toArray()["soldo"];
+            $soldo_base_adic = $todos_pg_info[$formulario['hvoo_pg']]["soldo"];
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_cota_porcentagem"] / 100);
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_prop_cota_porcentagem"] / 100);
             $this->hvoo = $this->truncar($soldo_base_adic * $formulario['hvoo_percet'] / 100);
@@ -540,10 +569,10 @@ class ContrachequeController extends Controller
         }
     }
 
-    private function gratRepr2($formulario)
+    private function gratRepr2($formulario, $todos_pg_info)
     {
         if ($formulario["grat_repr_2"] > 0) {
-            $soldoBase = \App\Models\PgConstante::find($formulario['grat_repr_2_pg'])->toArray()["soldo"];
+            $soldoBase = $todos_pg_info[$formulario['grat_repr_2_pg']]["soldo"];
             $this->grat_repr_2 = $this->truncar($soldoBase * 2 * $formulario["grat_repr_2"] / 100);
         }
     }
@@ -552,14 +581,15 @@ class ContrachequeController extends Controller
     {
         if ($formulario["dp_excmb_art_9"] > 0) {
             $this->dp_excmb_art_9 = $formulario["dp_excmb_art_9"];
+            $this->soldo_base = $formulario["dp_excmb_art_9"];
         }
     }
 
-    private function pMil($formulario)
+    private function pMil($formulario, $todos_pg_info)
     {
         if ($formulario["pmil"] == '1') {
             if ($formulario["pmilmesmopg"] != '1') {
-                $soldo_base_pmil = \App\Models\PgConstante::find($formulario['pmil_pg'])->toArray()["soldo"];
+                $soldo_base_pmil = $todos_pg_info[$formulario['pmil_pg']]["soldo"];
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_cota_porcentagem"] / 100);
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
 
@@ -572,11 +602,11 @@ class ContrachequeController extends Controller
         }
     }
 
-    private function pMil15($formulario)
+    private function pMil15($formulario, $todos_pg_info)
     {
         if ($formulario["pmil_15"] == '1') {
             if ($formulario["pmilmesmopg"] != '1') {
-                $soldo_base_pmil = \App\Models\PgConstante::find($formulario['pmil_pg'])->toArray()["soldo"];
+                $soldo_base_pmil = $todos_pg_info[$formulario['pmil_pg']]["soldo"];
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_cota_porcentagem"] / 100);
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
 
@@ -589,11 +619,11 @@ class ContrachequeController extends Controller
         }
     }
 
-    private function pMil30($formulario)
+    private function pMil30($formulario, $todos_pg_info)
     {
         if ($formulario["pmil_30"] == '1') {
             if ($formulario["pmilmesmopg"] != '1') {
-                $soldo_base_pmil = \App\Models\PgConstante::find($formulario['pmil_pg'])->toArray()["soldo"];
+                $soldo_base_pmil = $todos_pg_info[$formulario['pmil_pg']]["soldo"];
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_cota_porcentagem"] / 100);
                 $soldo_base_pmil = $soldo_base_pmil * ($formulario["soldo_prop_cota_porcentagem"] / 100);
 
@@ -658,6 +688,13 @@ class ContrachequeController extends Controller
     {
         if (!$formulario["isento_ir"] and $this->adic_natalino > 0 and $this->adic_natalino_valor_adiantamento > 0) {
             $this->imposto_renda_adic_natal = $this->impostoRenda($this->adic_natalino,  $this->somaDescontosParaIRAdicNatal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
+        }
+    }
+
+    private function impostoRendaAdicFerias($formulario)
+    {
+        if (!$formulario["isento_ir"] and $this->adic_ferias > 0) {
+            $this->imposto_renda_adic_ferias = $this->impostoRenda($this->adic_ferias,  $this->somaDescontosParaIRMensal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
         }
     }
 }

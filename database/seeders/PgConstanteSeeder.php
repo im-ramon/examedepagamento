@@ -14,7 +14,7 @@ class PgConstanteSeeder extends Seeder
      */
     public function run()
     {
-        PgConstante::create(['pg' => '- Não recebe -', 'pg_abrev' => '- Não recebe -', 'adic_mil' => 0, 'soldo' => 0, 'adic_disp' => 0, 'tipo' => 'normal']);
+        PgConstante::create(['pg' => ' - Selecione uma opção -', 'pg_abrev' => ' - Selecione uma opção -', 'adic_mil' => 0, 'soldo' => 0, 'adic_disp' => 0, 'tipo' => 'normal']);
         PgConstante::create(['pg' => 'GEN EX_NA INATIVIDAD ', 'pg_abrev' => 'Gen Ex Inat', 'adic_mil' => 28, 'soldo' => 14031, 'adic_disp' => 41, 'tipo' => 'normal']);
         PgConstante::create(['pg' => 'GENERAL DE EXERCITO', 'pg_abrev' => 'Gen Ex', 'adic_mil' => 28, 'soldo' => 13471, 'adic_disp' => 41, 'tipo' => 'normal']);
         PgConstante::create(['pg' => 'GENERAL DE DIVISAO', 'pg_abrev' => 'Gen Div', 'adic_mil' => 28, 'soldo' => 12912, 'adic_disp' => 38, 'tipo' => 'normal']);

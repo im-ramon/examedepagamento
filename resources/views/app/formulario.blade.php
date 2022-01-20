@@ -290,7 +290,7 @@
                 </div>
                 <div class="question_options">
                     <select name="adic_comp_org_tipo">
-                        <option value="0">- Não recebe -</option>
+                        <option value="0"> - Selecione uma opção -</option>
                         <option value="PDQT">Paraquedista</option>
                         <option value="RAIOX">Raio-X</option>
                         <option value="TO/ OMA/ FO">Tripulante Orgânico</option>

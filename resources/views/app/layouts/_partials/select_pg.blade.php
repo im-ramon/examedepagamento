@@ -1,5 +1,5 @@
 @foreach ($pg_info as $indice => $pg)
-    <option @if ($pg['pg_abrev'] == '- Não recebe -')
+    <option @if ($pg['pg_abrev'] == ' - Selecione uma opção -')
         selected
 @endif
 
