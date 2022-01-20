@@ -95,8 +95,9 @@
             <td class="td_calculos" colspan="2">
                 <p>VALOR<br>CONTRACHEQUE</p>
             </td>
-            <td class="td_calculos" colspan="4">
+            <td class="td_calculos" colspan="4" rowspan="18">
                 <p>OBSERVA&Ccedil;&Otilde;ES</p>
+                <textarea id="observacoes_receitas" name="observacoes_receitas"rows="5" cols="5"></textarea>
             </td>
         </tr>
 
@@ -121,12 +122,6 @@
                         <td class="td_calculos" colspan="2">
                             <span>R$ </span><input type="number" value="{{ $valor['valor'] }}" step="0.01">
                         </td>
-                        <td class="td_calculos" colspan="4">
-                            <p>
-                                <!-- VALOR OBSERVAÇÕES AQUI -->
-                                <br> <!-- para não sumir a linha -->
-                            </p>
-                        </td>
                     </tr>
                     @php
                         $contador++;
@@ -139,7 +134,7 @@
             @for ($i = $contador; $i < 17; $i++)
                 <tr>
                     <td class="td_calculos" colspan="2">
-                        <!-- RUBRICA AQUI -->
+                        <br>
                     </td>
                     <td class="td_calculos">
                         <!-- % AQUI -->
@@ -150,16 +145,28 @@
                     <td class="td_calculos" colspan="2">
                         <!-- VALOR CONTRACHQUE AQUI -->
                     </td>
-                    <td class="td_calculos" colspan="4">
-                        <p>
-                            <!-- VALOR OBSERVAÇÕES AQUI -->
-                            <br> <!-- para não sumir a linha -->
-                        </p>
-                    </td>
                 </tr>
             @endfor
 
         @endisset
+        <tr>
+            <td class="td_calculos" colspan="4">
+                <p>SOMA</p>
+            </td>
+            <td class="td_calculos">
+                {{ $receitas['bruto_total']['valor'] }}
+            </td>
+            <td class="td_calculos" colspan="2">
+                <p>
+                    {{ $receitas['bruto_total']['valor'] }}
+                </p>
+            </td>
+            <td class="td_calculos" colspan="4">
+                <p>
+                    <!-- SOMA VALOR CONTRACHEQUE AQUI -->
+                </p>
+            </td>
+        </tr>
 
         <!-- DESCONTOS -->
         <tr>
@@ -185,8 +192,9 @@
             <td class="td_calculos" colspan="2">
                 <p>VALOR<br>CONTRACHEQUE</p>
             </td>
-            <td class="td_calculos" colspan="4">
+            <td class="td_calculos" colspan="4"  rowspan="18">
                 <p>OBSERVA&Ccedil;&Otilde;ES</p>
+                <textarea id="observacoes_descontos" name="observacoes_descontos"rows="5" cols="5"></textarea>
             </td>
             @isset($descontos)
                 @php
@@ -209,12 +217,6 @@
                 <td class="td_calculos" colspan="2">
                     <span>R$ </span><input type="number" value="{{ $valor['valor'] }}" step="0.01">
                 </td>
-                <td class="td_calculos" colspan="4">
-                    <p>
-                        <!-- VALOR OBSERVAÇÕES AQUI -->
-                        <br> <!-- para não sumir a linha -->
-                    </p>
-                </td>
             </tr>
             @php
                 $contador++;
@@ -228,6 +230,7 @@
                 <tr>
                     <td class="td_calculos" colspan="2">
                         <!-- RUBRICA AQUI -->
+                        <br>
                     </td>
                     <td class="td_calculos">
                         <!-- % AQUI -->
@@ -238,12 +241,6 @@
                     <td class="td_calculos" colspan="2">
                         <!-- VALOR CONTRACHQUE AQUI -->
                     </td>
-                    <td class="td_calculos" colspan="4">
-                        <p>
-                            <!-- VALOR OBSERVAÇÕES AQUI -->
-                            <br> <!-- para não sumir a linha -->
-                        </p>
-                    </td>
                 </tr>
             @endfor
 
@@ -253,11 +250,11 @@
                 <p>SOMA</p>
             </td>
             <td class="td_calculos">
-                <!-- SOMA VALOR PESQUISADO AQUI -->
+                {{ $descontos['descontos_total']['valor'] }}
             </td>
             <td class="td_calculos" colspan="2">
                 <p>
-                    <!-- SOMA VALOR CONTRACHEQUE AQUI -->
+                    {{ $descontos['descontos_total']['valor'] }}
                 </p>
             </td>
             <td class="td_calculos" colspan="4">
@@ -272,12 +269,12 @@
             </td>
             <td class="td_calculos">
                 <p>
-                    <!-- LIQUIDO DO VALOR PESQUISADO AQUI -->
+                    {{ $receitas['bruto_total']['valor']  - $descontos['descontos_total']['valor'] }}
                 </p>
             </td>
             <td class="td_calculos" colspan="2">
                 <p>
-                    <!-- LIQUIDO DO VALOR CONTRACHEQUE AQUI -->
+                    {{ $receitas['bruto_total']['valor']  - $descontos['descontos_total']['valor'] }}
                 </p>
             </td>
             <td class="td_calculos" colspan="4">

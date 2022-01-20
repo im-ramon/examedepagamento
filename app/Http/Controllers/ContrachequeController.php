@@ -90,9 +90,10 @@ class ContrachequeController extends Controller
         $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
 
         $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
+
         //Exclusivo para pensionada de Ex-Cmbt:
         $this->dpExcmbArt9($formulario);
-        if ($this->soldo_base > 0) {
+        if ($this->soldo_base > 0 and $this->dp_excmb_art_9 == 0) {
             $this->adicMil($formulario, $pg_soldo_info, $this->soldo_base);
             $this->adicHab($formulario, $adic_hab_info);
             $this->adicionaisTpSveDisp($formulario, $pg_real_info, $pg_soldo_info);
@@ -585,6 +586,9 @@ class ContrachequeController extends Controller
         if ($formulario["dp_excmb_art_9"] > 0) {
             $this->dp_excmb_art_9 = $formulario["dp_excmb_art_9"];
             $this->soldo_base = $formulario["dp_excmb_art_9"];
+
+            $this->pmil = $this->truncar($this->soldo_base * 0.105);
+            $this->soldo = 0;
         }
     }
 
