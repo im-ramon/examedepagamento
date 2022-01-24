@@ -7,7 +7,11 @@
             <form id="formulario" action="{{ route('app.fichaauxiliar') }}" method="post">
                 @csrf
                 <section id="form_informacoes_pessoais">
+                    <h2>Informações gerais</h2>
                     <fieldset class="question_root">
+                        <div class="ajuda_container">
+                            <img class="ajuda" src="{{ asset('svg/help.svg') }}" alt="ícone de ajuda">
+                        </div>
                         <legend>Universo/ Classificação</legend>
                         <section class="question_body">
                             <div class="question_title">
@@ -226,25 +230,10 @@
                     </fieldset>
 
                     <fieldset class="question_root">
-                        <legend>Adicional de Permanência</legend>
-                        <section class="question_body">
-
-                            <div class="question_title">
-                                <p>Qual o percentual que o examinado recebe de <strong>Adicional de
-                                        Permanência</strong>?
-                                </p>
-                            </div>
-                            <div class="question_options">
-                                <input type="number" name="adic_perm" value="0" min="0" max="100" step="5">
-                            </div>
-                        </section>
-                    </fieldset>
-
-                    <fieldset class="question_root">
-                        <legend>Adicional de Compensação Organica</legend>
+                        <legend>Adicional de Compensação Orgânica</legend>
                         <section class="question_body">
                             <div class="question_title">
-                                <p>Recebe <strong>Adicional de Compensação Organica</strong>?</p>
+                                <p>Recebe <strong>Adicional de Compensação Orgânica</strong>?</p>
                             </div>
                             <div class="question_options">
                                 <select name="adic_comp_org_tipo">
@@ -332,6 +321,21 @@
                                     <input type="radio" value="0" name="acres_25_soldo" id="acres25soldonao"
                                         checked><label for="acres25soldonao">Não</label>
                                 </section>
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset class="question_root">
+                        <legend>Adicional de Permanência</legend>
+                        <section class="question_body">
+
+                            <div class="question_title">
+                                <p>Qual o percentual que o examinado recebe de <strong>Adicional de
+                                        Permanência</strong>?
+                                </p>
+                            </div>
+                            <div class="question_options">
+                                <input type="number" name="adic_perm" value="0" min="0" max="100" step="5">
                             </div>
                         </section>
                     </fieldset>
