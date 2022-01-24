@@ -55,6 +55,7 @@ aside#sidebar {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 
     img {
         width: 120px;
@@ -75,7 +76,7 @@ aside#sidebar {
 
 nav {
     width: 100%;
-    margin-top: 2em;
+    margin-top: 1em;
 
     a.navbutton {
         border: 2px solid rgba(0, 0, 0, 0);
@@ -84,7 +85,7 @@ nav {
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        padding: 9px 0;
+        padding: 10px 0;
         text-decoration: none;
         color: $preto;
         transition: all 0.3s;
@@ -119,72 +120,79 @@ nav {
 // * {
 //     border: 1px solid rebeccapurple;
 // }
-
-div#sugestoes {
-    margin-top: 2em;
-    background: $cinza-1;
-    width: 100%;
+#sugestoes_contaneir {
+    height: 100%;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 6px;
-    user-select: none;
-    position: relative;
 
-    img {
+    #sugestoes {
+        margin-top: 2em;
         background: $cinza-1;
-        border-radius: 100%;
-        width: 18px;
-        padding: 12px;
-        box-sizing: content-box;
-        height: 18px;
-        margin-top: -16px;
-        transition: transform 0.5s;
-        cursor: pointer;
-
-        &:hover {
-            transform: rotate(360deg);
-            transition: transform 0.5s;
-        }
-    }
-
-    p,
-    h5,
-    span {
-        text-align: center;
-        color: $preto;
-        margin: 0;
-    }
-
-    p {
-        font-size: 12px;
-        line-height: 24px;
-        padding: 1em;
-        color: #18181880;
-    }
-
-    h5 {
-        font-size: 14px;
-        margin: 5px 0;
-    }
-
-    a {
-        display: block;
-        border: 1px solid #18181880;
-        margin-top: 6px;
-        background: #ffffff;
-        text-decoration: none;
-        text-transform: uppercase;
-        color: #18181880;
-        font-weight: bold;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         border-radius: 6px;
-        transition: color 0.3s, border 0.3s;
+        user-select: none;
+        align-self: flex-end;
 
-        &:hover {
+        #lampada {
+            background: $cinza-1;
+            border-radius: 100%;
+            margin-top: -16px;
+        }
+        img {
+            width: 18px;
+            padding: 12px;
+            box-sizing: content-box;
+            height: 18px;
+            transition: transform 0.5s, filter 0.5s;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.15);
+                filter: invert(76%) sepia(39%) saturate(2844%) hue-rotate(5deg) brightness(107%) contrast(105%);
+                transition: transform 0.5s, filter 0.5s;
+            }
+        }
+
+        p,
+        h5,
+        span {
+            text-align: center;
             color: $preto;
-            border: 1px solid $preto;
+            margin: 0;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 24px;
+            padding: 1em;
+            color: #18181880;
+        }
+
+        h5 {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        a {
+            display: block;
+            border: 1px solid #18181880;
+            margin-top: 6px;
+            background: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #18181880;
+            font-weight: bold;
+            border-radius: 6px;
             transition: color 0.3s, border 0.3s;
+
+            &:hover {
+                color: $preto;
+                border: 1px solid $preto;
+                transition: color 0.3s, border 0.3s;
+            }
         }
     }
 }

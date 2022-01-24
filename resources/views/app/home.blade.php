@@ -53,19 +53,29 @@
 
             </nav>
 
-            <div id="sugestoes">
-                <img src="{{ asset('svg/idea.svg') }}" alt="">
-                <h5>Tem alguma sugestão?</h5>
-                <p>
-                    Encontrou alguma falha ou tem alguma sugestão para melhoria do App? Sinta-se à vontade
-                    para nos comunicar:
-                    <a href="#">Enviar mensagem</a>
-                </p>
+            <div id="sugestoes_contaneir">
+                <div id="sugestoes">
+                    <div id="lampada">
+                        <img src="{{ asset('svg/idea.svg') }}" alt="Imagem lâmpada">
+                    </div>
+                    <h5>Tem alguma sugestão?</h5>
+                    <p>
+                        Encontrou alguma falha ou tem alguma sugestão para melhoria do App? Sinta-se à vontade
+                        para nos comunicar:
+                        <a href="#">Enviar mensagem</a>
+                    </p>
+                </div>
             </div>
         </aside>
 
         <section id="main">
-            Conteúdo
+            <div id="teste">
+
+                <div class="item center">Item 1</div>
+                <div class="item flex-end">Item 2</div>
+                <div class="item flex-start">Item 3</div>
+                <div class="item4">Item 4</div>
+            </div>
         </section>
     </div>
 </body>

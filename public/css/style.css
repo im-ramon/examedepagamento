@@ -69,6 +69,7 @@ aside#sidebar {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
 }
 
 #logo img {
@@ -89,7 +90,7 @@ aside#sidebar {
 
 nav {
   width: 100%;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 nav a.navbutton {
@@ -103,7 +104,7 @@ nav a.navbutton {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding: 9px 0;
+  padding: 10px 0;
   text-decoration: none;
   color: #181818;
   -webkit-transition: all 0.3s;
@@ -140,7 +141,14 @@ nav a.navbutton span {
   line-height: 18px;
 }
 
-div#sugestoes {
+#sugestoes_contaneir {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#sugestoes_contaneir #sugestoes {
   margin-top: 2em;
   background: #f1f4fb;
   width: 100%;
@@ -162,55 +170,61 @@ div#sugestoes {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  position: relative;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
-div#sugestoes img {
+#sugestoes_contaneir #sugestoes #lampada {
   background: #f1f4fb;
   border-radius: 100%;
+  margin-top: -16px;
+}
+
+#sugestoes_contaneir #sugestoes img {
   width: 18px;
   padding: 12px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   height: 18px;
-  margin-top: -16px;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s;
+  transition: -webkit-transform 0.5s, -webkit-filter 0.5s;
+  transition: transform 0.5s, filter 0.5s;
+  transition: transform 0.5s, filter 0.5s, -webkit-transform 0.5s, -webkit-filter 0.5s;
   cursor: pointer;
 }
 
-div#sugestoes img:hover {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+#sugestoes_contaneir #sugestoes img:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  -webkit-filter: invert(76%) sepia(39%) saturate(2844%) hue-rotate(5deg) brightness(107%) contrast(105%);
+          filter: invert(76%) sepia(39%) saturate(2844%) hue-rotate(5deg) brightness(107%) contrast(105%);
+  -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s;
+  transition: -webkit-transform 0.5s, -webkit-filter 0.5s;
+  transition: transform 0.5s, filter 0.5s;
+  transition: transform 0.5s, filter 0.5s, -webkit-transform 0.5s, -webkit-filter 0.5s;
 }
 
-div#sugestoes p,
-div#sugestoes h5,
-div#sugestoes span {
+#sugestoes_contaneir #sugestoes p,
+#sugestoes_contaneir #sugestoes h5,
+#sugestoes_contaneir #sugestoes span {
   text-align: center;
   color: #181818;
   margin: 0;
 }
 
-div#sugestoes p {
+#sugestoes_contaneir #sugestoes p {
   font-size: 12px;
   line-height: 24px;
   padding: 1em;
   color: #18181880;
 }
 
-div#sugestoes h5 {
+#sugestoes_contaneir #sugestoes h5 {
   font-size: 14px;
   margin: 5px 0;
 }
 
-div#sugestoes a {
+#sugestoes_contaneir #sugestoes a {
   display: block;
   border: 1px solid #18181880;
   margin-top: 6px;
@@ -224,7 +238,7 @@ div#sugestoes a {
   transition: color 0.3s, border 0.3s;
 }
 
-div#sugestoes a:hover {
+#sugestoes_contaneir #sugestoes a:hover {
   color: #181818;
   border: 1px solid #181818;
   -webkit-transition: color 0.3s, border 0.3s;
