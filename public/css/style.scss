@@ -256,13 +256,6 @@ form#formulario {
     flex-wrap: wrap;
     padding: 1em;
     justify-content: space-evenly;
-}
-
-#form_informacoes_financeiras {
-    background: rgb(69, 128, 155);
-}
-
-#form_informacoes_pessoais {
     border-radius: $borderRadius;
     border: 2px solid $branco;
     margin: 1em 0.7em;
@@ -277,6 +270,18 @@ form#formulario {
         padding: 6px;
         cursor: default;
         border: 2px solid $cinza-transparente;
+    }
+}
+
+#form_informacoes_financeiras {
+    .question_root {
+        width: 99%;
+        margin: 2em 0;
+    }
+
+    #form_informacoes_financeiras_col1,
+    #form_informacoes_financeiras_col2 {
+        width: 48%;
     }
 }
 
@@ -336,6 +341,10 @@ form#formulario {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px dashed rgba(218, 218, 218, 0.699);
+    padding: 8px 12px;
+    border-radius: $borderRadius;
+    margin: 2px 0;
 
     .question_title {
         align-self: flex-start;
