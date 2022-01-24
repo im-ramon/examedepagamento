@@ -1,0 +1,220 @@
+// ------------- TEMPORÁRIO ------------- //
+#gerar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #000;
+    color: aliceblue;
+    width: 150px;
+    height: 30px;
+    border-radius: 0%;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#gerar:hover {
+    opacity: 75%;
+    transition: all 1s;
+}
+// ------------- --------- ------------- //
+
+// ------------- VARIÁVEIS ------------- //
+$preto: #181818;
+$branco: #e1e1e1;
+$cinza-1: #f1f4fb;
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+#root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: 250px 12fr;
+}
+
+aside#sidebar {
+    background: rgb(255, 255, 255);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em 1em;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        width: 120px;
+    }
+
+    span {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-family: "Dongle", sans-serif;
+        color: #b7bec6;
+        font-weight: bold;
+
+        strong {
+            color: $preto;
+        }
+    }
+}
+
+nav {
+    width: 100%;
+    margin-top: 2em;
+
+    a.navbutton {
+        border: 2px solid rgba(0, 0, 0, 0);
+        margin: 1em 0;
+        border-radius: 6px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        padding: 9px 0;
+        text-decoration: none;
+        color: $preto;
+        transition: all 0.3s;
+
+        &:hover {
+            border: 2px solid rgb(0, 0, 0);
+            box-shadow: 0px 0px 13px 2px #d8d8d881;
+            transition: all 0.3s;
+        }
+
+        &.selected {
+            background: $preto;
+            color: $branco;
+
+            img {
+                filter: invert(100%);
+            }
+        }
+
+        img {
+            width: 18px;
+            margin: 0 16px;
+        }
+        span {
+            font-size: 14px;
+            font-feature-settings: "lnum";
+            line-height: 18px;
+        }
+    }
+}
+
+// * {
+//     border: 1px solid rebeccapurple;
+// }
+
+div#sugestoes {
+    margin-top: 2em;
+    background: $cinza-1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 6px;
+    user-select: none;
+    position: relative;
+
+    img {
+        background: $cinza-1;
+        border-radius: 100%;
+        width: 18px;
+        padding: 12px;
+        box-sizing: content-box;
+        height: 18px;
+        margin-top: -16px;
+        transition: transform 0.5s;
+        cursor: pointer;
+
+        &:hover {
+            transform: rotate(360deg);
+            transition: transform 0.5s;
+        }
+    }
+
+    p,
+    h5,
+    span {
+        text-align: center;
+        color: $preto;
+        margin: 0;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 24px;
+        padding: 1em;
+        color: #18181880;
+    }
+
+    h5 {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    a {
+        display: block;
+        border: 1px solid #18181880;
+        margin-top: 6px;
+        background: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #18181880;
+        font-weight: bold;
+        border-radius: 6px;
+        transition: color 0.3s, border 0.3s;
+
+        &:hover {
+            color: $preto;
+            border: 1px solid $preto;
+            transition: color 0.3s, border 0.3s;
+        }
+    }
+}
+
+#main {
+    background: $cinza-1;
+}
+
+form#formulario {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#form_informacoes_pessoais,
+#form_informacoes_financeiras {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#form_informacoes_financeiras {
+    background: rgb(69, 128, 155);
+}
+
+#form_informacoes_pessoais {
+    background: rgb(69, 155, 90);
+}
+
+.question_root {
+    width: 30%;
+}
