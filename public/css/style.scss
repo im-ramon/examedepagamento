@@ -1,7 +1,7 @@
 // ------------- TEMPORÁRIO ------------- //
 #gerar {
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     background: #000;
     color: aliceblue;
@@ -22,6 +22,18 @@
 $preto: #181818;
 $branco: #e1e1e1;
 $cinza-1: #f1f4fb;
+// ------------- --------- ------------- //
+
+// ------------- ANIMAÇÕES ------------- //
+@keyframes setaParaFechar {
+    0% {
+        margin-left: 8px;
+    }
+    100% {
+        margin-left: 16px;
+    }
+}
+// ------------- --------- ------------- //
 
 * {
     box-sizing: border-box;
@@ -32,29 +44,51 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     height: 100vh;
 }
 
 #root {
-    display: grid;
-    grid-template-columns: 250px 12fr;
+    display: flex;
 }
 
 aside#sidebar {
-    background: rgb(255, 255, 255);
-    height: 100%;
-    display: flex;
     align-items: center;
+    background: rgb(255, 255, 255);
+    display: flex;
     flex-direction: column;
+    height: 100%;
     padding: 2em 1em;
+    position: relative;
+    width: 300px;
+}
+
+#btn_fechar {
+    align-items: center;
+    background: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    height: 32px;
+    position: absolute;
+    right: -18px;
+    top: 6px;
+    width: 32px;
+
+    img {
+        margin-left: 8px;
+        &:hover {
+            animation: setaParaFechar 0.8s infinite alternate-reverse ease-out;
+        }
+    }
 }
 
 #logo {
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 100%;
 
     img {
@@ -62,11 +96,13 @@ aside#sidebar {
     }
 
     span {
-        text-transform: uppercase;
-        font-size: 22px;
-        font-family: "Dongle", sans-serif;
+        // font-family: "Dongle", sans-serif;
+        // font-family: "Montserrat", sans-serif;
         color: #b7bec6;
+        font-size: 12px;
         font-weight: bold;
+        margin-top: 2px;
+        text-transform: uppercase;
 
         strong {
             color: $preto;
@@ -199,6 +235,10 @@ nav {
 
 #main {
     background: $cinza-1;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100%;
+    padding: 1em 0;
 }
 
 form#formulario {
