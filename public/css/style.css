@@ -1,23 +1,3 @@
-#gerar {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: #000;
-  color: aliceblue;
-  width: 150px;
-  height: 30px;
-  border-radius: 0%;
-  cursor: pointer;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
-#gerar:hover {
-  opacity: 75%;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
 @-webkit-keyframes setaParaFechar {
   0% {
     margin-left: 8px;
@@ -449,5 +429,29 @@ form#formulario {
   border-radius: 6px;
   background: #f2eefd;
   padding: 4px 10px;
+}
+
+#gerar {
+  position: fixed;
+  bottom: 1em;
+  right: 2em;
+  background: #181818;
+  color: #e1e1e1;
+  width: 280px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid #c5c5c5;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.863);
+          box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.863);
+}
+
+#gerar:hover {
+  background: #000;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  border: 2px solid #000;
 }
 /*# sourceMappingURL=style.css.map */

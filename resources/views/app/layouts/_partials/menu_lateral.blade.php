@@ -8,22 +8,22 @@
     </div>
 
     <nav>
-        <a href="#" class="navbutton selected">
+        <a href="{{ route('app.home') }}" class="navbutton {{ explode('/', $_SERVER['REQUEST_URI'])[2] == 'home' ? 'selected' : '' }}">
             <img src="{{ asset('svg/home.svg') }}" alt="icone casa">
             <span class="navbutton_title">Home</span>
         </a>
 
-        <a href="#" class="navbutton">
+        <a href="{{ route('app.formulario') }}" class="navbutton {{ explode('/', $_SERVER['REQUEST_URI'])[2] == 'formulario' ? 'selected' : '' }}">
             <img src="{{ asset('svg/make.svg') }}" alt="icone computador">
             <span class="navbutton_title">Contracheques</span>
         </a>
 
-        <a href="#" class="navbutton">
+        <a href="#" class="navbutton {{ explode('/', $_SERVER['REQUEST_URI'])[2] == 'user' ? 'selected' : '' }}">
             <img src="{{ asset('svg/user.svg') }}" alt="icone usuário">
             <span class="navbutton_title">Meu perfil</span>
         </a>
 
-        <a href="#" class="navbutton">
+        <a href="#" class="navbutton {{ explode('/', $_SERVER['REQUEST_URI'])[2] == 'legislacao' ? 'selected' : '' }}">
             <img src="{{ asset('svg/books.svg') }}" alt="icone livro">
             <span class="navbutton_title">Legislação</span>
         </a>

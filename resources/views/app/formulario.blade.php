@@ -989,7 +989,7 @@
                             </section>
                     </section>
                 </section>
-                <button type="submit" id="gerar">GERAR</button>
+                <button type="submit" id="gerar">Gerar contracheque</button>
             </form>
         </section>
     </div>
