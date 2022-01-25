@@ -23,3 +23,7 @@ Route::prefix('/app')->group(function () {
     Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'formulario'])->name('app.formulario');
     Route::post('/fichaauxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

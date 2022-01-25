@@ -4,7 +4,7 @@
     <div id="root">
         @include('app.layouts._partials.menu_lateral')
         <section id="main">
-            <form id="formulario" action="{{ route('app.fichaauxiliar') }}" method="post">
+            <form id="formulario" action="/api/ficha-auxiliar" method="get">
                 @csrf
                 <section id="form_informacoes_pessoais">
                     <h2>Informações gerais</h2>
