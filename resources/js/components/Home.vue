@@ -50,31 +50,48 @@
             </div>
         </aside>
         <main>
-            <div id="logout">
-                <div id="btn_logout">
-                    <a
-                        href="/logout"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+            <section id="main_header">
+                <div id="logout">
+                    <div id="btn_logout">
+                        <a
+                            href="/logout"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        >
+                            Fazer logout
+                        </a>
+                        <img src="/svg/exit.svg" alt="Ícone sair" />
+                    </div>
+                    <form
+                        id="logout-form"
+                        :action="routeLogout"
+                        method="POST"
+                        class="d-none"
                     >
-                        Fazer logout
-                    </a>
-                    <img src="/svg/exit.svg" alt="Ícone sair" />
+                        <input
+                            type="hidden"
+                            name="_token"
+                            :value="token_csrf"
+                        />
+                    </form>
                 </div>
-                <form
-                    id="logout-form"
-                    :action="routeLogout"
-                    method="POST"
-                    class="d-none"
-                >
-                    <input type="hidden" name="_token" :value="token_csrf" />
-                </form>
-            </div>
+            </section>
+            <section id="main_body">
+                <formulario-component> </formulario-component>
+            </section>
         </main>
     </section>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            home: false,
+            contracheque: false,
+            perfil: false,
+            legislacao: false,
+        };
+    },
     props: ["token_csrf", "routeLogout"],
 };
 </script>

@@ -15,7 +15,7 @@ class PgConstanteController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(PgConstante::all());
     }
 
     /**

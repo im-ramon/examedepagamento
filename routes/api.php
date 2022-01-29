@@ -18,12 +18,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function (Request $request) {
+Route::get(
+    '/',
+    function (Request $request) {
         return ['foi' => 'sim'];
     }
 );
-Route::middleware('jwt.auth')->group(function() {
+Route::middleware('jwt.auth')->group(function () {
     Route::resource('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController');
+    Route::resource('pg-constantes', 'App\Http\Controllers\PgConstanteController');
     Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
     Route::post('me', 'App\Http\Controllers\AuthController@me');
