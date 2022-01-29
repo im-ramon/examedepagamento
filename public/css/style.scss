@@ -26,7 +26,9 @@ $cinza-transparente: rgb(197, 197, 197);
 }
 
 body,
-#root {
+#root,
+#app,
+#home {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -35,8 +37,41 @@ body,
     height: 100vh;
 }
 
-#root {
+#home {
     display: flex;
+}
+
+main {
+    background: $cinza-1;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 100%;
+    padding: 1em 0;
+}
+
+#logout {
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: flex-end;
+    padding: 0 1em;
+    width: 100%;
+
+    #btn_logout {
+        border-radius: $borderRadius;
+        padding: 0.2em 0.9em;
+        border: 2px solid rgba(255, 255, 255, 0);
+        transition: border 0.3s;
+
+        &:hover {
+            border: 2px solid $preto;
+            transition: border 0.3s;
+        }
+    }
+    a {
+        color: $preto;
+        text-decoration: none;
+    }
 }
 
 aside#sidebar {
@@ -214,14 +249,6 @@ nav {
             }
         }
     }
-}
-
-#main {
-    background: $cinza-1;
-    height: 100vh;
-    overflow-y: scroll;
-    width: 100%;
-    padding: 1em 0;
 }
 
 form#formulario {

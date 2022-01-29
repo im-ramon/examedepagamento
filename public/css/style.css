@@ -22,7 +22,9 @@
 }
 
 body,
-#root {
+#root,
+#app,
+#home {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -31,10 +33,52 @@ body,
   height: 100vh;
 }
 
-#root {
+#home {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+main {
+  background: #f1f4fb;
+  height: 100vh;
+  overflow-y: scroll;
+  width: 100%;
+  padding: 1em 0;
+}
+
+#logout {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 0 1em;
+  width: 100%;
+}
+
+#logout #btn_logout {
+  border-radius: 6px;
+  padding: 0.2em 0.9em;
+  border: 2px solid rgba(255, 255, 255, 0);
+  -webkit-transition: border 0.3s;
+  transition: border 0.3s;
+}
+
+#logout #btn_logout:hover {
+  border: 2px solid #181818;
+  -webkit-transition: border 0.3s;
+  transition: border 0.3s;
+}
+
+#logout a {
+  color: #181818;
+  text-decoration: none;
 }
 
 aside#sidebar {
@@ -269,14 +313,6 @@ nav a.navbutton span {
   border: 1px solid #181818;
   -webkit-transition: color 0.3s, border 0.3s;
   transition: color 0.3s, border 0.3s;
-}
-
-#main {
-  background: #f1f4fb;
-  height: 100vh;
-  overflow-y: scroll;
-  width: 100%;
-  padding: 1em 0;
 }
 
 form#formulario {
