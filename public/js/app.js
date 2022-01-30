@@ -7024,6 +7024,10 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         return console.log(e);
       });
+    },
+    myfunc: function myfunc(e) {
+      console.log("Chegamos até aqui!");
+      console.log(e);
     }
   },
   mounted: function mounted() {
@@ -7128,13 +7132,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      home: false,
-      contracheque: false,
-      perfil: false,
-      legislacao: false
+      paginaRenderizada: "home"
     };
   },
   props: ["token_csrf", "routeLogout"]
@@ -30883,7 +30918,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("section", { staticClass: "question_body" }, [
         _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Qual nível de babilitação do examinado?")]),
+          _c("p", [_vm._v("Qual nível de habilitação do examinado?")]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "question_options" }, [
@@ -32807,12 +32842,114 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { attrs: { id: "home" } }, [
-    _vm._m(0),
+    _c("aside", { attrs: { id: "sidebar" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("nav", [
+        _c(
+          "a",
+          {
+            class:
+              _vm.paginaRenderizada == "home"
+                ? "navbutton selected"
+                : "navbutton",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                _vm.paginaRenderizada = "home"
+              },
+            },
+          },
+          [
+            _c("img", { attrs: { src: "/svg/home.svg", alt: "icone casa" } }),
+            _vm._v(" "),
+            _c("span", { staticClass: "navbutton_title" }, [_vm._v("Home")]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            class:
+              _vm.paginaRenderizada == "contracheques"
+                ? "navbutton selected"
+                : "navbutton",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                _vm.paginaRenderizada = "contracheques"
+              },
+            },
+          },
+          [
+            _c("img", {
+              attrs: { src: "/svg/make.svg", alt: "icone computador" },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "navbutton_title" }, [
+              _vm._v("Contracheques"),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            class:
+              _vm.paginaRenderizada == "perfil"
+                ? "navbutton selected"
+                : "navbutton",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                _vm.paginaRenderizada = "perfil"
+              },
+            },
+          },
+          [
+            _c("img", {
+              attrs: { src: "/svg/user.svg", alt: "icone usuário" },
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "navbutton_title" }, [
+              _vm._v("Meu perfil"),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            class:
+              _vm.paginaRenderizada == "lesgislacao"
+                ? "navbutton selected"
+                : "navbutton",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                _vm.paginaRenderizada = "lesgislacao"
+              },
+            },
+          },
+          [
+            _c("img", { attrs: { src: "/svg/books.svg", alt: "icone livro" } }),
+            _vm._v(" "),
+            _c("span", { staticClass: "navbutton_title" }, [
+              _vm._v("Legislação"),
+            ]),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _vm._m(2),
+    ]),
     _vm._v(" "),
     _c("main", [
       _c("section", { attrs: { id: "main_header" } }, [
         _c("div", { attrs: { id: "logout" } }, [
-          _vm._m(1),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "form",
@@ -32837,7 +32974,11 @@ var render = function () {
       _c(
         "section",
         { attrs: { id: "main_body" } },
-        [_c("formulario-component")],
+        [
+          _vm.paginaRenderizada == "contracheques"
+            ? _c("formulario-component")
+            : _vm._e(),
+        ],
         1
       ),
     ]),
@@ -32848,78 +32989,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("aside", { attrs: { id: "sidebar" } }, [
-      _c("div", { attrs: { id: "btn_fechar" } }, [
-        _c("img", {
-          attrs: { src: "/svg/arrow.svg", alt: "Ícone de seta para esquerda" },
-        }),
-      ]),
+    return _c("div", { attrs: { id: "btn_fechar" } }, [
+      _c("img", {
+        attrs: { src: "/svg/arrow.svg", alt: "Ícone de seta para esquerda" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "logo" } }, [
+      _c("img", {
+        attrs: {
+          src: "/image/logo.png",
+          alt: "Logo Exame de Pagamento",
+          title: "App Exame de Pagamento",
+        },
+      }),
       _vm._v(" "),
-      _c("div", { attrs: { id: "logo" } }, [
-        _c("img", {
-          attrs: {
-            src: "/image/logo.png",
-            alt: "Logo Exame de Pagamento",
-            title: "App Exame de Pagamento",
-          },
-        }),
-        _vm._v(" "),
-        _c("span", [
-          _vm._v("App | "),
-          _c("strong", [_vm._v("Exame de Pagamento")]),
-        ]),
+      _c("span", [
+        _vm._v("App | "),
+        _c("strong", [_vm._v("Exame de Pagamento")]),
       ]),
-      _vm._v(" "),
-      _c("nav", [
-        _c("a", { staticClass: "navbutton selected", attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "/svg/home.svg", alt: "icone casa" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "navbutton_title" }, [_vm._v("Home")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "sugestoes_contaneir" } }, [
+      _c("div", { attrs: { id: "sugestoes" } }, [
+        _c("div", { attrs: { id: "lampada" } }, [
+          _c("img", { attrs: { src: "/svg/idea.svg", alt: "Imagem lâmpada" } }),
         ]),
         _vm._v(" "),
-        _c("a", { staticClass: "navbutton", attrs: { href: "#" } }, [
-          _c("img", {
-            attrs: { src: "/svg/make.svg", alt: "icone computador" },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "navbutton_title" }, [
-            _vm._v("Contracheques"),
-          ]),
-        ]),
+        _c("h5", [_vm._v("Tem alguma sugestão?")]),
         _vm._v(" "),
-        _c("a", { staticClass: "navbutton", attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "/svg/user.svg", alt: "icone usuário" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "navbutton_title" }, [
-            _vm._v("Meu perfil"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "navbutton", attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: "/svg/books.svg", alt: "icone livro" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "navbutton_title" }, [
-            _vm._v("Legislação"),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "sugestoes_contaneir" } }, [
-        _c("div", { attrs: { id: "sugestoes" } }, [
-          _c("div", { attrs: { id: "lampada" } }, [
-            _c("img", {
-              attrs: { src: "/svg/idea.svg", alt: "Imagem lâmpada" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Tem alguma sugestão?")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                    Encontrou alguma falha ou tem alguma sugestão para\n                    melhoria do App? Sinta-se à vontade para nos comunicar:\n                    "
-            ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Enviar mensagem")]),
-          ]),
+        _c("p", [
+          _vm._v(
+            "\n                    Encontrou alguma falha ou tem alguma sugestão para\n                    melhoria do App? Sinta-se à vontade para nos comunicar:\n                    "
+          ),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Enviar mensagem")]),
         ]),
       ]),
     ])

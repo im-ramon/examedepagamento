@@ -1,6 +1,6 @@
 <template>
+    <!-- <form id="formulario" v-on:submit.prevent="myfunc($event)" method="get"> -->
     <form id="formulario" action="/api/ficha-auxiliar" method="get">
-        <!-- @csrf -->
         <input type="hidden" name="_token" :value="token_csrf" />
 
         <section id="form_informacoes_pessoais">
@@ -323,7 +323,7 @@
                     <legend>Adicional Habilitação</legend>
                     <section class="question_body">
                         <div class="question_title">
-                            <p>Qual nível de babilitação do examinado?</p>
+                            <p>Qual nível de habilitação do examinado?</p>
                         </div>
                         <div class="question_options">
                             <select name="adic_hab_tipo" required>
@@ -1725,6 +1725,10 @@ export default {
                 .get("http://localhost:8000/api/pg-constantes", config)
                 .then((r) => (this.selectPg = r.data))
                 .catch((e) => console.log(e));
+        },
+        myfunc(e) {
+            console.log("Chegamos até aqui!");
+            console.log(e);
         },
     },
     mounted() {

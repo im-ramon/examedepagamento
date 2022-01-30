@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::prefix('/app')->group(function () {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('app.home');
     Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'gerarFormulario'])->name('app.formulario');
-    Route::post('/fichaauxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
+    Route::post('/ficha-auxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
 });
 
 Auth::routes();

@@ -73,18 +73,23 @@ class ContrachequeController extends Controller
         $pg_info = \App\Models\PgConstante::all();
         return view('app.formulario', ['pg_info' => $pg_info]);
     }
-    
+
+    public function fichaauxiliar()
+    {
+        return 'ok';
+    }
+
     public function index() //GET
     {
-        if($_GET) {
+        if ($_GET) {
             $formulario = $_GET;
             $todos_pg_info = \App\Models\PgConstante::all()->toArray();
             $pg_real_info = \App\Models\PgConstante::find($formulario['pg_real'])->toArray();
             $pg_soldo_info = \App\Models\PgConstante::find($formulario['pg_soldo'])->toArray();
             $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
-    
+
             $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
-    
+
             //Exclusivo para pensionada de Ex-Cmbt:
             $this->dpExcmbArt9($formulario);
             if ($this->soldo_base['valor'] > 0 and $this->dp_excmb_art_9['valor'] == 0) {
@@ -106,12 +111,12 @@ class ContrachequeController extends Controller
                 $this->auxInvalidez($formulario);
                 $this->auxNatalidade($formulario);
                 $this->salarioFamilia($formulario);
-    
+
                 // Dependem do bruto (IR e Descontos):
                 $this->auxPreEscolar($formulario);
                 $this->adicFerias($formulario);
                 $this->adicNatalino($formulario);
-    
+
                 //DESCONTOS
                 $this->pMil($formulario, $todos_pg_info);
                 $this->pMil15($formulario, $todos_pg_info);
@@ -193,24 +198,23 @@ class ContrachequeController extends Controller
         } else {
             return response()->json(['erro' => 'Não foi possível realizar os cálculos. Provavelmente, não foi fornecido o body da requisição.'], 404);
         }
-
     }
 
     public function create()
     {
         //
     }
-    
+
     public function store(StoreContrachequeRequest $request)
     {
         //
     }
-    
+
     public function show(Contracheque $Contracheque)
     {
         //
     }
-    
+
     public function edit(Contracheque $Contracheque)
     {
         //
@@ -732,5 +736,4 @@ class ContrachequeController extends Controller
             $this->imposto_renda_adic_ferias['valor'] = $this->impostoRenda($this->adic_ferias['valor'],  $this->somaDescontosParaIRMensal(), $formulario["imposto_renda_dep"], $formulario["maior_65"]);
         }
     }
-
 }

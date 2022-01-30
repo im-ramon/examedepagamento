@@ -14,22 +14,53 @@
             </div>
 
             <nav>
-                <a href="#" class="navbutton selected">
+                <a
+                    href="#"
+                    :class="
+                        paginaRenderizada == 'home'
+                            ? 'navbutton selected'
+                            : 'navbutton'
+                    "
+                    @click="paginaRenderizada = 'home'"
+                >
                     <img src="/svg/home.svg" alt="icone casa" />
                     <span class="navbutton_title">Home</span>
                 </a>
-
-                <a href="#" class="navbutton">
+                <a
+                    href="#"
+                    @click="paginaRenderizada = 'contracheques'"
+                    :class="
+                        paginaRenderizada == 'contracheques'
+                            ? 'navbutton selected'
+                            : 'navbutton'
+                    "
+                >
                     <img src="/svg/make.svg" alt="icone computador" />
                     <span class="navbutton_title">Contracheques</span>
                 </a>
 
-                <a href="#" class="navbutton">
+                <a
+                    href="#"
+                    :class="
+                        paginaRenderizada == 'perfil'
+                            ? 'navbutton selected'
+                            : 'navbutton'
+                    "
+                    @click="paginaRenderizada = 'perfil'"
+                >
                     <img src="/svg/user.svg" alt="icone usuário" />
                     <span class="navbutton_title">Meu perfil</span>
                 </a>
 
-                <a href="#" class="navbutton">
+                <a
+                    href="#"
+                    :class="
+                        paginaRenderizada == 'lesgislacao'
+                            ? 'navbutton selected'
+                            : 'navbutton'
+                    "
+                    @click="paginaRenderizada = 'lesgislacao'"
+                >
                     <img src="/svg/books.svg" alt="icone livro" />
                     <span class="navbutton_title">Legislação</span>
                 </a>
@@ -76,7 +107,10 @@
                 </div>
             </section>
             <section id="main_body">
-                <formulario-component> </formulario-component>
+                <formulario-component
+                    v-if="paginaRenderizada == 'contracheques'"
+                >
+                </formulario-component>
             </section>
         </main>
     </section>
@@ -86,10 +120,7 @@
 export default {
     data() {
         return {
-            home: false,
-            contracheque: false,
-            perfil: false,
-            legislacao: false,
+            paginaRenderizada: "home",
         };
     },
     props: ["token_csrf", "routeLogout"],
