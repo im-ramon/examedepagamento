@@ -6991,9 +6991,93 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["token_csrf"],
+  props: ["form_token"],
   computed: {
     token: function token() {
       var token = document.cookie.split(";").find(function (indice) {
@@ -7004,9 +7088,147 @@ __webpack_require__.r(__webpack_exports__);
       return token;
     }
   },
+  watch: {
+    universo: function universo(newValue, oldValue) {
+      if (newValue == "ativa") {
+        this.form_soldo_cota = false;
+        this.soldo_cota_porcentagem = "100.00";
+        this.form_soldo_prop_cota = false;
+        this.soldo_prop_cota_porcentagem = "100.00";
+        this.form_compl_ct_soldo = false;
+        this.compl_ct_soldo = "0";
+        this.form_dp_excmb_art_9 = false;
+        this.dp_excmb_art_9 = "0";
+      } else if (newValue == "inativo") {
+        this.form_soldo_cota = false;
+        this.soldo_cota_porcentagem = "100.00";
+        this.form_soldo_prop_cota = true;
+        this.soldo_prop_cota_porcentagem = "100.00";
+        this.form_compl_ct_soldo = true;
+        this.compl_ct_soldo = "0";
+        this.form_dp_excmb_art_9 = false;
+        this.dp_excmb_art_9 = "0";
+      } else if (newValue == "pens_mil") {
+        this.form_soldo_cota = true;
+        this.soldo_cota_porcentagem = "100.00";
+        this.form_soldo_prop_cota = true;
+        this.soldo_prop_cota_porcentagem = "100.00";
+        this.form_compl_ct_soldo = true;
+        this.compl_ct_soldo = "0";
+        this.form_dp_excmb_art_9 = false;
+        this.dp_excmb_art_9 = "0";
+      } else if (newValue == "pens_excmbt_2ten" || newValue == "pens_excmbt_2sgt") {
+        this.form_soldo_cota = true;
+        this.soldo_cota_porcentagem = "100.00";
+        this.form_soldo_prop_cota = true;
+        this.soldo_prop_cota_porcentagem = "100.00";
+        this.form_compl_ct_soldo = true;
+        this.compl_ct_soldo = "0";
+        this.form_dp_excmb_art_9 = true;
+        this.dp_excmb_art_9 = "0";
+      }
+    }
+  },
   data: function data() {
     return {
-      selectPg: []
+      selectPg: [],
+      universo: "ativa",
+      data_contracheque: "2022-01-01",
+      maior_65: "0",
+      isento_ir: "0",
+      pg_soldo: "1",
+      pg_real: "1",
+      tipo_soldo: "1",
+      soldo_cota_porcentagem: "100.00",
+      soldo_prop_cota_porcentagem: "100.00",
+      compl_ct_soldo: "0",
+      adic_tp_sv: "0",
+      adic_disp: "1",
+      adic_hab_tipo: "sem_formacao",
+      adic_mil: "1",
+      adic_comp_org_tipo: "0",
+      adic_comp_org_percet: "0",
+      adic_comp_org_pg: "1",
+      hvoo_percet: "0",
+      hvoo_pg: "1",
+      acres_25_soldo: "0",
+      adic_perm: "0",
+      salario_familia_dep: "0",
+      imposto_renda_dep: "0",
+      adic_ferias: "0",
+      adic_pttc: "0",
+      adic_natalino: "0",
+      adic_natalino_qtd_meses: "1",
+      adic_natalino_valor_adiantamento: "0",
+      aux_pre_escolar_qtd: "0",
+      aux_invalidez: "0",
+      aux_transporte: "0",
+      aux_fard: "0",
+      aux_fard_primeiro: "0",
+      aux_alim_c: "0",
+      aux_alim_5x: "0",
+      aux_natalidade: "0",
+      grat_loc_esp: "0",
+      grat_repr_cmdo: "0",
+      grat_repr_2: "0",
+      grat_repr_2_pg: "1",
+      dp_excmb_art_9: "0",
+      pmil: "1",
+      pmilmesmopg: "1",
+      pmil_pg: "1",
+      pmil_15: "0",
+      pmil_30: "0",
+      fusex_3: "1",
+      desc_dep_fusex: "0",
+      pnr: "0",
+      pens_judiciaria_1: "0",
+      pens_judiciaria_2: "0",
+      pens_judiciaria_3: "0",
+      pens_judiciaria_4: "0",
+      pens_judiciaria_5: "0",
+      pens_judiciaria_6: "0",
+      pens_judiciaria_adic_natal_1: "0",
+      pens_judiciaria_adic_natal_2: "0",
+      pens_judiciaria_adic_natal_3: "0",
+      pens_judiciaria_adic_natal_4: "0",
+      pens_judiciaria_adic_natal_5: "0",
+      pens_judiciaria_adic_natal_6: "0",
+      form_soldo_cota: false,
+      form_soldo_prop_cota: false,
+      form_compl_ct_soldo: false,
+      form_adic_tp_sv: true,
+      form_adic_disp: true,
+      form_adic_hab: true,
+      form_adic_mil: true,
+      form_adic_comp_org: true,
+      form_hvoo: true,
+      form_acres_25_soldo: true,
+      form_adic_perm: true,
+      form_salario_familia_ir: true,
+      form_adic_ferias: true,
+      form_adic_pttc: true,
+      form_adic_natalino: true,
+      form_aux_pre_escolar: true,
+      form_aux_invalidez: true,
+      form_aux_transporte: true,
+      form_aux_fard: true,
+      form_aux_fard_primeiro: true,
+      form_aux_alim_c: true,
+      form_aux_alim_5x: true,
+      form_aux_natalidade: true,
+      form_grat_loc_esp: true,
+      form_grat_repr_cmdo: true,
+      form_grat_repr_2: true,
+      form_dp_excmb_art_9: false,
+      form_pmil: true,
+      form_pmil_15: true,
+      form_pmil_30: true,
+      form_fusex_3: true,
+      form_desc_dep_fusex: true,
+      form_pnr: true,
+      form_pens_judiciaria: true,
+      f_aux_transporte: "0",
+      f_aux_alim_5x: "0"
     };
   },
   methods: {
@@ -7166,13 +7388,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       paginaRenderizada: "home"
     };
   },
-  props: ["token_csrf", "routeLogout"]
+  props: ["csrf_token", "routeLogout"]
 });
 
 /***/ }),
@@ -30183,30 +30406,253 @@ var render = function () {
     [
       _c("input", {
         attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.token_csrf },
+        domProps: { value: _vm.form_token },
       }),
       _vm._v(" "),
       _c("section", { attrs: { id: "form_informacoes_pessoais" } }, [
         _c("h2", [_vm._v("Informações gerais")]),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
+        _c("fieldset", { staticClass: "question_root" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("legend", [_vm._v("Universo/ Classificação")]),
+          _vm._v(" "),
+          _c("section", { staticClass: "question_body" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "question_options" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.universo,
+                      expression: "universo",
+                    },
+                  ],
+                  attrs: { name: "universo", id: "tipo_soldo" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.universo = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { value: "ativa" } }, [
+                    _vm._v("Militar da Ativa"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "inativo" } }, [
+                    _vm._v("Militar da Inativo"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "pens_mil" } }, [
+                    _vm._v(
+                      "\n                            Pensionista Militar\n                        "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "pens_excmbt_2ten" } }, [
+                    _vm._v(
+                      "\n                            Pensionista Ex-Combatente (2º Ten)\n                        "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "pens_excmbt_2sgt" } }, [
+                    _vm._v(
+                      "\n                            Pensionista Ex-Combatente (2º Sgt)\n                        "
+                    ),
+                  ]),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
         _vm._v(" "),
         _c("fieldset", { staticClass: "question_root" }, [
-          _c("legend", [_vm._v("P/G Soldo")]),
+          _c("legend", [_vm._v("Data do contracheque")]),
+          _vm._v(" "),
+          _c("section", { staticClass: "question_body" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "question_options" }, [
+              _c("input", {
+                attrs: { name: "data_contracheque", id: "date", type: "date" },
+                domProps: { value: _vm.data_contracheque },
+              }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("fieldset", { staticClass: "question_root" }, [
+          _c("legend", [_vm._v("Idade")]),
+          _vm._v(" "),
+          _c("section", { staticClass: "question_body" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "question_options" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.maior_65,
+                    expression: "maior_65",
+                  },
+                ],
+                attrs: {
+                  type: "radio",
+                  name: "maior_65",
+                  value: "1",
+                  id: "maior_65sim",
+                },
+                domProps: { checked: _vm._q(_vm.maior_65, "1") },
+                on: {
+                  change: function ($event) {
+                    _vm.maior_65 = "1"
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "maior_65sim" } }, [_vm._v("Sim")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.maior_65,
+                    expression: "maior_65",
+                  },
+                ],
+                attrs: {
+                  type: "radio",
+                  name: "maior_65",
+                  value: "0",
+                  id: "maior_65nao",
+                  checked: "",
+                },
+                domProps: { checked: _vm._q(_vm.maior_65, "0") },
+                on: {
+                  change: function ($event) {
+                    _vm.maior_65 = "0"
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "maior_65nao" } }, [_vm._v("Não")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("fieldset", { staticClass: "question_root" }, [
+          _c("legend", [_vm._v("Isenção de Imposto de Renda")]),
           _vm._v(" "),
           _c("section", { staticClass: "question_body" }, [
             _vm._m(4),
             _vm._v(" "),
             _c("div", { staticClass: "question_options" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.isento_ir,
+                    expression: "isento_ir",
+                  },
+                ],
+                attrs: {
+                  type: "radio",
+                  name: "isento_ir",
+                  value: "1",
+                  id: "isento_irsim",
+                },
+                domProps: { checked: _vm._q(_vm.isento_ir, "1") },
+                on: {
+                  change: function ($event) {
+                    _vm.isento_ir = "1"
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "isento_irsim" } }, [_vm._v("Sim")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.isento_ir,
+                    expression: "isento_ir",
+                  },
+                ],
+                attrs: {
+                  type: "radio",
+                  name: "isento_ir",
+                  value: "0",
+                  id: "isento_irnao",
+                  checked: "",
+                },
+                domProps: { checked: _vm._q(_vm.isento_ir, "0") },
+                on: {
+                  change: function ($event) {
+                    _vm.isento_ir = "0"
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "isento_irnao" } }, [_vm._v("Não")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("fieldset", { staticClass: "question_root" }, [
+          _c("legend", [_vm._v("P/G Soldo")]),
+          _vm._v(" "),
+          _c("section", { staticClass: "question_body" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "question_options" }, [
               _c(
                 "select",
-                { attrs: { name: "pg_soldo" } },
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.pg_soldo,
+                      expression: "pg_soldo",
+                    },
+                  ],
+                  attrs: { name: "pg_soldo" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.pg_soldo = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
                 _vm._l(_vm.selectPg, function (pg, key) {
                   return _c(
                     "option",
@@ -30230,12 +30676,37 @@ var render = function () {
           _c("legend", [_vm._v("P/G Real")]),
           _vm._v(" "),
           _c("section", { staticClass: "question_body" }, [
-            _vm._m(5),
+            _vm._m(6),
             _vm._v(" "),
             _c("div", { staticClass: "question_options" }, [
               _c(
                 "select",
-                { attrs: { name: "pg_real" } },
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.pg_real,
+                      expression: "pg_real",
+                    },
+                  ],
+                  attrs: { name: "pg_real" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.pg_real = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
                 _vm._l(_vm.selectPg, function (pg, key) {
                   return _c(
                     "option",
@@ -30260,199 +30731,3425 @@ var render = function () {
         _c("h2", [_vm._v("Informações financeiras")]),
         _vm._v(" "),
         _c("section", { attrs: { id: "form_informacoes_financeiras_col1" } }, [
-          _vm._m(6),
-          _vm._v(" "),
-          _vm._m(7),
-          _vm._v(" "),
-          _vm._m(8),
-          _vm._v(" "),
-          _vm._m(9),
-          _vm._v(" "),
-          _vm._m(10),
-          _vm._v(" "),
-          _vm._m(11),
-          _vm._v(" "),
-          _vm._m(12),
-          _vm._v(" "),
-          _vm._m(13),
-          _vm._v(" "),
           _c("fieldset", { staticClass: "question_root" }, [
-            _c("legend", [_vm._v("Adicional de Compensação Orgânica")]),
+            _vm._m(7),
             _vm._v(" "),
-            _vm._m(14),
-            _vm._v(" "),
-            _vm._m(15),
+            _c("legend", [_vm._v("Soldo")]),
             _vm._v(" "),
             _c("section", { staticClass: "question_body" }, [
-              _vm._m(16),
+              _vm._m(8),
               _vm._v(" "),
               _c("div", { staticClass: "question_options" }, [
                 _c(
                   "select",
-                  { attrs: { name: "adic_comp_org_pg" } },
-                  _vm._l(_vm.selectPg, function (pg, key) {
-                    return _c(
-                      "option",
-                      { key: key, domProps: { value: pg.id } },
-                      [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(pg.pg_abrev) +
-                            "\n                            "
-                        ),
-                      ]
-                    )
-                  }),
-                  0
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.tipo_soldo,
+                        expression: "tipo_soldo",
+                      },
+                    ],
+                    attrs: { name: "tipo_soldo", id: "tipo_soldo" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.tipo_soldo = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("Normal/ Integral"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v(
+                        "\n                                Soldo Proporcional para Cota\n                            "
+                      ),
+                    ]),
+                  ]
                 ),
               ]),
             ]),
           ]),
           _vm._v(" "),
-          _c("fieldset", { staticClass: "question_root" }, [
-            _c("legend", [_vm._v("Adicional de Horas de Voo (ART24MP)")]),
-            _vm._v(" "),
-            _vm._m(17),
-            _vm._v(" "),
-            _vm._m(18),
-            _vm._v(" "),
-            _c("section", { staticClass: "question_body" }, [
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_soldo_cota,
+                  expression: "form_soldo_cota",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Cota-parte do Soldo")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(9),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.soldo_cota_porcentagem,
+                        expression: "soldo_cota_porcentagem",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      min: "0",
+                      max: "100",
+                      step: "0.01",
+                      name: "soldo_cota_porcentagem",
+                      id: "soldo_cota_porcentagem",
+                    },
+                    domProps: { value: _vm.soldo_cota_porcentagem },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.soldo_cota_porcentagem = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v("\n                        %\n                    "),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_soldo_prop_cota,
+                  expression: "form_soldo_prop_cota",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Soldo Proporcional para Cota")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(10),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.soldo_prop_cota_porcentagem,
+                        expression: "soldo_prop_cota_porcentagem",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      min: "0",
+                      max: "100",
+                      step: "0.01",
+                      name: "soldo_prop_cota_porcentagem",
+                      id: "soldo_prop_cota_porcentagem",
+                    },
+                    domProps: { value: _vm.soldo_prop_cota_porcentagem },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.soldo_prop_cota_porcentagem = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v("\n                        %\n                    "),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_compl_ct_soldo,
+                  expression: "form_compl_ct_soldo",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Complemento de cota de soldo")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(11),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.compl_ct_soldo,
+                        expression: "compl_ct_soldo",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "compl_ct_soldo",
+                      value: "1",
+                      id: "complementocotasoldosim",
+                    },
+                    domProps: { checked: _vm._q(_vm.compl_ct_soldo, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.compl_ct_soldo = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "complementocotasoldosim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.compl_ct_soldo,
+                        expression: "compl_ct_soldo",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "compl_ct_soldo",
+                      value: "0",
+                      id: "complementocotasoldonao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.compl_ct_soldo, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.compl_ct_soldo = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "complementocotasoldonao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_tp_sv,
+                  expression: "form_adic_tp_sv",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional de Tempo de Serviço")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(12),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_tp_sv,
+                        expression: "adic_tp_sv",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "adic_tp_sv",
+                      id: "adic_tp_sv",
+                      min: "0",
+                      max: "100",
+                    },
+                    domProps: { value: _vm.adic_tp_sv },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.adic_tp_sv = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_disp,
+                  expression: "form_adic_disp",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [
+                _vm._v(
+                  "\n                    Adicional de Compensação por Disponibilidade Militar\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(13),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_disp,
+                        expression: "adic_disp",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "adic_disp",
+                      value: "1",
+                      id: "adic_dispsim",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_disp, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_disp = "1"
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "adic_dispsim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_disp,
+                        expression: "adic_disp",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "adic_disp",
+                      value: "0",
+                      id: "adic_dispnao",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_disp, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_disp = "0"
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "adic_dispnao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_hab,
+                  expression: "form_adic_hab",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional Habilitação")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(14),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_hab_tipo,
+                          expression: "adic_hab_tipo",
+                        },
+                      ],
+                      attrs: { name: "adic_hab_tipo", required: "" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.adic_hab_tipo = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c("option", { attrs: { value: "sem_formacao" } }, [
+                        _vm._v(
+                          "\n                                - Selecione o tipo -\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "altos_estudos_I" } }, [
+                        _vm._v(
+                          "\n                                Altos estudos Categoria I\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "altos_estudos_II" } }, [
+                        _vm._v(
+                          "\n                                Altos estudos Categoria II\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "aperfeicoamento" } }, [
+                        _vm._v(
+                          "\n                                Apefeiçoamento\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "especializacao" } }, [
+                        _vm._v(
+                          "\n                                Especialização\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "formacao" } }, [
+                        _vm._v("Formação"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "sem_formacao" } }, [
+                        _vm._v(
+                          "\n                                Sem formação\n                            "
+                        ),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_mil,
+                  expression: "form_adic_mil",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional Militar")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(15),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_mil,
+                        expression: "adic_mil",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "adic_mil",
+                      value: "1",
+                      id: "adic_mil_sim",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_mil, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_mil = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "adic_hab_sim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_mil,
+                        expression: "adic_mil",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "adic_mil",
+                      value: "0",
+                      id: "adic_mil_nao",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_mil, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_mil = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "adic_hab_nao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_comp_org,
+                  expression: "form_adic_comp_org",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional de Compensação Orgânica")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(16),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_comp_org_tipo,
+                          expression: "adic_comp_org_tipo",
+                        },
+                      ],
+                      attrs: { name: "adic_comp_org_tipo" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.adic_comp_org_tipo = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v(
+                          "\n                                - Selecione uma opção -\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "PDQT" } }, [
+                        _vm._v("Paraquedista"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "RAIOX" } }, [
+                        _vm._v("Raio-X"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "TO/ OMA/ FO" } }, [
+                        _vm._v(
+                          "\n                                Tripulante Orgânico\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "TO/ OMA/ FO" } }, [
+                        _vm._v(
+                          "\n                                Observador Meteorológico\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "TO/ OMA/ FO" } }, [
+                        _vm._v(
+                          "\n                                Observador Fotogramétrico\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "IM/ MG/ CTA" } }, [
+                        _vm._v(
+                          "\n                                Imersão a bordo de submarino\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "IM/ MG/ CTA" } }, [
+                        _vm._v(
+                          "\n                                Mergulho com escafandro ou com aparelho\n                            "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "IM/ MG/ CTA" } }, [
+                        _vm._v(
+                          "\n                                Controle de tráfego aéreo\n                            "
+                        ),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(17),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_comp_org_percet,
+                        expression: "adic_comp_org_percet",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "adic_comp_org_percet",
+                      min: "0",
+                      max: "100",
+                    },
+                    domProps: { value: _vm.adic_comp_org_percet },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.adic_comp_org_percet = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(18),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_comp_org_pg,
+                          expression: "adic_comp_org_pg",
+                        },
+                      ],
+                      attrs: { name: "adic_comp_org_pg" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.adic_comp_org_pg = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    _vm._l(_vm.selectPg, function (pg, key) {
+                      return _c(
+                        "option",
+                        { key: key, domProps: { value: pg.id } },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(pg.pg_abrev) +
+                              "\n                            "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_hvoo,
+                  expression: "form_hvoo",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional de Horas de Voo (ART24MP)")]),
+              _vm._v(" "),
               _vm._m(19),
               _vm._v(" "),
-              _c("div", { staticClass: "question_options" }, [
-                _c(
-                  "select",
-                  { attrs: { name: "hvoo_pg" } },
-                  _vm._l(_vm.selectPg, function (pg, key) {
-                    return _c(
-                      "option",
-                      { key: key, domProps: { value: pg.id } },
-                      [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(pg.pg_abrev) +
-                            "\n                            "
-                        ),
-                      ]
-                    )
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(20),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.hvoo_percet,
+                        expression: "hvoo_percet",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "hvoo_percet",
+                      step: "0.01",
+                      min: "0",
+                      max: "100",
+                    },
+                    domProps: { value: _vm.hvoo_percet },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.hvoo_percet = $event.target.value
+                      },
+                    },
                   }),
-                  0
-                ),
+                ]),
               ]),
-            ]),
-          ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(21),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.hvoo_pg,
+                          expression: "hvoo_pg",
+                        },
+                      ],
+                      attrs: { name: "hvoo_pg" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.hvoo_pg = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    _vm._l(_vm.selectPg, function (pg, key) {
+                      return _c(
+                        "option",
+                        { key: key, domProps: { value: pg.id } },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(pg.pg_abrev) +
+                              "\n                            "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(20),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_acres_25_soldo,
+                  expression: "form_acres_25_soldo",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [
+                _vm._v("Adicional de Acréscimo de 25% sobre o soldo"),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(22),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("section", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.acres_25_soldo,
+                          expression: "acres_25_soldo",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "acres_25_soldo",
+                        id: "acres25soldosim",
+                      },
+                      domProps: { checked: _vm._q(_vm.acres_25_soldo, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.acres_25_soldo = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "acres25soldosim" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.acres_25_soldo,
+                          expression: "acres_25_soldo",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "acres_25_soldo",
+                        id: "acres25soldonao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.acres_25_soldo, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.acres_25_soldo = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "acres25soldonao" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(21),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_perm,
+                  expression: "form_adic_perm",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional de Permanência")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(23),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_perm,
+                        expression: "adic_perm",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "adic_perm",
+                      min: "0",
+                      max: "100",
+                      step: "5",
+                    },
+                    domProps: { value: _vm.adic_perm },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.adic_perm = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(22),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_salario_familia_ir,
+                  expression: "form_salario_familia_ir",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Salário família/ Imposto de Renda")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(24),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.salario_familia_dep,
+                        expression: "salario_familia_dep",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "salario_familia_dep",
+                      min: "0",
+                      max: "30",
+                    },
+                    domProps: { value: _vm.salario_familia_dep },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.salario_familia_dep = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(25),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.imposto_renda_dep,
+                          expression: "imposto_renda_dep",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "imposto_renda_dep",
+                        min: "0",
+                        max: "30",
+                      },
+                      domProps: { value: _vm.imposto_renda_dep },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.imposto_renda_dep = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(23),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_ferias,
+                  expression: "form_adic_ferias",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional de Férias")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(26),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("section", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_ferias,
+                          expression: "adic_ferias",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "adic_ferias",
+                        id: "feriassim",
+                      },
+                      domProps: { checked: _vm._q(_vm.adic_ferias, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.adic_ferias = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "feriassim" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_ferias,
+                          expression: "adic_ferias",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "adic_ferias",
+                        id: "feriasnao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.adic_ferias, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.adic_ferias = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "feriasnao" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(24),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_pttc,
+                  expression: "form_adic_pttc",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional PTTC")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(27),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_pttc,
+                        expression: "adic_pttc",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "adic_pttc",
+                      id: "pttcsim",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_pttc, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_pttc = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "pttcsim" } }, [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_pttc,
+                        expression: "adic_pttc",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "adic_pttc",
+                      id: "pttcnao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_pttc, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_pttc = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "pttcnao" } }, [_vm._v("Não")]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(25),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_adic_natalino,
+                  expression: "form_adic_natalino",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Adicional Natalino")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(28),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_natalino,
+                        expression: "adic_natalino",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "adic_natalino",
+                      id: "adicnatalinosim",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_natalino, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_natalino = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "adicnatalinosim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_natalino,
+                        expression: "adic_natalino",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "adic_natalino",
+                      id: "adicnatalinonao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.adic_natalino, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.adic_natalino = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "adicnatalinonao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(29),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_natalino_qtd_meses,
+                        expression: "adic_natalino_qtd_meses",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "adic_natalino_qtd_meses",
+                      min: "0",
+                      max: "12",
+                    },
+                    domProps: { value: _vm.adic_natalino_qtd_meses },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.adic_natalino_qtd_meses = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(30),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.adic_natalino_valor_adiantamento,
+                        expression: "adic_natalino_valor_adiantamento",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "adic_natalino_valor_adiantamento",
+                      min: "0",
+                      step: "0.01",
+                      max: "99999",
+                    },
+                    domProps: { value: _vm.adic_natalino_valor_adiantamento },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.adic_natalino_valor_adiantamento =
+                          $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(26),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_pre_escolar,
+                  expression: "form_aux_pre_escolar",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Auxílio Pré-escolar")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(31),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_pre_escolar_qtd,
+                        expression: "aux_pre_escolar_qtd",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "aux_pre_escolar_qtd",
+                      min: "0",
+                      max: "30",
+                    },
+                    domProps: { value: _vm.aux_pre_escolar_qtd },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.aux_pre_escolar_qtd = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+            ]
+          ),
         ]),
         _vm._v(" "),
         _c("section", { attrs: { id: "form_informacoes_financeiras_col2" } }, [
-          _vm._m(27),
-          _vm._v(" "),
-          _vm._m(28),
-          _vm._v(" "),
-          _vm._m(29),
-          _vm._v(" "),
-          _vm._m(30),
-          _vm._v(" "),
-          _vm._m(31),
-          _vm._v(" "),
-          _vm._m(32),
-          _vm._v(" "),
-          _vm._m(33),
-          _vm._v(" "),
-          _vm._m(34),
-          _vm._v(" "),
-          _c("fieldset", { staticClass: "question_root" }, [
-            _c("legend", [_vm._v("Gratificação de Representação 2%")]),
-            _vm._v(" "),
-            _vm._m(35),
-            _vm._v(" "),
-            _vm._m(36),
-            _vm._v(" "),
-            _c("section", { staticClass: "question_body" }, [
-              _vm._m(37),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_invalidez,
+                  expression: "form_aux_invalidez",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Auxílio Inavalidez")]),
               _vm._v(" "),
-              _c("div", { staticClass: "question_options" }, [
-                _c(
-                  "select",
-                  { attrs: { name: "grat_repr_2_pg" } },
-                  _vm._l(_vm.selectPg, function (pg, key) {
-                    return _c(
-                      "option",
-                      { key: key, domProps: { value: pg.id } },
-                      [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(pg.pg_abrev) +
-                            "\n                            "
-                        ),
-                      ]
-                    )
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(32),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_invalidez,
+                        expression: "aux_invalidez",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "aux_invalidez",
+                      id: "auxinvsim",
+                    },
+                    domProps: { checked: _vm._q(_vm.aux_invalidez, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.aux_invalidez = "1"
+                      },
+                    },
                   }),
-                  0
+                  _c("label", { attrs: { for: "auxinvsim" } }, [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_invalidez,
+                        expression: "aux_invalidez",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "aux_invalidez",
+                      id: "auxinvnao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.aux_invalidez, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.aux_invalidez = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxinvnao" } }, [_vm._v("Não")]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_transporte,
+                  expression: "form_aux_transporte",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Auxílio Transporte")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(33),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.f_aux_transporte,
+                          expression: "f_aux_transporte",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "f_aux_transporte",
+                        id: "f_aux_transportesim",
+                      },
+                      domProps: { checked: _vm._q(_vm.f_aux_transporte, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.f_aux_transporte = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "f_aux_transportesim" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.f_aux_transporte,
+                          expression: "f_aux_transporte",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "f_aux_transporte",
+                        id: "f_aux_transportenao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.f_aux_transporte, "0") },
+                      on: {
+                        change: [
+                          function ($event) {
+                            _vm.f_aux_transporte = "0"
+                          },
+                          function ($event) {
+                            _vm.aux_transporte = 0
+                          },
+                        ],
+                      },
+                    }),
+                    _c("label", { attrs: { for: "f_aux_transportenao" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_aux_transporte == 1,
+                      expression: "f_aux_transporte == 1",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(34),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.aux_transporte,
+                          expression: "aux_transporte",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "aux_transporte",
+                        min: "0",
+                        step: "0.01",
+                        max: "10000",
+                      },
+                      domProps: { value: _vm.aux_transporte },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.aux_transporte = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_fard,
+                  expression: "form_aux_fard",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Auxílio Fardamento")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(35),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_fard,
+                        expression: "aux_fard",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "aux_fard",
+                      id: "auxfardsim",
+                    },
+                    domProps: { checked: _vm._q(_vm.aux_fard, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.aux_fard = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxfardsim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_fard,
+                        expression: "aux_fard",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "aux_fard",
+                      id: "auxfardnao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.aux_fard, "0") },
+                    on: {
+                      change: [
+                        function ($event) {
+                          _vm.aux_fard = "0"
+                        },
+                        function ($event) {
+                          _vm.aux_fard_primeiro = 0
+                        },
+                      ],
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxfardnao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.aux_fard == "1",
+                      expression: "aux_fard == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(36),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.aux_fard_primeiro,
+                          expression: "aux_fard_primeiro",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "aux_fard_primeiro",
+                        id: "auxfardprimeirosim",
+                      },
+                      domProps: { checked: _vm._q(_vm.aux_fard_primeiro, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.aux_fard_primeiro = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "auxfardprimeiro" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.aux_fard_primeiro,
+                          expression: "aux_fard_primeiro",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "aux_fard_primeiro",
+                        id: "auxfardprimeironao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.aux_fard_primeiro, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.aux_fard_primeiro = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "auxfardprimeiro" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_alim_c,
+                  expression: "form_aux_alim_c",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v('Auxílio Alimentação - Tipo "C"')]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(37),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_alim_c,
+                        expression: "aux_alim_c",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "aux_alim_c",
+                      id: "auxalimcsim",
+                    },
+                    domProps: { checked: _vm._q(_vm.aux_alim_c, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.aux_alim_c = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxalimcsim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_alim_c,
+                        expression: "aux_alim_c",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "aux_alim_c",
+                      id: "auxalimcnao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.aux_alim_c, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.aux_alim_c = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxalimcnao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_alim_5x,
+                  expression: "form_aux_alim_5x",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Auxílio Alimentação - 5x")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(38),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_aux_alim_5x,
+                        expression: "f_aux_alim_5x",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "f_aux_alim_5x",
+                      id: "auxalim5xsim",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_aux_alim_5x, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.f_aux_alim_5x = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxalim5xsim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_aux_alim_5x,
+                        expression: "f_aux_alim_5x",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "f_aux_alim_5x",
+                      id: "auxalim5xnao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_aux_alim_5x, "0") },
+                    on: {
+                      change: [
+                        function ($event) {
+                          _vm.f_aux_alim_5x = "0"
+                        },
+                        function ($event) {
+                          _vm.aux_alim_5x = 0
+                        },
+                      ],
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxalim5xsim" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_aux_alim_5x == "1",
+                      expression: "f_aux_alim_5x == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(39),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.aux_alim_5x,
+                          expression: "aux_alim_5x",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "aux_alim_5x",
+                        min: "0",
+                        max: "365",
+                      },
+                      domProps: { value: _vm.aux_alim_5x },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.aux_alim_5x = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_aux_natalidade,
+                  expression: "form_aux_natalidade",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Auxílio Natalidade")]),
+              _vm._v(" "),
+              _vm._m(40),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(41),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.aux_natalidade,
+                        expression: "aux_natalidade",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "aux_natalidade",
+                      min: "0",
+                      step: "1",
+                      max: "10",
+                    },
+                    domProps: { value: _vm.aux_natalidade },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.aux_natalidade = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_grat_loc_esp,
+                  expression: "form_grat_loc_esp",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Gratificação de Localidade Especial")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(42),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grat_loc_esp,
+                        expression: "grat_loc_esp",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      id: "grat_loc_esp_nao",
+                      name: "grat_loc_esp",
+                      checked: "",
+                      min: "0",
+                      step: "0.01",
+                      max: "99999",
+                    },
+                    domProps: { checked: _vm._q(_vm.grat_loc_esp, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.grat_loc_esp = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "grat_loc_esp_nao" } }, [
+                    _vm._v("Não recebe"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grat_loc_esp,
+                        expression: "grat_loc_esp",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "A",
+                      id: "grat_loc_esp_A",
+                      name: "grat_loc_esp",
+                      min: "0",
+                      step: "0.01",
+                      max: "99999",
+                    },
+                    domProps: { checked: _vm._q(_vm.grat_loc_esp, "A") },
+                    on: {
+                      change: function ($event) {
+                        _vm.grat_loc_esp = "A"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "grat_loc_esp_A" } }, [
+                    _vm._v('Tipo "A"'),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grat_loc_esp,
+                        expression: "grat_loc_esp",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "B",
+                      id: "grat_loc_esp_B",
+                      name: "grat_loc_esp",
+                      min: "0",
+                      step: "0.01",
+                      max: "99999",
+                    },
+                    domProps: { checked: _vm._q(_vm.grat_loc_esp, "B") },
+                    on: {
+                      change: function ($event) {
+                        _vm.grat_loc_esp = "B"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "grat_loc_esp_B" } }, [
+                    _vm._v('Tipo "B"'),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_grat_repr_cmdo,
+                  expression: "form_grat_repr_cmdo",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [
+                _vm._v("Gratificação de Representação de Comando"),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(43),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grat_repr_cmdo,
+                        expression: "grat_repr_cmdo",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "grat_repr_cmdo",
+                      id: "gratrepcmdosim",
+                    },
+                    domProps: { checked: _vm._q(_vm.grat_repr_cmdo, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.grat_repr_cmdo = "1"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "gratrepcmdosim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grat_repr_cmdo,
+                        expression: "grat_repr_cmdo",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "grat_repr_cmdo",
+                      id: "gratrepcmdonao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.grat_repr_cmdo, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.grat_repr_cmdo = "0"
+                      },
+                    },
+                  }),
+                  _c("label", { attrs: { for: "gratrepcmdonao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_grat_repr_2,
+                  expression: "form_grat_repr_2",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Gratificação de Representação 2%")]),
+              _vm._v(" "),
+              _vm._m(44),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(45),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grat_repr_2,
+                        expression: "grat_repr_2",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "grat_repr_2",
+                      max: "365",
+                      min: "0",
+                    },
+                    domProps: { value: _vm.grat_repr_2 },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.grat_repr_2 = $event.target.value
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(46),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.grat_repr_2_pg,
+                          expression: "grat_repr_2_pg",
+                        },
+                      ],
+                      attrs: { name: "grat_repr_2_pg" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.grat_repr_2_pg = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    _vm._l(_vm.selectPg, function (pg, key) {
+                      return _c(
+                        "option",
+                        { key: key, domProps: { value: pg.id } },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(pg.pg_abrev) +
+                              "\n                            "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_dp_excmb_art_9,
+                  expression: "form_dp_excmb_art_9",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [
+                _vm._v(
+                  "\n                    Pensionada Pensionista de Ex-Combatente - Art. 9\n                "
                 ),
               ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _vm._m(38),
-          _vm._v(" "),
-          _c("fieldset", { staticClass: "question_root" }, [
-            _c("legend", [_vm._v("Pensão Militar")]),
-            _vm._v(" "),
-            _vm._m(39),
-            _vm._v(" "),
-            _vm._m(40),
-            _vm._v(" "),
-            _c("section", { staticClass: "question_body" }, [
-              _vm._m(41),
               _vm._v(" "),
-              _c("div", { staticClass: "question_options" }, [
-                _c(
-                  "select",
-                  { attrs: { name: "pmil_pg" } },
-                  _vm._l(_vm.selectPg, function (pg, key) {
-                    return _c(
-                      "option",
-                      { key: key, domProps: { value: pg.id } },
-                      [
-                        _vm._v(
-                          "\n                                " +
-                            _vm._s(pg.pg_abrev) +
-                            "\n                            "
-                        ),
-                      ]
-                    )
+              _vm._m(47),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(48),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.dp_excmb_art_9,
+                        expression: "dp_excmb_art_9",
+                      },
+                    ],
+                    attrs: {
+                      type: "number",
+                      name: "dp_excmb_art_9",
+                      max: "99999",
+                      min: "0",
+                      step: "0.01",
+                    },
+                    domProps: { value: _vm.dp_excmb_art_9 },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.dp_excmb_art_9 = $event.target.value
+                      },
+                    },
                   }),
-                  0
-                ),
+                ]),
               ]),
-            ]),
-          ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(42),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_pmil,
+                  expression: "form_pmil",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Pensão Militar")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(49),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil,
+                          expression: "pmil",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "pmil",
+                        id: "pmilsim",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.pmil, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.pmil = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "pmilsim" } }, [_vm._v("Sim")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil,
+                          expression: "pmil",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "pmil",
+                        id: "pmilnao",
+                      },
+                      domProps: { checked: _vm._q(_vm.pmil, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.pmil = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "pmilnao" } }, [_vm._v("Não")]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(50),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.pmilmesmopg,
+                        expression: "pmilmesmopg",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "pmilmesmopg",
+                      id: "pmilmesmopgsim",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.pmilmesmopg, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.pmilmesmopg = "1"
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "pmilpgsim" } }, [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.pmilmesmopg,
+                        expression: "pmilmesmopg",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "pmilmesmopg",
+                      id: "pmilmesmopgnao",
+                    },
+                    domProps: { checked: _vm._q(_vm.pmilmesmopg, "0") },
+                    on: {
+                      change: function ($event) {
+                        _vm.pmilmesmopg = "0"
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "pmilmesmopgnao" } }, [
+                    _vm._v("Não"),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(51),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil_pg,
+                          expression: "pmil_pg",
+                        },
+                      ],
+                      attrs: { name: "pmil_pg" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.pmil_pg = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    _vm._l(_vm.selectPg, function (pg, key) {
+                      return _c(
+                        "option",
+                        { key: key, domProps: { value: pg.id } },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(pg.pg_abrev) +
+                              "\n                            "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(43),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_pmil_15,
+                  expression: "form_pmil_15",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Pensão Militar 1.5%")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(52),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil_15,
+                          expression: "pmil_15",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "pmil_15",
+                        id: "pmil15sim",
+                      },
+                      domProps: { checked: _vm._q(_vm.pmil_15, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.pmil_15 = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "pmil15sim" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil_15,
+                          expression: "pmil_15",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "pmil_15",
+                        id: "pmil15nao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.pmil_15, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.pmil_15 = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "pmil15nao" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(44),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_pmil_30,
+                  expression: "form_pmil_30",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Pensão Militar 3.0%")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(53),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil_30,
+                          expression: "pmil_30",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "pmil_30",
+                        id: "pmil30sim",
+                      },
+                      domProps: { checked: _vm._q(_vm.pmil_30, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.pmil_30 = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "pmil30sim" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pmil_30,
+                          expression: "pmil_30",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "pmil_30",
+                        id: "pmil30nao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.pmil_30, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.pmil_30 = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "pmil30nao" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(45),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_fusex_3,
+                  expression: "form_fusex_3",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("FuSEx 3%")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(54),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fusex_3,
+                          expression: "fusex_3",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "fusex_3",
+                        id: "fusexsim",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.fusex_3, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.fusex_3 = "1"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "fusexsim" } }, [
+                      _vm._v("Sim"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fusex_3,
+                          expression: "fusex_3",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "fusex_3",
+                        id: "fusexnao",
+                      },
+                      domProps: { checked: _vm._q(_vm.fusex_3, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.fusex_3 = "0"
+                        },
+                      },
+                    }),
+                    _c("label", { attrs: { for: "fusexnao" } }, [
+                      _vm._v("Não"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(46),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_desc_dep_fusex,
+                  expression: "form_desc_dep_fusex",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Desconto de dependentes no FuSEx")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(55),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.desc_dep_fusex,
+                          expression: "desc_dep_fusex",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "desc_dep_fusex",
+                        id: "desc_dep_fusex_nao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.desc_dep_fusex, "0") },
+                      on: {
+                        change: function ($event) {
+                          _vm.desc_dep_fusex = "0"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "desc_dep_fusex_nao" } }, [
+                      _vm._v("Não desconta"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.desc_dep_fusex,
+                          expression: "desc_dep_fusex",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0.4",
+                        name: "desc_dep_fusex",
+                        id: "desc_dep_fusex_04",
+                      },
+                      domProps: { checked: _vm._q(_vm.desc_dep_fusex, "0.4") },
+                      on: {
+                        change: function ($event) {
+                          _vm.desc_dep_fusex = "0.4"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "desc_dep_fusex_04" } }, [
+                      _vm._v("0.4%"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.desc_dep_fusex,
+                          expression: "desc_dep_fusex",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0.5",
+                        name: "desc_dep_fusex",
+                        id: "desc_dep_fusex_05",
+                      },
+                      domProps: { checked: _vm._q(_vm.desc_dep_fusex, "0.5") },
+                      on: {
+                        change: function ($event) {
+                          _vm.desc_dep_fusex = "0.5"
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "desc_dep_fusex_05" } }, [
+                      _vm._v("0.5%"),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(47),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_pnr,
+                  expression: "form_pnr",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("PNR")]),
+              _vm._v(" "),
+              _vm._m(56),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(57),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pnr,
+                            expression: "pnr",
+                          },
+                        ],
+                        attrs: { name: "pnr" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.pnr = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "0" } }, [
+                          _vm._v(
+                            "\n                                    - Selecione um tipo -\n                                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v(
+                            "\n                                    Desconto normal - 5%\n                                "
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "2" } }, [
+                          _vm._v(
+                            "\n                                    Desconto especial - 3,5%\n                                "
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "fieldset",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form_pens_judiciaria,
+                  expression: "form_pens_judiciaria",
+                },
+              ],
+              staticClass: "question_root",
+            },
+            [
+              _c("legend", [_vm._v("Pensão Judiciária")]),
+              _vm._v(" "),
+              _vm._m(58),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(59),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_1,
+                          expression: "pens_judiciaria_1",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_1",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_1 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_1 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(60),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_2,
+                          expression: "pens_judiciaria_2",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_2",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_2 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_2 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(61),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_3,
+                          expression: "pens_judiciaria_3",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_3",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_3 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_3 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(62),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_4,
+                          expression: "pens_judiciaria_4",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_4",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_4 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_4 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(63),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_5,
+                          expression: "pens_judiciaria_5",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_5",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_5 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_5 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(64),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_6,
+                          expression: "pens_judiciaria_6",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_6",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_6 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_6 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(65),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_adic_natal_1,
+                          expression: "pens_judiciaria_adic_natal_1",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_adic_natal_1",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_adic_natal_1 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_adic_natal_1 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(66),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_adic_natal_2,
+                          expression: "pens_judiciaria_adic_natal_2",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_adic_natal_2",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_adic_natal_2 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_adic_natal_2 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(67),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_adic_natal_3,
+                          expression: "pens_judiciaria_adic_natal_3",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_adic_natal_3",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_adic_natal_3 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_adic_natal_3 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(68),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_adic_natal_4,
+                          expression: "pens_judiciaria_adic_natal_4",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_adic_natal_4",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_adic_natal_4 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_adic_natal_4 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(69),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_adic_natal_5,
+                          expression: "pens_judiciaria_adic_natal_5",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_adic_natal_5",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_adic_natal_5 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_adic_natal_5 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(70),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pens_judiciaria_adic_natal_6,
+                          expression: "pens_judiciaria_adic_natal_6",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "pens_judiciaria_adic_natal_6",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
+                        required: "",
+                      },
+                      domProps: { value: _vm.pens_judiciaria_adic_natal_6 },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pens_judiciaria_adic_natal_6 = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
         ]),
       ]),
       _vm._v(" "),
@@ -30467,56 +34164,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("div", { staticClass: "ajuda_container" }, [
-        _c("img", {
-          staticClass: "ajuda",
-          attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("legend", [_vm._v("Universo/ Classificação")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("\n                        Qual "),
-            _c("strong", [_vm._v("universo/ classificação")]),
-            _vm._v(
-              " do\n                        examinado?\n                    "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("select", { attrs: { name: "universo", id: "tipo_soldo" } }, [
-            _c("option", { attrs: { value: "ativa" } }, [
-              _vm._v("Militar da Ativa"),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "inativo" } }, [
-              _vm._v("Militar da Inativo"),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "pens_mil" } }, [
-              _vm._v(
-                "\n                            Pensionista Militar\n                        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "pens_excmbt_2ten" } }, [
-              _vm._v(
-                "\n                            Pensionista Ex-Combatente (2º Ten)\n                        "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "pens_excmbt_2sgt" } }, [
-              _vm._v(
-                "\n                            Pensionista Ex-Combatente (2º Sgt)\n                        "
-              ),
-            ]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "ajuda_container" }, [
+      _c("img", {
+        staticClass: "ajuda",
+        attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("\n                        Qual "),
+        _c("strong", [_vm._v("universo/ classificação")]),
+        _vm._v(" do\n                        examinado?\n                    "),
       ]),
     ])
   },
@@ -30524,28 +34187,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Data do contracheque")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("Qual a "),
-            _c("strong", [_vm._v("data do contracheque")]),
-            _vm._v("?"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              name: "data_contracheque",
-              id: "date",
-              type: "date",
-              value: "2022-01-12",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("Qual a "),
+        _c("strong", [_vm._v("data do contracheque")]),
+        _vm._v("?"),
       ]),
     ])
   },
@@ -30553,42 +34199,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Idade")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("O examinado tem "),
-            _c("strong", [_vm._v("mais de 65 anos")]),
-            _vm._v("?"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "maior_65",
-              value: "1",
-              id: "maior_65sim",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "maior_65sim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "maior_65",
-              value: "0",
-              id: "maior_65nao",
-              checked: "",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "maior_65nao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("O examinado tem "),
+        _c("strong", [_vm._v("mais de 65 anos")]),
+        _vm._v("?"),
       ]),
     ])
   },
@@ -30596,44 +34211,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Isenção de Imposto de Renda")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                        O examinado é\n                        "
-            ),
-            _c("strong", [_vm._v("isento de Imposto de Renda")]),
-            _vm._v("?\n                    "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "isento_ir",
-              value: "1",
-              id: "isento_irsim",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "isento_irsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "isento_ir",
-              value: "0",
-              id: "isento_irnao",
-              checked: "",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "isento_irnao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                        O examinado é\n                        "
+        ),
+        _c("strong", [_vm._v("isento de Imposto de Renda")]),
+        _vm._v("?\n                    "),
       ]),
     ])
   },
@@ -30667,245 +34251,38 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("div", { staticClass: "ajuda_container" }, [
-        _c("img", {
-          staticClass: "ajuda",
-          attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("legend", [_vm._v("Soldo")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("\n                            Qual tipo de "),
-            _c("strong", [_vm._v("soldo")]),
-            _vm._v(
-              " o examinado\n                            recebe?\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("select", { attrs: { name: "tipo_soldo", id: "tipo_soldo" } }, [
-            _c("option", { attrs: { value: "1" } }, [
-              _vm._v("Normal/ Integral"),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [
-              _vm._v(
-                "\n                                Soldo Proporcional para Cota\n                            "
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
+    return _c("div", { staticClass: "ajuda_container" }, [
+      _c("img", {
+        staticClass: "ajuda",
+        attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
+      }),
     ])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Cota-parte do Soldo")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("\n                            Qual porcetagem de "),
-            _c("strong", [_vm._v("cota-parte")]),
-            _vm._v(
-              " a\n                            pensionista recebe?\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              min: "0",
-              max: "100",
-              value: "100.00",
-              step: "0.01",
-              name: "soldo_cota_porcentagem",
-              id: "soldo_cota_porcentagem",
-            },
-          }),
-          _vm._v("\n                        %\n                    "),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Soldo Proporcional para Cota")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Qual porcentagem de\n                            "
-            ),
-            _c("strong", [_vm._v("soldo proporcional para cota")]),
-            _vm._v(
-              " o\n                            examinado recebe?\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              min: "0",
-              max: "100",
-              value: "100.00",
-              step: "0.01",
-              name: "soldo_prop_cota_porcentagem",
-              id: "soldo_prop_cota_porcentagem",
-            },
-          }),
-          _vm._v("\n                        %\n                    "),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Complemento de cota de soldo")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Recebe\n                            "
-            ),
-            _c("strong", [_vm._v("complemento de cota de soldo")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "compl_ct_soldo",
-              value: "1",
-              id: "complementocotasoldosim",
-            },
-          }),
-          _c("label", { attrs: { for: "complementocotasoldosim" } }, [
-            _vm._v("Sim"),
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "compl_ct_soldo",
-              value: "0",
-              id: "complementocotasoldonao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "complementocotasoldonao" } }, [
-            _vm._v("Não"),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional de Tempo de Serviço")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Qual o percentual que o examinado faz jus de\n                            "
-            ),
-            _c("strong", [_vm._v("Adicional de Tempo de Serviço")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "adic_tp_sv",
-              id: "adic_tp_sv",
-              min: "0",
-              value: "0",
-              max: "100",
-            },
-          }),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("\n                            Qual tipo de "),
+        _c("strong", [_vm._v("soldo")]),
         _vm._v(
-          "\n                    Adicional de Compensação por Disponibilidade Militar\n                "
+          " o examinado\n                            recebe?\n                        "
         ),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O militar recebe\n                            "
-            ),
-            _c("strong", [
-              _vm._v(
-                "Adicional de Compensação por\n                                Disponibilidade Militar"
-              ),
-            ]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "adic_disp",
-              value: "1",
-              id: "adic_dispsim",
-              checked: "",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "adic_dispsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "adic_disp",
-              value: "0",
-              id: "adic_dispnao",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "adic_dispnao" } }, [_vm._v("Não")]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("\n                            Qual porcetagem de "),
+        _c("strong", [_vm._v("cota-parte")]),
+        _vm._v(
+          " a\n                            pensionista recebe?\n                        "
+        ),
       ]),
     ])
   },
@@ -30913,57 +34290,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional Habilitação")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Qual nível de habilitação do examinado?")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("select", { attrs: { name: "adic_hab_tipo", required: "" } }, [
-            _c("option", { attrs: { value: "sem_formacao" } }, [
-              _vm._v(
-                "\n                                - Selecione o tipo -\n                            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "altos_estudos_I" } }, [
-              _vm._v(
-                "\n                                Altos estudos Categoria I\n                            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "altos_estudos_II" } }, [
-              _vm._v(
-                "\n                                Altos estudos Categoria II\n                            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "aperfeicoamento" } }, [
-              _vm._v(
-                "\n                                Apefeiçoamento\n                            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "especializacao" } }, [
-              _vm._v(
-                "\n                                Especialização\n                            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "formacao" } }, [
-              _vm._v("Formação"),
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "sem_formacao" } }, [
-              _vm._v(
-                "\n                                Sem formação\n                            "
-              ),
-            ]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Qual porcentagem de\n                            "
+        ),
+        _c("strong", [_vm._v("soldo proporcional para cota")]),
+        _vm._v(
+          " o\n                            examinado recebe?\n                        "
+        ),
       ]),
     ])
   },
@@ -30971,41 +34306,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional Militar")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O militar receber\n                            "
-            ),
-            _c("strong", [_vm._v("Adicional Militar")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "adic_mil",
-              value: "1",
-              id: "adic_mil_sim",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "adic_hab_sim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              name: "adic_mil",
-              value: "0",
-              id: "adic_mil_nao",
-            },
-          }),
-          _c("label", { attrs: { for: "adic_hab_nao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Recebe\n                            "
+        ),
+        _c("strong", [_vm._v("complemento de cota de soldo")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31013,65 +34320,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Qual o percentual que o examinado faz jus de\n                            "
+        ),
+        _c("strong", [_vm._v("Adicional de Tempo de Serviço")]),
+        _vm._v("?\n                        "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O militar recebe\n                            "
+        ),
+        _c("strong", [
           _vm._v(
-            "\n                            Recebe\n                            "
+            "Adicional de Compensação por\n                                Disponibilidade Militar"
           ),
-          _c("strong", [_vm._v("Adicional de Compensação Orgânica")]),
-          _vm._v("?\n                        "),
         ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("select", { attrs: { name: "adic_comp_org_tipo" } }, [
-          _c("option", { attrs: { value: "0" } }, [
-            _vm._v(
-              "\n                                - Selecione uma opção -\n                            "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "PDQT" } }, [_vm._v("Paraquedista")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "RAIOX" } }, [_vm._v("Raio-X")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "TO/ OMA/ FO" } }, [
-            _vm._v(
-              "\n                                Tripulante Orgânico\n                            "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "TO/ OMA/ FO" } }, [
-            _vm._v(
-              "\n                                Observador Meteorológico\n                            "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "TO/ OMA/ FO" } }, [
-            _vm._v(
-              "\n                                Observador Fotogramétrico\n                            "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "IM/ MG/ CTA" } }, [
-            _vm._v(
-              "\n                                Imersão a bordo de submarino\n                            "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "IM/ MG/ CTA" } }, [
-            _vm._v(
-              "\n                                Mergulho com escafandro ou com aparelho\n                            "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "IM/ MG/ CTA" } }, [
-            _vm._v(
-              "\n                                Controle de tráfego aéreo\n                            "
-            ),
-          ]),
-        ]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31079,22 +34352,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [_vm._v("Qual percentual?")]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Qual nível de habilitação do examinado?")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O militar receber\n                            "
+        ),
+        _c("strong", [_vm._v("Adicional Militar")]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: {
-            type: "number",
-            name: "adic_comp_org_percet",
-            value: "0",
-            min: "0",
-            max: "100",
-          },
-        }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Recebe\n                            "
+        ),
+        _c("strong", [_vm._v("Adicional de Compensação Orgânica")]),
+        _vm._v("?\n                        "),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Qual percentual?")]),
     ])
   },
   function () {
@@ -31143,23 +34437,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [_vm._v("Qual percentual?")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: {
-            type: "number",
-            name: "hvoo_percet",
-            value: "0",
-            step: "0.01",
-            min: "0",
-            max: "100",
-          },
-        }),
-      ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Qual percentual?")]),
     ])
   },
   function () {
@@ -31174,44 +34453,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional de Acréscimo de 25% sobre o soldo")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Recebe\n                            "
-            ),
-            _c("strong", [_vm._v("acréscimo de 25% sobre o soldo")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("section", [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "1",
-                name: "acres_25_soldo",
-                id: "acres25soldosim",
-              },
-            }),
-            _c("label", { attrs: { for: "acres25soldosim" } }, [_vm._v("Sim")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "acres_25_soldo",
-                id: "acres25soldonao",
-                checked: "",
-              },
-            }),
-            _c("label", { attrs: { for: "acres25soldonao" } }, [_vm._v("Não")]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Recebe\n                            "
+        ),
+        _c("strong", [_vm._v("acréscimo de 25% sobre o soldo")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31219,32 +34467,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional de Permanência")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Qual o percentual que o examinado recebe de\n                            "
-            ),
-            _c("strong", [_vm._v("Adicional de Permanência")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "adic_perm",
-              value: "0",
-              min: "0",
-              max: "100",
-              step: "5",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Qual o percentual que o examinado recebe de\n                            "
+        ),
+        _c("strong", [_vm._v("Adicional de Permanência")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31252,57 +34481,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Salário família/ Imposto de Renda")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Possui quantos dependentes para fins de\n                            "
-            ),
-            _c("strong", [_vm._v("Salário Família")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "salario_familia_dep",
-              value: "0",
-              min: "0",
-              max: "30",
-            },
-          }),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Possui quantos dependentes para fins de\n                            "
-            ),
-            _c("strong", [_vm._v("Imposto de Renda")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "imposto_renda_dep",
-                value: "0",
-                min: "0",
-                max: "30",
-              },
-            }),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Possui quantos dependentes para fins de\n                            "
+        ),
+        _c("strong", [_vm._v("Salário Família")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31310,42 +34495,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional de Férias")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("\n                            O examinado irá gozar "),
-            _c("strong", [_vm._v("Férias")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("section", [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "1",
-                name: "adic_ferias",
-                id: "feriassim",
-              },
-            }),
-            _c("label", { attrs: { for: "feriassim" } }, [_vm._v("Sim")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "adic_ferias",
-                id: "feriasnao",
-                checked: "",
-              },
-            }),
-            _c("label", { attrs: { for: "feriasnao" } }, [_vm._v("Não")]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Possui quantos dependentes para fins de\n                            "
+        ),
+        _c("strong", [_vm._v("Imposto de Renda")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31353,42 +34509,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional PTTC")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado é Prestador de Trabalho por Tempo\n                            Certo "
-            ),
-            _c("strong", [_vm._v("(PTTC)")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "adic_pttc",
-              id: "pttcsim",
-            },
-          }),
-          _c("label", { attrs: { for: "pttcsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "adic_pttc",
-              id: "pttcnao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "pttcnao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("\n                            O examinado irá gozar "),
+        _c("strong", [_vm._v("Férias")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31396,87 +34521,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Adicional Natalino")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado receberá\n                            "
-            ),
-            _c("strong", [_vm._v("Adicional Natalino")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "adic_natalino",
-              id: "adicnatalinosim",
-            },
-          }),
-          _c("label", { attrs: { for: "adicnatalinosim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "adic_natalino",
-              id: "adicnatalinonao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "adicnatalinonao" } }, [_vm._v("Não")]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Referenta a quantos meses?")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "adic_natalino_qtd_meses",
-              value: "1",
-              min: "0",
-              max: "12",
-            },
-          }),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado já recebeu algum\n                            "
-            ),
-            _c("strong", [_vm._v("Adiantamento do Adicional Natino")]),
-            _vm._v(
-              "\n                            durante o ano? Se sim, qual valor?\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "adic_natalino_valor_adiantamento",
-              value: "0",
-              min: "0",
-              step: "0.01",
-              max: "99999",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado é Prestador de Trabalho por Tempo\n                            Certo "
+        ),
+        _c("strong", [_vm._v("(PTTC)")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31484,31 +34535,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Auxílio Pré-escolar")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Possui quantos filhos que recebem\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Pré-escolar")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "aux_pre_escolar_qtd",
-              value: "0",
-              min: "0",
-              max: "30",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado receberá\n                            "
+        ),
+        _c("strong", [_vm._v("Adicional Natalino")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31516,42 +34549,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Auxílio Inavalidez")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado recebe\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Inavalidez")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "aux_invalidez",
-              id: "auxinvsim",
-            },
-          }),
-          _c("label", { attrs: { for: "auxinvsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "aux_invalidez",
-              id: "auxinvnao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "auxinvnao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Referenta a quantos meses?")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado já recebeu algum\n                            "
+        ),
+        _c("strong", [_vm._v("Adiantamento do Adicional Natino")]),
+        _vm._v(
+          "\n                            durante o ano? Se sim, qual valor?\n                        "
+        ),
       ]),
     ])
   },
@@ -31559,67 +34573,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Auxílio Transporte")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado recebe\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Transporte")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "1",
-                name: "f_aux_transporte",
-                id: "f_aux_transportesim",
-              },
-            }),
-            _c("label", { attrs: { for: "f_aux_transportesim" } }, [
-              _vm._v("Sim"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "f_aux_transporte",
-                id: "f_aux_transportenao",
-                checked: "",
-              },
-            }),
-            _c("label", { attrs: { for: "f_aux_transportenao" } }, [
-              _vm._v("Não"),
-            ]),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Qual valor solictado na SAT?")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "aux_transporte",
-              min: "0",
-              value: "0",
-              step: "0.01",
-              max: "10000",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Possui quantos filhos que recebem\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Pré-escolar")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31627,77 +34587,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Auxílio Fardamento")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado irá receber\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Fardamento")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "aux_fard",
-              id: "auxfardsim",
-            },
-          }),
-          _c("label", { attrs: { for: "auxfardsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "aux_fard",
-              id: "auxfardnao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "auxfardnao" } }, [_vm._v("Não")]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            É a primeira vez que receberá o\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Fardamento")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "aux_fard_primeiro",
-              id: "auxfardprimeirosim",
-            },
-          }),
-          _c("label", { attrs: { for: "auxfardprimeiro" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "aux_fard_primeiro",
-              id: "auxfardprimeironao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "auxfardprimeiro" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado recebe\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Inavalidez")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31705,42 +34601,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v('Auxílio Alimentação - Tipo "C"')]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado irá receber\n                            "
-            ),
-            _c("strong", [_vm._v('Auxílio Alimentação - Tipo "C"')]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "aux_alim_c",
-              id: "auxalimcsim",
-            },
-          }),
-          _c("label", { attrs: { for: "auxalimcsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "aux_alim_c",
-              id: "auxalimcnao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "auxalimcnao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado recebe\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Transporte")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31748,60 +34615,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Auxílio Alimentação - 5x")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado irá receber\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Alimentação - 5x")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "f_aux_alim_5x",
-              id: "auxalim5xsim",
-            },
-          }),
-          _c("label", { attrs: { for: "auxalim5xsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "f_aux_alim_5x",
-              id: "auxalim5xnao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "auxalim5xsim" } }, [_vm._v("Não")]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Referente a quantos dias?")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "aux_alim_5x",
-              min: "0",
-              value: "0",
-              max: "365",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Qual valor solictado na SAT?")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado irá receber\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Fardamento")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31809,61 +34637,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Auxílio Natalidade")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado irá receber\n                            "
-            ),
-            _c("strong", [_vm._v("Auxílio Natalidade")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "f_aux_natalidade",
-              id: "auxnatalidadesim",
-            },
-          }),
-          _c("label", { attrs: { for: "auxnatalidadesim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "f_aux_natalidade",
-              id: "auxnatalidadenao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "auxnatalidadenao" } }, [_vm._v("Não")]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Referente a quantos filhos?")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "aux_natalidade",
-              min: "0",
-              value: "0",
-              step: "1",
-              max: "10",
-            },
-          }),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            É a primeira vez que receberá o\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Fardamento")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31871,69 +34651,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Gratificação de Localidade Especial")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Qual tipo de\n                            "
-            ),
-            _c("strong", [_vm._v("Gratificação de Localidade Especial")]),
-            _vm._v(
-              "\n                            o examinado recebe?\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              id: "grat_loc_esp_nao",
-              name: "grat_loc_esp",
-              checked: "",
-              min: "0",
-              step: "0.01",
-              max: "99999",
-            },
-          }),
-          _c("label", { attrs: { for: "grat_loc_esp_nao" } }, [
-            _vm._v("Não recebe"),
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "A",
-              id: "grat_loc_esp_A",
-              name: "grat_loc_esp",
-              min: "0",
-              step: "0.01",
-              max: "99999",
-            },
-          }),
-          _c("label", { attrs: { for: "grat_loc_esp_A" } }, [
-            _vm._v('Tipo "A"'),
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "B",
-              id: "grat_loc_esp_B",
-              name: "grat_loc_esp",
-              min: "0",
-              step: "0.01",
-              max: "99999",
-            },
-          }),
-          _c("label", { attrs: { for: "grat_loc_esp_B" } }, [
-            _vm._v('Tipo "B"'),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado irá receber\n                            "
+        ),
+        _c("strong", [_vm._v('Auxílio Alimentação - Tipo "C"')]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -31941,46 +34665,102 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Gratificação de Representação de Comando")]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado irá receber\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Alimentação - 5x")]),
+        _vm._v("?\n                        "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Referente a quantos dias?")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "question_body" }, [
+      _c("div", { staticClass: "question_title" }, [
+        _c("p", [
+          _vm._v(
+            "\n                            O examinado irá receber\n                            "
+          ),
+          _c("strong", [_vm._v("Auxílio Natalidade")]),
+          _vm._v("?\n                        "),
+        ]),
+      ]),
       _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado recebe\n                            "
-            ),
-            _c("strong", [
-              _vm._v(
-                "Gratificação de Representação de\n                                Comando"
-              ),
-            ]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
+      _c("div", { staticClass: "question_options" }, [
+        _c("input", {
+          attrs: {
+            type: "radio",
+            value: "1",
+            name: "f_aux_natalidade",
+            id: "auxnatalidadesim",
+          },
+        }),
+        _c("label", { attrs: { for: "auxnatalidadesim" } }, [_vm._v("Sim")]),
         _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "grat_repr_cmdo",
-              id: "gratrepcmdosim",
-            },
-          }),
-          _c("label", { attrs: { for: "gratrepcmdosim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "grat_repr_cmdo",
-              id: "gratrepcmdonao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "gratrepcmdonao" } }, [_vm._v("Não")]),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            value: "0",
+            name: "f_aux_natalidade",
+            id: "auxnatalidadenao",
+            checked: "",
+          },
+        }),
+        _c("label", { attrs: { for: "auxnatalidadenao" } }, [_vm._v("Não")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Referente a quantos filhos?")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Qual tipo de\n                            "
+        ),
+        _c("strong", [_vm._v("Gratificação de Localidade Especial")]),
+        _vm._v(
+          "\n                            o examinado recebe?\n                        "
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado recebe\n                            "
+        ),
+        _c("strong", [
+          _vm._v(
+            "Gratificação de Representação de\n                                Comando"
+          ),
         ]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -32027,22 +34807,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [_vm._v("Referente a quantos dias?")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: {
-            type: "number",
-            name: "grat_repr_2",
-            max: "365",
-            min: "0",
-            value: "0",
-          },
-        }),
-      ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Referente a quantos dias?")]),
     ])
   },
   function () {
@@ -32057,115 +34823,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [
-        _vm._v(
-          "\n                    Pensionada Pensionista de Ex-Combatente - Art. 9\n                "
-        ),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            A pensionista é\n                            "
-            ),
-            _c("strong", [_vm._v("Pensionada de Ex-Combatente")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "f_dp_excmb_art_9",
-              id: "dp_excmb_art_9_sim",
-            },
-          }),
-          _c("label", { attrs: { for: "dp_excmb_art_9_sim" } }, [
-            _vm._v("Sim"),
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "f_dp_excmb_art_9",
-              id: "dp_excmb_art_9_nao",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "dp_excmb_art_9_nao" } }, [
-            _vm._v("Não"),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Quanto a pensionista recebe?")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "number",
-              name: "dp_excmb_art_9",
-              max: "99999",
-              min: "0",
-              value: "0",
-              step: "0.01",
-            },
-          }),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("section", { staticClass: "question_body" }, [
       _c("div", { staticClass: "question_title" }, [
         _c("p", [
           _vm._v(
-            "\n                            O examinado contribui para a\n                            "
+            "\n                            A pensionista é\n                            "
           ),
-          _c("strong", [_vm._v("Pensão Militar")]),
+          _c("strong", [_vm._v("Pensionada de Ex-Combatente")]),
           _vm._v("?\n                        "),
         ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "pmil",
-              id: "pmilsim",
-              checked: "",
-            },
-          }),
-          _c("label", { attrs: { for: "pmilsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "radio", value: "0", name: "pmil", id: "pmilnao" },
-          }),
-          _c("label", { attrs: { for: "pmilnao" } }, [_vm._v("Não")]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [_vm._v("Sobre o mesmo posto/ gradução?")]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "question_options" }, [
@@ -32173,24 +34839,56 @@ var staticRenderFns = [
           attrs: {
             type: "radio",
             value: "1",
-            name: "pmilmesmopg",
-            id: "pmilmesmopgsim",
-            checked: "",
+            name: "f_dp_excmb_art_9",
+            id: "dp_excmb_art_9_sim",
           },
         }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "pmilpgsim" } }, [_vm._v("Sim")]),
+        _c("label", { attrs: { for: "dp_excmb_art_9_sim" } }, [_vm._v("Sim")]),
         _vm._v(" "),
         _c("input", {
           attrs: {
             type: "radio",
             value: "0",
-            name: "pmilmesmopg",
-            id: "pmilmesmopgnao",
+            name: "f_dp_excmb_art_9",
+            id: "dp_excmb_art_9_nao",
+            checked: "",
           },
         }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "pmilmesmopgnao" } }, [_vm._v("Não")]),
+        _c("label", { attrs: { for: "dp_excmb_art_9_nao" } }, [_vm._v("Não")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Quanto a pensionista recebe?")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado contribui para a\n                            "
+        ),
+        _c("strong", [_vm._v("Pensão Militar")]),
+        _vm._v("?\n                        "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Contribui sobre o soldo do mesmo posto/\n                            gradução?\n                        "
+        ),
       ]),
     ])
   },
@@ -32210,44 +34908,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Pensão Militar 1.5%")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Fez a opção pelo desconto de\n                            "
-            ),
-            _c("strong", [_vm._v("Pensão Militar de 1.5%")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "1",
-                name: "pmil_15",
-                id: "pmil15sim",
-              },
-            }),
-            _c("label", { attrs: { for: "pmil15sim" } }, [_vm._v("Sim")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "pmil_15",
-                id: "pmil15nao",
-                checked: "",
-              },
-            }),
-            _c("label", { attrs: { for: "pmil15nao" } }, [_vm._v("Não")]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Fez a opção pelo desconto de\n                            "
+        ),
+        _c("strong", [_vm._v("Pensão Militar de 1.5%")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -32255,48 +34922,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Pensão Militar 3.0%")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            A pensionista contribui com o desconto\n                            "
-            ),
-            _c("strong", [
-              _vm._v(
-                "extraordinário de Pensão Militar de\n                                3.0%"
-              ),
-            ]),
-            _vm._v("?\n                        "),
-          ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            A pensionista contribui com o desconto\n                            "
+        ),
+        _c("strong", [
+          _vm._v(
+            "extraordinário de Pensão Militar de\n                                3.0%"
+          ),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "1",
-                name: "pmil_30",
-                id: "pmil30sim",
-              },
-            }),
-            _c("label", { attrs: { for: "pmil30sim" } }, [_vm._v("Sim")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "pmil_30",
-                id: "pmil30nao",
-                checked: "",
-              },
-            }),
-            _c("label", { attrs: { for: "pmil30nao" } }, [_vm._v("Não")]),
-          ]),
-        ]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -32304,42 +34940,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("FuSEx 3%")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("Contribui para o "),
-            _c("strong", [_vm._v("FuSEx")]),
-            _vm._v("?"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "1",
-                name: "fusex_3",
-                id: "fusexsim",
-                checked: "",
-              },
-            }),
-            _c("label", { attrs: { for: "fusexsim" } }, [_vm._v("Sim")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "fusex_3",
-                id: "fusexnao",
-              },
-            }),
-            _c("label", { attrs: { for: "fusexnao" } }, [_vm._v("Não")]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("Contribui para o "),
+        _c("strong", [_vm._v("FuSEx")]),
+        _vm._v("?"),
       ]),
     ])
   },
@@ -32347,65 +34952,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Desconto de dependentes no FuSEx")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Possui quantos dependentes,\n                            "
-            ),
-            _c("u", [_vm._v("excluíndo a esposa")]),
-            _vm._v(", como dependente no\n                            "),
-            _c("strong", [_vm._v("FuSEx")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "desc_dep_fusex",
-                id: "desc_dep_fusex_nao",
-                checked: "",
-              },
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "desc_dep_fusex_nao" } }, [
-              _vm._v("Não desconta"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0.4",
-                name: "desc_dep_fusex",
-                id: "desc_dep_fusex_04",
-              },
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "desc_dep_fusex_04" } }, [
-              _vm._v("0.4%"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0.5",
-                name: "desc_dep_fusex",
-                id: "desc_dep_fusex_05",
-              },
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "desc_dep_fusex_05" } }, [
-              _vm._v("0.5%"),
-            ]),
-          ]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Possui quantos dependentes,\n                            "
+        ),
+        _c("u", [_vm._v("excluíndo a esposa")]),
+        _vm._v(", como dependente no\n                            "),
+        _c("strong", [_vm._v("FuSEx")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -32413,408 +34968,210 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("PNR")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v("O examinado reside em "),
-            _c("strong", [_vm._v("PNR")]),
-            _vm._v("?"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: { type: "radio", value: "1", name: "f_pnr", id: "pnrsim" },
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "pnrsim" } }, [_vm._v("Sim")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "radio",
-                value: "0",
-                name: "f_pnr",
-                id: "pnrnao",
-                checked: "",
-              },
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "pnrnao" } }, [_vm._v("Não")]),
-          ]),
+    return _c("section", { staticClass: "question_body" }, [
+      _c("div", { staticClass: "question_title" }, [
+        _c("p", [
+          _vm._v("O examinado reside em "),
+          _c("strong", [_vm._v("PNR")]),
+          _vm._v("?"),
         ]),
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Qual o tipo de desconto de\n                            "
-            ),
-            _c("strong", [_vm._v("PNR")]),
-            _vm._v(" da unidade?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("select", { attrs: { name: "pnr" } }, [
-              _c("option", { attrs: { value: "0" } }, [
-                _vm._v(
-                  "\n                                    - Selecione um tipo -\n                                "
-                ),
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "1" } }, [
-                _vm._v(
-                  "\n                                    Desconto normal - 5%\n                                "
-                ),
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "2" } }, [
-                _vm._v(
-                  "\n                                    Desconto especial - 3,5%\n                                "
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("fieldset", { staticClass: "question_root" }, [
-      _c("legend", [_vm._v("Pensão Judiciária")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            O examinado paga\n                            "
-            ),
-            _c("strong", [_vm._v("Pensão Judiciária")]),
-            _vm._v("?\n                        "),
-          ]),
-        ]),
-        _vm._v(" "),
+      _c("div", { staticClass: "question_options" }, [
         _c("div", { staticClass: "question_options" }, [
           _c("input", {
-            attrs: {
-              type: "radio",
-              value: "1",
-              name: "f_pens_judiciaria",
-              id: "pjsim",
-            },
+            attrs: { type: "radio", value: "1", name: "f_pnr", id: "pnrsim" },
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "pjsim" } }, [_vm._v("Sim")]),
+          _c("label", { attrs: { for: "pnrsim" } }, [_vm._v("Sim")]),
           _vm._v(" "),
           _c("input", {
             attrs: {
               type: "radio",
               value: "0",
-              name: "f_pens_judiciaria",
-              id: "pjnao",
+              name: "f_pnr",
+              id: "pnrnao",
               checked: "",
             },
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "pjnao" } }, [_vm._v("Não")]),
+          _c("label", { attrs: { for: "pnrnao" } }, [_vm._v("Não")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Qual o tipo de desconto de\n                            "
+        ),
+        _c("strong", [_vm._v("PNR")]),
+        _vm._v(" da unidade?\n                        "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "question_body" }, [
+      _c("div", { staticClass: "question_title" }, [
+        _c("p", [
+          _vm._v(
+            "\n                            O examinado paga\n                            "
+          ),
+          _c("strong", [_vm._v("Pensão Judiciária")]),
+          _vm._v("?\n                        "),
         ]),
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Valor da Pensão Judiciária nº 1:")]),
-        ]),
+      _c("div", { staticClass: "question_options" }, [
+        _c("input", {
+          attrs: {
+            type: "radio",
+            value: "1",
+            name: "f_pens_judiciaria",
+            id: "pjsim",
+          },
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_1",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+        _c("label", { attrs: { for: "pjsim" } }, [_vm._v("Sim")]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: {
+            type: "radio",
+            value: "0",
+            name: "f_pens_judiciaria",
+            id: "pjnao",
+            checked: "",
+          },
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "pjnao" } }, [_vm._v("Não")]),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Valor da Pensão Judiciária nº 2:")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_2",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Valor da Pensão Judiciária nº 1:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Valor da Pensão Judiciária nº 2:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Valor da Pensão Judiciária nº 3:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Valor da Pensão Judiciária nº 4:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Valor da Pensão Judiciária nº 5:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [_vm._v("Valor da Pensão Judiciária nº 6:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 1:\n                        "
+        ),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Valor da Pensão Judiciária nº 3:")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_3",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 2:\n                        "
+        ),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Valor da Pensão Judiciária nº 4:")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_4",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 3:\n                        "
+        ),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Valor da Pensão Judiciária nº 5:")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_5",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 4:\n                        "
+        ),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [_vm._v("Valor da Pensão Judiciária nº 6:")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_6",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 5:\n                        "
+        ),
       ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 1:\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_adic_natal_1",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 2:\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_adic_natal_2",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 3:\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_adic_natal_3",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 4:\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_adic_natal_4",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 5:\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_adic_natal_5",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "question_body" }, [
-        _c("div", { staticClass: "question_title" }, [
-          _c("p", [
-            _vm._v(
-              "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 6:\n                        "
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "question_options" }, [
-          _c("div", { staticClass: "question_options" }, [
-            _c("input", {
-              attrs: {
-                type: "number",
-                name: "pens_judiciaria_adic_natal_6",
-                min: "0",
-                value: "0",
-                step: "0.01",
-                max: "99999",
-                required: "",
-              },
-            }),
-          ]),
-        ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 6:\n                        "
+        ),
       ]),
     ])
   },
@@ -32964,7 +35321,7 @@ var render = function () {
             [
               _c("input", {
                 attrs: { type: "hidden", name: "_token" },
-                domProps: { value: _vm.token_csrf },
+                domProps: { value: _vm.csrf_token },
               }),
             ]
           ),
@@ -32976,7 +35333,9 @@ var render = function () {
         { attrs: { id: "main_body" } },
         [
           _vm.paginaRenderizada == "contracheques"
-            ? _c("formulario-component")
+            ? _c("formulario-component", {
+                attrs: { form_token: _vm.csrf_token },
+              })
             : _vm._e(),
         ],
         1

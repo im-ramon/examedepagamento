@@ -101,13 +101,14 @@
                         <input
                             type="hidden"
                             name="_token"
-                            :value="token_csrf"
+                            :value="csrf_token"
                         />
                     </form>
                 </div>
             </section>
             <section id="main_body">
                 <formulario-component
+                    :form_token="csrf_token"
                     v-if="paginaRenderizada == 'contracheques'"
                 >
                 </formulario-component>
@@ -123,6 +124,6 @@ export default {
             paginaRenderizada: "home",
         };
     },
-    props: ["token_csrf", "routeLogout"],
+    props: ["csrf_token", "routeLogout"],
 };
 </script>

@@ -134,6 +134,7 @@ class ContrachequeController extends Controller
             $this->descontos_ir['valor'] = $this->somaDescontosParaIRMensal();
             $this->descontos_total['valor'] = $this->somaDescontosTotal();
 
+            return  $formulario;
             return [
                 'receitas' => [
                     'soldo' => ['financeiro' => $this->soldo, 'rubrica' => 'SOLDO'],

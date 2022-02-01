@@ -1,10 +1,9 @@
 <template>
-    <!-- <form id="formulario" v-on:submit.prevent="myfunc($event)" method="get"> -->
     <form id="formulario" action="/api/ficha-auxiliar" method="get">
-        <input type="hidden" name="_token" :value="token_csrf" />
-
+        <input type="hidden" name="_token" :value="form_token" />
         <section id="form_informacoes_pessoais">
             <h2>Informações gerais</h2>
+
             <fieldset class="question_root">
                 <div class="ajuda_container">
                     <img
@@ -22,7 +21,11 @@
                         </p>
                     </div>
                     <div class="question_options">
-                        <select name="universo" id="tipo_soldo">
+                        <select
+                            name="universo"
+                            v-model="universo"
+                            id="tipo_soldo"
+                        >
                             <option value="ativa">Militar da Ativa</option>
                             <option value="inativo">Militar da Inativo</option>
                             <option value="pens_mil">
@@ -50,7 +53,7 @@
                             name="data_contracheque"
                             id="date"
                             type="date"
-                            value="2022-01-12"
+                            :value="data_contracheque"
                         />
                     </div>
                 </section>
@@ -67,6 +70,7 @@
                             type="radio"
                             name="maior_65"
                             value="1"
+                            v-model="maior_65"
                             id="maior_65sim"
                         />
                         <label for="maior_65sim">Sim</label>
@@ -74,6 +78,7 @@
                             type="radio"
                             name="maior_65"
                             value="0"
+                            v-model="maior_65"
                             id="maior_65nao"
                             checked
                         />
@@ -96,6 +101,7 @@
                             type="radio"
                             name="isento_ir"
                             value="1"
+                            v-model="isento_ir"
                             id="isento_irsim"
                         />
                         <label for="isento_irsim">Sim</label>
@@ -103,6 +109,7 @@
                             type="radio"
                             name="isento_ir"
                             value="0"
+                            v-model="isento_ir"
                             id="isento_irnao"
                             checked
                         />
@@ -121,7 +128,7 @@
                         </p>
                     </div>
                     <div class="question_options">
-                        <select name="pg_soldo">
+                        <select name="pg_soldo" v-model="pg_soldo">
                             <option
                                 v-for="(pg, key) in selectPg"
                                 :key="key"
@@ -141,7 +148,7 @@
                         <p>Qual o P/G <strong>real</strong> do examinado?</p>
                     </div>
                     <div class="question_options">
-                        <select name="pg_real">
+                        <select name="pg_real" v-model="pg_real">
                             <option
                                 v-for="(pg, key) in selectPg"
                                 :key="key"
@@ -157,6 +164,7 @@
 
         <section id="form_informacoes_financeiras">
             <h2>Informações financeiras</h2>
+
             <section id="form_informacoes_financeiras_col1">
                 <fieldset class="question_root">
                     <div class="ajuda_container">
@@ -175,7 +183,11 @@
                             </p>
                         </div>
                         <div class="question_options">
-                            <select name="tipo_soldo" id="tipo_soldo">
+                            <select
+                                name="tipo_soldo"
+                                id="tipo_soldo"
+                                v-model="tipo_soldo"
+                            >
                                 <option value="1">Normal/ Integral</option>
                                 <option value="2">
                                     Soldo Proporcional para Cota
@@ -185,8 +197,7 @@
                     </section>
                 </fieldset>
 
-                <!-- {{-- Filtra só pra pensionistas aqui --}} -->
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_soldo_cota">
                     <legend>Cota-parte do Soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -200,7 +211,7 @@
                                 type="number"
                                 min="0"
                                 max="100"
-                                value="100.00"
+                                v-model="soldo_cota_porcentagem"
                                 step="0.01"
                                 name="soldo_cota_porcentagem"
                                 id="soldo_cota_porcentagem"
@@ -210,7 +221,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_soldo_prop_cota">
                     <legend>Soldo Proporcional para Cota</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -225,7 +236,7 @@
                                 type="number"
                                 min="0"
                                 max="100"
-                                value="100.00"
+                                v-model="soldo_prop_cota_porcentagem"
                                 step="0.01"
                                 name="soldo_prop_cota_porcentagem"
                                 id="soldo_prop_cota_porcentagem"
@@ -235,7 +246,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_compl_ct_soldo">
                     <legend>Complemento de cota de soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -248,12 +259,14 @@
                             <input
                                 type="radio"
                                 name="compl_ct_soldo"
+                                v-model="compl_ct_soldo"
                                 value="1"
                                 id="complementocotasoldosim"
                             /><label for="complementocotasoldosim">Sim</label>
                             <input
                                 type="radio"
                                 name="compl_ct_soldo"
+                                v-model="compl_ct_soldo"
                                 value="0"
                                 id="complementocotasoldonao"
                                 checked
@@ -262,7 +275,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_tp_sv">
                     <legend>Adicional de Tempo de Serviço</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -277,14 +290,14 @@
                                 name="adic_tp_sv"
                                 id="adic_tp_sv"
                                 min="0"
-                                value="0"
+                                v-model="adic_tp_sv"
                                 max="100"
                             />
                         </div>
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_disp">
                     <legend>
                         Adicional de Compensação por Disponibilidade Militar
                     </legend>
@@ -302,6 +315,7 @@
                             <input
                                 type="radio"
                                 name="adic_disp"
+                                v-model="adic_disp"
                                 value="1"
                                 id="adic_dispsim"
                                 checked
@@ -311,6 +325,7 @@
                             <input
                                 type="radio"
                                 name="adic_disp"
+                                v-model="adic_disp"
                                 value="0"
                                 id="adic_dispnao"
                             />
@@ -319,14 +334,18 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_hab">
                     <legend>Adicional Habilitação</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>Qual nível de habilitação do examinado?</p>
                         </div>
                         <div class="question_options">
-                            <select name="adic_hab_tipo" required>
+                            <select
+                                name="adic_hab_tipo"
+                                v-model="adic_hab_tipo"
+                                required
+                            >
                                 <option value="sem_formacao">
                                     - Selecione o tipo -
                                 </option>
@@ -351,7 +370,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_mil">
                     <legend>Adicional Militar</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -364,6 +383,7 @@
                             <input
                                 type="radio"
                                 name="adic_mil"
+                                v-model="adic_mil"
                                 value="1"
                                 id="adic_mil_sim"
                                 checked
@@ -371,6 +391,7 @@
                             <input
                                 type="radio"
                                 name="adic_mil"
+                                v-model="adic_mil"
                                 value="0"
                                 id="adic_mil_nao"
                             /><label for="adic_hab_nao">Não</label>
@@ -378,7 +399,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_comp_org">
                     <legend>Adicional de Compensação Orgânica</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -390,7 +411,10 @@
                             </p>
                         </div>
                         <div class="question_options">
-                            <select name="adic_comp_org_tipo">
+                            <select
+                                name="adic_comp_org_tipo"
+                                v-model="adic_comp_org_tipo"
+                            >
                                 <option value="0">
                                     - Selecione uma opção -
                                 </option>
@@ -426,7 +450,7 @@
                             <input
                                 type="number"
                                 name="adic_comp_org_percet"
-                                value="0"
+                                v-model="adic_comp_org_percet"
                                 min="0"
                                 max="100"
                             />
@@ -438,7 +462,10 @@
                             <p>Sobre o soldo de qual posto/ gradução?</p>
                         </div>
                         <div class="question_options">
-                            <select name="adic_comp_org_pg">
+                            <select
+                                name="adic_comp_org_pg"
+                                v-model="adic_comp_org_pg"
+                            >
                                 <option
                                     v-for="(pg, key) in selectPg"
                                     :key="key"
@@ -451,7 +478,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_hvoo">
                     <legend>Adicional de Horas de Voo (ART24MP)</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -485,7 +512,7 @@
                             <input
                                 type="number"
                                 name="hvoo_percet"
-                                value="0"
+                                v-model="hvoo_percet"
                                 step="0.01"
                                 min="0"
                                 max="100"
@@ -498,7 +525,7 @@
                             <p>Sobre o soldo de qual soldo?</p>
                         </div>
                         <div class="question_options">
-                            <select name="hvoo_pg">
+                            <select name="hvoo_pg" v-model="hvoo_pg">
                                 <option
                                     v-for="(pg, key) in selectPg"
                                     :key="key"
@@ -511,7 +538,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_acres_25_soldo">
                     <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -525,12 +552,14 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="acres_25_soldo"
                                     name="acres_25_soldo"
                                     id="acres25soldosim"
                                 /><label for="acres25soldosim">Sim</label>
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="acres_25_soldo"
                                     name="acres_25_soldo"
                                     id="acres25soldonao"
                                     checked
@@ -540,7 +569,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_perm">
                     <legend>Adicional de Permanência</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -553,7 +582,7 @@
                             <input
                                 type="number"
                                 name="adic_perm"
-                                value="0"
+                                v-model="adic_perm"
                                 min="0"
                                 max="100"
                                 step="5"
@@ -562,7 +591,10 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset
+                    class="question_root"
+                    v-show="form_salario_familia_ir"
+                >
                     <legend>Salário família/ Imposto de Renda</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -575,7 +607,7 @@
                             <input
                                 type="number"
                                 name="salario_familia_dep"
-                                value="0"
+                                v-model="salario_familia_dep"
                                 min="0"
                                 max="30"
                             />
@@ -594,7 +626,7 @@
                                 <input
                                     type="number"
                                     name="imposto_renda_dep"
-                                    value="0"
+                                    v-model="imposto_renda_dep"
                                     min="0"
                                     max="30"
                                 />
@@ -603,7 +635,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_ferias">
                     <legend>Adicional de Férias</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -616,12 +648,14 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="adic_ferias"
                                     name="adic_ferias"
                                     id="feriassim"
                                 /><label for="feriassim">Sim</label>
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="adic_ferias"
                                     name="adic_ferias"
                                     id="feriasnao"
                                     checked
@@ -631,7 +665,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_pttc">
                     <legend>Adicional PTTC</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -644,12 +678,14 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="adic_pttc"
                                 name="adic_pttc"
                                 id="pttcsim"
                             /><label for="pttcsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="adic_pttc"
                                 name="adic_pttc"
                                 id="pttcnao"
                                 checked
@@ -658,7 +694,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_adic_natalino">
                     <legend>Adicional Natalino</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -671,12 +707,14 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="adic_natalino"
                                 name="adic_natalino"
                                 id="adicnatalinosim"
                             /><label for="adicnatalinosim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="adic_natalino"
                                 name="adic_natalino"
                                 id="adicnatalinonao"
                                 checked
@@ -692,7 +730,7 @@
                             <input
                                 type="number"
                                 name="adic_natalino_qtd_meses"
-                                value="1"
+                                v-model="adic_natalino_qtd_meses"
                                 min="0"
                                 max="12"
                             />
@@ -713,7 +751,7 @@
                             <input
                                 type="number"
                                 name="adic_natalino_valor_adiantamento"
-                                value="0"
+                                v-model="adic_natalino_valor_adiantamento"
                                 min="0"
                                 step="0.01"
                                 max="99999"
@@ -722,7 +760,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_pre_escolar">
                     <legend>Auxílio Pré-escolar</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -735,7 +773,7 @@
                             <input
                                 type="number"
                                 name="aux_pre_escolar_qtd"
-                                value="0"
+                                v-model="aux_pre_escolar_qtd"
                                 min="0"
                                 max="30"
                             />
@@ -743,8 +781,9 @@
                     </section>
                 </fieldset>
             </section>
+
             <section id="form_informacoes_financeiras_col2">
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_invalidez">
                     <legend>Auxílio Inavalidez</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -757,12 +796,14 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="aux_invalidez"
                                 name="aux_invalidez"
                                 id="auxinvsim"
                             /><label for="auxinvsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="aux_invalidez"
                                 name="aux_invalidez"
                                 id="auxinvnao"
                                 checked
@@ -770,8 +811,7 @@
                         </div>
                     </section>
                 </fieldset>
-
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_transporte">
                     <legend>Auxílio Transporte</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -785,21 +825,27 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="f_aux_transporte"
                                     name="f_aux_transporte"
                                     id="f_aux_transportesim"
                                 /><label for="f_aux_transportesim">Sim</label>
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="f_aux_transporte"
                                     name="f_aux_transporte"
                                     id="f_aux_transportenao"
+                                    v-on:change="aux_transporte = 0"
                                     checked
                                 /><label for="f_aux_transportenao">Não</label>
                             </div>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_aux_transporte == 1"
+                    >
                         <div class="question_title">
                             <p>Qual valor solictado na SAT?</p>
                         </div>
@@ -808,7 +854,7 @@
                                 type="number"
                                 name="aux_transporte"
                                 min="0"
-                                value="0"
+                                v-model="aux_transporte"
                                 step="0.01"
                                 max="10000"
                             />
@@ -816,7 +862,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_fard">
                     <legend>Auxílio Fardamento</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -829,20 +875,23 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="aux_fard"
                                 name="aux_fard"
                                 id="auxfardsim"
                             /><label for="auxfardsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="aux_fard"
                                 name="aux_fard"
                                 id="auxfardnao"
+                                v-on:change="aux_fard_primeiro = 0"
                                 checked
                             /><label for="auxfardnao">Não</label>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section class="question_body" v-show="aux_fard == '1'">
                         <div class="question_title">
                             <p>
                                 É a primeira vez que receberá o
@@ -853,12 +902,14 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="aux_fard_primeiro"
                                 name="aux_fard_primeiro"
                                 id="auxfardprimeirosim"
                             /><label for="auxfardprimeiro">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="aux_fard_primeiro"
                                 name="aux_fard_primeiro"
                                 id="auxfardprimeironao"
                                 checked
@@ -867,7 +918,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_alim_c">
                     <legend>Auxílio Alimentação - Tipo "C"</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -880,12 +931,14 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="aux_alim_c"
                                 name="aux_alim_c"
                                 id="auxalimcsim"
                             /><label for="auxalimcsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="aux_alim_c"
                                 name="aux_alim_c"
                                 id="auxalimcnao"
                                 checked
@@ -894,7 +947,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_alim_5x">
                     <legend>Auxílio Alimentação - 5x</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -907,20 +960,26 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="f_aux_alim_5x"
                                 name="f_aux_alim_5x"
                                 id="auxalim5xsim"
                             /><label for="auxalim5xsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="f_aux_alim_5x"
                                 name="f_aux_alim_5x"
                                 id="auxalim5xnao"
+                                v-on:change="aux_alim_5x = 0"
                                 checked
                             /><label for="auxalim5xsim">Não</label>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_aux_alim_5x == '1'"
+                    >
                         <div class="question_title">
                             <p>Referente a quantos dias?</p>
                         </div>
@@ -929,14 +988,14 @@
                                 type="number"
                                 name="aux_alim_5x"
                                 min="0"
-                                value="0"
+                                v-model="aux_alim_5x"
                                 max="365"
                             />
                         </div>
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_aux_natalidade">
                     <legend>Auxílio Natalidade</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -971,7 +1030,7 @@
                                 type="number"
                                 name="aux_natalidade"
                                 min="0"
-                                value="0"
+                                v-model="aux_natalidade"
                                 step="1"
                                 max="10"
                             />
@@ -979,7 +1038,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_grat_loc_esp">
                     <legend>Gratificação de Localidade Especial</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -995,6 +1054,7 @@
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="grat_loc_esp"
                                 id="grat_loc_esp_nao"
                                 name="grat_loc_esp"
                                 checked
@@ -1005,6 +1065,7 @@
                             <input
                                 type="radio"
                                 value="A"
+                                v-model="grat_loc_esp"
                                 id="grat_loc_esp_A"
                                 name="grat_loc_esp"
                                 min="0"
@@ -1014,6 +1075,7 @@
                             <input
                                 type="radio"
                                 value="B"
+                                v-model="grat_loc_esp"
                                 id="grat_loc_esp_B"
                                 name="grat_loc_esp"
                                 min="0"
@@ -1024,7 +1086,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_grat_repr_cmdo">
                     <legend>Gratificação de Representação de Comando</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1040,12 +1102,14 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="grat_repr_cmdo"
                                 name="grat_repr_cmdo"
                                 id="gratrepcmdosim"
                             /><label for="gratrepcmdosim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="grat_repr_cmdo"
                                 name="grat_repr_cmdo"
                                 id="gratrepcmdonao"
                                 checked
@@ -1054,7 +1118,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_grat_repr_2">
                     <legend>Gratificação de Representação 2%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1091,7 +1155,7 @@
                                 name="grat_repr_2"
                                 max="365"
                                 min="0"
-                                value="0"
+                                v-model="grat_repr_2"
                             />
                         </div>
                     </section>
@@ -1101,7 +1165,10 @@
                             <p>Sobre qual posto ou graduação?</p>
                         </div>
                         <div class="question_options">
-                            <select name="grat_repr_2_pg">
+                            <select
+                                name="grat_repr_2_pg"
+                                v-model="grat_repr_2_pg"
+                            >
                                 <option
                                     v-for="(pg, key) in selectPg"
                                     :key="key"
@@ -1114,7 +1181,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_dp_excmb_art_9">
                     <legend>
                         Pensionada Pensionista de Ex-Combatente - Art. 9
                     </legend>
@@ -1152,7 +1219,7 @@
                                 name="dp_excmb_art_9"
                                 max="99999"
                                 min="0"
-                                value="0"
+                                v-model="dp_excmb_art_9"
                                 step="0.01"
                             />
                         </div>
@@ -1161,7 +1228,7 @@
 
                 <!-- {{-- DESCONTOS --}} -->
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_pmil">
                     <legend>Pensão Militar</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1175,6 +1242,7 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="pmil"
                                     name="pmil"
                                     id="pmilsim"
                                     checked
@@ -1182,6 +1250,7 @@
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="pmil"
                                     name="pmil"
                                     id="pmilnao"
                                 /><label for="pmilnao">Não</label>
@@ -1190,12 +1259,16 @@
                     </section>
                     <section class="question_body">
                         <div class="question_title">
-                            <p>Sobre o mesmo posto/ gradução?</p>
+                            <p>
+                                Contribui sobre o soldo do mesmo posto/
+                                gradução?
+                            </p>
                         </div>
                         <div class="question_options">
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="pmilmesmopg"
                                 name="pmilmesmopg"
                                 id="pmilmesmopgsim"
                                 checked
@@ -1204,6 +1277,7 @@
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="pmilmesmopg"
                                 name="pmilmesmopg"
                                 id="pmilmesmopgnao"
                             />
@@ -1218,7 +1292,7 @@
                             </p>
                         </div>
                         <div class="question_options">
-                            <select name="pmil_pg">
+                            <select name="pmil_pg" v-model="pmil_pg">
                                 <option
                                     v-for="(pg, key) in selectPg"
                                     :key="key"
@@ -1231,7 +1305,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_pmil_15">
                     <legend>Pensão Militar 1.5%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1245,12 +1319,14 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="pmil_15"
                                     name="pmil_15"
                                     id="pmil15sim"
                                 /><label for="pmil15sim">Sim</label>
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="pmil_15"
                                     name="pmil_15"
                                     id="pmil15nao"
                                     checked
@@ -1259,7 +1335,8 @@
                         </div>
                     </section>
                 </fieldset>
-                <fieldset class="question_root">
+
+                <fieldset class="question_root" v-show="form_pmil_30">
                     <legend>Pensão Militar 3.0%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1276,12 +1353,14 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="pmil_30"
                                     name="pmil_30"
                                     id="pmil30sim"
                                 /><label for="pmil30sim">Sim</label>
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="pmil_30"
                                     name="pmil_30"
                                     id="pmil30nao"
                                     checked
@@ -1291,7 +1370,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_fusex_3">
                     <legend>FuSEx 3%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1302,6 +1381,7 @@
                                 <input
                                     type="radio"
                                     value="1"
+                                    v-model="fusex_3"
                                     name="fusex_3"
                                     id="fusexsim"
                                     checked
@@ -1309,6 +1389,7 @@
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="fusex_3"
                                     name="fusex_3"
                                     id="fusexnao"
                                 /><label for="fusexnao">Não</label>
@@ -1317,7 +1398,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_desc_dep_fusex">
                     <legend>Desconto de dependentes no FuSEx</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1332,6 +1413,7 @@
                                 <input
                                     type="radio"
                                     value="0"
+                                    v-model="desc_dep_fusex"
                                     name="desc_dep_fusex"
                                     id="desc_dep_fusex_nao"
                                     checked
@@ -1342,6 +1424,7 @@
                                 <input
                                     type="radio"
                                     value="0.4"
+                                    v-model="desc_dep_fusex"
                                     name="desc_dep_fusex"
                                     id="desc_dep_fusex_04"
                                 />
@@ -1349,6 +1432,7 @@
                                 <input
                                     type="radio"
                                     value="0.5"
+                                    v-model="desc_dep_fusex"
                                     name="desc_dep_fusex"
                                     id="desc_dep_fusex_05"
                                 />
@@ -1358,7 +1442,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_pnr">
                     <legend>PNR</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1394,7 +1478,7 @@
                         </div>
                         <div class="question_options">
                             <div class="question_options">
-                                <select name="pnr">
+                                <select name="pnr" v-model="pnr">
                                     <option value="0">
                                         - Selecione um tipo -
                                     </option>
@@ -1410,7 +1494,7 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root">
+                <fieldset class="question_root" v-show="form_pens_judiciaria">
                     <legend>Pensão Judiciária</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1448,7 +1532,7 @@
                                     type="number"
                                     name="pens_judiciaria_1"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_1"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1467,7 +1551,7 @@
                                     type="number"
                                     name="pens_judiciaria_2"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_2"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1486,7 +1570,7 @@
                                     type="number"
                                     name="pens_judiciaria_3"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_3"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1505,7 +1589,7 @@
                                     type="number"
                                     name="pens_judiciaria_4"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_4"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1524,7 +1608,7 @@
                                     type="number"
                                     name="pens_judiciaria_5"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_5"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1543,7 +1627,7 @@
                                     type="number"
                                     name="pens_judiciaria_6"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_6"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1565,7 +1649,7 @@
                                     type="number"
                                     name="pens_judiciaria_adic_natal_1"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_adic_natal_1"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1587,7 +1671,7 @@
                                     type="number"
                                     name="pens_judiciaria_adic_natal_2"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_adic_natal_2"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1609,7 +1693,7 @@
                                     type="number"
                                     name="pens_judiciaria_adic_natal_3"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_adic_natal_3"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1631,7 +1715,7 @@
                                     type="number"
                                     name="pens_judiciaria_adic_natal_4"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_adic_natal_4"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1653,7 +1737,7 @@
                                     type="number"
                                     name="pens_judiciaria_adic_natal_5"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_adic_natal_5"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1675,7 +1759,7 @@
                                     type="number"
                                     name="pens_judiciaria_adic_natal_6"
                                     min="0"
-                                    value="0"
+                                    v-model="pens_judiciaria_adic_natal_6"
                                     step="0.01"
                                     max="99999"
                                     required
@@ -1694,7 +1778,7 @@
 import axios from "axios";
 
 export default {
-    props: ["token_csrf"],
+    props: ["form_token"],
     computed: {
         token() {
             let token = document.cookie.split(";").find((indice) => {
@@ -1707,9 +1791,153 @@ export default {
             return token;
         },
     },
+    watch: {
+        universo(newValue, oldValue) {
+            if (newValue == "ativa") {
+                this.form_soldo_cota = false;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = false;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = false;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = false;
+                this.dp_excmb_art_9 = "0";
+            } else if (newValue == "inativo") {
+                this.form_soldo_cota = false;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = true;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = true;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = false;
+                this.dp_excmb_art_9 = "0";
+            } else if (newValue == "pens_mil") {
+                this.form_soldo_cota = true;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = true;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = true;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = false;
+                this.dp_excmb_art_9 = "0";
+            } else if (
+                newValue == "pens_excmbt_2ten" ||
+                newValue == "pens_excmbt_2sgt"
+            ) {
+                this.form_soldo_cota = true;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = true;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = true;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = true;
+                this.dp_excmb_art_9 = "0";
+            }
+        },
+    },
     data() {
         return {
             selectPg: [],
+
+            universo: "ativa",
+            data_contracheque: "2022-01-01",
+            maior_65: "0",
+            isento_ir: "0",
+            pg_soldo: "1",
+            pg_real: "1",
+            tipo_soldo: "1",
+            soldo_cota_porcentagem: "100.00",
+            soldo_prop_cota_porcentagem: "100.00",
+            compl_ct_soldo: "0",
+            adic_tp_sv: "0",
+            adic_disp: "1",
+            adic_hab_tipo: "sem_formacao",
+            adic_mil: "1",
+            adic_comp_org_tipo: "0",
+            adic_comp_org_percet: "0",
+            adic_comp_org_pg: "1",
+            hvoo_percet: "0",
+            hvoo_pg: "1",
+            acres_25_soldo: "0",
+            adic_perm: "0",
+            salario_familia_dep: "0",
+            imposto_renda_dep: "0",
+            adic_ferias: "0",
+            adic_pttc: "0",
+            adic_natalino: "0",
+            adic_natalino_qtd_meses: "1",
+            adic_natalino_valor_adiantamento: "0",
+            aux_pre_escolar_qtd: "0",
+            aux_invalidez: "0",
+            aux_transporte: "0",
+            aux_fard: "0",
+            aux_fard_primeiro: "0",
+            aux_alim_c: "0",
+            aux_alim_5x: "0",
+            aux_natalidade: "0",
+            grat_loc_esp: "0",
+            grat_repr_cmdo: "0",
+            grat_repr_2: "0",
+            grat_repr_2_pg: "1",
+            dp_excmb_art_9: "0",
+            pmil: "1",
+            pmilmesmopg: "1",
+            pmil_pg: "1",
+            pmil_15: "0",
+            pmil_30: "0",
+            fusex_3: "1",
+            desc_dep_fusex: "0",
+            pnr: "0",
+            pens_judiciaria_1: "0",
+            pens_judiciaria_2: "0",
+            pens_judiciaria_3: "0",
+            pens_judiciaria_4: "0",
+            pens_judiciaria_5: "0",
+            pens_judiciaria_6: "0",
+            pens_judiciaria_adic_natal_1: "0",
+            pens_judiciaria_adic_natal_2: "0",
+            pens_judiciaria_adic_natal_3: "0",
+            pens_judiciaria_adic_natal_4: "0",
+            pens_judiciaria_adic_natal_5: "0",
+            pens_judiciaria_adic_natal_6: "0",
+
+            form_soldo_cota: false,
+            form_soldo_prop_cota: false,
+            form_compl_ct_soldo: false,
+            form_adic_tp_sv: true,
+            form_adic_disp: true,
+            form_adic_hab: true,
+            form_adic_mil: true,
+            form_adic_comp_org: true,
+            form_hvoo: true,
+            form_acres_25_soldo: true,
+            form_adic_perm: true,
+            form_salario_familia_ir: true,
+            form_adic_ferias: true,
+            form_adic_pttc: true,
+            form_adic_natalino: true,
+            form_aux_pre_escolar: true,
+            form_aux_invalidez: true,
+            form_aux_transporte: true,
+            form_aux_fard: true,
+            form_aux_fard_primeiro: true,
+            form_aux_alim_c: true,
+            form_aux_alim_5x: true,
+            form_aux_natalidade: true,
+            form_grat_loc_esp: true,
+            form_grat_repr_cmdo: true,
+            form_grat_repr_2: true,
+            form_dp_excmb_art_9: false,
+            form_pmil: true,
+            form_pmil_15: true,
+            form_pmil_30: true,
+            form_fusex_3: true,
+            form_desc_dep_fusex: true,
+            form_pnr: true,
+            form_pens_judiciaria: true,
+
+            f_aux_transporte: "0",
+            f_aux_alim_5x: "0",
         };
     },
     methods: {
