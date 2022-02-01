@@ -414,6 +414,7 @@
                             <select
                                 name="adic_comp_org_tipo"
                                 v-model="adic_comp_org_tipo"
+                                @change="adic_comp_org_percet = 0"
                             >
                                 <option value="0">
                                     - Selecione uma opção -
@@ -442,7 +443,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="adic_comp_org_tipo != '0'"
+                    >
                         <div class="question_title">
                             <p>Qual percentual?</p>
                         </div>
@@ -457,7 +461,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="adic_comp_org_tipo != '0'"
+                    >
                         <div class="question_title">
                             <p>Sobre o soldo de qual posto/ gradução?</p>
                         </div>
@@ -491,20 +498,23 @@
                             <input
                                 type="radio"
                                 name="f_hvoo"
+                                v-model="f_hvoo"
                                 value="1"
                                 id="hvoosim"
                             /><label for="hvoosim">Sim</label>
                             <input
                                 type="radio"
                                 name="f_hvoo"
+                                v-model="f_hvoo"
                                 value="0"
+                                @change="hvoo_percet = 0"
                                 id="hvoonao"
                                 checked
                             /><label for="hvoonao">Não</label>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section class="question_body" v-show="f_hvoo != '0'">
                         <div class="question_title">
                             <p>Qual percentual?</p>
                         </div>
@@ -520,7 +530,7 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section class="question_body" v-show="f_hvoo != '0'">
                         <div class="question_title">
                             <p>Sobre o soldo de qual soldo?</p>
                         </div>
@@ -715,14 +725,20 @@
                                 type="radio"
                                 value="0"
                                 v-model="adic_natalino"
+                                @change="
+                                    adic_natalino_qtd_meses = 1;
+                                    adic_natalino_valor_adiantamento = 0;
+                                "
                                 name="adic_natalino"
                                 id="adicnatalinonao"
-                                checked
                             /><label for="adicnatalinonao">Não</label>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="adic_natalino == '1'"
+                    >
                         <div class="question_title">
                             <p>Referenta a quantos meses?</p>
                         </div>
@@ -737,7 +753,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="adic_natalino == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 O examinado já recebeu algum
@@ -1008,20 +1027,26 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="f_aux_natalidade"
                                 name="f_aux_natalidade"
                                 id="auxnatalidadesim"
                             /><label for="auxnatalidadesim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="f_aux_natalidade"
                                 name="f_aux_natalidade"
                                 id="auxnatalidadenao"
+                                @change="aux_natalidade = 0"
                                 checked
                             /><label for="auxnatalidadenao">Não</label>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_aux_natalidade != '0'"
+                    >
                         <div class="question_title">
                             <p>Referente a quantos filhos?</p>
                         </div>
@@ -1132,20 +1157,26 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="f_grat_repr_2"
                                 name="f_grat_repr_2"
                                 id="gratrep2sim"
                             /><label for="gratrep2">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="f_grat_repr_2"
                                 name="f_grat_repr_2"
                                 id="gratrep2nao"
+                                @change="grat_repr_2 = '0'"
                                 checked
                             /><label for="gratrep2">Não</label>
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_grat_repr_2 != '0'"
+                    >
                         <div class="question_title">
                             <p>Referente a quantos dias?</p>
                         </div>
@@ -1160,7 +1191,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_grat_repr_2 != '0'"
+                    >
                         <div class="question_title">
                             <p>Sobre qual posto ou graduação?</p>
                         </div>
@@ -1284,7 +1318,7 @@
                             <label for="pmilmesmopgnao">Não</label>
                         </div>
                     </section>
-                    <section class="question_body">
+                    <section class="question_body" v-show="pmilmesmopg == '0'">
                         <div class="question_title">
                             <p>
                                 Sobre qual posto/ gradução o examinado contribui
@@ -1454,6 +1488,7 @@
                                     type="radio"
                                     value="1"
                                     name="f_pnr"
+                                    v-model="f_pnr"
                                     id="pnrsim"
                                 />
                                 <label for="pnrsim">Sim</label>
@@ -1462,14 +1497,16 @@
                                     type="radio"
                                     value="0"
                                     name="f_pnr"
+                                    v-model="f_pnr"
                                     id="pnrnao"
+                                    @change="pnr = 0"
                                     checked
                                 />
                                 <label for="pnrnao">Não</label>
                             </div>
                         </div>
                     </section>
-                    <section class="question_body">
+                    <section class="question_body" v-show="f_pnr == '1'">
                         <div class="question_title">
                             <p>
                                 Qual o tipo de desconto de
@@ -1507,6 +1544,7 @@
                             <input
                                 type="radio"
                                 value="1"
+                                v-model="f_pens_judiciaria"
                                 name="f_pens_judiciaria"
                                 id="pjsim"
                             />
@@ -1514,7 +1552,21 @@
                             <input
                                 type="radio"
                                 value="0"
+                                v-model="f_pens_judiciaria"
                                 name="f_pens_judiciaria"
+                                @change="
+                                    pens_judiciaria_2 = '0';
+                                    pens_judiciaria_3 = '0';
+                                    pens_judiciaria_4 = '0';
+                                    pens_judiciaria_5 = '0';
+                                    pens_judiciaria_6 = '0';
+                                    pens_judiciaria_adic_natal_1 = '0';
+                                    pens_judiciaria_adic_natal_2 = '0';
+                                    pens_judiciaria_adic_natal_3 = '0';
+                                    pens_judiciaria_adic_natal_4 = '0';
+                                    pens_judiciaria_adic_natal_5 = '0';
+                                    pens_judiciaria_adic_natal_6 = '0';
+                                "
                                 id="pjnao"
                                 checked
                             />
@@ -1522,7 +1574,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>Valor da Pensão Judiciária nº 1:</p>
                         </div>
@@ -1541,7 +1596,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>Valor da Pensão Judiciária nº 2:</p>
                         </div>
@@ -1560,7 +1618,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>Valor da Pensão Judiciária nº 3:</p>
                         </div>
@@ -1579,7 +1640,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>Valor da Pensão Judiciária nº 4:</p>
                         </div>
@@ -1598,7 +1662,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>Valor da Pensão Judiciária nº 5:</p>
                         </div>
@@ -1617,7 +1684,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>Valor da Pensão Judiciária nº 6:</p>
                         </div>
@@ -1636,7 +1706,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 Valor da Pensão Judiciária do Adicional Natalino
@@ -1658,7 +1731,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 Valor da Pensão Judiciária do Adicional Natalino
@@ -1680,7 +1756,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 Valor da Pensão Judiciária do Adicional Natalino
@@ -1702,7 +1781,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 Valor da Pensão Judiciária do Adicional Natalino
@@ -1724,7 +1806,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 Valor da Pensão Judiciária do Adicional Natalino
@@ -1746,7 +1831,10 @@
                         </div>
                     </section>
 
-                    <section class="question_body">
+                    <section
+                        class="question_body"
+                        v-show="f_pens_judiciaria == '1'"
+                    >
                         <div class="question_title">
                             <p>
                                 Valor da Pensão Judiciária do Adicional Natalino
@@ -1938,6 +2026,11 @@ export default {
 
             f_aux_transporte: "0",
             f_aux_alim_5x: "0",
+            f_aux_natalidade: "0",
+            f_hvoo: "0",
+            f_grat_repr_2: "0",
+            f_pnr: "0",
+            f_pens_judiciaria: "0",
         };
     },
     methods: {

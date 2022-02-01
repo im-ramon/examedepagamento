@@ -7075,6 +7075,94 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -7228,7 +7316,12 @@ __webpack_require__.r(__webpack_exports__);
       form_pnr: true,
       form_pens_judiciaria: true,
       f_aux_transporte: "0",
-      f_aux_alim_5x: "0"
+      f_aux_alim_5x: "0",
+      f_aux_natalidade: "0",
+      f_hvoo: "0",
+      f_grat_repr_2: "0",
+      f_pnr: "0",
+      f_pens_judiciaria: "0"
     };
   },
   methods: {
@@ -31306,19 +31399,24 @@ var render = function () {
                       ],
                       attrs: { name: "adic_comp_org_tipo" },
                       on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.adic_comp_org_tipo = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
+                        change: [
+                          function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.adic_comp_org_tipo = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function ($event) {
+                            _vm.adic_comp_org_percet = 0
+                          },
+                        ],
                       },
                     },
                     [
@@ -31376,87 +31474,115 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(17),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.adic_comp_org_percet,
-                        expression: "adic_comp_org_percet",
-                      },
-                    ],
-                    attrs: {
-                      type: "number",
-                      name: "adic_comp_org_percet",
-                      min: "0",
-                      max: "100",
-                    },
-                    domProps: { value: _vm.adic_comp_org_percet },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.adic_comp_org_percet = $event.target.value
-                      },
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(18),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c(
-                    "select",
+              _c(
+                "section",
+                {
+                  directives: [
                     {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.adic_comp_org_tipo != "0",
+                      expression: "adic_comp_org_tipo != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(17),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.adic_comp_org_pg,
-                          expression: "adic_comp_org_pg",
+                          value: _vm.adic_comp_org_percet,
+                          expression: "adic_comp_org_percet",
                         },
                       ],
-                      attrs: { name: "adic_comp_org_pg" },
+                      attrs: {
+                        type: "number",
+                        name: "adic_comp_org_percet",
+                        min: "0",
+                        max: "100",
+                      },
+                      domProps: { value: _vm.adic_comp_org_percet },
                       on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.adic_comp_org_pg = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.adic_comp_org_percet = $event.target.value
                         },
                       },
-                    },
-                    _vm._l(_vm.selectPg, function (pg, key) {
-                      return _c(
-                        "option",
-                        { key: key, domProps: { value: pg.id } },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(pg.pg_abrev) +
-                              "\n                            "
-                          ),
-                        ]
-                      )
                     }),
-                    0
-                  ),
-                ]),
-              ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.adic_comp_org_tipo != "0",
+                      expression: "adic_comp_org_tipo != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(18),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.adic_comp_org_pg,
+                            expression: "adic_comp_org_pg",
+                          },
+                        ],
+                        attrs: { name: "adic_comp_org_pg" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.adic_comp_org_pg = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                        },
+                      },
+                      _vm._l(_vm.selectPg, function (pg, key) {
+                        return _c(
+                          "option",
+                          { key: key, domProps: { value: pg.id } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(pg.pg_abrev) +
+                                "\n                            "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -31476,10 +31602,8 @@ var render = function () {
             [
               _c("legend", [_vm._v("Adicional de Horas de Voo (ART24MP)")]),
               _vm._v(" "),
-              _vm._m(19),
-              _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(20),
+                _vm._m(19),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31487,79 +31611,167 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.hvoo_percet,
-                        expression: "hvoo_percet",
+                        value: _vm.f_hvoo,
+                        expression: "f_hvoo",
                       },
                     ],
                     attrs: {
-                      type: "number",
-                      name: "hvoo_percet",
-                      step: "0.01",
-                      min: "0",
-                      max: "100",
+                      type: "radio",
+                      name: "f_hvoo",
+                      value: "1",
+                      id: "hvoosim",
                     },
-                    domProps: { value: _vm.hvoo_percet },
+                    domProps: { checked: _vm._q(_vm.f_hvoo, "1") },
                     on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.hvoo_percet = $event.target.value
+                      change: function ($event) {
+                        _vm.f_hvoo = "1"
                       },
                     },
                   }),
+                  _c("label", { attrs: { for: "hvoosim" } }, [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_hvoo,
+                        expression: "f_hvoo",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      name: "f_hvoo",
+                      value: "0",
+                      id: "hvoonao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_hvoo, "0") },
+                    on: {
+                      change: [
+                        function ($event) {
+                          _vm.f_hvoo = "0"
+                        },
+                        function ($event) {
+                          _vm.hvoo_percet = 0
+                        },
+                      ],
+                    },
+                  }),
+                  _c("label", { attrs: { for: "hvoonao" } }, [_vm._v("Não")]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(21),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c(
-                    "select",
+              _c(
+                "section",
+                {
+                  directives: [
                     {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_hvoo != "0",
+                      expression: "f_hvoo != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(20),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.hvoo_pg,
-                          expression: "hvoo_pg",
+                          value: _vm.hvoo_percet,
+                          expression: "hvoo_percet",
                         },
                       ],
-                      attrs: { name: "hvoo_pg" },
+                      attrs: {
+                        type: "number",
+                        name: "hvoo_percet",
+                        step: "0.01",
+                        min: "0",
+                        max: "100",
+                      },
+                      domProps: { value: _vm.hvoo_percet },
                       on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.hvoo_pg = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.hvoo_percet = $event.target.value
                         },
                       },
-                    },
-                    _vm._l(_vm.selectPg, function (pg, key) {
-                      return _c(
-                        "option",
-                        { key: key, domProps: { value: pg.id } },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(pg.pg_abrev) +
-                              "\n                            "
-                          ),
-                        ]
-                      )
                     }),
-                    0
-                  ),
-                ]),
-              ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_hvoo != "0",
+                      expression: "f_hvoo != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(21),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.hvoo_pg,
+                            expression: "hvoo_pg",
+                          },
+                        ],
+                        attrs: { name: "hvoo_pg" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.hvoo_pg = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                        },
+                      },
+                      _vm._l(_vm.selectPg, function (pg, key) {
+                        return _c(
+                          "option",
+                          { key: key, domProps: { value: pg.id } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(pg.pg_abrev) +
+                                "\n                            "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -31991,13 +32203,18 @@ var render = function () {
                       value: "0",
                       name: "adic_natalino",
                       id: "adicnatalinonao",
-                      checked: "",
                     },
                     domProps: { checked: _vm._q(_vm.adic_natalino, "0") },
                     on: {
-                      change: function ($event) {
-                        _vm.adic_natalino = "0"
-                      },
+                      change: [
+                        function ($event) {
+                          _vm.adic_natalino = "0"
+                        },
+                        function ($event) {
+                          _vm.adic_natalino_qtd_meses = 1
+                          _vm.adic_natalino_valor_adiantamento = 0
+                        },
+                      ],
                     },
                   }),
                   _c("label", { attrs: { for: "adicnatalinonao" } }, [
@@ -32006,71 +32223,99 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(29),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.adic_natalino_qtd_meses,
-                        expression: "adic_natalino_qtd_meses",
-                      },
-                    ],
-                    attrs: {
-                      type: "number",
-                      name: "adic_natalino_qtd_meses",
-                      min: "0",
-                      max: "12",
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.adic_natalino == "1",
+                      expression: "adic_natalino == '1'",
                     },
-                    domProps: { value: _vm.adic_natalino_qtd_meses },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.adic_natalino_qtd_meses = $event.target.value
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(29),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_natalino_qtd_meses,
+                          expression: "adic_natalino_qtd_meses",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "adic_natalino_qtd_meses",
+                        min: "0",
+                        max: "12",
                       },
-                    },
-                  }),
-                ]),
-              ]),
+                      domProps: { value: _vm.adic_natalino_qtd_meses },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.adic_natalino_qtd_meses = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(30),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.adic_natalino_valor_adiantamento,
-                        expression: "adic_natalino_valor_adiantamento",
-                      },
-                    ],
-                    attrs: {
-                      type: "number",
-                      name: "adic_natalino_valor_adiantamento",
-                      min: "0",
-                      step: "0.01",
-                      max: "99999",
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.adic_natalino == "1",
+                      expression: "adic_natalino == '1'",
                     },
-                    domProps: { value: _vm.adic_natalino_valor_adiantamento },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.adic_natalino_valor_adiantamento =
-                          $event.target.value
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(30),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.adic_natalino_valor_adiantamento,
+                          expression: "adic_natalino_valor_adiantamento",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "adic_natalino_valor_adiantamento",
+                        min: "0",
+                        step: "0.01",
+                        max: "99999",
                       },
-                    },
-                  }),
-                ]),
-              ]),
+                      domProps: { value: _vm.adic_natalino_valor_adiantamento },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.adic_natalino_valor_adiantamento =
+                            $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -32706,10 +32951,8 @@ var render = function () {
             [
               _c("legend", [_vm._v("Auxílio Natalidade")]),
               _vm._v(" "),
-              _vm._m(40),
-              _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(41),
+                _vm._m(40),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32717,29 +32960,107 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.aux_natalidade,
-                        expression: "aux_natalidade",
+                        value: _vm.f_aux_natalidade,
+                        expression: "f_aux_natalidade",
                       },
                     ],
                     attrs: {
-                      type: "number",
-                      name: "aux_natalidade",
-                      min: "0",
-                      step: "1",
-                      max: "10",
+                      type: "radio",
+                      value: "1",
+                      name: "f_aux_natalidade",
+                      id: "auxnatalidadesim",
                     },
-                    domProps: { value: _vm.aux_natalidade },
+                    domProps: { checked: _vm._q(_vm.f_aux_natalidade, "1") },
                     on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.aux_natalidade = $event.target.value
+                      change: function ($event) {
+                        _vm.f_aux_natalidade = "1"
                       },
                     },
                   }),
+                  _c("label", { attrs: { for: "auxnatalidadesim" } }, [
+                    _vm._v("Sim"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_aux_natalidade,
+                        expression: "f_aux_natalidade",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "f_aux_natalidade",
+                      id: "auxnatalidadenao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_aux_natalidade, "0") },
+                    on: {
+                      change: [
+                        function ($event) {
+                          _vm.f_aux_natalidade = "0"
+                        },
+                        function ($event) {
+                          _vm.aux_natalidade = 0
+                        },
+                      ],
+                    },
+                  }),
+                  _c("label", { attrs: { for: "auxnatalidadenao" } }, [
+                    _vm._v("Não"),
+                  ]),
                 ]),
               ]),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_aux_natalidade != "0",
+                      expression: "f_aux_natalidade != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(41),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.aux_natalidade,
+                          expression: "aux_natalidade",
+                        },
+                      ],
+                      attrs: {
+                        type: "number",
+                        name: "aux_natalidade",
+                        min: "0",
+                        step: "1",
+                        max: "10",
+                      },
+                      domProps: { value: _vm.aux_natalidade },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.aux_natalidade = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -32950,10 +33271,8 @@ var render = function () {
             [
               _c("legend", [_vm._v("Gratificação de Representação 2%")]),
               _vm._v(" "),
-              _vm._m(44),
-              _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(45),
+                _vm._m(44),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32961,78 +33280,166 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.grat_repr_2,
-                        expression: "grat_repr_2",
+                        value: _vm.f_grat_repr_2,
+                        expression: "f_grat_repr_2",
                       },
                     ],
                     attrs: {
-                      type: "number",
-                      name: "grat_repr_2",
-                      max: "365",
-                      min: "0",
+                      type: "radio",
+                      value: "1",
+                      name: "f_grat_repr_2",
+                      id: "gratrep2sim",
                     },
-                    domProps: { value: _vm.grat_repr_2 },
+                    domProps: { checked: _vm._q(_vm.f_grat_repr_2, "1") },
                     on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.grat_repr_2 = $event.target.value
+                      change: function ($event) {
+                        _vm.f_grat_repr_2 = "1"
                       },
                     },
                   }),
+                  _c("label", { attrs: { for: "gratrep2" } }, [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_grat_repr_2,
+                        expression: "f_grat_repr_2",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "f_grat_repr_2",
+                      id: "gratrep2nao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_grat_repr_2, "0") },
+                    on: {
+                      change: [
+                        function ($event) {
+                          _vm.f_grat_repr_2 = "0"
+                        },
+                        function ($event) {
+                          _vm.grat_repr_2 = "0"
+                        },
+                      ],
+                    },
+                  }),
+                  _c("label", { attrs: { for: "gratrep2" } }, [_vm._v("Não")]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(46),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c(
-                    "select",
+              _c(
+                "section",
+                {
+                  directives: [
                     {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_grat_repr_2 != "0",
+                      expression: "f_grat_repr_2 != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(45),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.grat_repr_2_pg,
-                          expression: "grat_repr_2_pg",
+                          value: _vm.grat_repr_2,
+                          expression: "grat_repr_2",
                         },
                       ],
-                      attrs: { name: "grat_repr_2_pg" },
+                      attrs: {
+                        type: "number",
+                        name: "grat_repr_2",
+                        max: "365",
+                        min: "0",
+                      },
+                      domProps: { value: _vm.grat_repr_2 },
                       on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.grat_repr_2_pg = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.grat_repr_2 = $event.target.value
                         },
                       },
-                    },
-                    _vm._l(_vm.selectPg, function (pg, key) {
-                      return _c(
-                        "option",
-                        { key: key, domProps: { value: pg.id } },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(pg.pg_abrev) +
-                              "\n                            "
-                          ),
-                        ]
-                      )
                     }),
-                    0
-                  ),
-                ]),
-              ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_grat_repr_2 != "0",
+                      expression: "f_grat_repr_2 != '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(46),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.grat_repr_2_pg,
+                            expression: "grat_repr_2_pg",
+                          },
+                        ],
+                        attrs: { name: "grat_repr_2_pg" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.grat_repr_2_pg = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                        },
+                      },
+                      _vm._l(_vm.selectPg, function (pg, key) {
+                        return _c(
+                          "option",
+                          { key: key, domProps: { value: pg.id } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(pg.pg_abrev) +
+                                "\n                            "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -33225,55 +33632,69 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(51),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
-                  _c(
-                    "select",
+              _c(
+                "section",
+                {
+                  directives: [
                     {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pmil_pg,
-                          expression: "pmil_pg",
-                        },
-                      ],
-                      attrs: { name: "pmil_pg" },
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.pmil_pg = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.pmilmesmopg == "0",
+                      expression: "pmilmesmopg == '0'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(51),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pmil_pg,
+                            expression: "pmil_pg",
+                          },
+                        ],
+                        attrs: { name: "pmil_pg" },
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.pmil_pg = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
                         },
                       },
-                    },
-                    _vm._l(_vm.selectPg, function (pg, key) {
-                      return _c(
-                        "option",
-                        { key: key, domProps: { value: pg.id } },
-                        [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(pg.pg_abrev) +
-                              "\n                            "
-                          ),
-                        ]
-                      )
-                    }),
-                    0
-                  ),
-                ]),
-              ]),
+                      _vm._l(_vm.selectPg, function (pg, key) {
+                        return _c(
+                          "option",
+                          { key: key, domProps: { value: pg.id } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(pg.pg_abrev) +
+                                "\n                            "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -33638,64 +34059,140 @@ var render = function () {
             [
               _c("legend", [_vm._v("PNR")]),
               _vm._v(" "),
-              _vm._m(56),
-              _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(57),
+                _vm._m(56),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.pnr,
-                            expression: "pnr",
-                          },
-                        ],
-                        attrs: { name: "pnr" },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.pnr = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.f_pnr,
+                          expression: "f_pnr",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "1",
+                        name: "f_pnr",
+                        id: "pnrsim",
+                      },
+                      domProps: { checked: _vm._q(_vm.f_pnr, "1") },
+                      on: {
+                        change: function ($event) {
+                          _vm.f_pnr = "1"
                         },
                       },
-                      [
-                        _c("option", { attrs: { value: "0" } }, [
-                          _vm._v(
-                            "\n                                    - Selecione um tipo -\n                                "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "1" } }, [
-                          _vm._v(
-                            "\n                                    Desconto normal - 5%\n                                "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "2" } }, [
-                          _vm._v(
-                            "\n                                    Desconto especial - 3,5%\n                                "
-                          ),
-                        ]),
-                      ]
-                    ),
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "pnrsim" } }, [_vm._v("Sim")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.f_pnr,
+                          expression: "f_pnr",
+                        },
+                      ],
+                      attrs: {
+                        type: "radio",
+                        value: "0",
+                        name: "f_pnr",
+                        id: "pnrnao",
+                        checked: "",
+                      },
+                      domProps: { checked: _vm._q(_vm.f_pnr, "0") },
+                      on: {
+                        change: [
+                          function ($event) {
+                            _vm.f_pnr = "0"
+                          },
+                          function ($event) {
+                            _vm.pnr = 0
+                          },
+                        ],
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "pnrnao" } }, [_vm._v("Não")]),
                   ]),
                 ]),
               ]),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pnr == "1",
+                      expression: "f_pnr == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(57),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("div", { staticClass: "question_options" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.pnr,
+                              expression: "pnr",
+                            },
+                          ],
+                          attrs: { name: "pnr" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.pnr = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { value: "0" } }, [
+                            _vm._v(
+                              "\n                                    - Selecione um tipo -\n                                "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v(
+                              "\n                                    Desconto normal - 5%\n                                "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v(
+                              "\n                                    Desconto especial - 3,5%\n                                "
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
             ]
           ),
           _vm._v(" "),
@@ -33715,439 +34212,683 @@ var render = function () {
             [
               _c("legend", [_vm._v("Pensão Judiciária")]),
               _vm._v(" "),
-              _vm._m(58),
-              _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(59),
+                _vm._m(58),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
-                  _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_1,
-                          expression: "pens_judiciaria_1",
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_pens_judiciaria,
+                        expression: "f_pens_judiciaria",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "1",
+                      name: "f_pens_judiciaria",
+                      id: "pjsim",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_pens_judiciaria, "1") },
+                    on: {
+                      change: function ($event) {
+                        _vm.f_pens_judiciaria = "1"
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "pjsim" } }, [_vm._v("Sim")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.f_pens_judiciaria,
+                        expression: "f_pens_judiciaria",
+                      },
+                    ],
+                    attrs: {
+                      type: "radio",
+                      value: "0",
+                      name: "f_pens_judiciaria",
+                      id: "pjnao",
+                      checked: "",
+                    },
+                    domProps: { checked: _vm._q(_vm.f_pens_judiciaria, "0") },
+                    on: {
+                      change: [
+                        function ($event) {
+                          _vm.f_pens_judiciaria = "0"
+                        },
+                        function ($event) {
+                          _vm.pens_judiciaria_2 = "0"
+                          _vm.pens_judiciaria_3 = "0"
+                          _vm.pens_judiciaria_4 = "0"
+                          _vm.pens_judiciaria_5 = "0"
+                          _vm.pens_judiciaria_6 = "0"
+                          _vm.pens_judiciaria_adic_natal_1 = "0"
+                          _vm.pens_judiciaria_adic_natal_2 = "0"
+                          _vm.pens_judiciaria_adic_natal_3 = "0"
+                          _vm.pens_judiciaria_adic_natal_4 = "0"
+                          _vm.pens_judiciaria_adic_natal_5 = "0"
+                          _vm.pens_judiciaria_adic_natal_6 = "0"
                         },
                       ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_1",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_1 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_1 = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "pjnao" } }, [_vm._v("Não")]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(60),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(59),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_2,
-                          expression: "pens_judiciaria_2",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_1,
+                            expression: "pens_judiciaria_1",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_1",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_2",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_2 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_2 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_1 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_1 = $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(61),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(60),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_3,
-                          expression: "pens_judiciaria_3",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_2,
+                            expression: "pens_judiciaria_2",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_2",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_3",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_3 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_3 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_2 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_2 = $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(62),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(61),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_4,
-                          expression: "pens_judiciaria_4",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_3,
+                            expression: "pens_judiciaria_3",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_3",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_4",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_4 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_4 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_3 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_3 = $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(63),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(62),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_5,
-                          expression: "pens_judiciaria_5",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_4,
+                            expression: "pens_judiciaria_4",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_4",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_5",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_5 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_5 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_4 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_4 = $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(64),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(63),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_6,
-                          expression: "pens_judiciaria_6",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_5,
+                            expression: "pens_judiciaria_5",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_5",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_6",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_6 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_6 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_5 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_5 = $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(65),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(64),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_adic_natal_1,
-                          expression: "pens_judiciaria_adic_natal_1",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_6,
+                            expression: "pens_judiciaria_6",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_6",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_adic_natal_1",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_adic_natal_1 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_adic_natal_1 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_6 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_6 = $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(66),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(65),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_adic_natal_2,
-                          expression: "pens_judiciaria_adic_natal_2",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_adic_natal_1,
+                            expression: "pens_judiciaria_adic_natal_1",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_adic_natal_1",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_adic_natal_2",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_adic_natal_2 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_adic_natal_2 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_adic_natal_1 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_adic_natal_1 =
+                              $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(67),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(66),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_adic_natal_3,
-                          expression: "pens_judiciaria_adic_natal_3",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_adic_natal_2,
+                            expression: "pens_judiciaria_adic_natal_2",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_adic_natal_2",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_adic_natal_3",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_adic_natal_3 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_adic_natal_3 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_adic_natal_2 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_adic_natal_2 =
+                              $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(68),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(67),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_adic_natal_4,
-                          expression: "pens_judiciaria_adic_natal_4",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_adic_natal_3,
+                            expression: "pens_judiciaria_adic_natal_3",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_adic_natal_3",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_adic_natal_4",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_adic_natal_4 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_adic_natal_4 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_adic_natal_3 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_adic_natal_3 =
+                              $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(69),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(68),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_adic_natal_5,
-                          expression: "pens_judiciaria_adic_natal_5",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_adic_natal_4,
+                            expression: "pens_judiciaria_adic_natal_4",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_adic_natal_4",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_adic_natal_5",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_adic_natal_5 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_adic_natal_5 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_adic_natal_4 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_adic_natal_4 =
+                              $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
               _vm._v(" "),
-              _c("section", { staticClass: "question_body" }, [
-                _vm._m(70),
-                _vm._v(" "),
-                _c("div", { staticClass: "question_options" }, [
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(69),
+                  _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.pens_judiciaria_adic_natal_6,
-                          expression: "pens_judiciaria_adic_natal_6",
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_adic_natal_5,
+                            expression: "pens_judiciaria_adic_natal_5",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_adic_natal_5",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
                         },
-                      ],
-                      attrs: {
-                        type: "number",
-                        name: "pens_judiciaria_adic_natal_6",
-                        min: "0",
-                        step: "0.01",
-                        max: "99999",
-                        required: "",
-                      },
-                      domProps: { value: _vm.pens_judiciaria_adic_natal_6 },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.pens_judiciaria_adic_natal_6 = $event.target.value
+                        domProps: { value: _vm.pens_judiciaria_adic_natal_5 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_adic_natal_5 =
+                              $event.target.value
+                          },
                         },
-                      },
-                    }),
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.f_pens_judiciaria == "1",
+                      expression: "f_pens_judiciaria == '1'",
+                    },
+                  ],
+                  staticClass: "question_body",
+                },
+                [
+                  _vm._m(70),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.pens_judiciaria_adic_natal_6,
+                            expression: "pens_judiciaria_adic_natal_6",
+                          },
+                        ],
+                        attrs: {
+                          type: "number",
+                          name: "pens_judiciaria_adic_natal_6",
+                          min: "0",
+                          step: "0.01",
+                          max: "99999",
+                          required: "",
+                        },
+                        domProps: { value: _vm.pens_judiciaria_adic_natal_6 },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.pens_judiciaria_adic_natal_6 =
+                              $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                ]
+              ),
             ]
           ),
         ]),
@@ -34403,33 +35144,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [
-          _vm._v(
-            "\n                            Recebe\n                            "
-          ),
-          _c("strong", [_vm._v("Adicional de Horas de Voo")]),
-          _vm._v("?\n                        "),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: { type: "radio", name: "f_hvoo", value: "1", id: "hvoosim" },
-        }),
-        _c("label", { attrs: { for: "hvoosim" } }, [_vm._v("Sim")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            name: "f_hvoo",
-            value: "0",
-            id: "hvoonao",
-            checked: "",
-          },
-        }),
-        _c("label", { attrs: { for: "hvoonao" } }, [_vm._v("Não")]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            Recebe\n                            "
+        ),
+        _c("strong", [_vm._v("Adicional de Horas de Voo")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -34687,38 +35408,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [
-          _vm._v(
-            "\n                            O examinado irá receber\n                            "
-          ),
-          _c("strong", [_vm._v("Auxílio Natalidade")]),
-          _vm._v("?\n                        "),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: {
-            type: "radio",
-            value: "1",
-            name: "f_aux_natalidade",
-            id: "auxnatalidadesim",
-          },
-        }),
-        _c("label", { attrs: { for: "auxnatalidadesim" } }, [_vm._v("Sim")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            value: "0",
-            name: "f_aux_natalidade",
-            id: "auxnatalidadenao",
-            checked: "",
-          },
-        }),
-        _c("label", { attrs: { for: "auxnatalidadenao" } }, [_vm._v("Não")]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado irá receber\n                            "
+        ),
+        _c("strong", [_vm._v("Auxílio Natalidade")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -34768,38 +35464,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [
-          _vm._v(
-            "\n                            O examinado irá receber\n                            "
-          ),
-          _c("strong", [_vm._v("Gratificação de Representação 2%")]),
-          _vm._v("?\n                        "),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: {
-            type: "radio",
-            value: "1",
-            name: "f_grat_repr_2",
-            id: "gratrep2sim",
-          },
-        }),
-        _c("label", { attrs: { for: "gratrep2" } }, [_vm._v("Sim")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            value: "0",
-            name: "f_grat_repr_2",
-            id: "gratrep2nao",
-            checked: "",
-          },
-        }),
-        _c("label", { attrs: { for: "gratrep2" } }, [_vm._v("Não")]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado irá receber\n                            "
+        ),
+        _c("strong", [_vm._v("Gratificação de Representação 2%")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
@@ -34968,35 +35639,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [
-          _vm._v("O examinado reside em "),
-          _c("strong", [_vm._v("PNR")]),
-          _vm._v("?"),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("div", { staticClass: "question_options" }, [
-          _c("input", {
-            attrs: { type: "radio", value: "1", name: "f_pnr", id: "pnrsim" },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "pnrsim" } }, [_vm._v("Sim")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              type: "radio",
-              value: "0",
-              name: "f_pnr",
-              id: "pnrnao",
-              checked: "",
-            },
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "pnrnao" } }, [_vm._v("Não")]),
-        ]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("O examinado reside em "),
+        _c("strong", [_vm._v("PNR")]),
+        _vm._v("?"),
       ]),
     ])
   },
@@ -35018,40 +35665,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "question_body" }, [
-      _c("div", { staticClass: "question_title" }, [
-        _c("p", [
-          _vm._v(
-            "\n                            O examinado paga\n                            "
-          ),
-          _c("strong", [_vm._v("Pensão Judiciária")]),
-          _vm._v("?\n                        "),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "question_options" }, [
-        _c("input", {
-          attrs: {
-            type: "radio",
-            value: "1",
-            name: "f_pens_judiciaria",
-            id: "pjsim",
-          },
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "pjsim" } }, [_vm._v("Sim")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "radio",
-            value: "0",
-            name: "f_pens_judiciaria",
-            id: "pjnao",
-            checked: "",
-          },
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "pjnao" } }, [_vm._v("Não")]),
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v(
+          "\n                            O examinado paga\n                            "
+        ),
+        _c("strong", [_vm._v("Pensão Judiciária")]),
+        _vm._v("?\n                        "),
       ]),
     ])
   },
