@@ -5251,6 +5251,30 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Ajuda.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Ajuda.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -5299,6 +5323,352 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7645,6 +8015,7 @@ Vue.component('example-component', (__webpack_require__(/*! ./components/Example
 Vue.component('login-component', (__webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue")["default"]));
 Vue.component('home-component', (__webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]));
 Vue.component('formulario-component', (__webpack_require__(/*! ./components/Formulario.vue */ "./resources/js/components/Formulario.vue")["default"]));
+Vue.component('ajuda-component', (__webpack_require__(/*! ./components/Ajuda.vue */ "./resources/js/components/Ajuda.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -30139,6 +30510,45 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/js/components/Ajuda.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Ajuda.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Ajuda_vue_vue_type_template_id_3e4491e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ajuda.vue?vue&type=template&id=3e4491e4& */ "./resources/js/components/Ajuda.vue?vue&type=template&id=3e4491e4&");
+/* harmony import */ var _Ajuda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ajuda.vue?vue&type=script&lang=js& */ "./resources/js/components/Ajuda.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Ajuda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Ajuda_vue_vue_type_template_id_3e4491e4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Ajuda_vue_vue_type_template_id_3e4491e4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Ajuda.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -30295,6 +30705,22 @@ component.options.__file = "resources/js/components/Login.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Ajuda.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/Ajuda.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ajuda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Ajuda.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Ajuda.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ajuda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -30356,6 +30782,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Login.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Login.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Ajuda.vue?vue&type=template&id=3e4491e4&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/Ajuda.vue?vue&type=template&id=3e4491e4& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ajuda_vue_vue_type_template_id_3e4491e4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ajuda_vue_vue_type_template_id_3e4491e4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ajuda_vue_vue_type_template_id_3e4491e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Ajuda.vue?vue&type=template&id=3e4491e4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Ajuda.vue?vue&type=template&id=3e4491e4&");
+
 
 /***/ }),
 
@@ -30423,6 +30866,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_6bdc8b8e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_6bdc8b8e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Login.vue?vue&type=template&id=6bdc8b8e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Login.vue?vue&type=template&id=6bdc8b8e&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Ajuda.vue?vue&type=template&id=3e4491e4&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Ajuda.vue?vue&type=template&id=3e4491e4& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "ajuda_container" }, [
+    _c("img", {
+      staticClass: "ajuda",
+      attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "ajuda_texto" }, [_vm._t("default")], 2),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -30505,332 +30980,22 @@ var render = function () {
       _c("section", { attrs: { id: "form_informacoes_pessoais" } }, [
         _c("h2", [_vm._v("Informações gerais")]),
         _vm._v(" "),
-        _c("fieldset", { staticClass: "question_root" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("legend", [_vm._v("Universo/ Classificação")]),
-          _vm._v(" "),
-          _c("section", { staticClass: "question_body" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "question_options" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.universo,
-                      expression: "universo",
-                    },
-                  ],
-                  attrs: { name: "universo", id: "tipo_soldo" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.universo = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                  },
-                },
-                [
-                  _c("option", { attrs: { value: "ativa" } }, [
-                    _vm._v("Militar da Ativa"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "inativo" } }, [
-                    _vm._v("Militar da Inativo"),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "pens_mil" } }, [
-                    _vm._v(
-                      "\n                            Pensionista Militar\n                        "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "pens_excmbt_2ten" } }, [
-                    _vm._v(
-                      "\n                            Pensionista Ex-Combatente (2º Ten)\n                        "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "pens_excmbt_2sgt" } }, [
-                    _vm._v(
-                      "\n                            Pensionista Ex-Combatente (2º Sgt)\n                        "
-                    ),
-                  ]),
-                ]
-              ),
+        _c(
+          "fieldset",
+          { staticClass: "question_root" },
+          [
+            _c("ajuda-component", [
+              _c("p", [
+                _vm._v(
+                  "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                ),
+              ]),
             ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("fieldset", { staticClass: "question_root" }, [
-          _c("legend", [_vm._v("Data do contracheque")]),
-          _vm._v(" "),
-          _c("section", { staticClass: "question_body" }, [
-            _vm._m(2),
             _vm._v(" "),
-            _c("div", { staticClass: "question_options" }, [
-              _c("input", {
-                attrs: { name: "data_contracheque", id: "date", type: "date" },
-                domProps: { value: _vm.data_contracheque },
-              }),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("fieldset", { staticClass: "question_root" }, [
-          _c("legend", [_vm._v("Idade")]),
-          _vm._v(" "),
-          _c("section", { staticClass: "question_body" }, [
-            _vm._m(3),
-            _vm._v(" "),
-            _c("div", { staticClass: "question_options" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.maior_65,
-                    expression: "maior_65",
-                  },
-                ],
-                attrs: {
-                  type: "radio",
-                  name: "maior_65",
-                  value: "1",
-                  id: "maior_65sim",
-                },
-                domProps: { checked: _vm._q(_vm.maior_65, "1") },
-                on: {
-                  change: function ($event) {
-                    _vm.maior_65 = "1"
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "maior_65sim" } }, [_vm._v("Sim")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.maior_65,
-                    expression: "maior_65",
-                  },
-                ],
-                attrs: {
-                  type: "radio",
-                  name: "maior_65",
-                  value: "0",
-                  id: "maior_65nao",
-                  checked: "",
-                },
-                domProps: { checked: _vm._q(_vm.maior_65, "0") },
-                on: {
-                  change: function ($event) {
-                    _vm.maior_65 = "0"
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "maior_65nao" } }, [_vm._v("Não")]),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("fieldset", { staticClass: "question_root" }, [
-          _c("legend", [_vm._v("Isenção de Imposto de Renda")]),
-          _vm._v(" "),
-          _c("section", { staticClass: "question_body" }, [
-            _vm._m(4),
-            _vm._v(" "),
-            _c("div", { staticClass: "question_options" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.isento_ir,
-                    expression: "isento_ir",
-                  },
-                ],
-                attrs: {
-                  type: "radio",
-                  name: "isento_ir",
-                  value: "1",
-                  id: "isento_irsim",
-                },
-                domProps: { checked: _vm._q(_vm.isento_ir, "1") },
-                on: {
-                  change: function ($event) {
-                    _vm.isento_ir = "1"
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "isento_irsim" } }, [_vm._v("Sim")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.isento_ir,
-                    expression: "isento_ir",
-                  },
-                ],
-                attrs: {
-                  type: "radio",
-                  name: "isento_ir",
-                  value: "0",
-                  id: "isento_irnao",
-                  checked: "",
-                },
-                domProps: { checked: _vm._q(_vm.isento_ir, "0") },
-                on: {
-                  change: function ($event) {
-                    _vm.isento_ir = "0"
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "isento_irnao" } }, [_vm._v("Não")]),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("fieldset", { staticClass: "question_root" }, [
-          _c("legend", [_vm._v("P/G Soldo")]),
-          _vm._v(" "),
-          _c("section", { staticClass: "question_body" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "question_options" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.pg_soldo,
-                      expression: "pg_soldo",
-                    },
-                  ],
-                  attrs: { name: "pg_soldo" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.pg_soldo = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                  },
-                },
-                _vm._l(_vm.selectPg, function (pg, key) {
-                  return _c(
-                    "option",
-                    { key: key, domProps: { value: pg.id } },
-                    [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(pg.pg_abrev) +
-                          "\n                        "
-                      ),
-                    ]
-                  )
-                }),
-                0
-              ),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("fieldset", { staticClass: "question_root" }, [
-          _c("legend", [_vm._v("P/G Real")]),
-          _vm._v(" "),
-          _c("section", { staticClass: "question_body" }, [
-            _vm._m(6),
-            _vm._v(" "),
-            _c("div", { staticClass: "question_options" }, [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.pg_real,
-                      expression: "pg_real",
-                    },
-                  ],
-                  attrs: { name: "pg_real" },
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.pg_real = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                  },
-                },
-                _vm._l(_vm.selectPg, function (pg, key) {
-                  return _c(
-                    "option",
-                    { key: key, domProps: { value: pg.id } },
-                    [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(pg.pg_abrev) +
-                          "\n                        "
-                      ),
-                    ]
-                  )
-                }),
-                0
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("section", { attrs: { id: "form_informacoes_financeiras" } }, [
-        _c("h2", [_vm._v("Informações financeiras")]),
-        _vm._v(" "),
-        _c("section", { attrs: { id: "form_informacoes_financeiras_col1" } }, [
-          _c("fieldset", { staticClass: "question_root" }, [
-            _vm._m(7),
-            _vm._v(" "),
-            _c("legend", [_vm._v("Soldo")]),
+            _c("legend", [_vm._v("Universo/ Classificação")]),
             _vm._v(" "),
             _c("section", { staticClass: "question_body" }, [
-              _vm._m(8),
+              _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "question_options" }, [
                 _c(
@@ -30840,11 +31005,11 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.tipo_soldo,
-                        expression: "tipo_soldo",
+                        value: _vm.universo,
+                        expression: "universo",
                       },
                     ],
-                    attrs: { name: "tipo_soldo", id: "tipo_soldo" },
+                    attrs: { name: "universo", id: "tipo_soldo" },
                     on: {
                       change: function ($event) {
                         var $$selectedVal = Array.prototype.filter
@@ -30855,27 +31020,432 @@ var render = function () {
                             var val = "_value" in o ? o._value : o.value
                             return val
                           })
-                        _vm.tipo_soldo = $event.target.multiple
+                        _vm.universo = $event.target.multiple
                           ? $$selectedVal
                           : $$selectedVal[0]
                       },
                     },
                   },
                   [
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("Normal/ Integral"),
+                    _c("option", { attrs: { value: "ativa" } }, [
+                      _vm._v("Militar da Ativa"),
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [
+                    _c("option", { attrs: { value: "inativo" } }, [
+                      _vm._v("Militar da Inativo"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "pens_mil" } }, [
                       _vm._v(
-                        "\n                                Soldo Proporcional para Cota\n                            "
+                        "\n                            Pensionista Militar\n                        "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "pens_excmbt_2ten" } }, [
+                      _vm._v(
+                        "\n                            Pensionista Ex-Combatente (2º Ten)\n                        "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "pens_excmbt_2sgt" } }, [
+                      _vm._v(
+                        "\n                            Pensionista Ex-Combatente (2º Sgt)\n                        "
                       ),
                     ]),
                   ]
                 ),
               ]),
             ]),
-          ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "fieldset",
+          { staticClass: "question_root" },
+          [
+            _c("ajuda-component", [
+              _c("p", [
+                _vm._v(
+                  "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("legend", [_vm._v("Data do contracheque")]),
+            _vm._v(" "),
+            _c("section", { staticClass: "question_body" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "question_options" }, [
+                _c("input", {
+                  attrs: {
+                    name: "data_contracheque",
+                    id: "date",
+                    type: "date",
+                  },
+                  domProps: { value: _vm.data_contracheque },
+                }),
+              ]),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "fieldset",
+          { staticClass: "question_root" },
+          [
+            _c("ajuda-component", [
+              _c("p", [
+                _vm._v(
+                  "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("legend", [_vm._v("Idade")]),
+            _vm._v(" "),
+            _c("section", { staticClass: "question_body" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "question_options" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.maior_65,
+                      expression: "maior_65",
+                    },
+                  ],
+                  attrs: {
+                    type: "radio",
+                    name: "maior_65",
+                    value: "1",
+                    id: "maior_65sim",
+                  },
+                  domProps: { checked: _vm._q(_vm.maior_65, "1") },
+                  on: {
+                    change: function ($event) {
+                      _vm.maior_65 = "1"
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "maior_65sim" } }, [_vm._v("Sim")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.maior_65,
+                      expression: "maior_65",
+                    },
+                  ],
+                  attrs: {
+                    type: "radio",
+                    name: "maior_65",
+                    value: "0",
+                    id: "maior_65nao",
+                    checked: "",
+                  },
+                  domProps: { checked: _vm._q(_vm.maior_65, "0") },
+                  on: {
+                    change: function ($event) {
+                      _vm.maior_65 = "0"
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "maior_65nao" } }, [_vm._v("Não")]),
+              ]),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "fieldset",
+          { staticClass: "question_root" },
+          [
+            _c("ajuda-component", [
+              _c("p", [
+                _vm._v(
+                  "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("legend", [_vm._v("Isenção de Imposto de Renda")]),
+            _vm._v(" "),
+            _c("section", { staticClass: "question_body" }, [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "question_options" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.isento_ir,
+                      expression: "isento_ir",
+                    },
+                  ],
+                  attrs: {
+                    type: "radio",
+                    name: "isento_ir",
+                    value: "1",
+                    id: "isento_irsim",
+                  },
+                  domProps: { checked: _vm._q(_vm.isento_ir, "1") },
+                  on: {
+                    change: function ($event) {
+                      _vm.isento_ir = "1"
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "isento_irsim" } }, [
+                  _vm._v("Sim"),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.isento_ir,
+                      expression: "isento_ir",
+                    },
+                  ],
+                  attrs: {
+                    type: "radio",
+                    name: "isento_ir",
+                    value: "0",
+                    id: "isento_irnao",
+                    checked: "",
+                  },
+                  domProps: { checked: _vm._q(_vm.isento_ir, "0") },
+                  on: {
+                    change: function ($event) {
+                      _vm.isento_ir = "0"
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "isento_irnao" } }, [
+                  _vm._v("Não"),
+                ]),
+              ]),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "fieldset",
+          { staticClass: "question_root" },
+          [
+            _c("ajuda-component", [
+              _c("p", [
+                _vm._v(
+                  "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("legend", [_vm._v("P/G Soldo")]),
+            _vm._v(" "),
+            _c("section", { staticClass: "question_body" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "question_options" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.pg_soldo,
+                        expression: "pg_soldo",
+                      },
+                    ],
+                    attrs: { name: "pg_soldo" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.pg_soldo = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  _vm._l(_vm.selectPg, function (pg, key) {
+                    return _c(
+                      "option",
+                      { key: key, domProps: { value: pg.id } },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(pg.pg_abrev) +
+                            "\n                        "
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+              ]),
+            ]),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "fieldset",
+          { staticClass: "question_root" },
+          [
+            _c("ajuda-component", [
+              _c("p", [
+                _vm._v(
+                  "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("legend", [_vm._v("P/G Real")]),
+            _vm._v(" "),
+            _c("section", { staticClass: "question_body" }, [
+              _vm._m(5),
+              _vm._v(" "),
+              _c("div", { staticClass: "question_options" }, [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.pg_real,
+                        expression: "pg_real",
+                      },
+                    ],
+                    attrs: { name: "pg_real" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.pg_real = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  _vm._l(_vm.selectPg, function (pg, key) {
+                    return _c(
+                      "option",
+                      { key: key, domProps: { value: pg.id } },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(pg.pg_abrev) +
+                            "\n                        "
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+              ]),
+            ]),
+          ],
+          1
+        ),
+      ]),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "form_informacoes_financeiras" } }, [
+        _c("h2", [_vm._v("Informações financeiras")]),
+        _vm._v(" "),
+        _c("section", { attrs: { id: "form_informacoes_financeiras_col1" } }, [
+          _c(
+            "fieldset",
+            { staticClass: "question_root" },
+            [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("legend", [_vm._v("Soldo")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(6),
+                _vm._v(" "),
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.tipo_soldo,
+                          expression: "tipo_soldo",
+                        },
+                      ],
+                      attrs: { name: "tipo_soldo", id: "tipo_soldo" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.tipo_soldo = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Normal/ Integral"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "2" } }, [
+                        _vm._v(
+                          "\n                                Soldo Proporcional para Cota\n                            "
+                        ),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ]),
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "fieldset",
@@ -30891,10 +31461,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Cota-parte do Soldo")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(9),
+                _vm._m(7),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -30927,7 +31505,8 @@ var render = function () {
                   _vm._v("\n                        %\n                    "),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -30944,10 +31523,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Soldo Proporcional para Cota")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(10),
+                _vm._m(8),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -30980,7 +31567,8 @@ var render = function () {
                   _vm._v("\n                        %\n                    "),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -30997,10 +31585,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Complemento de cota de soldo")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(11),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31057,7 +31653,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31074,10 +31671,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional de Tempo de Serviço")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(12),
+                _vm._m(10),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31108,7 +31713,8 @@ var render = function () {
                   }),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31125,6 +31731,14 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [
                 _vm._v(
                   "\n                    Adicional de Compensação por Disponibilidade Militar\n                "
@@ -31132,7 +31746,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(13),
+                _vm._m(11),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31191,7 +31805,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31208,10 +31823,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional Habilitação")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(14),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c(
@@ -31286,7 +31909,8 @@ var render = function () {
                   ),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31303,10 +31927,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional Militar")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(15),
+                _vm._m(13),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31363,7 +31995,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31380,10 +32013,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional de Compensação Orgânica")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(16),
+                _vm._m(14),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c(
@@ -31488,7 +32129,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(17),
+                  _vm._m(15),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -31534,7 +32175,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(18),
+                  _vm._m(16),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c(
@@ -31583,7 +32224,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31600,10 +32242,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional de Horas de Voo (ART24MP)")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(19),
+                _vm._m(17),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31676,7 +32326,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(20),
+                  _vm._m(18),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -31723,7 +32373,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(21),
+                  _vm._m(19),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c(
@@ -31772,7 +32422,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31789,12 +32440,20 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [
                 _vm._v("Adicional de Acréscimo de 25% sobre o soldo"),
               ]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(22),
+                _vm._m(20),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("section", [
@@ -31853,7 +32512,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31870,10 +32530,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional de Permanência")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(23),
+                _vm._m(21),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31904,7 +32572,8 @@ var render = function () {
                   }),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -31921,10 +32590,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Salário família/ Imposto de Renda")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(24),
+                _vm._m(22),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -31956,7 +32633,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(25),
+                _vm._m(23),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -31988,7 +32665,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32005,10 +32683,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional de Férias")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(26),
+                _vm._m(24),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("section", [
@@ -32067,7 +32753,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32084,10 +32771,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional PTTC")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(27),
+                _vm._m(25),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32140,7 +32835,8 @@ var render = function () {
                   _c("label", { attrs: { for: "pttcnao" } }, [_vm._v("Não")]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32157,10 +32853,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Adicional Natalino")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(28),
+                _vm._m(26),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32237,7 +32941,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(29),
+                  _vm._m(27),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -32283,7 +32987,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(30),
+                  _vm._m(28),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -32316,7 +33020,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32333,10 +33038,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Auxílio Pré-escolar")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(31),
+                _vm._m(29),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32366,7 +33079,8 @@ var render = function () {
                   }),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
         ]),
         _vm._v(" "),
@@ -32385,10 +33099,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Auxílio Inavalidez")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(32),
+                _vm._m(30),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32441,7 +33163,8 @@ var render = function () {
                   _c("label", { attrs: { for: "auxinvnao" } }, [_vm._v("Não")]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32458,10 +33181,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Auxílio Transporte")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(33),
+                _vm._m(31),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -32540,7 +33271,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(34),
+                  _vm._m(32),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -32572,7 +33303,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32589,10 +33321,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Auxílio Fardamento")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(35),
+                _vm._m(33),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32669,7 +33409,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(36),
+                  _vm._m(34),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -32727,7 +33467,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32744,10 +33485,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v('Auxílio Alimentação - Tipo "C"')]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(37),
+                _vm._m(35),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32804,7 +33553,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32821,10 +33571,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Auxílio Alimentação - 5x")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(38),
+                _vm._m(36),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -32901,7 +33659,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(39),
+                  _vm._m(37),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -32932,7 +33690,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -32949,10 +33708,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Auxílio Natalidade")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(40),
+                _vm._m(38),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -33029,7 +33796,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(41),
+                  _vm._m(39),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -33061,7 +33828,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33078,10 +33846,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Gratificação de Localidade Especial")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(42),
+                _vm._m(40),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -33173,7 +33949,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33190,12 +33967,20 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [
                 _vm._v("Gratificação de Representação de Comando"),
               ]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(43),
+                _vm._m(41),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -33252,7 +34037,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33269,10 +34055,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Gratificação de Representação 2%")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(44),
+                _vm._m(42),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -33345,7 +34139,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(45),
+                  _vm._m(43),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
@@ -33391,7 +34185,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(46),
+                  _vm._m(44),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c(
@@ -33440,7 +34234,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33457,16 +34252,24 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [
                 _vm._v(
                   "\n                    Pensionada Pensionista de Ex-Combatente - Art. 9\n                "
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(47),
+              _vm._m(45),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(48),
+                _vm._m(46),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -33497,7 +34300,8 @@ var render = function () {
                   }),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33514,10 +34318,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Pensão Militar")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(49),
+                _vm._m(47),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -33574,7 +34386,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(50),
+                _vm._m(48),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -33646,7 +34458,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(51),
+                  _vm._m(49),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c(
@@ -33695,7 +34507,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33712,10 +34525,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Pensão Militar 1.5%")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(52),
+                _vm._m(50),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -33774,7 +34595,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33791,10 +34613,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Pensão Militar 3.0%")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(53),
+                _vm._m(51),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -33853,7 +34683,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33870,10 +34701,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("FuSEx 3%")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(54),
+                _vm._m(52),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -33932,7 +34771,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -33949,10 +34789,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Desconto de dependentes no FuSEx")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(55),
+                _vm._m(53),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -34040,7 +34888,8 @@ var render = function () {
                   ]),
                 ]),
               ]),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -34057,10 +34906,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("PNR")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(56),
+                _vm._m(54),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("div", { staticClass: "question_options" }, [
@@ -34137,7 +34994,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(57),
+                  _vm._m(55),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34193,7 +35050,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
           _vm._v(" "),
           _c(
@@ -34210,10 +35068,18 @@ var render = function () {
               staticClass: "question_root",
             },
             [
+              _c("ajuda-component", [
+                _c("p", [
+                  _vm._v(
+                    "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
               _c("legend", [_vm._v("Pensão Judiciária")]),
               _vm._v(" "),
               _c("section", { staticClass: "question_body" }, [
-                _vm._m(58),
+                _vm._m(56),
                 _vm._v(" "),
                 _c("div", { staticClass: "question_options" }, [
                   _c("input", {
@@ -34298,7 +35164,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(59),
+                  _vm._m(57),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34348,7 +35214,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(60),
+                  _vm._m(58),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34398,7 +35264,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(61),
+                  _vm._m(59),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34448,7 +35314,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(62),
+                  _vm._m(60),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34498,7 +35364,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(63),
+                  _vm._m(61),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34548,7 +35414,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(64),
+                  _vm._m(62),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34598,7 +35464,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(65),
+                  _vm._m(63),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34649,7 +35515,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(66),
+                  _vm._m(64),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34700,7 +35566,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(67),
+                  _vm._m(65),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34751,7 +35617,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(68),
+                  _vm._m(66),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34802,7 +35668,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(69),
+                  _vm._m(67),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34853,7 +35719,7 @@ var render = function () {
                   staticClass: "question_body",
                 },
                 [
-                  _vm._m(70),
+                  _vm._m(68),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("div", { staticClass: "question_options" }, [
@@ -34889,7 +35755,8 @@ var render = function () {
                   ]),
                 ]
               ),
-            ]
+            ],
+            1
           ),
         ]),
       ]),
@@ -34901,17 +35768,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ajuda_container" }, [
-      _c("img", {
-        staticClass: "ajuda",
-        attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
-      }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -34986,17 +35842,6 @@ var staticRenderFns = [
         _c("strong", [_vm._v("real")]),
         _vm._v(" do examinado?"),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ajuda_container" }, [
-      _c("img", {
-        staticClass: "ajuda",
-        attrs: { src: "/svg/help.svg", alt: "ícone de ajuda" },
-      }),
     ])
   },
   function () {

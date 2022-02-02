@@ -418,6 +418,36 @@ form#formulario {
   cursor: help;
 }
 
+.question_root .ajuda_container:hover .ajuda_texto {
+  opacity: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-box-shadow: 11px 13px 14px -8px #00000070;
+          box-shadow: 11px 13px 14px -8px #00000070;
+  visibility: visible;
+}
+
+.question_root .ajuda_container .ajuda_texto {
+  background: #000000d6;
+  border-radius: 6px;
+  border: 2px solid #3a3a3a;
+  opacity: 0;
+  padding: 0px 9px;
+  position: absolute;
+  right: 25px;
+  top: -33px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  visibility: hidden;
+  width: 317px;
+  z-index: 2;
+}
+
+.question_root .ajuda_container .ajuda_texto p {
+  font-size: 10px;
+  color: #fff;
+}
+
 .question_root .ajuda_container img {
   -webkit-transition: -webkit-filter 1s;
   transition: -webkit-filter 1s;
@@ -425,7 +455,7 @@ form#formulario {
   transition: filter 1s, -webkit-filter 1s;
 }
 
-.question_root .ajuda_container:hover img {
+.question_root .ajuda_container img:hover {
   -webkit-filter: invert(71%) sepia(79%) saturate(5386%) hue-rotate(167deg) brightness(102%) contrast(97%);
           filter: invert(71%) sepia(79%) saturate(5386%) hue-rotate(167deg) brightness(102%) contrast(97%);
   -webkit-transition: -webkit-filter 1s;

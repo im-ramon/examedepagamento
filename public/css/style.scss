@@ -332,11 +332,38 @@ form#formulario {
         top: -18px;
         cursor: help;
 
+        &:hover {
+            .ajuda_texto {
+                opacity: 1;
+                transition: all 0.3s;
+                box-shadow: 11px 13px 14px -8px #00000070;
+                visibility: visible;
+            }
+        }
+
+        .ajuda_texto {
+            background: #000000d6;
+            border-radius: 6px;
+            border: 2px solid #3a3a3a;
+            opacity: 0;
+            padding: 0px 9px;
+            position: absolute;
+            right: 25px;
+            top: -33px;
+            transition: all 0.3s;
+            visibility: hidden;
+            width: 317px;
+            z-index: 2;
+
+            p {
+                font-size: 10px;
+                color: #fff;
+            }
+        }
+
         img {
             transition: filter 1s;
-        }
-        &:hover {
-            img {
+            &:hover {
                 filter: invert(71%) sepia(79%) saturate(5386%) hue-rotate(167deg) brightness(102%) contrast(97%);
                 transition: filter 1s;
             }

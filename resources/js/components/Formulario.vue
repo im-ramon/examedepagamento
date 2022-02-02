@@ -5,13 +5,15 @@
             <h2>Informações gerais</h2>
 
             <fieldset class="question_root">
-                <div class="ajuda_container">
-                    <img
-                        class="ajuda"
-                        src="/svg/help.svg"
-                        alt="ícone de ajuda"
-                    />
-                </div>
+                <ajuda-component>
+                    <p>
+                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Aperiam fugiat, magnam tempore neque error
+                        assumenda a voluptates rerum tempora quibusdam aliquid
+                        doloremque obcaecati eum eveniet voluptate harum
+                        voluptatum vitae cumque?
+                    </p>
+                </ajuda-component>
                 <legend>Universo/ Classificação</legend>
                 <section class="question_body">
                     <div class="question_title">
@@ -43,6 +45,15 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <ajuda-component>
+                    <p>
+                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Aperiam fugiat, magnam tempore neque error
+                        assumenda a voluptates rerum tempora quibusdam aliquid
+                        doloremque obcaecati eum eveniet voluptate harum
+                        voluptatum vitae cumque?
+                    </p>
+                </ajuda-component>
                 <legend>Data do contracheque</legend>
                 <section class="question_body">
                     <div class="question_title">
@@ -60,6 +71,15 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <ajuda-component>
+                    <p>
+                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Aperiam fugiat, magnam tempore neque error
+                        assumenda a voluptates rerum tempora quibusdam aliquid
+                        doloremque obcaecati eum eveniet voluptate harum
+                        voluptatum vitae cumque?
+                    </p>
+                </ajuda-component>
                 <legend>Idade</legend>
                 <section class="question_body">
                     <div class="question_title">
@@ -88,6 +108,15 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <ajuda-component>
+                    <p>
+                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Aperiam fugiat, magnam tempore neque error
+                        assumenda a voluptates rerum tempora quibusdam aliquid
+                        doloremque obcaecati eum eveniet voluptate harum
+                        voluptatum vitae cumque?
+                    </p>
+                </ajuda-component>
                 <legend>Isenção de Imposto de Renda</legend>
                 <section class="question_body">
                     <div class="question_title">
@@ -119,6 +148,15 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <ajuda-component>
+                    <p>
+                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Aperiam fugiat, magnam tempore neque error
+                        assumenda a voluptates rerum tempora quibusdam aliquid
+                        doloremque obcaecati eum eveniet voluptate harum
+                        voluptatum vitae cumque?
+                    </p>
+                </ajuda-component>
                 <legend>P/G Soldo</legend>
                 <section class="question_body">
                     <div class="question_title">
@@ -142,6 +180,15 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <ajuda-component>
+                    <p>
+                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Aperiam fugiat, magnam tempore neque error
+                        assumenda a voluptates rerum tempora quibusdam aliquid
+                        doloremque obcaecati eum eveniet voluptate harum
+                        voluptatum vitae cumque?
+                    </p>
+                </ajuda-component>
                 <legend>P/G Real</legend>
                 <section class="question_body">
                     <div class="question_title">
@@ -167,13 +214,15 @@
 
             <section id="form_informacoes_financeiras_col1">
                 <fieldset class="question_root">
-                    <div class="ajuda_container">
-                        <img
-                            class="ajuda"
-                            src="/svg/help.svg"
-                            alt="ícone de ajuda"
-                        />
-                    </div>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -198,6 +247,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_soldo_cota">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Cota-parte do Soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -222,6 +280,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_soldo_prop_cota">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Soldo Proporcional para Cota</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -247,6 +314,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_compl_ct_soldo">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Complemento de cota de soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -276,6 +352,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_tp_sv">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional de Tempo de Serviço</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -298,6 +383,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_disp">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>
                         Adicional de Compensação por Disponibilidade Militar
                     </legend>
@@ -335,6 +429,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_hab">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional Habilitação</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -371,6 +474,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_mil">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional Militar</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -400,6 +512,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_comp_org">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional de Compensação Orgânica</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -486,6 +607,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_hvoo">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional de Horas de Voo (ART24MP)</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -549,6 +679,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_acres_25_soldo">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -580,6 +719,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_perm">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional de Permanência</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -605,6 +753,15 @@
                     class="question_root"
                     v-show="form_salario_familia_ir"
                 >
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Salário família/ Imposto de Renda</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -646,6 +803,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_ferias">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional de Férias</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -676,6 +842,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_pttc">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional PTTC</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -705,6 +880,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_natalino">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Adicional Natalino</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -780,6 +964,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_pre_escolar">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Pré-escolar</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -803,6 +996,15 @@
 
             <section id="form_informacoes_financeiras_col2">
                 <fieldset class="question_root" v-show="form_aux_invalidez">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Inavalidez</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -831,6 +1033,15 @@
                     </section>
                 </fieldset>
                 <fieldset class="question_root" v-show="form_aux_transporte">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Transporte</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -882,6 +1093,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_fard">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Fardamento</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -938,6 +1158,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_alim_c">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Alimentação - Tipo "C"</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -967,6 +1196,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_alim_5x">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Alimentação - 5x</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1015,6 +1253,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_natalidade">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Auxílio Natalidade</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1064,6 +1311,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_grat_loc_esp">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Gratificação de Localidade Especial</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1112,6 +1368,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_grat_repr_cmdo">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Gratificação de Representação de Comando</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1144,6 +1409,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_grat_repr_2">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Gratificação de Representação 2%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1216,6 +1490,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_dp_excmb_art_9">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>
                         Pensionada Pensionista de Ex-Combatente - Art. 9
                     </legend>
@@ -1263,6 +1546,15 @@
                 <!-- {{-- DESCONTOS --}} -->
 
                 <fieldset class="question_root" v-show="form_pmil">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Pensão Militar</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1340,6 +1632,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pmil_15">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Pensão Militar 1.5%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1371,6 +1672,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pmil_30">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Pensão Militar 3.0%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1405,6 +1715,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_fusex_3">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>FuSEx 3%</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1433,6 +1752,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_desc_dep_fusex">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Desconto de dependentes no FuSEx</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1477,6 +1805,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pnr">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>PNR</legend>
                     <section class="question_body">
                         <div class="question_title">
@@ -1532,6 +1869,15 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pens_judiciaria">
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <legend>Pensão Judiciária</legend>
                     <section class="question_body">
                         <div class="question_title">
