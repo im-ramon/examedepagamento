@@ -7532,7 +7532,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -7590,6 +7589,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       selectPg: [],
+      dadosFinanceirosGerados: {},
       universo: "ativa",
       data_contracheque: "2022-01-01",
       maior_65: "0",
@@ -7710,9 +7710,22 @@ __webpack_require__.r(__webpack_exports__);
         return console.log(e);
       });
     },
-    myfunc: function myfunc(e) {
-      console.log("Chegamos até aqui!");
-      console.log(e);
+    geraDadosFinanceiros: function geraDadosFinanceiros() {
+      var _this2 = this;
+
+      var data = "_token=".concat(this.token, "&universo=").concat(this.universo, "&data_contracheque=").concat(this.data_contracheque, "&maior_65=").concat(this.maior_65, "&isento_ir=").concat(this.isento_ir, "&pg_soldo=").concat(this.pg_soldo, "&pg_real=").concat(this.pg_real, "&tipo_soldo=").concat(this.tipo_soldo, "&soldo_cota_porcentagem=").concat(this.soldo_cota_porcentagem, "&soldo_prop_cota_porcentagem=").concat(this.soldo_prop_cota_porcentagem, "&compl_ct_soldo=").concat(this.compl_ct_soldo, "&adic_tp_sv=").concat(this.adic_tp_sv, "&adic_disp=").concat(this.adic_disp, "&adic_hab_tipo=").concat(this.adic_hab_tipo, "&adic_mil=").concat(this.adic_mil, "&adic_comp_org_tipo=").concat(this.adic_comp_org_tipo, "&adic_comp_org_percet=").concat(this.adic_comp_org_percet, "&adic_comp_org_pg=").concat(this.adic_comp_org_pg, "&hvoo_percet=").concat(this.hvoo_percet, "&hvoo_pg=").concat(this.hvoo_pg, "&acres_25_soldo=").concat(this.acres_25_soldo, "&adic_perm=").concat(this.adic_perm, "&salario_familia_dep=").concat(this.salario_familia_dep, "&imposto_renda_dep=").concat(this.imposto_renda_dep, "&adic_ferias=").concat(this.adic_ferias, "&adic_pttc=").concat(this.adic_pttc, "&adic_natalino=").concat(this.adic_natalino, "&adic_natalino_qtd_meses=").concat(this.adic_natalino_qtd_meses, "&adic_natalino_valor_adiantamento=").concat(this.adic_natalino_valor_adiantamento, "&aux_pre_escolar_qtd=").concat(this.aux_pre_escolar_qtd, "&aux_invalidez=").concat(this.aux_invalidez, "&aux_transporte=").concat(this.aux_transporte, "&aux_fard=").concat(this.aux_fard, "&aux_fard_primeiro=").concat(this.aux_fard_primeiro, "&aux_alim_c=").concat(this.aux_alim_c, "&aux_alim_5x=").concat(this.aux_alim_5x, "&aux_natalidade=").concat(this.aux_natalidade, "&grat_loc_esp=").concat(this.grat_loc_esp, "&grat_repr_cmdo=").concat(this.grat_repr_cmdo, "&grat_repr_2=").concat(this.grat_repr_2, "&grat_repr_2_pg=").concat(this.grat_repr_2_pg, "&dp_excmb_art_9=").concat(this.dp_excmb_art_9, "&pmil=").concat(this.pmil, "&pmilmesmopg=").concat(this.pmilmesmopg, "&pmil_pg=").concat(this.pmil_pg, "&pmil_15=").concat(this.pmil_15, "&pmil_30=").concat(this.pmil_30, "&fusex_3=").concat(this.fusex_3, "&desc_dep_fusex=").concat(this.desc_dep_fusex, "&pnr=").concat(this.pnr, "&pens_judiciaria_1=").concat(this.pens_judiciaria_1, "&pens_judiciaria_2=").concat(this.pens_judiciaria_2, "&pens_judiciaria_3=").concat(this.pens_judiciaria_3, "&pens_judiciaria_4=").concat(this.pens_judiciaria_4, "&pens_judiciaria_5=").concat(this.pens_judiciaria_5, "&pens_judiciaria_6=").concat(this.pens_judiciaria_6, "&pens_judiciaria_adic_natal_1=").concat(this.pens_judiciaria_adic_natal_1, "&pens_judiciaria_adic_natal_2=").concat(this.pens_judiciaria_adic_natal_2, "&pens_judiciaria_adic_natal_3=").concat(this.pens_judiciaria_adic_natal_3, "&pens_judiciaria_adic_natal_4=").concat(this.pens_judiciaria_adic_natal_4, "&pens_judiciaria_adic_natal_5=").concat(this.pens_judiciaria_adic_natal_5, "&pens_judiciaria_adic_natal_6=").concat(this.pens_judiciaria_adic_natal_6);
+      var config = {
+        headers: {
+          Accept: "application/json",
+          Authorization: this.token // 'Content-Type': 'multipart/form-data'
+
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost:8000/api/ficha-auxiliar?" + data, config).then(function (r) {
+        return _this2.dadosFinanceirosGerados = r.data;
+      })["catch"](function (e) {
+        return alert(e);
+      });
     }
   },
   mounted: function mounted() {
@@ -30969,7 +30982,13 @@ var render = function () {
   return _c(
     "form",
     {
-      attrs: { id: "formulario", action: "/api/ficha-auxiliar", method: "get" },
+      attrs: { id: "formulario" },
+      on: {
+        submit: function ($event) {
+          $event.preventDefault()
+          return _vm.geraDadosFinanceiros.apply(null, arguments)
+        },
+      },
     },
     [
       _c("input", {
