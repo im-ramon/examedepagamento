@@ -3,6 +3,7 @@
         <input type="hidden" name="_token" :value="form_token" />
         <section id="form_informacoes_pessoais">
             <h2>Informações gerais</h2>
+            {{ $store.state.dadosFinanceiros }} // Debug
             <fieldset class="question_root">
                 <ajuda-component>
                     <p>
@@ -2271,7 +2272,6 @@ export default {
     data() {
         return {
             selectPg: [],
-            dadosFinanceirosGerados: {},
             universo: "ativa",
             data_contracheque: "2022-01-01",
             maior_65: "0",
@@ -2405,7 +2405,7 @@ export default {
 
             axios
                 .get("http://localhost:8000/api/ficha-auxiliar?" + data, config)
-                .then((r) => (this.dadosFinanceirosGerados = r.data))
+                .then((r) => (this.$store.state.dadosFinanceiros = r.data))
                 .catch((e) => alert(e));
         },
     },
