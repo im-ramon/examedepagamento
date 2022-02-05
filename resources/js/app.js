@@ -8,12 +8,13 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+import router from './router.js'
 import Vuex from 'Vuex';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-        dadosFinanceiros: {}
+        dadosFinanceiros: false
     }
 })
 /**
@@ -32,6 +33,7 @@ Vue.component('login-component', require('./components/Login.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('formulario-component', require('./components/Formulario.vue').default);
 Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
+Vue.component('loading-component', require('./components/Loading.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -41,5 +43,6 @@ Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
 
 const app = new Vue({
     el: '#app',
+    router,
     store
 });

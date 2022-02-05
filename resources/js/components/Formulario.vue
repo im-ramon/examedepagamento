@@ -1,9 +1,8 @@
 <template>
-    <form id="formulario" v-on:submit.prevent="geraDadosFinanceiros">
+    <form id="formulario" v-on:submit.prevent v-if="!loading">
         <input type="hidden" name="_token" :value="form_token" />
         <section id="form_informacoes_pessoais">
             <h2>Informações gerais</h2>
-            {{ $store.state.dadosFinanceiros }} // Debug
             <fieldset class="question_root">
                 <ajuda-component>
                     <p>
@@ -627,7 +626,7 @@
                         <div class="question_options">
                             <input
                                 type="radio"
-                                name="f_hvoo"
+                                name="hvhvoo"
                                 v-model="f_hvoo"
                                 value="1"
                                 id="hvoosim"
@@ -2204,8 +2203,12 @@
                 </fieldset>
             </section>
         </section>
-        <button type="submit" id="gerar">Gerar contracheque</button>
+        <router-link id="btn_gerar" to="/ficha-auxiliar">
+            GERAR CONTRACHEQUE
+        </router-link>
+        <!-- <button type="submit" id="gerar">Gerar contracheque</button> -->
     </form>
+    <loading-component v-else></loading-component>
 </template>
 
 <script>
@@ -2213,64 +2216,9 @@ import axios from "axios";
 
 export default {
     props: ["form_token"],
-    computed: {
-        token() {
-            let token = document.cookie.split(";").find((indice) => {
-                return indice.startsWith("token=");
-            });
-
-            token = token.split("=")[1];
-            token = "Bearer " + token;
-
-            return token;
-        },
-    },
-    watch: {
-        universo(newValue, oldValue) {
-            if (newValue == "ativa") {
-                this.form_soldo_cota = false;
-                this.soldo_cota_porcentagem = "100.00";
-                this.form_soldo_prop_cota = false;
-                this.soldo_prop_cota_porcentagem = "100.00";
-                this.form_compl_ct_soldo = false;
-                this.compl_ct_soldo = "0";
-                this.form_dp_excmb_art_9 = false;
-                this.dp_excmb_art_9 = "0";
-            } else if (newValue == "inativo") {
-                this.form_soldo_cota = false;
-                this.soldo_cota_porcentagem = "100.00";
-                this.form_soldo_prop_cota = true;
-                this.soldo_prop_cota_porcentagem = "100.00";
-                this.form_compl_ct_soldo = true;
-                this.compl_ct_soldo = "0";
-                this.form_dp_excmb_art_9 = false;
-                this.dp_excmb_art_9 = "0";
-            } else if (newValue == "pens_mil") {
-                this.form_soldo_cota = true;
-                this.soldo_cota_porcentagem = "100.00";
-                this.form_soldo_prop_cota = true;
-                this.soldo_prop_cota_porcentagem = "100.00";
-                this.form_compl_ct_soldo = true;
-                this.compl_ct_soldo = "0";
-                this.form_dp_excmb_art_9 = false;
-                this.dp_excmb_art_9 = "0";
-            } else if (
-                newValue == "pens_excmbt_2ten" ||
-                newValue == "pens_excmbt_2sgt"
-            ) {
-                this.form_soldo_cota = true;
-                this.soldo_cota_porcentagem = "100.00";
-                this.form_soldo_prop_cota = true;
-                this.soldo_prop_cota_porcentagem = "100.00";
-                this.form_compl_ct_soldo = true;
-                this.compl_ct_soldo = "0";
-                this.form_dp_excmb_art_9 = true;
-                this.dp_excmb_art_9 = "0";
-            }
-        },
-    },
     data() {
         return {
+            loading: false,
             selectPg: [],
             universo: "ativa",
             data_contracheque: "2022-01-01",
@@ -2378,6 +2326,73 @@ export default {
             f_pens_judiciaria: "0",
         };
     },
+    computed: {
+        token() {
+            let token = document.cookie.split(";").find((indice) => {
+                return indice.startsWith("token=");
+            });
+
+            token = token.split("=")[1];
+            token = "Bearer " + token;
+
+            return token;
+        },
+    },
+    beforeRouteLeave(to, from, next) {
+        if (to.path == "/ficha-auxiliar") {
+            this.loading = true;
+            this.geraDadosFinanceiros().then((r) => {
+                this.loading = false;
+                next();
+            });
+        } else {
+            next();
+        }
+    },
+    watch: {
+        universo(newValue, oldValue) {
+            if (newValue == "ativa") {
+                this.form_soldo_cota = false;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = false;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = false;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = false;
+                this.dp_excmb_art_9 = "0";
+            } else if (newValue == "inativo") {
+                this.form_soldo_cota = false;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = true;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = true;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = false;
+                this.dp_excmb_art_9 = "0";
+            } else if (newValue == "pens_mil") {
+                this.form_soldo_cota = true;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = true;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = true;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = false;
+                this.dp_excmb_art_9 = "0";
+            } else if (
+                newValue == "pens_excmbt_2ten" ||
+                newValue == "pens_excmbt_2sgt"
+            ) {
+                this.form_soldo_cota = true;
+                this.soldo_cota_porcentagem = "100.00";
+                this.form_soldo_prop_cota = true;
+                this.soldo_prop_cota_porcentagem = "100.00";
+                this.form_compl_ct_soldo = true;
+                this.compl_ct_soldo = "0";
+                this.form_dp_excmb_art_9 = true;
+                this.dp_excmb_art_9 = "0";
+            }
+        },
+    },
     methods: {
         carregaSelectPg() {
             let config = {
@@ -2393,8 +2408,8 @@ export default {
                 .catch((e) => console.log(e));
         },
 
-        geraDadosFinanceiros() {
-            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}`;
+        async geraDadosFinanceiros() {
+            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}`;
             let config = {
                 headers: {
                     Accept: "application/json",
@@ -2403,7 +2418,7 @@ export default {
                 },
             };
 
-            axios
+            await axios
                 .get("http://localhost:8000/api/ficha-auxiliar?" + data, config)
                 .then((r) => (this.$store.state.dadosFinanceiros = r.data))
                 .catch((e) => alert(e));

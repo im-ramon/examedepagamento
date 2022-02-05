@@ -14,56 +14,25 @@
             </div>
 
             <nav>
-                <a
-                    href="#"
-                    :class="
-                        paginaRenderizada == 'home'
-                            ? 'navbutton selected'
-                            : 'navbutton'
-                    "
-                    @click="paginaRenderizada = 'home'"
-                >
+                <router-link class="navbutton" to="/">
                     <img src="/svg/home.svg" alt="icone casa" />
-                    <span class="navbutton_title">Home</span>
-                </a>
-                <a
-                    href="#"
-                    @click="paginaRenderizada = 'contracheques'"
-                    :class="
-                        paginaRenderizada == 'contracheques'
-                            ? 'navbutton selected'
-                            : 'navbutton'
-                    "
-                >
+                    <span class="navbutton_title">Página inicial</span>
+                </router-link>
+
+                <router-link class="navbutton" to="/formulario">
                     <img src="/svg/make.svg" alt="icone computador" />
                     <span class="navbutton_title">Contracheques</span>
-                </a>
+                </router-link>
 
-                <a
-                    href="#"
-                    :class="
-                        paginaRenderizada == 'perfil'
-                            ? 'navbutton selected'
-                            : 'navbutton'
-                    "
-                    @click="paginaRenderizada = 'perfil'"
-                >
+                <router-link class="navbutton" to="/perfil">
                     <img src="/svg/user.svg" alt="icone usuário" />
                     <span class="navbutton_title">Meu perfil</span>
-                </a>
+                </router-link>
 
-                <a
-                    href="#"
-                    :class="
-                        paginaRenderizada == 'lesgislacao'
-                            ? 'navbutton selected'
-                            : 'navbutton'
-                    "
-                    @click="paginaRenderizada = 'lesgislacao'"
-                >
+                <router-link class="navbutton" to="/legislacao">
                     <img src="/svg/books.svg" alt="icone livro" />
                     <span class="navbutton_title">Legislação</span>
-                </a>
+                </router-link>
             </nav>
 
             <div id="sugestoes_contaneir">
@@ -107,11 +76,9 @@
                 </div>
             </section>
             <section id="main_body">
-                <formulario-component
-                    :form_token="csrf_token"
-                    v-if="paginaRenderizada == 'contracheques'"
-                >
-                </formulario-component>
+                <!-- <formulario-component :form_token="csrf_token">
+                </formulario-component> -->
+                <router-view></router-view>
             </section>
         </main>
     </section>
