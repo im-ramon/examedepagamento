@@ -9474,6 +9474,77 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -35907,7 +35978,7 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          '\n                        Aqui você deve escolher a categoria de soldo que o\n                        examinado recebe. São duas opções, a primeira\n                        "Normal/Integral" significa que o examinado recebe o\n                        valor do seu soldo por completo, normalmente\n                        militares da ativa, inativos que completaram o tempo\n                        mínimo para reserva e seus pensionistas recebem essa\n                        categoria de soldo. A categoria " Soldo Proporcional\n                        para Cota" é devida, normalmente, aos militares que\n                        fora para a reserva antes do tempo mínimo, como no\n                        caso de militares reformados por ser julgado incapaz\n                        definitivamente. '
+                          '\n                        Você deve escolher a categoria de soldo que o\n                        examinado recebe. São duas opções, a primeira\n                        "Normal/Integral" significa que o examinado recebe o\n                        valor do seu soldo por completo, normalmente\n                        militares da ativa, inativos que completaram o tempo\n                        mínimo para reserva e seus pensionistas recebem essa\n                        categoria de soldo. A categoria " Soldo Proporcional\n                        para Cota" é devida, normalmente, aos militares que\n                        fora para a reserva antes do tempo mínimo, como no\n                        caso de militares reformados por ser julgado incapaz\n                        definitivamente. '
                         ),
                         _c("br"),
                         _c("br"),
@@ -35996,7 +36067,28 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          "\n                        Esse campo é exclusivo para pensionistas. Aqui deve\n                        ser informado qual porcentagem de cota-parte o(a)\n                        pensionista recebe. Essa informação fica disponível\n                        no "
+                        ),
+                        _c("strong", [_vm._v("título de pensão")]),
+                        _vm._v(" ou na\n                        "),
+                        _c("strong", [_vm._v("apostila")]),
+                        _vm._v(
+                          ", na PHPM do(a)\n                        examinado(a). Em documentos mais antigos, é\n                        informado o percentual em fração, então, para\n                        inserir a informação no campo, converta a fração em\n                        porcentagem, por exemplo: 1/2 = 50%."
+                        ),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v("Referência: ")]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: "http://www.planalto.gov.br/ccivil_03/leis/l6880.htm",
+                              target: "_BLANK",
+                            },
+                          },
+                          [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
                         ),
                       ]),
                     ]),
@@ -36059,8 +36151,27 @@ var render = function () {
                   [
                     _c("ajuda-component", [
                       _c("p", [
+                        _vm._v("\n                        O "),
+                        _c("strong", [_vm._v("soldo proporcional para cota")]),
+                        _vm._v(" é\n                        difirente da "),
+                        _c("strong", [_vm._v("cota-parte do soldo")]),
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          ". O\n                        soldo proporcional para cota é devido, normalmente,\n                        aos militares que foram para a reserva antes do\n                        tempo mínimo, como no caso de militares reformados\n                        por ser julgado incapaz definitivamente. Os\n                        pensionistas desses militares também pode receber o\n                        soldo proporcional para cota. Por exemplo, o\n                        instituidor da pensão poderia receber soldo\n                        proporcional para cota de 29/30 e ao falecer deixar\n                        a pensão de 1/3 para cada dependente, logo, a pensão\n                        será calculada primeiro sobre o soldo proporcional\n                        depois será dividida por cota-parte para cada\n                        beneficiário."
+                        ),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v("Referência: ")]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: "http://www.planalto.gov.br/ccivil_03/leis/l6880.htm",
+                              target: "_BLANK",
+                            },
+                          },
+                          [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
                         ),
                       ]),
                     ]),
@@ -36122,13 +36233,7 @@ var render = function () {
                     staticClass: "question_root",
                   },
                   [
-                    _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
-                    ]),
+                    _c("ajuda-component", [_c("p", [_vm._v("?")])]),
                     _vm._v(" "),
                     _c("legend", [_vm._v("Complemento de cota de soldo")]),
                     _vm._v(" "),
@@ -36219,7 +36324,36 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          "\n                        Adicional de Tempo de Serviço é a parcela\n                        remuneratória mensal devida ao militar, inerente ao\n                        tempo de serviço e os acréscimos permitidos por lei,\n                        observado o disposto no art. 30 da Medida Provisória\n                        2215/01. Será computado 1% para cada ano de serviço\n                        anterior a 31 DEZ 2000. É vedada a concessão\n                        cumulativa do adicional de compensação por\n                        disponibilidade militar com o adicional de tempo de\n                        serviço, sendo assegurado, caso o militar faça jus a\n                        ambos os adicionais, o recebimento do mais\n                        vantajoso.\n\n                        "
+                        ),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v("Referência: ")]),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: "http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm",
+                              target: "_BLANK",
+                            },
+                          },
+                          [_vm._v("MP 2215-10, de 31 de agosto de 2001.")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: "planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm",
+                              target: "_BLANK",
+                            },
+                          },
+                          [_vm._v("Lei nº 13.954, de 16 de dezembro de 2019.")]
                         ),
                       ]),
                     ]),
@@ -36279,7 +36413,34 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          "\n                        O Adicional de compensação por disponibilidade\n                        militar é a parcela remuneratória mensal devida ao\n                        militar em razão da disponibilidade permanente e da\n                        dedicação exclusiva. É vedada a concessão cumulativa\n                        do adicional de compensação por disponibilidade\n                        militar com o adicional de tempo de serviço, sendo\n                        assegurado, caso o militar faça jus a ambos os\n                        adicionais, o recebimento do mais vantajoso. O\n                        percentual do adicional de compensação por\n                        disponibilidade militar é irredutível e corresponde\n                        sempre ao maior percentual inerente aos postos ou\n                        graduações alcançados pelo militar durante sua\n                        carreira no serviço ativo, independentemente de\n                        mudança de círculos hierárquicos, postos ou\n                        graduações. O percentual do adicional de compensação\n                        por disponibilidade militar a que o militar faz jus\n                        incidirá sobre o soldo do posto ou da graduação\n                        atual, e não serão considerados: "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "I - postos ou\n                        graduações alcançados pelo militar como benefício,\n                        na forma prevista em lei, em decorrência de reforma,\n                        morte ou transferência para a reserva;\n                        "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        percepção de soldo ou de remuneração correspondente\n                        a grau hierárquico superior ao alcançado na ativa,\n                        em decorrência de reforma, morte ou transferência\n                        para a reserva; e\n                        "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        percepção de pensão militar correspondente a grau\n                        hierárquico superior ao alcançado pelo militar em\n                        atividade, em decorrência de benefícios concedidos\n                        pela Lei nº 3.765, de 4 de maio de 1960."
+                        ),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v("Referência: ")]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: "planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm",
+                              target: "_BLANK",
+                            },
+                          },
+                          [_vm._v("Lei nº 13.954, de 16 de dezembro de 2019.")]
                         ),
                       ]),
                     ]),
@@ -36371,7 +36532,7 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          "\n                        O Adicional de habilitação é a parcela remuneratória\n                        mensal devida ao militar, inerente aos cursos\n                        realizados com aproveitamento. Os percentuais podem\n                        ser consultados no ANEXO III da Lei nº 13.954, de 16\n                        de dezembro de 2019.\n                    "
                         ),
                       ]),
                     ]),

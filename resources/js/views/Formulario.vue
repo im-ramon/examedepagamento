@@ -215,7 +215,7 @@
                 <fieldset class="question_root">
                     <ajuda-component>
                         <p>
-                            Aqui você deve escolher a categoria de soldo que o
+                            Você deve escolher a categoria de soldo que o
                             examinado recebe. São duas opções, a primeira
                             "Normal/Integral" significa que o examinado recebe o
                             valor do seu soldo por completo, normalmente
@@ -260,11 +260,21 @@
                 <fieldset class="question_root" v-show="form_soldo_cota">
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Esse campo é exclusivo para pensionistas. Aqui deve
+                            ser informado qual porcentagem de cota-parte o(a)
+                            pensionista recebe. Essa informação fica disponível
+                            no <strong>título de pensão</strong> ou na
+                            <strong>apostila</strong>, na PHPM do(a)
+                            examinado(a). Em documentos mais antigos, é
+                            informado o percentual em fração, então, para
+                            inserir a informação no campo, converta a fração em
+                            porcentagem, por exemplo: 1/2 = 50%.<br /><br />
+                            <strong>Referência: </strong>
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/leis/l6880.htm"
+                                target="_BLANK"
+                                >Lei nº 6.880, de 9 de dezembro de 1980.</a
+                            >
                         </p>
                     </ajuda-component>
                     <legend>Cota-parte do Soldo</legend>
@@ -293,11 +303,26 @@
                 <fieldset class="question_root" v-show="form_soldo_prop_cota">
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O <strong>soldo proporcional para cota</strong> é
+                            difirente da <strong>cota-parte do soldo</strong>. O
+                            soldo proporcional para cota é devido, normalmente,
+                            aos militares que foram para a reserva antes do
+                            tempo mínimo, como no caso de militares reformados
+                            por ser julgado incapaz definitivamente. Os
+                            pensionistas desses militares também pode receber o
+                            soldo proporcional para cota. Por exemplo, o
+                            instituidor da pensão poderia receber soldo
+                            proporcional para cota de 29/30 e ao falecer deixar
+                            a pensão de 1/3 para cada dependente, logo, a pensão
+                            será calculada primeiro sobre o soldo proporcional
+                            depois será dividida por cota-parte para cada
+                            beneficiário.<br /><br />
+                            <strong>Referência: </strong>
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/leis/l6880.htm"
+                                target="_BLANK"
+                                >Lei nº 6.880, de 9 de dezembro de 1980.</a
+                            >
                         </p>
                     </ajuda-component>
                     <legend>Soldo Proporcional para Cota</legend>
@@ -326,13 +351,7 @@
 
                 <fieldset class="question_root" v-show="form_compl_ct_soldo">
                     <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
+                        <p>?</p>
                     </ajuda-component>
                     <legend>Complemento de cota de soldo</legend>
                     <section class="question_body">
@@ -365,11 +384,31 @@
                 <fieldset class="question_root" v-show="form_adic_tp_sv">
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Adicional de Tempo de Serviço é a parcela
+                            remuneratória mensal devida ao militar, inerente ao
+                            tempo de serviço e os acréscimos permitidos por lei,
+                            observado o disposto no art. 30 da Medida Provisória
+                            2215/01. Será computado 1% para cada ano de serviço
+                            anterior a 31 DEZ 2000. É vedada a concessão
+                            cumulativa do adicional de compensação por
+                            disponibilidade militar com o adicional de tempo de
+                            serviço, sendo assegurado, caso o militar faça jus a
+                            ambos os adicionais, o recebimento do mais
+                            vantajoso.
+
+                            <br /><br />
+                            <strong>Referência: </strong><br />
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm"
+                                target="_BLANK"
+                                >MP 2215-10, de 31 de agosto de 2001.</a
+                            >
+                            <br />
+                            <a
+                                href="planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm"
+                                target="_BLANK"
+                                >Lei nº 13.954, de 16 de dezembro de 2019.</a
+                            >
                         </p>
                     </ajuda-component>
                     <legend>Adicional de Tempo de Serviço</legend>
@@ -396,11 +435,43 @@
                 <fieldset class="question_root" v-show="form_adic_disp">
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O Adicional de compensação por disponibilidade
+                            militar é a parcela remuneratória mensal devida ao
+                            militar em razão da disponibilidade permanente e da
+                            dedicação exclusiva. É vedada a concessão cumulativa
+                            do adicional de compensação por disponibilidade
+                            militar com o adicional de tempo de serviço, sendo
+                            assegurado, caso o militar faça jus a ambos os
+                            adicionais, o recebimento do mais vantajoso. O
+                            percentual do adicional de compensação por
+                            disponibilidade militar é irredutível e corresponde
+                            sempre ao maior percentual inerente aos postos ou
+                            graduações alcançados pelo militar durante sua
+                            carreira no serviço ativo, independentemente de
+                            mudança de círculos hierárquicos, postos ou
+                            graduações. O percentual do adicional de compensação
+                            por disponibilidade militar a que o militar faz jus
+                            incidirá sobre o soldo do posto ou da graduação
+                            atual, e não serão considerados: <br />I - postos ou
+                            graduações alcançados pelo militar como benefício,
+                            na forma prevista em lei, em decorrência de reforma,
+                            morte ou transferência para a reserva;
+                            <br />
+                            percepção de soldo ou de remuneração correspondente
+                            a grau hierárquico superior ao alcançado na ativa,
+                            em decorrência de reforma, morte ou transferência
+                            para a reserva; e
+                            <br />
+                            percepção de pensão militar correspondente a grau
+                            hierárquico superior ao alcançado pelo militar em
+                            atividade, em decorrência de benefícios concedidos
+                            pela Lei nº 3.765, de 4 de maio de 1960.<br /><br />
+                            <strong>Referência: </strong>
+                            <a
+                                href="planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm"
+                                target="_BLANK"
+                                >Lei nº 13.954, de 16 de dezembro de 2019.</a
+                            >
                         </p>
                     </ajuda-component>
                     <legend>
@@ -442,11 +513,11 @@
                 <fieldset class="question_root" v-show="form_adic_hab">
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O Adicional de habilitação é a parcela remuneratória
+                            mensal devida ao militar, inerente aos cursos
+                            realizados com aproveitamento. Os percentuais podem
+                            ser consultados no ANEXO III da Lei nº 13.954, de 16
+                            de dezembro de 2019.
                         </p>
                     </ajuda-component>
                     <legend>Adicional Habilitação</legend>
