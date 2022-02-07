@@ -215,11 +215,23 @@
                 <fieldset class="question_root">
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Aqui você deve escolher a categoria de soldo que o
+                            examinado recebe. São duas opções, a primeira
+                            "Normal/Integral" significa que o examinado recebe o
+                            valor do seu soldo por completo, normalmente
+                            militares da ativa, inativos que completaram o tempo
+                            mínimo para reserva e seus pensionistas recebem essa
+                            categoria de soldo. A categoria " Soldo Proporcional
+                            para Cota" é devida, normalmente, aos militares que
+                            fora para a reserva antes do tempo mínimo, como no
+                            caso de militares reformados por ser julgado incapaz
+                            definitivamente. <br /><br />
+                            <strong>Referência: </strong>
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/leis/l6880.htm"
+                                target="_BLANK"
+                                >Lei nº 6.880, de 9 de dezembro de 1980.</a
+                            >
                         </p>
                     </ajuda-component>
                     <legend>Soldo</legend>

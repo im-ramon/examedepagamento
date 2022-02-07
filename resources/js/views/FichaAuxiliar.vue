@@ -88,7 +88,9 @@
         <tr v-for="(data, key) in dadosApiReceitas" :key="key">
             <td class="td_calculos" colspan="2">{{ data.rubrica }}</td>
             <td class="td_calculos">{{ data.financeiro.porcentagem }}</td>
-            <td class="td_calculos">{{ data.financeiro.valor }}</td>
+            <td class="td_calculos">
+                {{ data.financeiro.valor | numeroPreco }}
+            </td>
             <td class="td_calculos" colspan="2">
                 <span>R$</span>
                 <input
@@ -104,11 +106,17 @@
                 <p>SOMA</p>
             </td>
             <td class="td_calculos">
-                {{ dadosApiCompleto.receitas.bruto_total.financeiro.valor }}
+                {{
+                    dadosApiCompleto.receitas.bruto_total.financeiro.valor
+                        | numeroPreco
+                }}
             </td>
             <td class="td_calculos" colspan="2">
                 <p>
-                    {{ dadosApiCompleto.receitas.bruto_total.financeiro.valor }}
+                    {{
+                        dadosApiCompleto.receitas.bruto_total.financeiro.valor
+                            | numeroPreco
+                    }}
                 </p>
             </td>
         </tr>
@@ -151,7 +159,9 @@
         <tr v-for="(data, key) in dadosApiDescontos" :key="key + data.rubrica">
             <td class="td_calculos" colspan="2">{{ data.rubrica }}</td>
             <td class="td_calculos">{{ data.financeiro.porcentagem }}</td>
-            <td class="td_calculos">{{ data.financeiro.valor }}</td>
+            <td class="td_calculos">
+                {{ data.financeiro.valor | numeroPreco }}
+            </td>
             <td class="td_calculos" colspan="2">
                 <span>R$</span>
                 <input
@@ -169,13 +179,14 @@
             <td class="td_calculos">
                 {{
                     dadosApiCompleto.descontos.descontos_total.financeiro.valor
+                        | numeroPreco
                 }}
             </td>
             <td class="td_calculos" colspan="2">
                 <p>
                     {{
                         dadosApiCompleto.descontos.descontos_total.financeiro
-                            .valor
+                            .valor | numeroPreco
                     }}
                 </p>
             </td>
@@ -188,18 +199,22 @@
             <td class="td_calculos">
                 <p>
                     {{
-                        dadosApiCompleto.receitas.bruto_total.financeiro.valor -
-                        dadosApiCompleto.descontos.descontos_total.financeiro
-                            .valor
+                        (dadosApiCompleto.receitas.bruto_total.financeiro
+                            .valor -
+                            dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor)
+                            | numeroPreco
                     }}
                 </p>
             </td>
             <td class="td_calculos" colspan="2">
                 <p>
                     {{
-                        dadosApiCompleto.receitas.bruto_total.financeiro.valor -
-                        dadosApiCompleto.descontos.descontos_total.financeiro
-                            .valor
+                        (dadosApiCompleto.receitas.bruto_total.financeiro
+                            .valor -
+                            dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor)
+                            | numeroPreco
                     }}
                 </p>
             </td>
@@ -357,6 +372,14 @@ export default {
     },
     beforeEnter: (to, from, next) => {
         alert("ok");
+    },
+    filters: {
+        numeroPreco(value) {
+            return value.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            });
+        },
     },
 };
 </script>

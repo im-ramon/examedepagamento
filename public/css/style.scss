@@ -358,6 +358,8 @@ form#formulario {
             p {
                 font-size: 10px;
                 color: #fff;
+                text-align: justify;
+                text-indent: 2em;
             }
         }
 
@@ -366,6 +368,17 @@ form#formulario {
             &:hover {
                 filter: invert(71%) sepia(79%) saturate(5386%) hue-rotate(167deg) brightness(102%) contrast(97%);
                 transition: filter 1s;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #b7bec6;
+            transition: all 0.3s;
+            &:hover {
+                color: #f1f4fb;
+                text-decoration: underline;
+                transition: all 0.3s;
             }
         }
     }

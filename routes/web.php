@@ -18,12 +18,11 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('/app')->group(function () {
-    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('app.home');
-    Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'gerarFormulario'])->name('app.formulario');
-    Route::post('/ficha-auxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
-});
+// Route::prefix('/app')->group(function () {
+//     Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'gerarFormulario'])->name('app.formulario');
+//     Route::post('/ficha-auxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/app', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

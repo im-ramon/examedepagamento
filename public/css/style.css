@@ -446,6 +446,8 @@ form#formulario {
 .question_root .ajuda_container .ajuda_texto p {
   font-size: 10px;
   color: #fff;
+  text-align: justify;
+  text-indent: 2em;
 }
 
 .question_root .ajuda_container img {
@@ -462,6 +464,20 @@ form#formulario {
   transition: -webkit-filter 1s;
   transition: filter 1s;
   transition: filter 1s, -webkit-filter 1s;
+}
+
+.question_root .ajuda_container a {
+  text-decoration: none;
+  color: #b7bec6;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.question_root .ajuda_container a:hover {
+  color: #f1f4fb;
+  text-decoration: underline;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .question_body {

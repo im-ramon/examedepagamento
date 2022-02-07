@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Index from './components/Index.vue'
-import Formulario from './components/Formulario.vue'
-import Perfil from './components/Perfil.vue'
-import Legislacao from './components/Legislacao.vue'
-import FichaAuxiliar from './components/FichaAuxiliar.vue'
+import FichaAuxiliar from './views/FichaAuxiliar.vue'
+import Formulario from './views/Formulario.vue'
+import Index from './views/Index.vue'
+import Legislacao from './views/Legislacao.vue'
+import Perfil from './views/Perfil.vue'
 
 Vue.use(Router);
 
 
 export default new Router({
-    mode: 'history',
+    // mode: 'history',
     routes: [
         {
             path: '/',
