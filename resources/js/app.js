@@ -14,7 +14,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-        dadosFinanceiros: false
+        backupForm: false,
+        dadosFinanceiros: false,
     }
 })
 /**
