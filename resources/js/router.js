@@ -18,7 +18,7 @@ export default new Router({
             component: Index
         }, {
             path: '/formulario',
-            component: Formulario
+            component: Formulario,
         },
         {
             path: '/perfil',

@@ -24,6 +24,20 @@
                     <span class="navbutton_title">Contracheques</span>
                 </router-link>
 
+                <!-- <a class="navbutton">
+                    <img src="/svg/make.svg" alt="icone computador" />
+                    <span class="navbutton_title">{{
+                        nomeRotaContracheque
+                    }}</span>
+
+                    <div class="navbutton_item">
+                        <p>Ramon</p>
+                        <p>Ramon</p>
+                        <p>Ramon</p>
+                        <p>Ramon</p>
+                    </div>
+                </a> -->
+
                 <router-link class="navbutton" to="/perfil">
                     <img src="/svg/user.svg" alt="icone usuário" />
                     <span class="navbutton_title">Meu perfil</span>
@@ -88,6 +102,7 @@
 export default {
     data() {
         return {
+            nomeRotaContracheque: "Contracheques",
             paginaRenderizada: "home",
         };
     },

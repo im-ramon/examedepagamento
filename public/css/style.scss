@@ -135,7 +135,16 @@ nav {
     width: 100%;
     margin-top: 1em;
 
-    a.navbutton {
+    .navbutton_item {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        z-index: 5;
+        background: aqua;
+        padding: 0.5em 1em;
+    }
+    .navbutton {
+        position: relative;
         border: 2px solid rgba(0, 0, 0, 0);
         margin: 1em 0;
         border-radius: $borderRadius;

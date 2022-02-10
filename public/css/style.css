@@ -163,7 +163,17 @@ nav {
   margin-top: 1em;
 }
 
-nav a.navbutton {
+nav .navbutton_item {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 5;
+  background: aqua;
+  padding: 0.5em 1em;
+}
+
+nav .navbutton {
+  position: relative;
   border: 2px solid rgba(0, 0, 0, 0);
   margin: 1em 0;
   border-radius: 6px;
@@ -181,7 +191,7 @@ nav a.navbutton {
   transition: all 0.3s;
 }
 
-nav a.navbutton:hover {
+nav .navbutton:hover {
   border: 2px solid black;
   -webkit-box-shadow: 0px 0px 13px 2px #d8d8d881;
           box-shadow: 0px 0px 13px 2px #d8d8d881;
@@ -189,22 +199,22 @@ nav a.navbutton:hover {
   transition: all 0.3s;
 }
 
-nav a.navbutton.router-link-exact-active {
+nav .navbutton.router-link-exact-active {
   background: #181818;
   color: #e1e1e1;
 }
 
-nav a.navbutton.router-link-exact-active img {
+nav .navbutton.router-link-exact-active img {
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
 
-nav a.navbutton img {
+nav .navbutton img {
   width: 18px;
   margin: 0 16px;
 }
 
-nav a.navbutton span {
+nav .navbutton span {
   font-size: 14px;
   -webkit-font-feature-settings: "lnum";
           font-feature-settings: "lnum";
