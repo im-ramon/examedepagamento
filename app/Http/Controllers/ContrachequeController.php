@@ -490,6 +490,7 @@ class ContrachequeController extends Controller
     {
         if ($formulario["grat_repr_cmdo"] == 1) {
             $this->grat_repr_cmdo['valor'] = $this->truncar($this->soldo_base['valor'] * 0.10);
+            $this->grat_repr_cmdo['porcentagem'] = 10;
         }
     }
 
@@ -530,7 +531,7 @@ class ContrachequeController extends Controller
         }
 
         if ($formulario["adic_natalino_valor_adiantamento"] > 0) {
-            $this->adic_natalino_valor_adiantamento['valor'] = $formulario["adic_natalino_valor_adiantamento"];
+            $this->adic_natalino_valor_adiantamento['valor'] = $formulario["adic_natalino_valor_adiantamento"] / 1;
         }
     }
 
@@ -703,18 +704,18 @@ class ContrachequeController extends Controller
 
     private function pensJudiciaria($formulario)
     {
-        $this->pens_judiciaria_1['valor'] = $formulario["pens_judiciaria_1"];
-        $this->pens_judiciaria_2['valor'] = $formulario["pens_judiciaria_2"];
-        $this->pens_judiciaria_3['valor'] = $formulario["pens_judiciaria_3"];
-        $this->pens_judiciaria_4['valor'] = $formulario["pens_judiciaria_4"];
-        $this->pens_judiciaria_5['valor'] = $formulario["pens_judiciaria_5"];
-        $this->pens_judiciaria_6['valor'] = $formulario["pens_judiciaria_6"];
-        $this->pens_judiciaria_adic_natal_1['valor'] = $formulario["pens_judiciaria_adic_natal_1"];
-        $this->pens_judiciaria_adic_natal_2['valor'] = $formulario["pens_judiciaria_adic_natal_2"];
-        $this->pens_judiciaria_adic_natal_3['valor'] = $formulario["pens_judiciaria_adic_natal_3"];
-        $this->pens_judiciaria_adic_natal_4['valor'] = $formulario["pens_judiciaria_adic_natal_4"];
-        $this->pens_judiciaria_adic_natal_5['valor'] = $formulario["pens_judiciaria_adic_natal_5"];
-        $this->pens_judiciaria_adic_natal_6['valor'] = $formulario["pens_judiciaria_adic_natal_6"];
+        $this->pens_judiciaria_1['valor'] = $formulario["pens_judiciaria_1"] / 1;
+        $this->pens_judiciaria_2['valor'] = $formulario["pens_judiciaria_2"] / 1;
+        $this->pens_judiciaria_3['valor'] = $formulario["pens_judiciaria_3"] / 1;
+        $this->pens_judiciaria_4['valor'] = $formulario["pens_judiciaria_4"] / 1;
+        $this->pens_judiciaria_5['valor'] = $formulario["pens_judiciaria_5"] / 1;
+        $this->pens_judiciaria_6['valor'] = $formulario["pens_judiciaria_6"] / 1;
+        $this->pens_judiciaria_adic_natal_1['valor'] = $formulario["pens_judiciaria_adic_natal_1"] / 1;
+        $this->pens_judiciaria_adic_natal_2['valor'] = $formulario["pens_judiciaria_adic_natal_2"] / 1;
+        $this->pens_judiciaria_adic_natal_3['valor'] = $formulario["pens_judiciaria_adic_natal_3"] / 1;
+        $this->pens_judiciaria_adic_natal_4['valor'] = $formulario["pens_judiciaria_adic_natal_4"] / 1;
+        $this->pens_judiciaria_adic_natal_5['valor'] = $formulario["pens_judiciaria_adic_natal_5"] / 1;
+        $this->pens_judiciaria_adic_natal_6['valor'] = $formulario["pens_judiciaria_adic_natal_6"] / 1;
     }
 
     private function impostoRendaMensal($formulario)

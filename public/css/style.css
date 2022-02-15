@@ -552,6 +552,8 @@ form#formulario {
 #ficha_auxilitar table {
   background: #fff;
   width: 260mm;
+  border-radius: 6px;
+  padding: 0 0.5em;
 }
 
 #ficha_auxilitar input {
@@ -565,6 +567,10 @@ form#formulario {
 
 #ficha_auxilitar input:focus {
   outline: none;
+}
+
+#ficha_auxilitar input#nome {
+  width: 100%;
 }
 
 #ficha_auxilitar tr {
@@ -601,6 +607,14 @@ form#formulario {
 #ficha_auxilitar td.td_assinatura {
   border: 1px solid white;
   text-align: center;
+}
+
+#ficha_auxilitar td.td_assinatura.fc_footer p {
+  margin-top: 1em;
+}
+
+#ficha_auxilitar td.td_assinatura p {
+  margin: 0;
 }
 
 #ficha_auxilitar td.td_cabecalho {

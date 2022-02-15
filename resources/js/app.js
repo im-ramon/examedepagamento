@@ -36,6 +36,7 @@ Vue.component('formulario-component', require('./views/GerarContracheque.vue').d
 Vue.component('gerenciarcontracheque-component', require('./views/GerenciarContracheque.vue').default);
 Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
 Vue.component('loading-component', require('./components/Loading.vue').default);
+Vue.component('botao-component', require('./components/Botao.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

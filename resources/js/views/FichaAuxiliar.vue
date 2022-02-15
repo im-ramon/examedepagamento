@@ -35,7 +35,7 @@
                     <p>NOME:</p>
                 </td>
                 <td class="td_cabecalho" colspan="5">
-                    <p>RAMON OLIVEIRA DOS SANTOS</p>
+                    <input type="text" name="nome" id="nome" />
                 </td>
                 <td class="td_cabecalho pg">
                     <p>P/G:</p>
@@ -114,13 +114,13 @@
                 <td class="td_calculos" colspan="4">
                     <p>SOMA</p>
                 </td>
-                <td class="td_calculos">
+                <td class="td_calculos valor">
                     {{
                         dadosApiCompleto.receitas.bruto_total.financeiro.valor
                             | numeroPreco
                     }}
                 </td>
-                <td class="td_calculos">
+                <td class="td_calculos valor">
                     <p>
                         {{
                             dadosApiCompleto.receitas.bruto_total.financeiro
@@ -188,13 +188,13 @@
                 <td class="td_calculos" colspan="4">
                     <p>SOMA</p>
                 </td>
-                <td class="td_calculos">
+                <td class="td_calculos valor">
                     {{
                         dadosApiCompleto.descontos.descontos_total.financeiro
                             .valor | numeroPreco
                     }}
                 </td>
-                <td class="td_calculos">
+                <td class="td_calculos valor">
                     <p>
                         {{
                             dadosApiCompleto.descontos.descontos_total
@@ -206,9 +206,9 @@
 
             <tr>
                 <td class="td_calculos" colspan="4">
-                    <p>LIQUIDO A RECEBER</p>
+                    <p>LÍQUIDO A RECEBER</p>
                 </td>
-                <td class="td_calculos">
+                <td class="td_calculos valor">
                     <p>
                         {{
                             (dadosApiCompleto.receitas.bruto_total.financeiro
@@ -219,7 +219,7 @@
                         }}
                     </p>
                 </td>
-                <td class="td_calculos">
+                <td class="td_calculos valor">
                     <p>
                         {{
                             (dadosApiCompleto.receitas.bruto_total.financeiro
@@ -269,10 +269,6 @@
             <tr>
                 <td class="td_assinatura" colspan="11">
                     <p><strong>RAMON OLIVEIRA DOS SANTOS - 3º Sgt</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="td_assinatura" colspan="11">
                     <p>Membro da Equipe</p>
                 </td>
             </tr>
@@ -307,7 +303,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="td_assinatura" colspan="11">
+                <td class="td_assinatura fc_footer" colspan="11">
                     <p>
                         ESTA FICHA DEVER&Aacute; FICAR &Agrave;
                         DISPOSI&Ccedil;&Atilde;O DOS &Oacute;RG&Atilde;OS DE

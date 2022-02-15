@@ -432,6 +432,8 @@ form#formulario {
     table {
         background: #fff;
         width: 260mm;
+        border-radius: $borderRadius;
+        padding: 0 0.5em;
     }
 
     input {
@@ -444,6 +446,10 @@ form#formulario {
 
         &:focus {
             outline: none;
+        }
+
+        &#nome {
+            width: 100%;
         }
     }
 
@@ -480,6 +486,16 @@ form#formulario {
     td.td_assinatura {
         border: 1px solid rgb(255, 255, 255);
         text-align: center;
+
+        &.fc_footer {
+            p {
+                margin-top: 1em;
+            }
+        }
+
+        p {
+            margin: 0;
+        }
     }
 
     td.td_cabecalho {
