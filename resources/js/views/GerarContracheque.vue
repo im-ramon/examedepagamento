@@ -619,9 +619,7 @@
                                 v-model="adic_comp_org_tipo"
                                 @change="adic_comp_org_percet = 0"
                             >
-                                <option value="0">
-                                    - Selecione uma opção -
-                                </option>
+                                <option value="0">- Não recebe -</option>
                                 <option value="PDQT">Paraquedista</option>
                                 <option value="RAIOX">Raio-X</option>
                                 <option value="TO/ OMA/ FO">

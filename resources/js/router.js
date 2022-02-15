@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import FichaAuxiliar from './views/FichaAuxiliar.vue'
-import Formulario from './views/Formulario.vue'
+import GerarContracheque from './views/GerarContracheque.vue'
+import GerenciarContracheque from './views/GerenciarContracheque.vue'
 import Index from './views/Index.vue'
 import Legislacao from './views/Legislacao.vue'
 import Perfil from './views/Perfil.vue'
@@ -17,8 +18,11 @@ export default new Router({
             path: '/',
             component: Index
         }, {
-            path: '/formulario',
-            component: Formulario,
+            path: '/gerar-contracheque',
+            component: GerarContracheque,
+        }, {
+            path: '/gerenciar-contracheque',
+            component: GerenciarContracheque,
         },
         {
             path: '/perfil',

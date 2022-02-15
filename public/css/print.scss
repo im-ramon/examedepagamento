@@ -1,0 +1,12 @@
+table {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#ficha_auxilitar {
+    input,
+    textarea#observacoes_receitas {
+        border: none;
+    }
+}

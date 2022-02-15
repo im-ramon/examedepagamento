@@ -96,7 +96,7 @@ aside#sidebar {
   height: 100%;
   padding: 2em 1em;
   position: relative;
-  width: 300px;
+  width: 360px;
 }
 
 #btn_fechar {
@@ -222,10 +222,14 @@ nav .navbutton span {
 }
 
 #sugestoes_contaneir {
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: absolute;
+  bottom: 1em;
+  width: 90%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 #sugestoes_contaneir #sugestoes {
@@ -271,13 +275,15 @@ nav .navbutton span {
   transition: transform 0.5s, filter 0.5s;
   transition: transform 0.5s, filter 0.5s, -webkit-transform 0.5s, -webkit-filter 0.5s;
   cursor: pointer;
+  -webkit-filter: invert(51%) sepia(67%) saturate(2804%) hue-rotate(346deg) brightness(96%) contrast(100%);
+          filter: invert(51%) sepia(67%) saturate(2804%) hue-rotate(346deg) brightness(96%) contrast(100%);
 }
 
 #sugestoes_contaneir #sugestoes img:hover {
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
-  -webkit-filter: invert(76%) sepia(39%) saturate(2844%) hue-rotate(5deg) brightness(107%) contrast(105%);
-          filter: invert(76%) sepia(39%) saturate(2844%) hue-rotate(5deg) brightness(107%) contrast(105%);
+  -webkit-filter: none;
+          filter: none;
   -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.5s;
   transition: -webkit-transform 0.5s, -webkit-filter 0.5s;
   transition: transform 0.5s, filter 0.5s;
@@ -285,7 +291,6 @@ nav .navbutton span {
 }
 
 #sugestoes_contaneir #sugestoes p,
-#sugestoes_contaneir #sugestoes h5,
 #sugestoes_contaneir #sugestoes span {
   text-align: center;
   color: #181818;
@@ -301,7 +306,8 @@ nav .navbutton span {
 
 #sugestoes_contaneir #sugestoes h5 {
   font-size: 14px;
-  margin: 5px 0;
+  color: #18181880;
+  margin: 0 0 1em 0;
 }
 
 #sugestoes_contaneir #sugestoes a {
@@ -521,6 +527,122 @@ form#formulario {
   border-radius: 6px;
   background: #f2eefd;
   padding: 4px 10px;
+}
+
+#ficha_auxilitar {
+  padding: 1em;
+  background: #f1f4fb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+#ficha_auxilitar table {
+  background: #fff;
+  width: 260mm;
+}
+
+#ficha_auxilitar input {
+  border: none;
+  height: 20px;
+  background: none;
+  outline: none;
+  border: 1px dashed #1818184a;
+  font-size: 16px;
+}
+
+#ficha_auxilitar input:focus {
+  outline: none;
+}
+
+#ficha_auxilitar tr {
+  height: 20px;
+}
+
+#ficha_auxilitar td.td_calculos {
+  border: 1px solid #363636;
+  text-align: center;
+}
+
+#ficha_auxilitar td.td_calculos.valor {
+  text-align: right;
+}
+
+#ficha_auxilitar td.td_calculos.valor input {
+  text-align: right;
+  width: 100%;
+}
+
+#ficha_auxilitar td.td_calculos.rubrica {
+  text-align: left;
+  padding-left: 1em;
+}
+
+#ficha_auxilitar td.td_calculos p {
+  margin: 2px 0;
+}
+
+#ficha_auxilitar td.valor_contracheque {
+  width: 10px;
+}
+
+#ficha_auxilitar td.td_assinatura {
+  border: 1px solid white;
+  text-align: center;
+}
+
+#ficha_auxilitar td.td_cabecalho {
+  padding: 0 0.5em;
+  text-align: left;
+}
+
+#ficha_auxilitar td.td_cabecalho.pg_abrev, #ficha_auxilitar td.td_cabecalho.mes_info {
+  text-align: left;
+}
+
+#ficha_auxilitar td.td_cabecalho.pg, #ficha_auxilitar td.td_cabecalho.mes {
+  text-align: right;
+}
+
+#ficha_auxilitar td.td_cabecalho p {
+  margin: 3px 0;
+}
+
+#ficha_auxilitar td.obs {
+  position: relative;
+}
+
+#ficha_auxilitar td.obs p {
+  position: absolute;
+  top: 0;
+  margin: 1em 50% 0 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#ficha_auxilitar textarea {
+  width: 100%;
+  height: 100%;
+  resize: vertical;
+  border: 1px dashed #1818184a;
+  background: none;
+  font-size: 16px;
+}
+
+#ficha_auxilitar textarea:focus {
+  outline: none;
 }
 
 #gerar,

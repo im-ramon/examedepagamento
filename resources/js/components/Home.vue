@@ -19,24 +19,18 @@
                     <span class="navbutton_title">Página inicial</span>
                 </router-link>
 
-                <router-link class="navbutton" to="/formulario">
+                <router-link class="navbutton" to="/gerar-contracheque">
                     <img src="/svg/make.svg" alt="icone computador" />
-                    <span class="navbutton_title">Contracheques</span>
+                    <span class="navbutton_title">Gerar contracheque</span>
                 </router-link>
 
-                <!-- <a class="navbutton">
-                    <img src="/svg/make.svg" alt="icone computador" />
-                    <span class="navbutton_title">{{
-                        nomeRotaContracheque
-                    }}</span>
-
-                    <div class="navbutton_item">
-                        <p>Ramon</p>
-                        <p>Ramon</p>
-                        <p>Ramon</p>
-                        <p>Ramon</p>
-                    </div>
-                </a> -->
+                <router-link class="navbutton" to="/gerenciar-contracheque">
+                    <img
+                        src="/svg/search_database.svg"
+                        alt="icone computador"
+                    />
+                    <span class="navbutton_title">Gerenciar contracheques</span>
+                </router-link>
 
                 <router-link class="navbutton" to="/perfil">
                     <img src="/svg/user.svg" alt="icone usuário" />
@@ -48,18 +42,26 @@
                     <span class="navbutton_title">Legislação</span>
                 </router-link>
             </nav>
-
-            <div id="sugestoes_contaneir">
+            <div
+                id="sugestoes_contaneir"
+                @mouseover="sugestoes_ativa = true"
+                @mouseleave="sugestoes_ativa = false"
+            >
                 <div id="sugestoes">
                     <div id="lampada">
-                        <img src="/svg/idea.svg" alt="Imagem lâmpada" />
+                        <img src="/svg/lifebouy.svg" alt="Imagem lâmpada" />
                     </div>
-                    <h5>Tem alguma sugestão?</h5>
-                    <p>
-                        Encontrou alguma falha ou tem alguma sugestão para
-                        melhoria do App? Sinta-se à vontade para nos comunicar:
-                        <a href="#">Enviar mensagem</a>
-                    </p>
+                    <h5>Precisando de ajuda?</h5>
+                    <transition>
+                        <div v-if="sugestoes_ativa">
+                            <p>
+                                Encontrou alguma falha ou tem alguma sugestão
+                                para melhoria do App? Sinta-se à vontade para
+                                nos comunicar:
+                                <a href="#">Enviar mensagem</a>
+                            </p>
+                        </div>
+                    </transition>
                 </div>
             </div>
         </aside>
@@ -102,10 +104,29 @@
 export default {
     data() {
         return {
-            nomeRotaContracheque: "Contracheques",
-            paginaRenderizada: "home",
+            sugestoes_ativa: false,
         };
     },
     props: ["csrf_token", "routeLogout"],
 };
 </script>
+
+<style>
+@keyframes move {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+.v-enter-active,
+.v-leave-active {
+    animation: move 1s;
+}
+.v-enter-from,
+.v-leave-to {
+    animation: move 1s reverse;
+}
+</style>
