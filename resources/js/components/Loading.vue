@@ -1,7 +1,7 @@
 <template>
     <div id="loading">
         <h1>Montando seu contracheque, aguarde...</h1>
-        <img src="/svg/loading.svg" alt="Ícone de carregamento" />
+        <img src="/svg/making.svg" alt="Ícone de carregamento" />
     </div>
 </template>
 

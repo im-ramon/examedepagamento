@@ -114,19 +114,21 @@ export default {
 <style>
 @keyframes move {
     0% {
-        transform: scaleY(0);
+        height: 0px;
     }
 
     100% {
-        transform: scaleY(1);
+        height: 150px;
     }
 }
 .v-enter-active,
 .v-leave-active {
     animation: move 1s;
+    overflow: hidden;
 }
 .v-enter-from,
 .v-leave-to {
+    overflow: hidden;
     animation: move 1s reverse;
 }
 </style>

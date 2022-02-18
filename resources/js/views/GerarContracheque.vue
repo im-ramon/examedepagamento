@@ -2286,7 +2286,7 @@
             </section>
         </section>
         <router-link id="btn_gerar" to="/ficha-auxiliar">
-            GERAR CONTRACHEQUE
+            <span>GERAR CONTRACHEQUE</span>
         </router-link>
         <!-- <button type="submit" id="gerar">Gerar contracheque</button> -->
     </form>

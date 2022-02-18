@@ -370,6 +370,11 @@ form#formulario {
   border: 2px solid #c5c5c5;
 }
 
+#form_informacoes_pessoais .question_root {
+  width: 47%;
+  margin: 2em 0;
+}
+
 #form_informacoes_financeiras .question_root {
   width: 99%;
   margin: 2em 0;
@@ -661,20 +666,37 @@ form#formulario {
 
 #gerar,
 #btn_gerar {
-  position: fixed;
-  bottom: 1em;
-  right: 2em;
   background: #181818;
-  color: #e1e1e1;
-  width: 280px;
-  height: 40px;
   border-radius: 6px;
-  cursor: pointer;
   border: 2px solid #c5c5c5;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  bottom: 1em;
   -webkit-box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.863);
           box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.863);
+  cursor: pointer;
+  height: 40px;
+  position: fixed;
+  line-height: 100%;
+  right: 2em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#gerar span,
+#btn_gerar span {
+  color: #e1e1e1;
 }
 
 #gerar:hover,
@@ -683,10 +705,19 @@ form#formulario {
   -webkit-transition: all 1s;
   transition: all 1s;
   border: 2px solid #000;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.icon_loading {
+  -webkit-filter: invert(100);
+          filter: invert(100);
+  width: 40px;
 }
 
 .login_view {
-  background: #f1f4fb;
+  background: #d2d2d2;
+  background: linear-gradient(49deg, #d2d2d2 0%, white 45%);
   width: 100%;
   height: 100%;
   display: -webkit-box;

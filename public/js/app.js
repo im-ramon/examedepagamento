@@ -6861,17 +6861,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["token_csrf"],
   data: function data() {
     return {
       email: "",
       password: "",
-      seepassword: false
+      seepassword: false,
+      loading: false
     };
   },
   methods: {
     login: function login(event) {
+      this.loading = true;
       var path = window.location.href;
       path = "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]); // let url = `${path}/api/login`;
 
@@ -6896,6 +6906,9 @@ __webpack_require__.r(__webpack_exports__);
 
         event.target.submit();
       });
+    },
+    teste: function teste() {
+      console.log("ok");
     }
   }
 });
@@ -15354,7 +15367,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        transform: scaleY(0);\n}\n100% {\r\n        transform: scaleY(1);\n}\n}\n@keyframes move {\n0% {\r\n        transform: scaleY(0);\n}\n100% {\r\n        transform: scaleY(1);\n}\n}\n.v-enter-active,\r\n.v-leave-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\n}\n.v-enter-from,\r\n.v-leave-to {\r\n    animation: move 1s reverse;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.v-enter-active,\r\n.v-leave-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.v-enter-from,\r\n.v-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -35251,7 +35264,7 @@ var staticRenderFns = [
       _c("h1", [_vm._v("Montando seu contracheque, aguarde...")]),
       _vm._v(" "),
       _c("img", {
-        attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
+        attrs: { src: "/svg/making.svg", alt: "Ícone de carregamento" },
       }),
     ])
   },
@@ -35467,11 +35480,19 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Login")]
-            ),
+            _vm.loading
+              ? _c("img", {
+                  staticClass: "icon_loading",
+                  attrs: {
+                    src: "/svg/loading.svg",
+                    alt: "Ícone de carregamento",
+                  },
+                })
+              : _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("\n                    Login\n                ")]
+                ),
           ]
         ),
       ]),
@@ -41228,7 +41249,7 @@ var render = function () {
           _c(
             "router-link",
             { attrs: { id: "btn_gerar", to: "/ficha-auxiliar" } },
-            [_vm._v("\n        GERAR CONTRACHEQUE\n    ")]
+            [_c("span", [_vm._v("GERAR CONTRACHEQUE")])]
           ),
         ],
         1

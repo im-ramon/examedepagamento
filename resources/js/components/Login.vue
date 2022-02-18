@@ -79,8 +79,16 @@
                             </div>
                         </div>
                     </div> -->
+                    <img
+                        v-if="loading"
+                        class="icon_loading"
+                        src="/svg/loading.svg"
+                        alt="Ícone de carregamento"
+                    />
 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button v-else type="submit" class="btn btn-primary">
+                        Login
+                    </button>
 
                     <!-- <a class="btn btn-link" href="">
                                 Esqueci a senha
@@ -99,10 +107,12 @@ export default {
             email: "",
             password: "",
             seepassword: false,
+            loading: false,
         };
     },
     methods: {
         login(event) {
+            this.loading = true;
             let path = window.location.href;
             path = `${path.split("/")[0]}//${path.split("/")[1]}${
                 path.split("/")[2]
@@ -130,6 +140,10 @@ export default {
                     }
                     event.target.submit();
                 });
+        },
+
+        teste() {
+            console.log("ok");
         },
     },
 };
