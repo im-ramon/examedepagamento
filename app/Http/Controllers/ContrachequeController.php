@@ -11,15 +11,15 @@ class ContrachequeController extends Controller
 {
     public $data_contracheque = 0;
 
-    public $soldo = ['valor' => 0, 'porcentagem' => 0];
-    public $soldo_prop = ['valor' => 0, 'porcentagem' => 0];
-    public $soldo_base = ['valor' => 0, 'porcentagem' => 0]; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um "IF" para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
-    public $bruto_ir_descontos = ['valor' => 0, 'porcentagem' => 0];
-    public $bruto_total = ['valor' => 0, 'porcentagem' => 0];
-    public $soldo_pg_real_base = ['valor' => 0, 'porcentagem' => 0]; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um IF para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
-    public $soldo_pg_real_normal = ['valor' => 0, 'porcentagem' => 0]; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
-    public $soldo_pg_real_prop = ['valor' => 0, 'porcentagem' => 0]; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
-    public $compl_ct_soldo = ['valor' => 0, 'porcentagem' => 0];
+    public $soldo = ['valor' => 0, 'porcentagem' => '-'];
+    public $soldo_prop = ['valor' => 0, 'porcentagem' => '-'];
+    public $soldo_base = ['valor' => 0, 'porcentagem' => '-']; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um "IF" para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
+    public $bruto_ir_descontos = ['valor' => 0, 'porcentagem' => '-'];
+    public $bruto_total = ['valor' => 0, 'porcentagem' => '-'];
+    public $soldo_pg_real_base = ['valor' => 0, 'porcentagem' => '-']; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um IF para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
+    public $soldo_pg_real_normal = ['valor' => 0, 'porcentagem' => '-']; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
+    public $soldo_pg_real_prop = ['valor' => 0, 'porcentagem' => '-']; // Atributo utilizado para realizar os cálculos dentro do sistema do Adic Disponibilidade e não deve ser exibido no Front-End.
+    public $compl_ct_soldo = ['valor' => 0, 'porcentagem' => '-'];
     public $adic_tp_sv = ['valor' => 0, 'porcentagem' => 0];
     public $adic_mil = ['valor' => 0, 'porcentagem' => 0];
     public $adic_comp_disp = ['valor' => 0, 'porcentagem' => 0];
@@ -27,46 +27,46 @@ class ContrachequeController extends Controller
     public $adic_perm = ['valor' => 0, 'porcentagem' => 0];
     public $adic_comp_org = ['valor' => 0, 'porcentagem' => 0];
     public $hvoo = ['valor' => 0, 'porcentagem' => 0];
-    public $acres_25_soldo = ['valor' => 0, 'porcentagem' => 0];
-    public $salario_familia = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_ferias = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_pttc = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_natalino = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_pre_escolar = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_invalidez = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_transporte = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_fard = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_alim_c = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_alim_5x = ['valor' => 0, 'porcentagem' => 0];
-    public $aux_natalidade = ['valor' => 0, 'porcentagem' => 0];
-    public $grat_loc_esp = ['valor' => 0, 'porcentagem' => 0];
-    public $grat_repr_cmdo = ['valor' => 0, 'porcentagem' => 0];
-    public $grat_repr_2 = ['valor' => 0, 'porcentagem' => 0];
-    public $dp_excmb_art_9 = ['valor' => 0, 'porcentagem' => 0];
-    public $pmil = ['valor' => 0, 'porcentagem' => 0];
-    public $pmil_15 = ['valor' => 0, 'porcentagem' => 0];
-    public $pmil_30 = ['valor' => 0, 'porcentagem' => 0];
-    public $fusex_3 = ['valor' => 0, 'porcentagem' => 0];
-    public $desc_dep_fusex = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_natalino_valor_adiantamento = ['valor' => 0, 'porcentagem' => 0];
-    public $pnr = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_1 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_2 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_3 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_4 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_5 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_6 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_adic_natal_1 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_adic_natal_2 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_adic_natal_3 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_adic_natal_4 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_adic_natal_5 = ['valor' => 0, 'porcentagem' => 0];
-    public $pens_judiciaria_adic_natal_6 = ['valor' => 0, 'porcentagem' => 0];
-    public $imposto_renda_mensal = ['valor' => 0, 'porcentagem' => 0];
-    public $imposto_renda_adic_natal = ['valor' => 0, 'porcentagem' => 0];
-    public $imposto_renda_adic_ferias = ['valor' => 0, 'porcentagem' => 0];
-    public $descontos_ir = ['valor' => 0, 'porcentagem' => 0];
-    public $descontos_total = ['valor' => 0, 'porcentagem' => 0];
+    public $acres_25_soldo = ['valor' => 0, 'porcentagem' => 25];
+    public $salario_familia = ['valor' => 0, 'porcentagem' => '-'];
+    public $adic_ferias = ['valor' => 0, 'porcentagem' => '-'];
+    public $adic_pttc = ['valor' => 0, 'porcentagem' => '-'];
+    public $adic_natalino = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_invalidez = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_transporte = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_fard = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_alim_c = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_alim_5x = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_natalidade = ['valor' => 0, 'porcentagem' => '-'];
+    public $grat_loc_esp = ['valor' => 0, 'porcentagem' => '-'];
+    public $grat_repr_cmdo = ['valor' => 0, 'porcentagem' => 10];
+    public $grat_repr_2 = ['valor' => 0, 'porcentagem' => '-'];
+    public $dp_excmb_art_9 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pmil = ['valor' => 0, 'porcentagem' => 10.5];
+    public $pmil_15 = ['valor' => 0, 'porcentagem' => 1.5];
+    public $pmil_30 = ['valor' => 0, 'porcentagem' => 3];
+    public $fusex_3 = ['valor' => 0, 'porcentagem' => 3];
+    public $desc_dep_fusex = ['valor' => 0, 'porcentagem' => 0]; // ----!!-----------------------------!!
+    public $adic_natalino_valor_adiantamento = ['valor' => 0, 'porcentagem' => '-'];
+    public $pnr = ['valor' => 0, 'porcentagem' => 0]; // ----!!-----------------------------!!
+    public $pens_judiciaria_1 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_2 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_3 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_4 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_5 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_6 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_adic_natal_1 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_adic_natal_2 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_adic_natal_3 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_adic_natal_4 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_adic_natal_5 = ['valor' => 0, 'porcentagem' => '-'];
+    public $pens_judiciaria_adic_natal_6 = ['valor' => 0, 'porcentagem' => '-'];
+    public $imposto_renda_mensal = ['valor' => 0, 'porcentagem' => '-'];
+    public $imposto_renda_adic_natal = ['valor' => 0, 'porcentagem' => '-'];
+    public $imposto_renda_adic_ferias = ['valor' => 0, 'porcentagem' => '-'];
+    public $descontos_ir = ['valor' => 0, 'porcentagem' => '-'];
+    public $descontos_total = ['valor' => 0, 'porcentagem' => '-'];
 
     public function gerarFormulario()
     {
@@ -395,10 +395,14 @@ class ContrachequeController extends Controller
 
         if ($tpsv > $adic_disp) {
             $this->adic_tp_sv['valor'] = $this->truncar($this->soldo_base['valor'] * ($formulario["adic_tp_sv"]) / 100);
+            $this->adic_tp_sv['porcentagem'] = $formulario["adic_tp_sv"];
             $this->adic_comp_disp['valor'] = 0;
+            $this->adic_comp_disp['porcentagem'] = 0;
         } elseif ($formulario["adic_disp"] == '1') {
             $this->adic_comp_disp['valor'] = $this->truncar($this->soldo_pg_real_base['valor'] * ($pg_real_info["adic_disp"]) / 100);
+            $this->adic_comp_disp['porcentagem'] = $pg_real_info["adic_disp"];
             $this->adic_tp_sv['valor'] = 0;
+            $this->adic_tp_sv['porcentagem'] = 0;
         }
     }
 
@@ -406,6 +410,7 @@ class ContrachequeController extends Controller
     {
         if ($formulario["adic_hab_tipo"] != 'sem_formacao') {
             $this->adic_hab['valor'] = $this->truncar($adic_hab_info[$formulario["adic_hab_tipo"]] * $this->soldo_base['valor'] / 100);
+            $this->adic_hab['porcentagem'] = $adic_hab_info[$formulario["adic_hab_tipo"]];
         }
     }
 
@@ -413,6 +418,7 @@ class ContrachequeController extends Controller
     {
         if ($formulario["adic_mil"] == 1) {
             $this->adic_mil['valor'] = $this->truncar($pg_soldo_info["adic_mil"] * $soldo_base / 100);
+            $this->adic_mil['porcentagem'] = $pg_soldo_info["adic_mil"];
         }
     }
 
@@ -420,6 +426,7 @@ class ContrachequeController extends Controller
     {
         if ($formulario["adic_perm"] > 0) {
             $this->adic_perm['valor'] = $this->truncar($formulario["adic_perm"] * $this->soldo_base['valor'] / 100);
+            $this->adic_perm['porcentagem'] = $formulario["adic_perm"];
         }
     }
 
@@ -430,6 +437,7 @@ class ContrachequeController extends Controller
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_cota_porcentagem"] / 100);
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_prop_cota_porcentagem"] / 100);
             $this->adic_comp_org['valor'] = $this->truncar($soldo_base_adic * $formulario['adic_comp_org_percet'] / 100);
+            $this->adic_comp_org['porcentagem'] = $formulario['adic_comp_org_percet'];
         }
     }
 
@@ -440,6 +448,7 @@ class ContrachequeController extends Controller
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_cota_porcentagem"] / 100);
             $soldo_base_adic = $soldo_base_adic * ($formulario["soldo_prop_cota_porcentagem"] / 100);
             $this->hvoo['valor'] = $this->truncar($soldo_base_adic * $formulario['hvoo_percet'] / 100);
+            $this->hvoo['porcentagem'] = $formulario['hvoo_percet'];
         }
     }
 
@@ -688,8 +697,10 @@ class ContrachequeController extends Controller
     {
         if ($formulario["desc_dep_fusex"] == '0.4') {
             $this->desc_dep_fusex['valor'] = $this->truncar($this->brutoDescontoIR() * 0.004);
+            $this->desc_dep_fusex['porcentagem'] = 0.4;
         } elseif ($formulario["desc_dep_fusex"] == '0.5') {
             $this->desc_dep_fusex['valor'] = $this->truncar($this->brutoDescontoIR() * 0.005);
+            $this->desc_dep_fusex['porcentagem'] = 0.5;
         }
     }
 
@@ -697,8 +708,10 @@ class ContrachequeController extends Controller
     {
         if ($formulario["pnr"] == '1') {
             $this->pnr['valor'] = $this->truncar($this->soldo_base['valor'] * 0.05);
+            $this->pnr['porcentagem'] = 5;
         } elseif ($formulario["pnr"] == '2') {
             $this->pnr['valor'] = $this->truncar($this->soldo_base['valor'] * 0.035);
+            $this->pnr['porcentagem'] = 3.5;
         }
     }
 
