@@ -4,6 +4,7 @@
         <section id="form_informacoes_pessoais">
             <h2>Informações gerais</h2>
             <fieldset class="question_root">
+                <legend>Universo/ Classificação</legend>
                 <ajuda-component>
                     <p>
                         Hue Lorem ipsum dolor sit amet consectetur adipisicing
@@ -13,7 +14,6 @@
                         voluptatum vitae cumque?
                     </p>
                 </ajuda-component>
-                <legend>Universo/ Classificação</legend>
                 <section class="question_body">
                     <div class="question_title">
                         <p>
@@ -44,6 +44,7 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <legend>Data do contracheque</legend>
                 <ajuda-component>
                     <p>
                         Hue Lorem ipsum dolor sit amet consectetur adipisicing
@@ -53,7 +54,6 @@
                         voluptatum vitae cumque?
                     </p>
                 </ajuda-component>
-                <legend>Data do contracheque</legend>
                 <section class="question_body">
                     <div class="question_title">
                         <p>Qual a <strong>data do contracheque</strong>?</p>
@@ -70,6 +70,7 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <legend>Idade</legend>
                 <ajuda-component>
                     <p>
                         Hue Lorem ipsum dolor sit amet consectetur adipisicing
@@ -79,7 +80,6 @@
                         voluptatum vitae cumque?
                     </p>
                 </ajuda-component>
-                <legend>Idade</legend>
                 <section class="question_body">
                     <div class="question_title">
                         <p>O examinado tem <strong>mais de 65 anos</strong>?</p>
@@ -107,6 +107,7 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <legend>Isenção de Imposto de Renda</legend>
                 <ajuda-component>
                     <p>
                         Hue Lorem ipsum dolor sit amet consectetur adipisicing
@@ -116,7 +117,6 @@
                         voluptatum vitae cumque?
                     </p>
                 </ajuda-component>
-                <legend>Isenção de Imposto de Renda</legend>
                 <section class="question_body">
                     <div class="question_title">
                         <p>
@@ -147,6 +147,7 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <legend>P/G Soldo</legend>
                 <ajuda-component>
                     <p>
                         Hue Lorem ipsum dolor sit amet consectetur adipisicing
@@ -156,7 +157,6 @@
                         voluptatum vitae cumque?
                     </p>
                 </ajuda-component>
-                <legend>P/G Soldo</legend>
                 <section class="question_body">
                     <div class="question_title">
                         <p>
@@ -179,6 +179,7 @@
             </fieldset>
 
             <fieldset class="question_root">
+                <legend>P/G Real</legend>
                 <ajuda-component>
                     <p>
                         Hue Lorem ipsum dolor sit amet consectetur adipisicing
@@ -188,7 +189,6 @@
                         voluptatum vitae cumque?
                     </p>
                 </ajuda-component>
-                <legend>P/G Real</legend>
                 <section class="question_body">
                     <div class="question_title">
                         <p>Qual o P/G <strong>real</strong> do examinado?</p>
@@ -213,18 +213,19 @@
 
             <section id="form_informacoes_financeiras_col1">
                 <fieldset class="question_root">
+                    <legend>Soldo</legend>
                     <ajuda-component>
                         <p>
-                            Você deve escolher a categoria de soldo que o
-                            examinado recebe. São duas opções, a primeira
-                            "Normal/Integral" significa que o examinado recebe o
-                            valor do seu soldo por completo, normalmente
-                            militares da ativa, inativos que completaram o tempo
-                            mínimo para reserva e seus pensionistas recebem essa
-                            categoria de soldo. A categoria " Soldo Proporcional
-                            para Cota" é devida, normalmente, aos militares que
-                            fora para a reserva antes do tempo mínimo, como no
-                            caso de militares reformados por ser julgado incapaz
+                            Escolha a categoria de soldo que o examinado recebe.
+                            São duas opções, a primeira "Normal/Integral"
+                            significa que o examinado recebe o valor do seu
+                            soldo por completo, normalmente militares da ativa,
+                            inativos que completaram o tempo mínimo para reserva
+                            e seus pensionistas recebem essa categoria de soldo.
+                            A categoria " Soldo Proporcional para Cota" é
+                            devida, normalmente, aos militares que fora para a
+                            reserva antes do tempo mínimo, como no caso de
+                            militares reformados por ser julgado incapaz
                             definitivamente. <br /><br />
                             <strong>Referência: </strong>
                             <a
@@ -234,7 +235,6 @@
                             >
                         </p>
                     </ajuda-component>
-                    <legend>Soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -257,50 +257,8 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_soldo_cota">
-                    <ajuda-component>
-                        <p>
-                            Esse campo é exclusivo para pensionistas. Aqui deve
-                            ser informado qual porcentagem de cota-parte o(a)
-                            pensionista recebe. Essa informação fica disponível
-                            no <strong>título de pensão</strong> ou na
-                            <strong>apostila</strong>, na PHPM do(a)
-                            examinado(a). Em documentos mais antigos, é
-                            informado o percentual em fração, então, para
-                            inserir a informação no campo, converta a fração em
-                            porcentagem, por exemplo: 1/2 = 50%.<br /><br />
-                            <strong>Referência: </strong>
-                            <a
-                                href="http://www.planalto.gov.br/ccivil_03/leis/l6880.htm"
-                                target="_BLANK"
-                                >Lei nº 6.880, de 9 de dezembro de 1980.</a
-                            >
-                        </p>
-                    </ajuda-component>
-                    <legend>Cota-parte do Soldo</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                Qual porcetagem de <strong>cota-parte</strong> a
-                                pensionista recebe?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                min="0"
-                                max="100"
-                                v-model="soldo_cota_porcentagem"
-                                step="0.01"
-                                name="soldo_cota_porcentagem"
-                                id="soldo_cota_porcentagem"
-                            />
-                            %
-                        </div>
-                    </section>
-                </fieldset>
-
                 <fieldset class="question_root" v-show="form_soldo_prop_cota">
+                    <legend>Soldo Proporcional para Cota</legend>
                     <ajuda-component>
                         <p>
                             O <strong>soldo proporcional para cota</strong> é
@@ -325,7 +283,6 @@
                             >
                         </p>
                     </ajuda-component>
-                    <legend>Soldo Proporcional para Cota</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -349,90 +306,10 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_compl_ct_soldo">
-                    <ajuda-component>
-                        <p>?</p>
-                    </ajuda-component>
-                    <legend>Complemento de cota de soldo</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                Recebe
-                                <strong>complemento de cota de soldo</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                name="compl_ct_soldo"
-                                v-model="compl_ct_soldo"
-                                value="1"
-                                id="complementocotasoldosim"
-                            /><label for="complementocotasoldosim">Sim</label>
-                            <input
-                                type="radio"
-                                name="compl_ct_soldo"
-                                v-model="compl_ct_soldo"
-                                value="0"
-                                id="complementocotasoldonao"
-                                checked
-                            /><label for="complementocotasoldonao">Não</label>
-                        </div>
-                    </section>
-                </fieldset>
-
-                <fieldset class="question_root" v-show="form_adic_tp_sv">
-                    <ajuda-component>
-                        <p>
-                            Adicional de Tempo de Serviço é a parcela
-                            remuneratória mensal devida ao militar, inerente ao
-                            tempo de serviço e os acréscimos permitidos por lei,
-                            observado o disposto no art. 30 da Medida Provisória
-                            2215/01. Será computado 1% para cada ano de serviço
-                            anterior a 31 DEZ 2000. É vedada a concessão
-                            cumulativa do adicional de compensação por
-                            disponibilidade militar com o adicional de tempo de
-                            serviço, sendo assegurado, caso o militar faça jus a
-                            ambos os adicionais, o recebimento do mais
-                            vantajoso.
-
-                            <br /><br />
-                            <strong>Referência: </strong><br />
-                            <a
-                                href="http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm"
-                                target="_BLANK"
-                                >MP 2215-10, de 31 de agosto de 2001.</a
-                            >
-                            <br />
-                            <a
-                                href="planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm"
-                                target="_BLANK"
-                                >Lei nº 13.954, de 16 de dezembro de 2019.</a
-                            >
-                        </p>
-                    </ajuda-component>
-                    <legend>Adicional de Tempo de Serviço</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                Qual o percentual que o examinado faz jus de
-                                <strong>Adicional de Tempo de Serviço</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="adic_tp_sv"
-                                id="adic_tp_sv"
-                                min="0"
-                                v-model="adic_tp_sv"
-                                max="100"
-                            />
-                        </div>
-                    </section>
-                </fieldset>
-
                 <fieldset class="question_root" v-show="form_adic_disp">
+                    <legend>
+                        Adicional de Compensação por Disponibilidade Militar
+                    </legend>
                     <ajuda-component>
                         <p>
                             O Adicional de compensação por disponibilidade
@@ -474,9 +351,6 @@
                             >
                         </p>
                     </ajuda-component>
-                    <legend>
-                        Adicional de Compensação por Disponibilidade Militar
-                    </legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -510,52 +384,8 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_adic_hab">
-                    <ajuda-component>
-                        <p>
-                            O Adicional de habilitação é a parcela remuneratória
-                            mensal devida ao militar, inerente aos cursos
-                            realizados com aproveitamento. Os percentuais podem
-                            ser consultados no ANEXO III da Lei nº 13.954, de 16
-                            de dezembro de 2019.
-                        </p>
-                    </ajuda-component>
-                    <legend>Adicional Habilitação</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>Qual nível de habilitação do examinado?</p>
-                        </div>
-                        <div class="question_options">
-                            <select
-                                name="adic_hab_tipo"
-                                v-model="adic_hab_tipo"
-                                required
-                            >
-                                <option value="sem_formacao">
-                                    - Selecione o tipo -
-                                </option>
-                                <option value="altos_estudos_I">
-                                    Altos estudos Categoria I
-                                </option>
-                                <option value="altos_estudos_II">
-                                    Altos estudos Categoria II
-                                </option>
-                                <option value="aperfeicoamento">
-                                    Apefeiçoamento
-                                </option>
-                                <option value="especializacao">
-                                    Especialização
-                                </option>
-                                <option value="formacao">Formação</option>
-                                <option value="sem_formacao">
-                                    Sem formação
-                                </option>
-                            </select>
-                        </div>
-                    </section>
-                </fieldset>
-
                 <fieldset class="question_root" v-show="form_adic_mil">
+                    <legend>Adicional Militar</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -565,7 +395,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Adicional Militar</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -594,6 +423,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_comp_org">
+                    <legend>Adicional de Compensação Orgânica</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -603,7 +433,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Adicional de Compensação Orgânica</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -686,79 +515,8 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_hvoo">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Adicional de Horas de Voo (ART24MP)</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                Recebe
-                                <strong>Adicional de Horas de Voo</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                name="hvhvoo"
-                                v-model="f_hvoo"
-                                value="1"
-                                id="hvoosim"
-                            /><label for="hvoosim">Sim</label>
-                            <input
-                                type="radio"
-                                name="f_hvoo"
-                                v-model="f_hvoo"
-                                value="0"
-                                @change="hvoo_percet = 0"
-                                id="hvoonao"
-                                checked
-                            /><label for="hvoonao">Não</label>
-                        </div>
-                    </section>
-
-                    <section class="question_body" v-show="f_hvoo != '0'">
-                        <div class="question_title">
-                            <p>Qual percentual?</p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="hvoo_percet"
-                                v-model="hvoo_percet"
-                                step="0.01"
-                                min="0"
-                                max="100"
-                            />
-                        </div>
-                    </section>
-
-                    <section class="question_body" v-show="f_hvoo != '0'">
-                        <div class="question_title">
-                            <p>Sobre o soldo de qual soldo?</p>
-                        </div>
-                        <div class="question_options">
-                            <select name="hvoo_pg" v-model="hvoo_pg">
-                                <option
-                                    v-for="(pg, key) in selectPg"
-                                    :key="key"
-                                    :value="pg.id"
-                                >
-                                    {{ pg.pg_abrev }}
-                                </option>
-                            </select>
-                        </div>
-                    </section>
-                </fieldset>
-
                 <fieldset class="question_root" v-show="form_acres_25_soldo">
+                    <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -768,7 +526,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -798,41 +555,11 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_adic_perm">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Adicional de Permanência</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                Qual o percentual que o examinado recebe de
-                                <strong>Adicional de Permanência</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="adic_perm"
-                                v-model="adic_perm"
-                                min="0"
-                                max="100"
-                                step="5"
-                            />
-                        </div>
-                    </section>
-                </fieldset>
-
                 <fieldset
                     class="question_root"
                     v-show="form_salario_familia_ir"
                 >
+                    <legend>Salário família/ Imposto de Renda</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -842,7 +569,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Salário família/ Imposto de Renda</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -882,7 +608,8 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_adic_ferias">
+                <fieldset class="question_root" v-show="form_aux_invalidez">
+                    <legend>Auxílio Inavalidez</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -892,74 +619,35 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Adicional de Férias</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
-                                O examinado irá gozar <strong>Férias</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <section>
-                                <input
-                                    type="radio"
-                                    value="1"
-                                    v-model="adic_ferias"
-                                    name="adic_ferias"
-                                    id="feriassim"
-                                /><label for="feriassim">Sim</label>
-                                <input
-                                    type="radio"
-                                    value="0"
-                                    v-model="adic_ferias"
-                                    name="adic_ferias"
-                                    id="feriasnao"
-                                    checked
-                                /><label for="feriasnao">Não</label>
-                            </section>
-                        </div>
-                    </section>
-                </fieldset>
-
-                <fieldset class="question_root" v-show="form_adic_pttc">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Adicional PTTC</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                O examinado é Prestador de Trabalho por Tempo
-                                Certo <strong>(PTTC)</strong>?
+                                O examinado recebe
+                                <strong>Auxílio Inavalidez</strong>?
                             </p>
                         </div>
                         <div class="question_options">
                             <input
                                 type="radio"
                                 value="1"
-                                v-model="adic_pttc"
-                                name="adic_pttc"
-                                id="pttcsim"
-                            /><label for="pttcsim">Sim</label>
+                                v-model="aux_invalidez"
+                                name="aux_invalidez"
+                                id="auxinvsim"
+                            /><label for="auxinvsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
-                                v-model="adic_pttc"
-                                name="adic_pttc"
-                                id="pttcnao"
+                                v-model="aux_invalidez"
+                                name="aux_invalidez"
+                                id="auxinvnao"
                                 checked
-                            /><label for="pttcnao">Não</label>
+                            /><label for="auxinvnao">Não</label>
                         </div>
                     </section>
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_adic_natalino">
+                    <legend>Adicional Natalino</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -969,7 +657,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Adicional Natalino</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1044,6 +731,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_pre_escolar">
+                    <legend>Auxílio Pré-escolar</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1053,7 +741,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Auxílio Pré-escolar</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1072,107 +759,9 @@
                         </div>
                     </section>
                 </fieldset>
-            </section>
-
-            <section id="form_informacoes_financeiras_col2">
-                <fieldset class="question_root" v-show="form_aux_invalidez">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Auxílio Inavalidez</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                O examinado recebe
-                                <strong>Auxílio Inavalidez</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                value="1"
-                                v-model="aux_invalidez"
-                                name="aux_invalidez"
-                                id="auxinvsim"
-                            /><label for="auxinvsim">Sim</label>
-                            <input
-                                type="radio"
-                                value="0"
-                                v-model="aux_invalidez"
-                                name="aux_invalidez"
-                                id="auxinvnao"
-                                checked
-                            /><label for="auxinvnao">Não</label>
-                        </div>
-                    </section>
-                </fieldset>
-                <fieldset class="question_root" v-show="form_aux_transporte">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Auxílio Transporte</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                O examinado recebe
-                                <strong>Auxílio Transporte</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <div class="question_options">
-                                <input
-                                    type="radio"
-                                    value="1"
-                                    v-model="f_aux_transporte"
-                                    name="f_aux_transporte"
-                                    id="f_aux_transportesim"
-                                /><label for="f_aux_transportesim">Sim</label>
-                                <input
-                                    type="radio"
-                                    value="0"
-                                    v-model="f_aux_transporte"
-                                    name="f_aux_transporte"
-                                    id="f_aux_transportenao"
-                                    v-on:change="aux_transporte = 0"
-                                    checked
-                                /><label for="f_aux_transportenao">Não</label>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section
-                        class="question_body"
-                        v-show="f_aux_transporte == 1"
-                    >
-                        <div class="question_title">
-                            <p>Qual valor solictado na SAT?</p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="aux_transporte"
-                                min="0"
-                                v-model="aux_transporte"
-                                step="0.01"
-                                max="10000"
-                            />
-                        </div>
-                    </section>
-                </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_fard">
+                    <legend>Auxílio Fardamento</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1182,7 +771,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Auxílio Fardamento</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1238,6 +826,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_alim_c">
+                    <legend>Auxílio Alimentação - Tipo "C"</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1247,7 +836,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Auxílio Alimentação - Tipo "C"</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1276,6 +864,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_aux_alim_5x">
+                    <legend>Auxílio Alimentação - 5x</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1285,7 +874,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Auxílio Alimentação - 5x</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1331,301 +919,8 @@
                         </div>
                     </section>
                 </fieldset>
-
-                <fieldset class="question_root" v-show="form_aux_natalidade">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Auxílio Natalidade</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                O examinado irá receber
-                                <strong>Auxílio Natalidade</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                value="1"
-                                v-model="f_aux_natalidade"
-                                name="f_aux_natalidade"
-                                id="auxnatalidadesim"
-                            /><label for="auxnatalidadesim">Sim</label>
-                            <input
-                                type="radio"
-                                value="0"
-                                v-model="f_aux_natalidade"
-                                name="f_aux_natalidade"
-                                id="auxnatalidadenao"
-                                @change="aux_natalidade = 0"
-                                checked
-                            /><label for="auxnatalidadenao">Não</label>
-                        </div>
-                    </section>
-
-                    <section
-                        class="question_body"
-                        v-show="f_aux_natalidade != '0'"
-                    >
-                        <div class="question_title">
-                            <p>Referente a quantos filhos?</p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="aux_natalidade"
-                                min="0"
-                                v-model="aux_natalidade"
-                                step="1"
-                                max="10"
-                            />
-                        </div>
-                    </section>
-                </fieldset>
-
-                <fieldset class="question_root" v-show="form_grat_loc_esp">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Gratificação de Localidade Especial</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                Qual tipo de
-                                <strong
-                                    >Gratificação de Localidade Especial</strong
-                                >
-                                o examinado recebe?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                value="0"
-                                v-model="grat_loc_esp"
-                                id="grat_loc_esp_nao"
-                                name="grat_loc_esp"
-                                checked
-                                min="0"
-                                step="0.01"
-                                max="99999"
-                            /><label for="grat_loc_esp_nao">Não recebe</label>
-                            <input
-                                type="radio"
-                                value="A"
-                                v-model="grat_loc_esp"
-                                id="grat_loc_esp_A"
-                                name="grat_loc_esp"
-                                min="0"
-                                step="0.01"
-                                max="99999"
-                            /><label for="grat_loc_esp_A">Tipo "A"</label>
-                            <input
-                                type="radio"
-                                value="B"
-                                v-model="grat_loc_esp"
-                                id="grat_loc_esp_B"
-                                name="grat_loc_esp"
-                                min="0"
-                                step="0.01"
-                                max="99999"
-                            /><label for="grat_loc_esp_B">Tipo "B"</label>
-                        </div>
-                    </section>
-                </fieldset>
-
-                <fieldset class="question_root" v-show="form_grat_repr_cmdo">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Gratificação de Representação de Comando</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                O examinado recebe
-                                <strong
-                                    >Gratificação de Representação de
-                                    Comando</strong
-                                >?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                value="1"
-                                v-model="grat_repr_cmdo"
-                                name="grat_repr_cmdo"
-                                id="gratrepcmdosim"
-                            /><label for="gratrepcmdosim">Sim</label>
-                            <input
-                                type="radio"
-                                value="0"
-                                v-model="grat_repr_cmdo"
-                                name="grat_repr_cmdo"
-                                id="gratrepcmdonao"
-                                checked
-                            /><label for="gratrepcmdonao">Não</label>
-                        </div>
-                    </section>
-                </fieldset>
-
-                <fieldset class="question_root" v-show="form_grat_repr_2">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>Gratificação de Representação 2%</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                O examinado irá receber
-                                <strong>Gratificação de Representação 2%</strong
-                                >?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                value="1"
-                                v-model="f_grat_repr_2"
-                                name="f_grat_repr_2"
-                                id="gratrep2sim"
-                            /><label for="gratrep2">Sim</label>
-                            <input
-                                type="radio"
-                                value="0"
-                                v-model="f_grat_repr_2"
-                                name="f_grat_repr_2"
-                                id="gratrep2nao"
-                                @change="grat_repr_2 = '0'"
-                                checked
-                            /><label for="gratrep2">Não</label>
-                        </div>
-                    </section>
-
-                    <section
-                        class="question_body"
-                        v-show="f_grat_repr_2 != '0'"
-                    >
-                        <div class="question_title">
-                            <p>Referente a quantos dias?</p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="grat_repr_2"
-                                max="365"
-                                min="0"
-                                v-model="grat_repr_2"
-                            />
-                        </div>
-                    </section>
-
-                    <section
-                        class="question_body"
-                        v-show="f_grat_repr_2 != '0'"
-                    >
-                        <div class="question_title">
-                            <p>Sobre qual posto ou graduação?</p>
-                        </div>
-                        <div class="question_options">
-                            <select
-                                name="grat_repr_2_pg"
-                                v-model="grat_repr_2_pg"
-                            >
-                                <option
-                                    v-for="(pg, key) in selectPg"
-                                    :key="key"
-                                    :value="pg.id"
-                                >
-                                    {{ pg.pg_abrev }}
-                                </option>
-                            </select>
-                        </div>
-                    </section>
-                </fieldset>
-
-                <fieldset class="question_root" v-show="form_dp_excmb_art_9">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>
-                        Pensionada Pensionista de Ex-Combatente - Art. 9
-                    </legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>
-                                A pensionista é
-                                <strong>Pensionada de Ex-Combatente</strong>?
-                            </p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="radio"
-                                value="1"
-                                name="f_dp_excmb_art_9"
-                                id="dp_excmb_art_9_sim"
-                            /><label for="dp_excmb_art_9_sim">Sim</label>
-                            <input
-                                type="radio"
-                                value="0"
-                                name="f_dp_excmb_art_9"
-                                id="dp_excmb_art_9_nao"
-                                checked
-                            /><label for="dp_excmb_art_9_nao">Não</label>
-                        </div>
-                    </section>
-
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>Quanto a pensionista recebe?</p>
-                        </div>
-                        <div class="question_options">
-                            <input
-                                type="number"
-                                name="dp_excmb_art_9"
-                                max="99999"
-                                min="0"
-                                v-model="dp_excmb_art_9"
-                                step="0.01"
-                            />
-                        </div>
-                    </section>
-                </fieldset>
-
-                <!-- {{-- DESCONTOS --}} -->
-
                 <fieldset class="question_root" v-show="form_pmil">
+                    <legend>Pensão Militar</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1635,7 +930,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Pensão Militar</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1711,7 +1005,8 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_pmil_15">
+                <fieldset class="question_root" v-show="form_fusex_3">
+                    <legend>FuSEx 3%</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1721,7 +1016,749 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>Contribui para o <strong>FuSEx</strong>?</p>
+                        </div>
+                        <div class="question_options">
+                            <div class="question_options">
+                                <input
+                                    type="radio"
+                                    value="1"
+                                    v-model="fusex_3"
+                                    name="fusex_3"
+                                    id="fusexsim"
+                                    checked
+                                /><label for="fusexsim">Sim</label>
+                                <input
+                                    type="radio"
+                                    value="0"
+                                    v-model="fusex_3"
+                                    name="fusex_3"
+                                    id="fusexnao"
+                                /><label for="fusexnao">Não</label>
+                            </div>
+                        </div>
+                    </section>
+                </fieldset>
+            </section>
+
+            <section id="form_informacoes_financeiras_col2">
+                <fieldset class="question_root" v-show="form_soldo_cota">
+                    <legend>Cota-parte do Soldo</legend>
+                    <ajuda-component>
+                        <p>
+                            Esse campo é exclusivo para pensionistas. Aqui deve
+                            ser informado qual porcentagem de cota-parte o(a)
+                            pensionista recebe. Essa informação fica disponível
+                            no <strong>título de pensão</strong> ou na
+                            <strong>apostila</strong>, na PHPM do(a)
+                            examinado(a). Em documentos mais antigos, é
+                            informado o percentual em fração, então, para
+                            inserir a informação no campo, converta a fração em
+                            porcentagem, por exemplo: 1/2 = 50%.<br /><br />
+                            <strong>Referência: </strong>
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/leis/l6880.htm"
+                                target="_BLANK"
+                                >Lei nº 6.880, de 9 de dezembro de 1980.</a
+                            >
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                Qual porcetagem de <strong>cota-parte</strong> a
+                                pensionista recebe?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                min="0"
+                                max="100"
+                                v-model="soldo_cota_porcentagem"
+                                step="0.01"
+                                name="soldo_cota_porcentagem"
+                                id="soldo_cota_porcentagem"
+                            />
+                            %
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_compl_ct_soldo">
+                    <legend>Complemento de cota de soldo</legend>
+                    <ajuda-component>
+                        <p>?</p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                Recebe
+                                <strong>complemento de cota de soldo</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                name="compl_ct_soldo"
+                                v-model="compl_ct_soldo"
+                                value="1"
+                                id="complementocotasoldosim"
+                            /><label for="complementocotasoldosim">Sim</label>
+                            <input
+                                type="radio"
+                                name="compl_ct_soldo"
+                                v-model="compl_ct_soldo"
+                                value="0"
+                                id="complementocotasoldonao"
+                                checked
+                            /><label for="complementocotasoldonao">Não</label>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_adic_tp_sv">
+                    <legend>Adicional de Tempo de Serviço</legend>
+                    <ajuda-component>
+                        <p>
+                            Adicional de Tempo de Serviço é a parcela
+                            remuneratória mensal devida ao militar, inerente ao
+                            tempo de serviço e os acréscimos permitidos por lei,
+                            observado o disposto no art. 30 da Medida Provisória
+                            2215/01. Será computado 1% para cada ano de serviço
+                            anterior a 31 DEZ 2000. É vedada a concessão
+                            cumulativa do adicional de compensação por
+                            disponibilidade militar com o adicional de tempo de
+                            serviço, sendo assegurado, caso o militar faça jus a
+                            ambos os adicionais, o recebimento do mais
+                            vantajoso.
+
+                            <br /><br />
+                            <strong>Referência: </strong><br />
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm"
+                                target="_BLANK"
+                                >MP 2215-10, de 31 de agosto de 2001.</a
+                            >
+                            <br />
+                            <a
+                                href="planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm"
+                                target="_BLANK"
+                                >Lei nº 13.954, de 16 de dezembro de 2019.</a
+                            >
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                Qual o percentual que o examinado faz jus de
+                                <strong>Adicional de Tempo de Serviço</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="adic_tp_sv"
+                                id="adic_tp_sv"
+                                min="0"
+                                v-model="adic_tp_sv"
+                                max="100"
+                            />
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_adic_hab">
+                    <legend>Adicional Habilitação</legend>
+                    <ajuda-component>
+                        <p>
+                            O Adicional de habilitação é a parcela remuneratória
+                            mensal devida ao militar, inerente aos cursos
+                            realizados com aproveitamento. Os percentuais podem
+                            ser consultados no ANEXO III da Lei nº 13.954, de 16
+                            de dezembro de 2019.
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>Qual nível de habilitação do examinado?</p>
+                        </div>
+                        <div class="question_options">
+                            <select
+                                name="adic_hab_tipo"
+                                v-model="adic_hab_tipo"
+                                required
+                            >
+                                <option value="sem_formacao">
+                                    - Selecione o tipo -
+                                </option>
+                                <option value="altos_estudos_I">
+                                    Altos estudos Categoria I
+                                </option>
+                                <option value="altos_estudos_II">
+                                    Altos estudos Categoria II
+                                </option>
+                                <option value="aperfeicoamento">
+                                    Apefeiçoamento
+                                </option>
+                                <option value="especializacao">
+                                    Especialização
+                                </option>
+                                <option value="formacao">Formação</option>
+                                <option value="sem_formacao">
+                                    Sem formação
+                                </option>
+                            </select>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_hvoo">
+                    <legend>Adicional de Horas de Voo (ART24MP)</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                Recebe
+                                <strong>Adicional de Horas de Voo</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                name="hvhvoo"
+                                v-model="f_hvoo"
+                                value="1"
+                                id="hvoosim"
+                            /><label for="hvoosim">Sim</label>
+                            <input
+                                type="radio"
+                                name="f_hvoo"
+                                v-model="f_hvoo"
+                                value="0"
+                                @change="hvoo_percet = 0"
+                                id="hvoonao"
+                                checked
+                            /><label for="hvoonao">Não</label>
+                        </div>
+                    </section>
+
+                    <section class="question_body" v-show="f_hvoo != '0'">
+                        <div class="question_title">
+                            <p>Qual percentual?</p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="hvoo_percet"
+                                v-model="hvoo_percet"
+                                step="0.01"
+                                min="0"
+                                max="100"
+                            />
+                        </div>
+                    </section>
+
+                    <section class="question_body" v-show="f_hvoo != '0'">
+                        <div class="question_title">
+                            <p>Sobre o soldo de qual soldo?</p>
+                        </div>
+                        <div class="question_options">
+                            <select name="hvoo_pg" v-model="hvoo_pg">
+                                <option
+                                    v-for="(pg, key) in selectPg"
+                                    :key="key"
+                                    :value="pg.id"
+                                >
+                                    {{ pg.pg_abrev }}
+                                </option>
+                            </select>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_adic_perm">
+                    <legend>Adicional de Permanência</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                Qual o percentual que o examinado recebe de
+                                <strong>Adicional de Permanência</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="adic_perm"
+                                v-model="adic_perm"
+                                min="0"
+                                max="100"
+                                step="5"
+                            />
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_adic_pttc">
+                    <legend>Adicional PTTC</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                O examinado é Prestador de Trabalho por Tempo
+                                Certo <strong>(PTTC)</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="adic_pttc"
+                                name="adic_pttc"
+                                id="pttcsim"
+                            /><label for="pttcsim">Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="adic_pttc"
+                                name="adic_pttc"
+                                id="pttcnao"
+                                checked
+                            /><label for="pttcnao">Não</label>
+                        </div>
+                    </section>
+                </fieldset>
+                <fieldset class="question_root" v-show="form_adic_ferias">
+                    <legend>Adicional de Férias</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                O examinado irá gozar <strong>Férias</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <section>
+                                <input
+                                    type="radio"
+                                    value="1"
+                                    v-model="adic_ferias"
+                                    name="adic_ferias"
+                                    id="feriassim"
+                                /><label for="feriassim">Sim</label>
+                                <input
+                                    type="radio"
+                                    value="0"
+                                    v-model="adic_ferias"
+                                    name="adic_ferias"
+                                    id="feriasnao"
+                                    checked
+                                /><label for="feriasnao">Não</label>
+                            </section>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_aux_transporte">
+                    <legend>Auxílio Transporte</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                O examinado recebe
+                                <strong>Auxílio Transporte</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <div class="question_options">
+                                <input
+                                    type="radio"
+                                    value="1"
+                                    v-model="f_aux_transporte"
+                                    name="f_aux_transporte"
+                                    id="f_aux_transportesim"
+                                /><label for="f_aux_transportesim">Sim</label>
+                                <input
+                                    type="radio"
+                                    value="0"
+                                    v-model="f_aux_transporte"
+                                    name="f_aux_transporte"
+                                    id="f_aux_transportenao"
+                                    v-on:change="aux_transporte = 0"
+                                    checked
+                                /><label for="f_aux_transportenao">Não</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section
+                        class="question_body"
+                        v-show="f_aux_transporte == 1"
+                    >
+                        <div class="question_title">
+                            <p>Qual valor solictado na SAT?</p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="aux_transporte"
+                                min="0"
+                                v-model="aux_transporte"
+                                step="0.01"
+                                max="10000"
+                            />
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_aux_natalidade">
+                    <legend>Auxílio Natalidade</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                O examinado irá receber
+                                <strong>Auxílio Natalidade</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="f_aux_natalidade"
+                                name="f_aux_natalidade"
+                                id="auxnatalidadesim"
+                            /><label for="auxnatalidadesim">Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="f_aux_natalidade"
+                                name="f_aux_natalidade"
+                                id="auxnatalidadenao"
+                                @change="aux_natalidade = 0"
+                                checked
+                            /><label for="auxnatalidadenao">Não</label>
+                        </div>
+                    </section>
+
+                    <section
+                        class="question_body"
+                        v-show="f_aux_natalidade != '0'"
+                    >
+                        <div class="question_title">
+                            <p>Referente a quantos filhos?</p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="aux_natalidade"
+                                min="0"
+                                v-model="aux_natalidade"
+                                step="1"
+                                max="10"
+                            />
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_grat_loc_esp">
+                    <legend>Gratificação de Localidade Especial</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                Qual tipo de
+                                <strong
+                                    >Gratificação de Localidade Especial</strong
+                                >
+                                o examinado recebe?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="grat_loc_esp"
+                                id="grat_loc_esp_nao"
+                                name="grat_loc_esp"
+                                checked
+                                min="0"
+                                step="0.01"
+                                max="99999"
+                            /><label for="grat_loc_esp_nao">Não recebe</label>
+                            <input
+                                type="radio"
+                                value="A"
+                                v-model="grat_loc_esp"
+                                id="grat_loc_esp_A"
+                                name="grat_loc_esp"
+                                min="0"
+                                step="0.01"
+                                max="99999"
+                            /><label for="grat_loc_esp_A">Tipo "A"</label>
+                            <input
+                                type="radio"
+                                value="B"
+                                v-model="grat_loc_esp"
+                                id="grat_loc_esp_B"
+                                name="grat_loc_esp"
+                                min="0"
+                                step="0.01"
+                                max="99999"
+                            /><label for="grat_loc_esp_B">Tipo "B"</label>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_grat_repr_cmdo">
+                    <legend>Gratificação de Representação de Comando</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                O examinado recebe
+                                <strong
+                                    >Gratificação de Representação de
+                                    Comando</strong
+                                >?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="grat_repr_cmdo"
+                                name="grat_repr_cmdo"
+                                id="gratrepcmdosim"
+                            /><label for="gratrepcmdosim">Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="grat_repr_cmdo"
+                                name="grat_repr_cmdo"
+                                id="gratrepcmdonao"
+                                checked
+                            /><label for="gratrepcmdonao">Não</label>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_grat_repr_2">
+                    <legend>Gratificação de Representação 2%</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                O examinado irá receber
+                                <strong>Gratificação de Representação 2%</strong
+                                >?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="f_grat_repr_2"
+                                name="f_grat_repr_2"
+                                id="gratrep2sim"
+                            /><label for="gratrep2">Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="f_grat_repr_2"
+                                name="f_grat_repr_2"
+                                id="gratrep2nao"
+                                @change="grat_repr_2 = '0'"
+                                checked
+                            /><label for="gratrep2">Não</label>
+                        </div>
+                    </section>
+
+                    <section
+                        class="question_body"
+                        v-show="f_grat_repr_2 != '0'"
+                    >
+                        <div class="question_title">
+                            <p>Referente a quantos dias?</p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="grat_repr_2"
+                                max="365"
+                                min="0"
+                                v-model="grat_repr_2"
+                            />
+                        </div>
+                    </section>
+
+                    <section
+                        class="question_body"
+                        v-show="f_grat_repr_2 != '0'"
+                    >
+                        <div class="question_title">
+                            <p>Sobre qual posto ou graduação?</p>
+                        </div>
+                        <div class="question_options">
+                            <select
+                                name="grat_repr_2_pg"
+                                v-model="grat_repr_2_pg"
+                            >
+                                <option
+                                    v-for="(pg, key) in selectPg"
+                                    :key="key"
+                                    :value="pg.id"
+                                >
+                                    {{ pg.pg_abrev }}
+                                </option>
+                            </select>
+                        </div>
+                    </section>
+                </fieldset>
+
+                <fieldset class="question_root" v-show="form_dp_excmb_art_9">
+                    <legend>
+                        Pensionada Pensionista de Ex-Combatente - Art. 9
+                    </legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
+
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>
+                                A pensionista é
+                                <strong>Pensionada de Ex-Combatente</strong>?
+                            </p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="1"
+                                name="f_dp_excmb_art_9"
+                                id="dp_excmb_art_9_sim"
+                            /><label for="dp_excmb_art_9_sim">Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                name="f_dp_excmb_art_9"
+                                id="dp_excmb_art_9_nao"
+                                checked
+                            /><label for="dp_excmb_art_9_nao">Não</label>
+                        </div>
+                    </section>
+
+                    <section class="question_body">
+                        <div class="question_title">
+                            <p>Quanto a pensionista recebe?</p>
+                        </div>
+                        <div class="question_options">
+                            <input
+                                type="number"
+                                name="dp_excmb_art_9"
+                                max="99999"
+                                min="0"
+                                v-model="dp_excmb_art_9"
+                                step="0.01"
+                            />
+                        </div>
+                    </section>
+                </fieldset>
+
+                <!-- {{-- DESCONTOS --}} -->
+
+                <fieldset class="question_root" v-show="form_pmil_15">
                     <legend>Pensão Militar 1.5%</legend>
+                    <ajuda-component>
+                        <p>
+                            Hue Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Aperiam fugiat, magnam tempore
+                            neque error assumenda a voluptates rerum tempora
+                            quibusdam aliquid doloremque obcaecati eum eveniet
+                            voluptate harum voluptatum vitae cumque?
+                        </p>
+                    </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1752,6 +1789,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pmil_30">
+                    <legend>Pensão Militar 3.0%</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1761,7 +1799,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Pensão Militar 3.0%</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -1794,44 +1831,8 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_fusex_3">
-                    <ajuda-component>
-                        <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
-                    <legend>FuSEx 3%</legend>
-                    <section class="question_body">
-                        <div class="question_title">
-                            <p>Contribui para o <strong>FuSEx</strong>?</p>
-                        </div>
-                        <div class="question_options">
-                            <div class="question_options">
-                                <input
-                                    type="radio"
-                                    value="1"
-                                    v-model="fusex_3"
-                                    name="fusex_3"
-                                    id="fusexsim"
-                                    checked
-                                /><label for="fusexsim">Sim</label>
-                                <input
-                                    type="radio"
-                                    value="0"
-                                    v-model="fusex_3"
-                                    name="fusex_3"
-                                    id="fusexnao"
-                                /><label for="fusexnao">Não</label>
-                            </div>
-                        </div>
-                    </section>
-                </fieldset>
-
                 <fieldset class="question_root" v-show="form_desc_dep_fusex">
+                    <legend>Desconto de dependentes no FuSEx</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1841,12 +1842,11 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Desconto de dependentes no FuSEx</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
                                 Possui quantos dependentes,
-                                <u>excluíndo a esposa</u>, como dependente no
+                                <u>excluíndo a esposa</u>, para o
                                 <strong>FuSEx</strong>?
                             </p>
                         </div>
@@ -1885,6 +1885,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pnr">
+                    <legend>PNR</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1894,7 +1895,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>PNR</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>O examinado reside em <strong>PNR</strong>?</p>
@@ -1949,6 +1949,7 @@
                 </fieldset>
 
                 <fieldset class="question_root" v-show="form_pens_judiciaria">
+                    <legend>Pensão Judiciária</legend>
                     <ajuda-component>
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
@@ -1958,7 +1959,6 @@
                             voluptate harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
-                    <legend>Pensão Judiciária</legend>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
