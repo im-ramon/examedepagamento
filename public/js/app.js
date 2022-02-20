@@ -10212,7 +10212,7 @@ var store = new Vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 Vue.component('login-component', (__webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue")["default"]));
 Vue.component('home-component', (__webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]));
-Vue.component('formulario-component', (__webpack_require__(/*! ./views/GerarContracheque.vue */ "./resources/js/views/GerarContracheque.vue")["default"]));
+Vue.component('gerarcontracheque-component', (__webpack_require__(/*! ./views/GerarContracheque.vue */ "./resources/js/views/GerarContracheque.vue")["default"]));
 Vue.component('gerenciarcontracheque-component', (__webpack_require__(/*! ./views/GerenciarContracheque.vue */ "./resources/js/views/GerenciarContracheque.vue")["default"]));
 Vue.component('ajuda-component', (__webpack_require__(/*! ./components/Ajuda.vue */ "./resources/js/components/Ajuda.vue")["default"]));
 Vue.component('loading-component', (__webpack_require__(/*! ./components/Loading.vue */ "./resources/js/components/Loading.vue")["default"]));

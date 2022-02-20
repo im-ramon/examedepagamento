@@ -32,7 +32,7 @@ const store = new Vuex.Store({
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-component', require('./components/Login.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
-Vue.component('formulario-component', require('./views/GerarContracheque.vue').default);
+Vue.component('gerarcontracheque-component', require('./views/GerarContracheque.vue').default);
 Vue.component('gerenciarcontracheque-component', require('./views/GerenciarContracheque.vue').default);
 Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
 Vue.component('loading-component', require('./components/Loading.vue').default);
