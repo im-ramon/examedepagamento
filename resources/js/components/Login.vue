@@ -118,8 +118,8 @@ export default {
                 path.split("/")[2]
             }`;
 
-            // let url = `${path}/api/login`;
-            let url = "http://localhost:8000/api/login";
+            let url = `${path}/api/login`;
+            // let url = "http://localhost:8000/api/login";
             let config = {
                 method: "post",
                 body: new URLSearchParams({
@@ -132,18 +132,13 @@ export default {
                 // },
             };
             fetch(url, config)
-                .then((r) => r.json())
+                .then((response) => response.json())
                 .then((data) => {
                     if (data.token) {
-                        document.cookie =
-                            "token=" + data.token + ";SameSite=Lax";
+                        document.cookie = `token=${data.token};SameSite=Lax`;
                     }
                     event.target.submit();
                 });
-        },
-
-        teste() {
-            console.log("ok");
         },
     },
 };

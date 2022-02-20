@@ -6883,9 +6883,9 @@ __webpack_require__.r(__webpack_exports__);
     login: function login(event) {
       this.loading = true;
       var path = window.location.href;
-      path = "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]); // let url = `${path}/api/login`;
+      path = "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
+      var url = "".concat(path, "/api/login"); // let url = "http://localhost:8000/api/login";
 
-      var url = "http://localhost:8000/api/login";
       var config = {
         method: "post",
         body: new URLSearchParams({
@@ -6897,18 +6897,15 @@ __webpack_require__.r(__webpack_exports__);
         // },
 
       };
-      fetch(url, config).then(function (r) {
-        return r.json();
+      fetch(url, config).then(function (response) {
+        return response.json();
       }).then(function (data) {
         if (data.token) {
-          document.cookie = "token=" + data.token + ";SameSite=Lax";
+          document.cookie = "token=".concat(data.token, ";SameSite=Lax");
         }
 
         event.target.submit();
       });
-    },
-    teste: function teste() {
-      console.log("ok");
     }
   }
 });
