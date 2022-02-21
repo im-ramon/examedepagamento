@@ -2411,7 +2411,7 @@ export default {
     computed: {
         token() {
             let token = document.cookie.split(";").find((indice) => {
-                return indice.startsWith("token=");
+                return indice.includes("token=");
             });
 
             token = token.split("=")[1];

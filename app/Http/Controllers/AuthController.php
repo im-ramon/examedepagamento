@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
         $credenciais = $request->all();
+        $user_info = \App\Models\User::where('email', '=', $credenciais)->get(['email', 'name', 'ch_equipe_name', 'ch_equipe_pg', 'post_grad', 'userType']);
         $token = auth('api')->attempt($credenciais);
 
         if ($token) {
-            return response()->json(['token' => $token]);
+            return response()->json(['token' => $token, 'user' => $user_info]);
         } else {
             return response()->json(['erro' => 'Usuário ou senha errado'], 403);
         }

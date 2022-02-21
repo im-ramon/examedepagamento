@@ -137,6 +137,12 @@ export default {
                     if (data.token) {
                         document.cookie = `token=${data.token};SameSite=Lax`;
                     }
+                    if (data.user[0]) {
+                        document.cookie = `activeUser=${JSON.stringify(
+                            data.user[0]
+                        )}`;
+                    }
+                    // console.log(data.user);
                     event.target.submit();
                 });
         },

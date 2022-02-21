@@ -20,7 +20,12 @@
                     <p>UG:</p>
                 </td>
                 <td class="td_cabecalho" colspan="3">
-                    <input type="text" placeholder="Sigla da UG" name="UG" id="UG" />
+                    <input
+                        type="text"
+                        placeholder="Sigla da UG"
+                        name="UG"
+                        id="UG"
+                    />
                 </td>
                 <td class="td_cabecalho mes">
                     <p>M&Ecirc;S:</p>
@@ -35,7 +40,12 @@
                     <p>NOME:</p>
                 </td>
                 <td class="td_cabecalho" colspan="5">
-                    <input type="text" placeholder="Nome completo" name="nome" id="nome" />
+                    <input
+                        type="text"
+                        placeholder="Nome completo"
+                        name="nome"
+                        id="nome"
+                    />
                 </td>
                 <td class="td_cabecalho pg">
                     <p>P/G:</p>
@@ -51,13 +61,23 @@
                     <p>IDT:</p>
                 </td>
                 <td class="td_cabecalho" colspan="2">
-                    <input type="text" placeholder="Número da identidade" name="identidade" id="identidade" />
+                    <input
+                        type="text"
+                        placeholder="Número da identidade"
+                        name="identidade"
+                        id="identidade"
+                    />
                 </td>
                 <td class="td_cabecalho">
                     <p>CPF:</p>
                 </td>
                 <td class="td_cabecalho" colspan="9">
-                    <input type="text" placeholder="Número do CPF" name="cpf" id="cpf" />
+                    <input
+                        type="text"
+                        placeholder="Número do CPF"
+                        name="cpf"
+                        id="cpf"
+                    />
                 </td>
             </tr>
             <tr>
@@ -268,7 +288,12 @@
             </tr>
             <tr>
                 <td class="td_assinatura" colspan="11">
-                    <p><strong>RAMON OLIVEIRA DOS SANTOS - 3º Sgt</strong></p>
+                    <p>
+                        <strong
+                            >{{ $store.state.activeUser.name }} -
+                            {{ $store.state.activeUser.post_grad }}</strong
+                        >
+                    </p>
                     <p>Membro da Equipe</p>
                 </td>
             </tr>
@@ -289,7 +314,12 @@
             </tr>
             <tr>
                 <td class="td_assinatura" colspan="11">
-                    <p><strong>RAMON OLIVEIRA DOS SANTOS - 3º Sgt</strong></p>
+                    <p>
+                        <strong
+                            >{{ $store.state.activeUser.ch_equipe_name }} -
+                            {{ $store.state.activeUser.ch_equipe_pg }}</strong
+                        >
+                    </p>
                 </td>
             </tr>
             <tr>

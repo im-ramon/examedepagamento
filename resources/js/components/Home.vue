@@ -1,9 +1,9 @@
 <template>
     <section id="home">
         <aside id="sidebar">
-            <div id="btn_fechar">
+            <!-- <div id="btn_fechar">
                 <img src="/svg/arrow.svg" alt="Ícone de seta para esquerda" />
-            </div>
+            </div> -->
             <div id="logo">
                 <img
                     src="/image/logo.png"
@@ -67,16 +67,21 @@
         </aside>
         <main>
             <section id="main_header">
-                <div id="logout">
-                    <div id="btn_logout">
-                        <a
-                            href="/logout"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                        >
-                            Fazer logout
-                        </a>
+                <div id="saudacao">
+                    <span>
+                        Bem vindo,
+                        <span style="text-transform: capitalize">
+                            {{ userFirstName }}</span
+                        >!
+                    </span>
+                    <a
+                        href="/logout"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        id="btn_sair"
+                    >
+                        Sair
                         <img src="/svg/exit.svg" alt="Ícone sair" />
-                    </div>
+                    </a>
                     <form
                         id="logout-form"
                         :action="routeLogout"
@@ -90,6 +95,7 @@
                         />
                     </form>
                 </div>
+                <div id="logout"></div>
             </section>
             <section id="main_body">
                 <!-- <formulario-component :form_token="csrf_token">
@@ -108,6 +114,32 @@ export default {
         };
     },
     props: ["csrf_token", "routeLogout"],
+    computed: {
+        userFirstName() {
+            let name = "";
+            if (this.$store.state.activeUser.name) {
+                name = this.$store.state.activeUser.name
+                    .split(" ")[0]
+                    .toLowerCase();
+            }
+            return name;
+        },
+    },
+    methods: {
+        activeUser() {
+            let user = document.cookie.split(";").find((indice) => {
+                return indice.includes("activeUser=");
+                // return indice.startsWith(" activeUser=");
+            });
+
+            user = user.split("=")[1];
+            user = JSON.parse(user);
+            this.$store.state.activeUser = user;
+        },
+    },
+    mounted() {
+        this.activeUser();
+    },
 };
 </script>
 
