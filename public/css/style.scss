@@ -51,6 +51,16 @@ $danger: #d9534f;
 }
 // ------------- --------- ------------- //
 
+// ------------- CLASSES GERAIS ------------- //
+.erro {
+    background: $danger;
+}
+
+.success {
+    background: $success;
+}
+// ------------- --------- ------------- //
+
 * {
     box-sizing: border-box;
 }
@@ -740,5 +750,47 @@ img.login_logo {
     &:hover {
         transform: scale(1.2);
         transition: all 0.3s ease-in-out;
+    }
+}
+
+#modalRespostaBD {
+    align-items: center;
+    border-radius: 6px;
+    border: 2px dashed #ffffff4a;
+    box-shadow: 11px 9px 35px -10px #5d5c5e;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    text-align: center;
+    top: 2em;
+
+    #modalRespostaBD_container {
+        padding: 0 1em;
+        position: relative;
+        width: 100%;
+
+        span {
+            position: absolute;
+            cursor: pointer;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 100%;
+            border: 1px solid red;
+            color: red;
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: flex;
+            height: 24px;
+            justify-content: center;
+            right: -12px;
+            text-align: center;
+            top: -12px;
+            width: 24px;
+        }
+    }
+
+    strong {
+        border: 1px solid black;
+        padding: 0px 4px;
     }
 }

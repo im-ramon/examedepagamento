@@ -1,6 +1,7 @@
 <template>
     <section id="ficha_auxilitar">
         <button onClick="window.print()">IMPRIMIR</button>
+        <button @click="salvarNoBancoDeDados">SALVAR</button>
         <table
             cellpadding="0"
             cellspacing="0"
@@ -343,11 +344,55 @@
                 </td>
             </tr>
         </table>
+        <transition name="fade" appear>
+            <div
+                v-show="modalActive"
+                id="modalRespostaBD"
+                :class="modalType == 'success' ? 'success' : 'erro'"
+            >
+                <div id="modalRespostaBD_container">
+                    <span @click="modalActive = false">X</span>
+                    <!-- style="background: red" -->
+                    <p v-if="modalType == 'success'">
+                        Registro inserido com sucesso! <br />
+                        O identificador do contracheque é:
+                        <strong>{{ identificadoContracheque }}</strong> <br />
+                        Guarde esse número!<br />
+                        Você precisará dele para consultar seu contracheque
+                        futuramente.
+                    </p>
+
+                    <p v-else>
+                        Desculpe, o registro não pode ser inserido. <br />
+                        Informe esse erro ou adminitrador do sistema: <br />
+                        <strong>{{ modalType }}</strong>
+                    </p>
+                </div>
+            </div>
+        </transition>
     </section>
 </template>
 
+<style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s, transform 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(-1em);
+}
+</style>
+
 <script>
 export default {
+    data() {
+        return {
+            identificadoContracheque: "-",
+            modalActive: false,
+            modalType: "-",
+        };
+    },
     computed: {
         dadosApiReceitas() {
             let data = [];
@@ -407,6 +452,61 @@ export default {
 
         dadosApiCompleto() {
             return this.$store.state.dadosFinanceiros;
+        },
+
+        token() {
+            let token = document.cookie.split(";").find((indice) => {
+                return indice.includes("token=");
+            });
+
+            token = token.split("=")[1];
+            token = "Bearer " + token;
+
+            return token;
+        },
+
+        nowPath() {
+            let path = window.location.href;
+            return `${path.split("/")[0]}//${path.split("/")[1]}${
+                path.split("/")[2]
+            }`;
+        },
+    },
+    methods: {
+        salvarNoBancoDeDados() {
+            let ficha_auxiliar_json = JSON.stringify(
+                this.$store.state.dadosFinanceiros
+            );
+
+            let config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: this.token,
+                },
+            };
+
+            axios
+                .post(
+                    `${this.nowPath}/api/ficha-auxiliar`,
+                    {
+                        ficha_auxiliar_json,
+                        users_id: 1,
+                    },
+                    config
+                )
+                .then((r) => this.alertSuccess(r.data.id, true))
+                .catch((e) => this.alertSuccess(e, false));
+        },
+        alertSuccess(id, success) {
+            if (success) {
+                this.identificadoContracheque = id;
+                this.modalActive = true;
+                this.modalType = "success";
+            } else {
+                this.modalActive = true;
+                this.modalType = id;
+            }
         },
     },
     beforeEnter: (to, from, next) => {

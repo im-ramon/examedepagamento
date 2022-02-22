@@ -7146,7 +7146,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      identificadoContracheque: "-",
+      modalActive: false,
+      modalType: "-"
+    };
+  },
   computed: {
     dadosApiReceitas: function dadosApiReceitas() {
       var data = [];
@@ -7192,6 +7237,50 @@ __webpack_require__.r(__webpack_exports__);
     },
     dadosApiCompleto: function dadosApiCompleto() {
       return this.$store.state.dadosFinanceiros;
+    },
+    token: function token() {
+      var token = document.cookie.split(";").find(function (indice) {
+        return indice.includes("token=");
+      });
+      token = token.split("=")[1];
+      token = "Bearer " + token;
+      return token;
+    },
+    nowPath: function nowPath() {
+      var path = window.location.href;
+      return "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
+    }
+  },
+  methods: {
+    salvarNoBancoDeDados: function salvarNoBancoDeDados() {
+      var _this = this;
+
+      var ficha_auxiliar_json = JSON.stringify(this.$store.state.dadosFinanceiros);
+      var config = {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: this.token
+        }
+      };
+      axios.post("".concat(this.nowPath, "/api/ficha-auxiliar"), {
+        ficha_auxiliar_json: ficha_auxiliar_json,
+        users_id: 1
+      }, config).then(function (r) {
+        return _this.alertSuccess(r.data.id, true);
+      })["catch"](function (e) {
+        return _this.alertSuccess(e, false);
+      });
+    },
+    alertSuccess: function alertSuccess(id, success) {
+      if (success) {
+        this.identificadoContracheque = id;
+        this.modalActive = true;
+        this.modalType = "success";
+      } else {
+        this.modalActive = true;
+        this.modalType = id;
+      }
     }
   },
   beforeEnter: function beforeEnter(to, from, next) {
@@ -10003,9 +10092,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log("Component mounted.");
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -15480,6 +15567,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes loading {\n100% {\r\n        transform: rotate(360deg);\n}\n}\n@keyframes loading {\n100% {\r\n        transform: rotate(360deg);\n}\n}\n#loading img {\r\n    -webkit-animation: loading 2s infinite linear;\r\n            animation: loading 2s infinite linear;\r\n    width: 150px;\n}\n#loading {\r\n    display: flex;\r\n    width: 100%;\r\n    height: 100%;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active,\n.fade-leave-active {\n    transition: opacity 0.5s, transform 0.5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {\n    opacity: 0;\n    transform: translateY(-1em);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -33805,6 +33916,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaAuxiliar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaAuxiliar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaAuxiliar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaAuxiliar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -34296,15 +34437,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _FichaAuxiliar_vue_vue_type_template_id_73eb2d9d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FichaAuxiliar.vue?vue&type=template&id=73eb2d9d& */ "./resources/js/views/FichaAuxiliar.vue?vue&type=template&id=73eb2d9d&");
 /* harmony import */ var _FichaAuxiliar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FichaAuxiliar.vue?vue&type=script&lang=js& */ "./resources/js/views/FichaAuxiliar.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _FichaAuxiliar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FichaAuxiliar.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _FichaAuxiliar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _FichaAuxiliar_vue_vue_type_template_id_73eb2d9d___WEBPACK_IMPORTED_MODULE_0__.render,
   _FichaAuxiliar_vue_vue_type_template_id_73eb2d9d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -34770,6 +34913,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Loading.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Loading.vue?vue&type=style&index=0&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaAuxiliar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaAuxiliar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&");
 
 
 /***/ }),
@@ -35377,296 +35533,371 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { attrs: { id: "ficha_auxilitar" } }, [
-    _c("button", { attrs: { onClick: "window.print()" } }, [
-      _vm._v("IMPRIMIR"),
-    ]),
-    _vm._v(" "),
-    this.$store.state.dadosFinanceiros
-      ? _c(
-          "table",
-          { attrs: { cellpadding: "0", cellspacing: "0" } },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c("tr", [
-              _vm._m(2),
+  return _c(
+    "section",
+    { attrs: { id: "ficha_auxilitar" } },
+    [
+      _c("button", { attrs: { onClick: "window.print()" } }, [
+        _vm._v("IMPRIMIR"),
+      ]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.salvarNoBancoDeDados } }, [
+        _vm._v("SALVAR"),
+      ]),
+      _vm._v(" "),
+      this.$store.state.dadosFinanceiros
+        ? _c(
+            "table",
+            { attrs: { cellpadding: "0", cellspacing: "0" } },
+            [
+              _vm._m(0),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(1),
               _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _c("td", { staticClass: "td_cabecalho pg_abrev" }, [
-                _c("p", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(
-                        _vm.dadosApiCompleto.informacoes.pg_real_info.pg_abrev
-                      ) +
-                      "\n                "
-                  ),
+              _c("tr", [
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_cabecalho pg_abrev" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm.dadosApiCompleto.informacoes.pg_real_info.pg_abrev
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
                 ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _vm._m(5),
-            _vm._v(" "),
-            _vm._m(6),
-            _vm._v(" "),
-            _vm._l(_vm.dadosApiReceitas, function (data, key) {
-              return _c("tr", { key: key }, [
-                _c(
-                  "td",
-                  {
-                    staticClass: "td_calculos rubrica",
-                    attrs: { colspan: "2" },
-                  },
-                  [
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _vm._m(6),
+              _vm._v(" "),
+              _vm._l(_vm.dadosApiReceitas, function (data, key) {
+                return _c("tr", { key: key }, [
+                  _c(
+                    "td",
+                    {
+                      staticClass: "td_calculos rubrica",
+                      attrs: { colspan: "2" },
+                    },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(data.rubrica) +
+                          "\n            "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos" }, [
+                    _vm._v(_vm._s(data.financeiro.porcentagem)),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos valor" }, [
                     _vm._v(
                       "\n                " +
-                        _vm._s(data.rubrica) +
+                        _vm._s(_vm._f("numeroPreco")(data.financeiro.valor)) +
                         "\n            "
                     ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos" }, [
-                  _vm._v(_vm._s(data.financeiro.porcentagem)),
-                ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos valor" }, [
+                    _c("input", {
+                      attrs: { type: "text", step: "0.01" },
+                      domProps: {
+                        value: _vm._f("numeroPreco")(data.financeiro.valor),
+                      },
+                    }),
+                  ]),
+                ])
+              }),
+              _vm._v(" "),
+              _c("tr", [
+                _vm._m(7),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
                     "\n                " +
-                      _vm._s(_vm._f("numeroPreco")(data.financeiro.valor)) +
-                      "\n            "
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("input", {
-                    attrs: { type: "text", step: "0.01" },
-                    domProps: {
-                      value: _vm._f("numeroPreco")(data.financeiro.valor),
-                    },
-                  }),
-                ]),
-              ])
-            }),
-            _vm._v(" "),
-            _c("tr", [
-              _vm._m(7),
-              _vm._v(" "),
-              _c("td", { staticClass: "td_calculos valor" }, [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(
-                      _vm._f("numeroPreco")(
-                        _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                          .valor
-                      )
-                    ) +
-                    "\n            "
-                ),
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "td_calculos valor" }, [
-                _c("p", [
-                  _vm._v(
-                    "\n                    " +
                       _vm._s(
                         _vm._f("numeroPreco")(
                           _vm.dadosApiCompleto.receitas.bruto_total.financeiro
                             .valor
                         )
                       ) +
-                      "\n                "
-                  ),
-                ]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _vm._m(8),
-            _vm._v(" "),
-            _vm._l(_vm.dadosApiDescontos, function (data, key) {
-              return _c("tr", { key: key + data.rubrica }, [
-                _c(
-                  "td",
-                  {
-                    staticClass: "td_calculos rubrica",
-                    attrs: { colspan: "2" },
-                  },
-                  [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(data.rubrica) +
-                        "\n            "
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos" }, [
-                  _vm._v(_vm._s(data.financeiro.porcentagem)),
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm._f("numeroPreco")(data.financeiro.valor)) +
                       "\n            "
                   ),
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("input", {
-                    attrs: { type: "text", step: "0.01" },
-                    domProps: {
-                      value: _vm._f("numeroPreco")(data.financeiro.valor),
-                    },
-                  }),
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
                 ]),
-              ])
-            }),
-            _vm._v(" "),
-            _c("tr", [
-              _vm._m(9),
-              _vm._v(" "),
-              _c("td", { staticClass: "td_calculos valor" }, [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(
-                      _vm._f("numeroPreco")(
-                        _vm.dadosApiCompleto.descontos.descontos_total
-                          .financeiro.valor
-                      )
-                    ) +
-                    "\n            "
-                ),
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td_calculos valor" }, [
-                _c("p", [
+              _vm._m(8),
+              _vm._v(" "),
+              _vm._l(_vm.dadosApiDescontos, function (data, key) {
+                return _c("tr", { key: key + data.rubrica }, [
+                  _c(
+                    "td",
+                    {
+                      staticClass: "td_calculos rubrica",
+                      attrs: { colspan: "2" },
+                    },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(data.rubrica) +
+                          "\n            "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos" }, [
+                    _vm._v(_vm._s(data.financeiro.porcentagem)),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos valor" }, [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm._f("numeroPreco")(data.financeiro.valor)) +
+                        "\n            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos valor" }, [
+                    _c("input", {
+                      attrs: { type: "text", step: "0.01" },
+                      domProps: {
+                        value: _vm._f("numeroPreco")(data.financeiro.valor),
+                      },
+                    }),
+                  ]),
+                ])
+              }),
+              _vm._v(" "),
+              _c("tr", [
+                _vm._m(9),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
-                    "\n                    " +
+                    "\n                " +
                       _vm._s(
                         _vm._f("numeroPreco")(
                           _vm.dadosApiCompleto.descontos.descontos_total
                             .financeiro.valor
                         )
                       ) +
-                      "\n                "
+                      "\n            "
                   ),
                 ]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _vm._m(10),
-              _vm._v(" "),
-              _c("td", { staticClass: "td_calculos valor" }, [
-                _c("p", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(
-                        _vm._f("numeroPreco")(
-                          _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                            .valor -
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
                             _vm.dadosApiCompleto.descontos.descontos_total
                               .financeiro.valor
-                        )
-                      ) +
-                      "\n                "
-                  ),
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("td", { staticClass: "td_calculos valor" }, [
-                _c("p", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(
-                        _vm._f("numeroPreco")(
-                          _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                            .valor -
-                            _vm.dadosApiCompleto.descontos.descontos_total
-                              .financeiro.valor
-                        )
-                      ) +
-                      "\n                "
-                  ),
+              _c("tr", [
+                _vm._m(10),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor -
+                              _vm.dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
                 ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor -
+                              _vm.dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(11),
               ]),
               _vm._v(" "),
-              _vm._m(11),
-            ]),
-            _vm._v(" "),
-            _vm._m(12),
-            _vm._v(" "),
-            _vm._m(13),
-            _vm._v(" "),
-            _vm._m(14),
-            _vm._v(" "),
-            _vm._m(15),
-            _vm._v(" "),
-            _vm._m(16),
-            _vm._v(" "),
-            _vm._m(17),
-            _vm._v(" "),
-            _c("tr", [
-              _c(
-                "td",
-                { staticClass: "td_assinatura", attrs: { colspan: "11" } },
-                [
-                  _c("p", [
-                    _c("strong", [
-                      _vm._v(
-                        _vm._s(_vm.$store.state.activeUser.name) +
-                          " -\n                        " +
-                          _vm._s(_vm.$store.state.activeUser.post_grad)
-                      ),
+              _vm._m(12),
+              _vm._v(" "),
+              _vm._m(13),
+              _vm._v(" "),
+              _vm._m(14),
+              _vm._v(" "),
+              _vm._m(15),
+              _vm._v(" "),
+              _vm._m(16),
+              _vm._v(" "),
+              _vm._m(17),
+              _vm._v(" "),
+              _c("tr", [
+                _c(
+                  "td",
+                  { staticClass: "td_assinatura", attrs: { colspan: "11" } },
+                  [
+                    _c("p", [
+                      _c("strong", [
+                        _vm._v(
+                          _vm._s(_vm.$store.state.activeUser.name) +
+                            " -\n                        " +
+                            _vm._s(_vm.$store.state.activeUser.post_grad)
+                        ),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [_vm._v("Membro da Equipe")]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _vm._m(18),
-            _vm._v(" "),
-            _vm._m(19),
-            _vm._v(" "),
-            _vm._m(20),
-            _vm._v(" "),
-            _c("tr", [
-              _c(
-                "td",
-                { staticClass: "td_assinatura", attrs: { colspan: "11" } },
-                [
-                  _c("p", [
-                    _c("strong", [
-                      _vm._v(
-                        _vm._s(_vm.$store.state.activeUser.ch_equipe_name) +
-                          " -\n                        " +
-                          _vm._s(_vm.$store.state.activeUser.ch_equipe_pg)
-                      ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Membro da Equipe")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(18),
+              _vm._v(" "),
+              _vm._m(19),
+              _vm._v(" "),
+              _vm._m(20),
+              _vm._v(" "),
+              _c("tr", [
+                _c(
+                  "td",
+                  { staticClass: "td_assinatura", attrs: { colspan: "11" } },
+                  [
+                    _c("p", [
+                      _c("strong", [
+                        _vm._v(
+                          _vm._s(_vm.$store.state.activeUser.ch_equipe_name) +
+                            " -\n                        " +
+                            _vm._s(_vm.$store.state.activeUser.ch_equipe_pg)
+                        ),
+                      ]),
                     ]),
-                  ]),
-                ]
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(21),
+              _vm._v(" "),
+              _vm._m(22),
+              _vm._v(" "),
+              _vm._m(23),
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("transition", { attrs: { name: "fade", appear: "" } }, [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.modalActive,
+                expression: "modalActive",
+              },
+            ],
+            class: _vm.modalType == "success" ? "success" : "erro",
+            attrs: { id: "modalRespostaBD" },
+          },
+          [
+            _c("div", { attrs: { id: "modalRespostaBD_container" } }, [
+              _c(
+                "span",
+                {
+                  on: {
+                    click: function ($event) {
+                      _vm.modalActive = false
+                    },
+                  },
+                },
+                [_vm._v("X")]
               ),
+              _vm._v(" "),
+              _vm.modalType == "success"
+                ? _c("p", [
+                    _vm._v(
+                      "\n                    Registro inserido com sucesso! "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    O identificador do contracheque é:\n                    "
+                    ),
+                    _c("strong", [
+                      _vm._v(_vm._s(_vm.identificadoContracheque)),
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v("\n                    Guarde esse número!"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    Você precisará dele para consultar seu contracheque\n                    futuramente.\n                "
+                    ),
+                  ])
+                : _c("p", [
+                    _vm._v(
+                      "\n                    Desculpe, o registro não pode ser inserido. "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    Informe esse erro ou adminitrador do sistema: "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v(_vm._s(_vm.modalType))]),
+                  ]),
             ]),
-            _vm._v(" "),
-            _vm._m(21),
-            _vm._v(" "),
-            _vm._m(22),
-            _vm._v(" "),
-            _vm._m(23),
-          ],
-          2
-        )
-      : _vm._e(),
-  ])
+          ]
+        ),
+      ]),
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {

@@ -208,7 +208,8 @@ class ContrachequeController extends Controller
 
     public function store(StoreContrachequeRequest $request)
     {
-        //
+        $insert = \App\Models\Contracheque::create($request->all());
+        return $insert;
     }
 
     public function show(Contracheque $Contracheque)

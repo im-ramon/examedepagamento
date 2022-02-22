@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Contracheque extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'ficha_auxiliar_json',
+        'users_id',
+    ];
 }
