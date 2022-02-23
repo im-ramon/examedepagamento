@@ -491,7 +491,7 @@ export default {
                     `${this.nowPath}/api/ficha-auxiliar`,
                     {
                         ficha_auxiliar_json,
-                        users_id: 1,
+                        user_email: this.$store.state.activeUser.email,
                     },
                     config
                 )

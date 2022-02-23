@@ -11,6 +11,6 @@ class Contracheque extends Model
 
     protected $fillable = [
         'ficha_auxiliar_json',
-        'users_id',
+        'user_email',
     ];
 }

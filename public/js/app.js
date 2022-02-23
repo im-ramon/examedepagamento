@@ -7265,7 +7265,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       axios.post("".concat(this.nowPath, "/api/ficha-auxiliar"), {
         ficha_auxiliar_json: ficha_auxiliar_json,
-        users_id: 1
+        user_email: this.$store.state.activeUser.email
       }, config).then(function (r) {
         return _this.alertSuccess(r.data.id, true);
       })["catch"](function (e) {

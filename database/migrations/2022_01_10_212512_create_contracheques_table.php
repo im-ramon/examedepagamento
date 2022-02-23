@@ -17,9 +17,9 @@ class CreateContrachequesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('ficha_auxiliar_json', 8000);
-            $table->unsignedBigInteger('users_id');
+            $table->string('user_email');
 
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_email')->references('email')->on('users');
         });
     }
 
