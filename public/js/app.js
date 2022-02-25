@@ -9647,6 +9647,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10173,11 +10177,88 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      legislacao: false
+    };
+  },
+  computed: {
+    token: function token() {
+      var token = document.cookie.split(";").find(function (indice) {
+        return indice.includes("token=");
+      });
+      token = token.split("=")[1];
+      token = "Bearer " + token;
+      return token;
+    },
+    nowPath: function nowPath() {
+      var path = window.location.href;
+      return "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
+    }
+  },
+  methods: {
+    listarLegislacao: function listarLegislacao() {
+      var _this = this;
+
+      var listaDeArquivos = [];
+      var config = {
+        headers: {
+          Accept: "application/json",
+          Authorization: this.token
+        }
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(this.nowPath, "/api/legislacao"), config).then(function (r) {
+        return r.data.arquivos.slice(2, r.data.arquivos.length);
+      }).then(function (r) {
+        listaDeArquivos = r.map(function (item) {
+          var path = "".concat(_this.nowPath, "/legislacao/").concat(item);
+          var title = item.split("@")[1].replace(".pdf", "").replace(/_/g, " ");
+          var type = item.split("@")[0].toLowerCase();
+          return {
+            title: title,
+            path: path,
+            type: type
+          };
+        });
+        _this.legislacao = listaDeArquivos.sort(function (a, b) {
+          return a.title.localeCompare(b.title);
+        });
+      })["catch"](function (e) {
+        return console.log(e);
+      });
+    }
+  },
+  beforeMount: function beforeMount() {
+    this.listarLegislacao();
+  }
+});
 
 /***/ }),
 
@@ -10293,6 +10374,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["token_csrf"],
   data: function data() {
@@ -10300,12 +10385,16 @@ __webpack_require__.r(__webpack_exports__);
       email: "",
       password: "",
       seepassword: false,
-      loading: false
+      loading: false,
+      isWrongPassWord: false
     };
   },
   methods: {
     login: function login(event) {
+      var _this = this;
+
       this.loading = true;
+      this.isWrongPassWord = false;
       var path = window.location.href;
       path = "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
       var url = "".concat(path, "/api/login"); // let url = "http://localhost:8000/api/login";
@@ -10334,6 +10423,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
         event.target.submit();
+      })["catch"](function (e) {
+        _this.isWrongPassWord = true;
+        _this.loading = false;
       });
     }
   }
@@ -36468,8 +36560,13 @@ var render = function () {
                 _c("ajuda-component", [
                   _c("p", [
                     _vm._v(
-                      "\n                    Escolha o mês de referêcia do contracheque que quer\n                    gerar.\n                "
+                      "\n                    Escolha o mês de referêcia do contracheque que quer\n                    gerar.\n                    "
                     ),
+                    _c("strong", [
+                      _vm._v(
+                        "Esta não é data de assintura da ficha\n                        auxiliar."
+                      ),
+                    ]),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -42475,7 +42572,31 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Legislacao")])
+  return _c(
+    "div",
+    { attrs: { id: "legislacao_container" } },
+    [
+      _c("h2", { attrs: { id: "legislacao_header" } }, [_vm._v("Legislação")]),
+      _vm._v(" "),
+      _vm.legislacao
+        ? _vm._l(_vm.legislacao, function (l) {
+            return _c(
+              "a",
+              {
+                key: l.title,
+                class: "legislacao_item " + "legislacao_item-" + l.type,
+                attrs: { href: l.path, target: "_BLANK" },
+              },
+              [_vm._v("\n            " + _vm._s(l.title) + "\n        ")]
+            )
+          })
+        : _c("img", {
+            staticStyle: { width: "25px" },
+            attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
+          }),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42702,6 +42823,14 @@ var render = function () {
                   { staticClass: "btn btn-primary", attrs: { type: "submit" } },
                   [_vm._v("\n                    Login\n                ")]
                 ),
+            _vm._v(" "),
+            _vm.isWrongPassWord
+              ? _c("p", { staticStyle: { color: "red" } }, [
+                  _vm._v(
+                    "\n                    Senha e/ou login incorreto(s). Tente novamente.\n                "
+                  ),
+                ])
+              : _vm._e(),
           ]
         ),
       ]),

@@ -90,6 +90,10 @@
                         Login
                     </button>
 
+                    <p v-if="isWrongPassWord" style="color: red">
+                        Senha e/ou login incorreto(s). Tente novamente.
+                    </p>
+
                     <!-- <a class="btn btn-link" href="">
                                 Esqueci a senha
                             </a> -->
@@ -108,11 +112,13 @@ export default {
             password: "",
             seepassword: false,
             loading: false,
+            isWrongPassWord: false,
         };
     },
     methods: {
         login(event) {
             this.loading = true;
+            this.isWrongPassWord = false;
             let path = window.location.href;
             path = `${path.split("/")[0]}//${path.split("/")[1]}${
                 path.split("/")[2]
@@ -144,6 +150,10 @@ export default {
                     }
                     // console.log(data.user);
                     event.target.submit();
+                })
+                .catch((e) => {
+                    this.isWrongPassWord = true;
+                    this.loading = false;
                 });
         },
     },

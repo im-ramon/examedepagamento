@@ -49,6 +49,16 @@ $danger: #d9534f;
     cursor: default;
     border: 2px solid $cinza-transparente;
 }
+@mixin item {
+    width: 48%;
+    border-radius: $borderRadius;
+    font-size: 14px;
+    border: 2px solid #d8d8d86b;
+    background-color: #ffffff;
+    margin: 0.7em 0.7em;
+    transition: box-shadow 0.3s;
+    position: relative;
+}
 // ------------- --------- ------------- //
 
 // ------------- CLASSES GERAIS ------------- //
@@ -346,14 +356,7 @@ form#formulario {
 }
 
 .question_root {
-    width: 48%;
-    border-radius: $borderRadius;
-    font-size: 14px;
-    border: 2px solid #d8d8d86b;
-    background-color: #ffffff;
-    margin: 0.7em 0.7em;
-    transition: box-shadow 0.3s;
-    position: relative;
+    @include item();
 
     &:hover {
         box-shadow: 9px 9px 25px -11px rgba(0, 0, 0, 0.22);
@@ -636,7 +639,7 @@ form#formulario {
     background: $preto;
     padding: 3em 2em;
     width: 500px;
-    height: 300px;
+    height: 320px;
     border-radius: $borderRadius;
     box-shadow: 15px 16px 31px -15px #848484;
 }
@@ -793,4 +796,47 @@ img.login_logo {
         border: 1px solid black;
         padding: 0px 4px;
     }
+}
+
+#legislacao_container {
+    @include blocoNaPagina();
+}
+
+#legislacao_header {
+    @include cabecalhoNaPagina();
+}
+
+.legislacao_item {
+    width: 40%;
+    height: 70px;
+    border-radius: $borderRadius;
+    font-size: 14px;
+    border: 2px solid #d8d8d86b;
+    background-color: #ffffff;
+    margin: 0.7em 0.7em;
+    transition: box-shadow 0.3s;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline solid rgba(168, 168, 168, 0.555);
+    color: $preto;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        text-decoration: underline;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+.legislacao_item-receitas {
+    border-left: 2px solid $success;
+}
+.legislacao_item-descontos {
+    border-left: 2px solid $danger;
+}
+.legislacao_item-leis {
+    border-left: 2px solid $primary;
 }

@@ -39,6 +39,10 @@
                     <p>
                         Escolha o mês de referêcia do contracheque que quer
                         gerar.
+                        <strong
+                            >Esta não é data de assintura da ficha
+                            auxiliar.</strong
+                        >
                     </p>
                 </ajuda-component>
 

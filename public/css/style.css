@@ -760,7 +760,7 @@ form#formulario {
   background: #181818;
   padding: 3em 2em;
   width: 500px;
-  height: 300px;
+  height: 320px;
   border-radius: 6px;
   -webkit-box-shadow: 15px 16px 31px -15px #848484;
           box-shadow: 15px 16px 31px -15px #848484;
@@ -980,5 +980,82 @@ img.login_logo {
 #modalRespostaBD strong {
   border: 1px solid black;
   padding: 0px 4px;
+}
+
+#legislacao_container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1em;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 6px;
+  border: 2px solid #e1e1e1;
+  margin: 1em 0.7em;
+}
+
+#legislacao_header {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 0.6em 0;
+  background: #181818;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px;
+  cursor: default;
+  border: 2px solid #c5c5c5;
+}
+
+.legislacao_item {
+  width: 40%;
+  height: 70px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 2px solid #d8d8d86b;
+  background-color: #ffffff;
+  margin: 0.7em 0.7em;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  position: relative;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-text-decoration: underline solid rgba(168, 168, 168, 0.555);
+          text-decoration: underline solid rgba(168, 168, 168, 0.555);
+  color: #181818;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.legislacao_item:hover {
+  text-decoration: underline;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.legislacao_item-receitas {
+  border-left: 2px solid #5cb85c;
+}
+
+.legislacao_item-descontos {
+  border-left: 2px solid #d9534f;
+}
+
+.legislacao_item-leis {
+  border-left: 2px solid #0275d8;
 }
 /*# sourceMappingURL=style.css.map */

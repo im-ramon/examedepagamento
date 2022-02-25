@@ -20,9 +20,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('post_grad', 255)->default('-');
-            $table->integer('userType')->default(2);
             $table->string('ch_equipe_name', 255)->default('-');
             $table->string('ch_equipe_pg', 255)->default('-');
+            $table->string('data_assinatura', 255)->default('-');
+            $table->string('local_assinatura', 255)->default('-');
+            $table->integer('userType')->default(2);
             $table->rememberToken();
             $table->timestamps();
         });
