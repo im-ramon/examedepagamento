@@ -194,6 +194,7 @@ class ContrachequeController extends Controller
                 ],
                 'informacoes' => [
                     'pg_real_info' => $pg_real_info,
+                    'date' => $formulario['data_contracheque']
                 ]
             ];
         } else {

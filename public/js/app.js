@@ -7184,6 +7184,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7292,6 +7296,10 @@ __webpack_require__.r(__webpack_exports__);
         style: "currency",
         currency: "BRL"
       });
+    },
+    dateToDateFormated: function dateToDateFormated(value) {
+      var data = value.split("-");
+      return "".concat(data[1], "/").concat(data[0]);
     }
   }
 });
@@ -9614,12 +9622,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
   data: function data() {
     return {
       loading: false,
+      loading_select: false,
       selectPg: [],
       universo: "ativa",
       data_contracheque: "2022-01-01",
@@ -9798,6 +9832,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     carregaSelectPg: function carregaSelectPg() {
       var _this2 = this;
 
+      this.loading_select = true;
       var config = {
         headers: {
           Accept: "application/json",
@@ -9805,7 +9840,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       };
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(this.nowPath, "/api/pg-constantes"), config).then(function (r) {
-        return _this2.selectPg = r.data;
+        _this2.selectPg = r.data;
+        _this2.loading_select = false;
       })["catch"](function (e) {
         return console.log(e);
       });
@@ -35552,14 +35588,41 @@ var render = function () {
             [
               _vm._m(0),
               _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
               _c("tr", [
+                _vm._m(1),
+                _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
                 _vm._m(3),
                 _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "td_cabecalho mes_info",
+                    attrs: { colspan: "6" },
+                  },
+                  [
+                    _c("p", [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(
+                            _vm._f("dateToDateFormated")(
+                              _vm.$store.state.dadosFinanceiros.informacoes.date
+                            )
+                          ) +
+                          "\n                "
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("tr", [
                 _vm._m(4),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_cabecalho pg_abrev" }, [
                   _c("p", [
@@ -35574,86 +35637,12 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
-              _vm._m(6),
-              _vm._v(" "),
-              _vm._l(_vm.dadosApiReceitas, function (data, key) {
-                return _c("tr", { key: key }, [
-                  _c(
-                    "td",
-                    {
-                      staticClass: "td_calculos rubrica",
-                      attrs: { colspan: "2" },
-                    },
-                    [
-                      _vm._v(
-                        "\n                " +
-                          _vm._s(data.rubrica) +
-                          "\n            "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "td_calculos" }, [
-                    _vm._v(_vm._s(data.financeiro.porcentagem)),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "td_calculos valor" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm._f("numeroPreco")(data.financeiro.valor)) +
-                        "\n            "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "td_calculos valor" }, [
-                    _c("input", {
-                      attrs: { type: "text", step: "0.01" },
-                      domProps: {
-                        value: _vm._f("numeroPreco")(data.financeiro.valor),
-                      },
-                    }),
-                  ]),
-                ])
-              }),
-              _vm._v(" "),
-              _c("tr", [
-                _vm._m(7),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(
-                        _vm._f("numeroPreco")(
-                          _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                            .valor
-                        )
-                      ) +
-                      "\n            "
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(
-                          _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor
-                          )
-                        ) +
-                        "\n                "
-                    ),
-                  ]),
-                ]),
-              ]),
+              _vm._m(7),
               _vm._v(" "),
               _vm._m(8),
               _vm._v(" "),
-              _vm._l(_vm.dadosApiDescontos, function (data, key) {
-                return _c("tr", { key: key + data.rubrica }, [
+              _vm._l(_vm.dadosApiReceitas, function (data, key) {
+                return _c("tr", { key: key }, [
                   _c(
                     "td",
                     {
@@ -35700,6 +35689,80 @@ var render = function () {
                     "\n                " +
                       _vm._s(
                         _vm._f("numeroPreco")(
+                          _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                            .valor
+                        )
+                      ) +
+                      "\n            "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(10),
+              _vm._v(" "),
+              _vm._l(_vm.dadosApiDescontos, function (data, key) {
+                return _c("tr", { key: key + data.rubrica }, [
+                  _c(
+                    "td",
+                    {
+                      staticClass: "td_calculos rubrica",
+                      attrs: { colspan: "2" },
+                    },
+                    [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(data.rubrica) +
+                          "\n            "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos" }, [
+                    _vm._v(_vm._s(data.financeiro.porcentagem)),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos valor" }, [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm._f("numeroPreco")(data.financeiro.valor)) +
+                        "\n            "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "td_calculos valor" }, [
+                    _c("input", {
+                      attrs: { type: "text", step: "0.01" },
+                      domProps: {
+                        value: _vm._f("numeroPreco")(data.financeiro.valor),
+                      },
+                    }),
+                  ]),
+                ])
+              }),
+              _vm._v(" "),
+              _c("tr", [
+                _vm._m(11),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(
+                        _vm._f("numeroPreco")(
                           _vm.dadosApiCompleto.descontos.descontos_total
                             .financeiro.valor
                         )
@@ -35725,7 +35788,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(10),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _c("p", [
@@ -35761,12 +35824,8 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _vm._m(11),
+                _vm._m(13),
               ]),
-              _vm._v(" "),
-              _vm._m(12),
-              _vm._v(" "),
-              _vm._m(13),
               _vm._v(" "),
               _vm._m(14),
               _vm._v(" "),
@@ -35775,6 +35834,10 @@ var render = function () {
               _vm._m(16),
               _vm._v(" "),
               _vm._m(17),
+              _vm._v(" "),
+              _vm._m(18),
+              _vm._v(" "),
+              _vm._m(19),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -35796,11 +35859,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(18),
-              _vm._v(" "),
-              _vm._m(19),
-              _vm._v(" "),
               _vm._m(20),
+              _vm._v(" "),
+              _vm._m(21),
+              _vm._v(" "),
+              _vm._m(22),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -35820,11 +35883,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(21),
-              _vm._v(" "),
-              _vm._m(22),
-              _vm._v(" "),
               _vm._m(23),
+              _vm._v(" "),
+              _vm._m(24),
+              _vm._v(" "),
+              _vm._m(25),
             ],
             2
           )
@@ -35920,33 +35983,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c(
-        "td",
-        { staticClass: "td_cabecalho", staticStyle: { "text-align": "left" } },
-        [_c("p", [_vm._v("UG:")])]
-      ),
-      _vm._v(" "),
-      _c("td", { staticClass: "td_cabecalho", attrs: { colspan: "3" } }, [
-        _c("input", {
-          attrs: {
-            type: "text",
-            placeholder: "Sigla da UG",
-            name: "UG",
-            id: "UG",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "td_cabecalho mes" }, [
-        _c("p", [_vm._v("MÊS:")]),
-      ]),
-      _vm._v(" "),
-      _c(
-        "td",
-        { staticClass: "td_cabecalho mes_info", attrs: { colspan: "6" } },
-        [_c("p", [_vm._v("SET/21")])]
-      ),
+    return _c(
+      "td",
+      { staticClass: "td_cabecalho", staticStyle: { "text-align": "left" } },
+      [_c("p", [_vm._v("UG:")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_cabecalho", attrs: { colspan: "3" } }, [
+      _c("input", {
+        attrs: {
+          type: "text",
+          placeholder: "Sigla da UG",
+          name: "UG",
+          id: "UG",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_cabecalho mes" }, [
+      _c("p", [_vm._v("MÊS:")]),
     ])
   },
   function () {
@@ -36329,85 +36392,72 @@ var render = function () {
           _c("section", { attrs: { id: "form_informacoes_pessoais" } }, [
             _c("h2", [_vm._v("Informações gerais")]),
             _vm._v(" "),
-            _c(
-              "fieldset",
-              { staticClass: "question_root" },
-              [
-                _c("legend", [_vm._v("Universo/ Classificação")]),
+            _c("fieldset", { staticClass: "question_root" }, [
+              _c("legend", [_vm._v("Universo/ Classificação")]),
+              _vm._v(" "),
+              _c("section", { staticClass: "question_body" }, [
+                _vm._m(0),
                 _vm._v(" "),
-                _c("ajuda-component", [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("section", { staticClass: "question_body" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "question_options" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.universo,
-                            expression: "universo",
-                          },
-                        ],
-                        attrs: { name: "universo", id: "tipo_soldo" },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.universo = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
+                _c("div", { staticClass: "question_options" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.universo,
+                          expression: "universo",
+                        },
+                      ],
+                      attrs: { name: "universo", id: "tipo_soldo" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.universo = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
                         },
                       },
-                      [
-                        _c("option", { attrs: { value: "ativa" } }, [
-                          _vm._v("Militar da Ativa"),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "inativo" } }, [
-                          _vm._v("Militar da Inativo"),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "pens_mil" } }, [
-                          _vm._v(
-                            "\n                            Pensionista Militar\n                        "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "pens_excmbt_2ten" } }, [
-                          _vm._v(
-                            "\n                            Pensionista Ex-Combatente (2º Ten)\n                        "
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "pens_excmbt_2sgt" } }, [
-                          _vm._v(
-                            "\n                            Pensionista Ex-Combatente (2º Sgt)\n                        "
-                          ),
-                        ]),
-                      ]
-                    ),
-                  ]),
+                    },
+                    [
+                      _c("option", { attrs: { value: "ativa" } }, [
+                        _vm._v("Militar da Ativa"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "inativo" } }, [
+                        _vm._v("Militar da Inativo"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "pens_mil" } }, [
+                        _vm._v(
+                          "\n                            Pensionista Militar\n                        "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "pens_excmbt_2ten" } }, [
+                        _vm._v(
+                          "\n                            Pensionista Ex-Combatente (2º Ten)\n                        "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "pens_excmbt_2sgt" } }, [
+                        _vm._v(
+                          "\n                            Pensionista Ex-Combatente (2º Sgt)\n                        "
+                        ),
+                      ]),
+                    ]
+                  ),
                 ]),
-              ],
-              1
-            ),
+              ]),
+            ]),
             _vm._v(" "),
             _c(
               "fieldset",
@@ -36418,7 +36468,7 @@ var render = function () {
                 _c("ajuda-component", [
                   _c("p", [
                     _vm._v(
-                      "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                      "\n                    Escolha o mês de referêcia do contracheque que quer\n                    gerar.\n                "
                     ),
                   ]),
                 ]),
@@ -36428,12 +36478,28 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.data_contracheque,
+                          expression: "data_contracheque",
+                        },
+                      ],
                       attrs: {
                         name: "data_contracheque",
                         id: "date",
                         type: "date",
                       },
                       domProps: { value: _vm.data_contracheque },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.data_contracheque = $event.target.value
+                        },
+                      },
                     }),
                   ]),
                 ]),
@@ -36450,7 +36516,7 @@ var render = function () {
                 _c("ajuda-component", [
                   _c("p", [
                     _vm._v(
-                      "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                      "\n                    Essa informação irá influenciar no valor final do\n                    imposto de renda.\n                "
                     ),
                   ]),
                 ]),
@@ -36528,7 +36594,44 @@ var render = function () {
                 _c("ajuda-component", [
                   _c("p", [
                     _vm._v(
-                      "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                      "\n                    Poderá encontrar essa informções nos seguintes\n                    documentos: "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Militares inativos: ")]),
+                    _vm._v(
+                      " Essa informação\n                    está presente na "
+                    ),
+                    _c("u", [_vm._v("Ficha de Controle")]),
+                    _vm._v(
+                      " do Inativo ou\n                    existe em sua PHPM uma\n                    "
+                    ),
+                    _c("u", [
+                      _vm._v("Portaria de Isenção de Imposto de Renda."),
+                    ]),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("strong", [_vm._v("Pensionistas: ")]),
+                    _vm._v(
+                      " A informação pode está\n                    presente no "
+                    ),
+                    _c("u", [_vm._v("Título de Pensão")]),
+                    _vm._v(" ou "),
+                    _c("u", [_vm._v("Apostila")]),
+                    _vm._v(
+                      ".\n                    A Pensionista Especial de Ex-combatente que recebe o\n                    soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de\n                    renda, mesmo que em seu título de pensão não exista essa\n                    informação. Já a Pensionista Especial de Ex-combatente\n                    que recebe o soldo de 2º Sgt (Lei nº 8.059/90) não é\n                    automaticamente isenta de imposto de renda. "
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    *Observação: Ao contrário que muitos pensam, maiores de\n                    65 anos\n                    "
+                    ),
+                    _c("strong", [
+                      _vm._v("não são isentos de imposto de renda"),
+                    ]),
+                    _vm._v(
+                      ".\n                    Esses recebem um abatimento no valor final.\n                "
                     ),
                   ]),
                 ]),
@@ -36606,7 +36709,7 @@ var render = function () {
                 _c("ajuda-component", [
                   _c("p", [
                     _vm._v(
-                      "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                      "\n                    Deve ser selecionado o Posto/ Graduação em que o\n                    examinado recebe o soldo. No caso dos miltiares da\n                    ativa, o P/G para soldo e P/G Real são os mesmos,\n                    entretanto, no caso dos Militares Inativos e\n                    Pensionistas, essas informações poderão ser difirentes:\n                "
                     ),
                   ]),
                 ]),
@@ -36615,49 +36718,57 @@ var render = function () {
                   _vm._m(4),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
+                    _vm.loading_select
+                      ? _c("img", {
+                          staticStyle: { width: "25px" },
+                          attrs: {
+                            src: "/svg/loading.svg",
+                            alt: "Ícone de carregamento",
+                          },
+                        })
+                      : _c(
+                          "select",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.pg_soldo,
-                            expression: "pg_soldo",
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.pg_soldo,
+                                expression: "pg_soldo",
+                              },
+                            ],
+                            attrs: { name: "pg_soldo" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.pg_soldo = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              },
+                            },
                           },
-                        ],
-                        attrs: { name: "pg_soldo" },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.pg_soldo = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
-                        },
-                      },
-                      _vm._l(_vm.selectPg, function (pg, key) {
-                        return _c(
-                          "option",
-                          { key: key, domProps: { value: pg.id } },
-                          [
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(pg.pg_abrev) +
-                                "\n                        "
-                            ),
-                          ]
-                        )
-                      }),
-                      0
-                    ),
+                          _vm._l(_vm.selectPg, function (pg, key) {
+                            return _c(
+                              "option",
+                              { key: key, domProps: { value: pg.id } },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(pg.pg_abrev) +
+                                    "\n                        "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
                   ]),
                 ]),
               ],
@@ -36673,7 +36784,32 @@ var render = function () {
                 _c("ajuda-component", [
                   _c("p", [
                     _vm._v(
-                      "\n                    Hue Lorem ipsum dolor sit amet consectetur adipisicing\n                    elit. Aperiam fugiat, magnam tempore neque error\n                    assumenda a voluptates rerum tempora quibusdam aliquid\n                    doloremque obcaecati eum eveniet voluptate harum\n                    voluptatum vitae cumque?\n                "
+                      "\n                    O P/G real é o último Posto ou Graduação do militar (ou\n                    instituidor de pensão) enquanto na ativa. Não deve ser\n                    considerado: "
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    - Postos ou graduações alcançados pelo militar como\n                    benefício, na forma prevista em lei, em decorrência de\n                    reforma, morte ou transferência para a reserva;\n                    "
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    - Percepção de soldo ou de remuneração correspondente a\n                    grau hierárquico superior ao alcançado na ativa, em\n                    decorrência de reforma, morte ou transferência para a\n                    reserva; e\n                    "
+                    ),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                    - Percepção de pensão militar correspondente a grau\n                    hierárquico superior ao alcançado pelo militar em\n                    atividade, em decorrência de benefícios concedidos pela\n                    "
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "http://www.planalto.gov.br/ccivil_03/leis/l3765.htm",
+                          target: "_BLANK",
+                        },
+                      },
+                      [_vm._v("Lei nº 3.765, de 4 de maio de 1960.")]
                     ),
                   ]),
                 ]),
@@ -36682,49 +36818,57 @@ var render = function () {
                   _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "question_options" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
+                    _vm.loading_select
+                      ? _c("img", {
+                          staticStyle: { width: "25px" },
+                          attrs: {
+                            src: "/svg/loading.svg",
+                            alt: "Ícone de carregamento",
+                          },
+                        })
+                      : _c(
+                          "select",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.pg_real,
-                            expression: "pg_real",
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.pg_real,
+                                expression: "pg_real",
+                              },
+                            ],
+                            attrs: { name: "pg_real" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.pg_real = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              },
+                            },
                           },
-                        ],
-                        attrs: { name: "pg_real" },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.pg_real = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
-                        },
-                      },
-                      _vm._l(_vm.selectPg, function (pg, key) {
-                        return _c(
-                          "option",
-                          { key: key, domProps: { value: pg.id } },
-                          [
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(pg.pg_abrev) +
-                                "\n                        "
-                            ),
-                          ]
-                        )
-                      }),
-                      0
-                    ),
+                          _vm._l(_vm.selectPg, function (pg, key) {
+                            return _c(
+                              "option",
+                              { key: key, domProps: { value: pg.id } },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(pg.pg_abrev) +
+                                    "\n                        "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
                   ]),
                 ]),
               ],
@@ -37040,7 +37184,7 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a rerum empora quibusdam\n                        aliquid doloremque obcaecati eum eveniet voluptate\n                        harum voluptatum vitae cumque?\n                    "
                         ),
                       ]),
                     ]),

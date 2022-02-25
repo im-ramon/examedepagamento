@@ -5,15 +5,6 @@
             <h2>Informações gerais</h2>
             <fieldset class="question_root">
                 <legend>Universo/ Classificação</legend>
-                <ajuda-component>
-                    <p>
-                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aperiam fugiat, magnam tempore neque error
-                        assumenda a voluptates rerum tempora quibusdam aliquid
-                        doloremque obcaecati eum eveniet voluptate harum
-                        voluptatum vitae cumque?
-                    </p>
-                </ajuda-component>
                 <section class="question_body">
                     <div class="question_title">
                         <p>
@@ -42,18 +33,15 @@
                     </div>
                 </section>
             </fieldset>
-
             <fieldset class="question_root">
                 <legend>Data do contracheque</legend>
                 <ajuda-component>
                     <p>
-                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aperiam fugiat, magnam tempore neque error
-                        assumenda a voluptates rerum tempora quibusdam aliquid
-                        doloremque obcaecati eum eveniet voluptate harum
-                        voluptatum vitae cumque?
+                        Escolha o mês de referêcia do contracheque que quer
+                        gerar.
                     </p>
                 </ajuda-component>
+
                 <section class="question_body">
                     <div class="question_title">
                         <p>Qual a <strong>data do contracheque</strong>?</p>
@@ -63,7 +51,7 @@
                             name="data_contracheque"
                             id="date"
                             type="date"
-                            :value="data_contracheque"
+                            v-model="data_contracheque"
                         />
                     </div>
                 </section>
@@ -73,11 +61,8 @@
                 <legend>Idade</legend>
                 <ajuda-component>
                     <p>
-                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aperiam fugiat, magnam tempore neque error
-                        assumenda a voluptates rerum tempora quibusdam aliquid
-                        doloremque obcaecati eum eveniet voluptate harum
-                        voluptatum vitae cumque?
+                        Essa informação irá influenciar no valor final do
+                        imposto de renda.
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -110,11 +95,25 @@
                 <legend>Isenção de Imposto de Renda</legend>
                 <ajuda-component>
                     <p>
-                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aperiam fugiat, magnam tempore neque error
-                        assumenda a voluptates rerum tempora quibusdam aliquid
-                        doloremque obcaecati eum eveniet voluptate harum
-                        voluptatum vitae cumque?
+                        Poderá encontrar essa informções nos seguintes
+                        documentos: <br />
+                        <strong>Militares inativos: </strong> Essa informação
+                        está presente na <u>Ficha de Controle</u> do Inativo ou
+                        existe em sua PHPM uma
+                        <u>Portaria de Isenção de Imposto de Renda.</u
+                        ><br /><br />
+                        <strong>Pensionistas: </strong> A informação pode está
+                        presente no <u>Título de Pensão</u> ou <u>Apostila</u>.
+                        A Pensionista Especial de Ex-combatente que recebe o
+                        soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de
+                        renda, mesmo que em seu título de pensão não exista essa
+                        informação. Já a Pensionista Especial de Ex-combatente
+                        que recebe o soldo de 2º Sgt (Lei nº 8.059/90) não é
+                        automaticamente isenta de imposto de renda. <br /><br />
+                        *Observação: Ao contrário que muitos pensam, maiores de
+                        65 anos
+                        <strong>não são isentos de imposto de renda</strong>.
+                        Esses recebem um abatimento no valor final.
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -150,11 +149,11 @@
                 <legend>P/G Soldo</legend>
                 <ajuda-component>
                     <p>
-                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aperiam fugiat, magnam tempore neque error
-                        assumenda a voluptates rerum tempora quibusdam aliquid
-                        doloremque obcaecati eum eveniet voluptate harum
-                        voluptatum vitae cumque?
+                        Deve ser selecionado o Posto/ Graduação em que o
+                        examinado recebe o soldo. No caso dos miltiares da
+                        ativa, o P/G para soldo e P/G Real são os mesmos,
+                        entretanto, no caso dos Militares Inativos e
+                        Pensionistas, essas informações poderão ser difirentes:
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -165,7 +164,13 @@
                         </p>
                     </div>
                     <div class="question_options">
-                        <select name="pg_soldo" v-model="pg_soldo">
+                        <img
+                            v-if="loading_select"
+                            src="/svg/loading.svg"
+                            style="width: 25px"
+                            alt="Ícone de carregamento"
+                        />
+                        <select v-else name="pg_soldo" v-model="pg_soldo">
                             <option
                                 v-for="(pg, key) in selectPg"
                                 :key="key"
@@ -182,11 +187,26 @@
                 <legend>P/G Real</legend>
                 <ajuda-component>
                     <p>
-                        Hue Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Aperiam fugiat, magnam tempore neque error
-                        assumenda a voluptates rerum tempora quibusdam aliquid
-                        doloremque obcaecati eum eveniet voluptate harum
-                        voluptatum vitae cumque?
+                        O P/G real é o último Posto ou Graduação do militar (ou
+                        instituidor de pensão) enquanto na ativa. Não deve ser
+                        considerado: <br /><br />
+                        - Postos ou graduações alcançados pelo militar como
+                        benefício, na forma prevista em lei, em decorrência de
+                        reforma, morte ou transferência para a reserva;
+                        <br /><br />
+                        - Percepção de soldo ou de remuneração correspondente a
+                        grau hierárquico superior ao alcançado na ativa, em
+                        decorrência de reforma, morte ou transferência para a
+                        reserva; e
+                        <br /><br />
+                        - Percepção de pensão militar correspondente a grau
+                        hierárquico superior ao alcançado pelo militar em
+                        atividade, em decorrência de benefícios concedidos pela
+                        <a
+                            href="http://www.planalto.gov.br/ccivil_03/leis/l3765.htm"
+                            target="_BLANK"
+                            >Lei nº 3.765, de 4 de maio de 1960.</a
+                        >
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -194,7 +214,13 @@
                         <p>Qual o P/G <strong>real</strong> do examinado?</p>
                     </div>
                     <div class="question_options">
-                        <select name="pg_real" v-model="pg_real">
+                        <img
+                            v-if="loading_select"
+                            src="/svg/loading.svg"
+                            style="width: 25px"
+                            alt="Ícone de carregamento"
+                        />
+                        <select v-else name="pg_real" v-model="pg_real">
                             <option
                                 v-for="(pg, key) in selectPg"
                                 :key="key"
@@ -390,9 +416,9 @@
                         <p>
                             Hue Lorem ipsum dolor sit amet consectetur
                             adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            neque error assumenda a rerum empora quibusdam
+                            aliquid doloremque obcaecati eum eveniet voluptate
+                            harum voluptatum vitae cumque?
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -2288,7 +2314,6 @@
         <router-link id="btn_gerar" to="/ficha-auxiliar">
             <span>GERAR CONTRACHEQUE</span>
         </router-link>
-        <!-- <button type="submit" id="gerar">Gerar contracheque</button> -->
     </form>
     <loading-component v-else></loading-component>
 </template>
@@ -2301,6 +2326,7 @@ export default {
     data() {
         return {
             loading: false,
+            loading_select: false,
             selectPg: [],
             universo: "ativa",
             data_contracheque: "2022-01-01",
@@ -2484,6 +2510,7 @@ export default {
     },
     methods: {
         carregaSelectPg() {
+            this.loading_select = true;
             let config = {
                 headers: {
                     Accept: "application/json",
@@ -2493,7 +2520,10 @@ export default {
 
             axios
                 .get(`${this.nowPath}/api/pg-constantes`, config)
-                .then((r) => (this.selectPg = r.data))
+                .then((r) => {
+                    this.selectPg = r.data;
+                    this.loading_select = false;
+                })
                 .catch((e) => console.log(e));
         },
 

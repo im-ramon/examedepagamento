@@ -32,8 +32,12 @@
                     <p>M&Ecirc;S:</p>
                 </td>
                 <td class="td_cabecalho mes_info" colspan="6">
-                    <p>SET/21</p>
-                    <!-- Aqui deve ser inserio o mês, dinamicamente -->
+                    <p>
+                        {{
+                            $store.state.dadosFinanceiros.informacoes.date
+                                | dateToDateFormated
+                        }}
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -518,6 +522,10 @@ export default {
                 style: "currency",
                 currency: "BRL",
             });
+        },
+        dateToDateFormated(value) {
+            let data = value.split("-");
+            return `${data[1]}/${data[0]}`;
         },
     },
 };
