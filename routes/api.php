@@ -25,7 +25,10 @@ Route::get(
     }
 );
 Route::middleware('jwt.auth')->group(function () {
-    Route::resource('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController');
+    // Route::resource('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController');
+    Route::get('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController@gerarContracheque');
+    Route::get('ficha-auxiliar/{email}', 'App\Http\Controllers\ContrachequeController@recuperarContracheques');
+    Route::post('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController@store');
     Route::resource('pg-constantes', 'App\Http\Controllers\PgConstanteController');
     Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');

@@ -1060,4 +1060,59 @@ img.login_logo {
 .legislacao_item-leis {
   border-left: 2px solid #0275d8;
 }
+
+#gererenciarContracheque_container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1em;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 6px;
+  border: 2px solid #e1e1e1;
+  margin: 1em 0.7em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: auto;
+}
+
+#gererenciarContracheque_container h2 {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 0.6em 0;
+  background: #181818;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px;
+  cursor: default;
+  border: 2px solid #c5c5c5;
+}
+
+#gererenciarContracheque_section {
+  padding-left: 1.2em;
+  width: calc(100% - 1.2em);
+}
+
+#gererenciarContracheque_section .gererenciarContracheque-item {
+  background: #0274d85d;
+  border-radius: 6px;
+  margin-bottom: 0.7em;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.3em 0.7em;
+}
 /*# sourceMappingURL=style.css.map */

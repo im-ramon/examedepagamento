@@ -68,7 +68,7 @@ class ContrachequeController extends Controller
     public $descontos_ir = ['valor' => 0, 'porcentagem' => '-'];
     public $descontos_total = ['valor' => 0, 'porcentagem' => '-'];
 
-    public function gerarFormulario()
+    public function gerarFormulario() //POSTud
     {
         $pg_info = \App\Models\PgConstante::all();
         return view('app.formulario', ['pg_info' => $pg_info]);
@@ -79,7 +79,7 @@ class ContrachequeController extends Controller
         return 'ok';
     }
 
-    public function index() //GET
+    public function gerarContracheque() //GET
     {
         if ($_GET) {
             $formulario = $_GET;
@@ -213,9 +213,10 @@ class ContrachequeController extends Controller
         return $insert;
     }
 
-    public function show(Contracheque $Contracheque)
+    public function recuperarContracheques(Contracheque $Contracheque, $email)
     {
-        //
+        $contracheques = Contracheque::where('user_email', '=', $email)->get(['id', 'ficha_auxiliar_json']);
+        return ['contracheques' => $contracheques];
     }
 
     public function edit(Contracheque $Contracheque)

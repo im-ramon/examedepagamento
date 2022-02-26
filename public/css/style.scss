@@ -842,3 +842,29 @@ img.login_logo {
 .legislacao_item-leis {
     border-left: 2px solid $primary;
 }
+
+#gererenciarContracheque_container {
+    @include blocoNaPagina;
+    flex-direction: column;
+    width: auto;
+
+    h2 {
+        @include cabecalhoNaPagina;
+    }
+}
+
+#gererenciarContracheque_section {
+    padding-left: 1.2em;
+    width: calc(100% - 1.2em);
+
+    .gererenciarContracheque-item {
+        background: #0274d85d;
+        border-radius: $borderRadius;
+        margin-bottom: 0.7em;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3em 0.7em;
+    }
+}
