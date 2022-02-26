@@ -10320,6 +10320,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -42860,6 +42870,8 @@ var render = function () {
     [
       _c("h2", { attrs: { id: "legislacao_header" } }, [_vm._v("Legislação")]),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _vm.legislacao
         ? _vm._l(_vm.legislacao, function (l) {
             return _c(
@@ -42880,7 +42892,25 @@ var render = function () {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "legenda" } }, [
+      _c("section", [
+        _vm._v("\n            Legenda:\n            "),
+        _c("div", [
+          _c("div", { attrs: { id: "item1" } }, [_vm._v("Receitas")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "item2" } }, [_vm._v("Descontos")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "item3" } }, [_vm._v("Leis")]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

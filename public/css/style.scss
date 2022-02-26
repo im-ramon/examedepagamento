@@ -801,10 +801,54 @@ img.login_logo {
 
 #legislacao_container {
     @include blocoNaPagina();
+    width: auto;
 }
 
 #legislacao_header {
     @include cabecalhoNaPagina();
+}
+
+#legenda {
+    width: 80%;
+    border-radius: $borderRadius;
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+    border: 2px solid $branco;
+    padding: 0.4em 0;
+    background-color: #fff;
+
+    section {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > div {
+            display: flex;
+
+            & > div {
+                border: 2px solid $branco;
+                background: #fff;
+                border-radius: $borderRadius;
+                padding: 1px 5px;
+                margin-left: 1em;
+                user-select: none;
+            }
+        }
+
+        #item1 {
+            border-left: 2px solid $success;
+        }
+
+        #item2 {
+            border-left: 2px solid $danger;
+        }
+
+        #item3 {
+            border-left: 2px solid $primary;
+        }
+    }
 }
 
 .legislacao_item {

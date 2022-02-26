@@ -997,6 +997,7 @@ img.login_logo {
   border-radius: 6px;
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
+  width: auto;
 }
 
 #legislacao_header {
@@ -1009,6 +1010,64 @@ img.login_logo {
   padding: 6px;
   cursor: default;
   border: 2px solid #c5c5c5;
+}
+
+#legenda {
+  width: 80%;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1em 0;
+  border: 2px solid #e1e1e1;
+  padding: 0.4em 0;
+  background-color: #fff;
+}
+
+#legenda section {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#legenda section > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#legenda section > div > div {
+  border: 2px solid #e1e1e1;
+  background: #fff;
+  border-radius: 6px;
+  padding: 1px 5px;
+  margin-left: 1em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#legenda section #item1 {
+  border-left: 2px solid #5cb85c;
+}
+
+#legenda section #item2 {
+  border-left: 2px solid #d9534f;
+}
+
+#legenda section #item3 {
+  border-left: 2px solid #0275d8;
 }
 
 .legislacao_item {

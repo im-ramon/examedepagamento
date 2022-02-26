@@ -1,6 +1,16 @@
 <template>
     <div id="legislacao_container">
         <h2 id="legislacao_header">Legislação</h2>
+        <div id="legenda">
+            <section>
+                Legenda:
+                <div>
+                    <div id="item1">Receitas</div>
+                    <div id="item2">Descontos</div>
+                    <div id="item3">Leis</div>
+                </div>
+            </section>
+        </div>
         <template v-if="legislacao">
             <a
                 :class="'legislacao_item ' + 'legislacao_item-' + l.type"
