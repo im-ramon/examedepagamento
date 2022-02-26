@@ -9993,108 +9993,108 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var form = this.$store.state.backupForm;
 
       if (form) {
-        this.universo = this.$store.state.backupForm.universo;
-        this.data_contracheque = this.$store.state.backupForm.data_contracheque;
-        this.maior_65 = this.$store.state.backupForm.maior_65;
-        this.isento_ir = this.$store.state.backupForm.isento_ir;
-        this.pg_soldo = this.$store.state.backupForm.pg_soldo;
-        this.pg_real = this.$store.state.backupForm.pg_real;
-        this.tipo_soldo = this.$store.state.backupForm.tipo_soldo;
-        this.soldo_cota_porcentagem = this.$store.state.backupForm.soldo_cota_porcentagem;
-        this.soldo_prop_cota_porcentagem = this.$store.state.backupForm.soldo_prop_cota_porcentagem;
-        this.compl_ct_soldo = this.$store.state.backupForm.compl_ct_soldo;
-        this.adic_tp_sv = this.$store.state.backupForm.adic_tp_sv;
-        this.adic_disp = this.$store.state.backupForm.adic_disp;
-        this.adic_hab_tipo = this.$store.state.backupForm.adic_hab_tipo;
-        this.adic_mil = this.$store.state.backupForm.adic_mil;
-        this.adic_comp_org_tipo = this.$store.state.backupForm.adic_comp_org_tipo;
-        this.adic_comp_org_percet = this.$store.state.backupForm.adic_comp_org_percet;
-        this.adic_comp_org_pg = this.$store.state.backupForm.adic_comp_org_pg;
-        this.hvoo_percet = this.$store.state.backupForm.hvoo_percet;
-        this.hvoo_pg = this.$store.state.backupForm.hvoo_pg;
-        this.acres_25_soldo = this.$store.state.backupForm.acres_25_soldo;
-        this.adic_perm = this.$store.state.backupForm.adic_perm;
-        this.salario_familia_dep = this.$store.state.backupForm.salario_familia_dep;
-        this.imposto_renda_dep = this.$store.state.backupForm.imposto_renda_dep;
-        this.adic_ferias = this.$store.state.backupForm.adic_ferias;
-        this.adic_pttc = this.$store.state.backupForm.adic_pttc;
-        this.adic_natalino = this.$store.state.backupForm.adic_natalino;
-        this.adic_natalino_qtd_meses = this.$store.state.backupForm.adic_natalino_qtd_meses;
-        this.adic_natalino_valor_adiantamento = this.$store.state.backupForm.adic_natalino_valor_adiantamento;
-        this.aux_pre_escolar_qtd = this.$store.state.backupForm.aux_pre_escolar_qtd;
-        this.aux_invalidez = this.$store.state.backupForm.aux_invalidez;
-        this.aux_transporte = this.$store.state.backupForm.aux_transporte;
-        this.aux_fard = this.$store.state.backupForm.aux_fard;
-        this.aux_fard_primeiro = this.$store.state.backupForm.aux_fard_primeiro;
-        this.aux_alim_c = this.$store.state.backupForm.aux_alim_c;
-        this.aux_alim_5x = this.$store.state.backupForm.aux_alim_5x;
-        this.aux_natalidade = this.$store.state.backupForm.aux_natalidade;
-        this.grat_loc_esp = this.$store.state.backupForm.grat_loc_esp;
-        this.grat_repr_cmdo = this.$store.state.backupForm.grat_repr_cmdo;
-        this.grat_repr_2 = this.$store.state.backupForm.grat_repr_2;
-        this.grat_repr_2_pg = this.$store.state.backupForm.grat_repr_2_pg;
-        this.dp_excmb_art_9 = this.$store.state.backupForm.dp_excmb_art_9;
-        this.pmil = this.$store.state.backupForm.pmil;
-        this.pmilmesmopg = this.$store.state.backupForm.pmilmesmopg;
-        this.pmil_pg = this.$store.state.backupForm.pmil_pg;
-        this.pmil_15 = this.$store.state.backupForm.pmil_15;
-        this.pmil_30 = this.$store.state.backupForm.pmil_30;
-        this.fusex_3 = this.$store.state.backupForm.fusex_3;
-        this.desc_dep_fusex = this.$store.state.backupForm.desc_dep_fusex;
-        this.pnr = this.$store.state.backupForm.pnr;
-        this.pens_judiciaria_1 = this.$store.state.backupForm.pens_judiciaria_1;
-        this.pens_judiciaria_2 = this.$store.state.backupForm.pens_judiciaria_2;
-        this.pens_judiciaria_3 = this.$store.state.backupForm.pens_judiciaria_3;
-        this.pens_judiciaria_4 = this.$store.state.backupForm.pens_judiciaria_4;
-        this.pens_judiciaria_5 = this.$store.state.backupForm.pens_judiciaria_5;
-        this.pens_judiciaria_6 = this.$store.state.backupForm.pens_judiciaria_6;
-        this.pens_judiciaria_adic_natal_1 = this.$store.state.backupForm.pens_judiciaria_adic_natal_1;
-        this.pens_judiciaria_adic_natal_2 = this.$store.state.backupForm.pens_judiciaria_adic_natal_2;
-        this.pens_judiciaria_adic_natal_3 = this.$store.state.backupForm.pens_judiciaria_adic_natal_3;
-        this.pens_judiciaria_adic_natal_4 = this.$store.state.backupForm.pens_judiciaria_adic_natal_4;
-        this.pens_judiciaria_adic_natal_5 = this.$store.state.backupForm.pens_judiciaria_adic_natal_5;
-        this.pens_judiciaria_adic_natal_6 = this.$store.state.backupForm.pens_judiciaria_adic_natal_6;
-        this.form_soldo_cota = this.$store.state.backupForm.form_soldo_cota;
-        this.form_soldo_prop_cota = this.$store.state.backupForm.form_soldo_prop_cota;
-        this.form_compl_ct_soldo = this.$store.state.backupForm.form_compl_ct_soldo;
-        this.form_adic_tp_sv = this.$store.state.backupForm.form_adic_tp_sv;
-        this.form_adic_disp = this.$store.state.backupForm.form_adic_disp;
-        this.form_adic_hab = this.$store.state.backupForm.form_adic_hab;
-        this.form_adic_mil = this.$store.state.backupForm.form_adic_mil;
-        this.form_adic_comp_org = this.$store.state.backupForm.form_adic_comp_org;
-        this.form_hvoo = this.$store.state.backupForm.form_hvoo;
-        this.form_acres_25_soldo = this.$store.state.backupForm.form_acres_25_soldo;
-        this.form_adic_perm = this.$store.state.backupForm.form_adic_perm;
-        this.form_salario_familia_ir = this.$store.state.backupForm.form_salario_familia_ir;
-        this.form_adic_ferias = this.$store.state.backupForm.form_adic_ferias;
-        this.form_adic_pttc = this.$store.state.backupForm.form_adic_pttc;
-        this.form_adic_natalino = this.$store.state.backupForm.form_adic_natalino;
-        this.form_aux_pre_escolar = this.$store.state.backupForm.form_aux_pre_escolar;
-        this.form_aux_invalidez = this.$store.state.backupForm.form_aux_invalidez;
-        this.form_aux_transporte = this.$store.state.backupForm.form_aux_transporte;
-        this.form_aux_fard = this.$store.state.backupForm.form_aux_fard;
-        this.form_aux_fard_primeiro = this.$store.state.backupForm.form_aux_fard_primeiro;
-        this.form_aux_alim_c = this.$store.state.backupForm.form_aux_alim_c;
-        this.form_aux_alim_5x = this.$store.state.backupForm.form_aux_alim_5x;
-        this.form_aux_natalidade = this.$store.state.backupForm.form_aux_natalidade;
-        this.form_grat_loc_esp = this.$store.state.backupForm.form_grat_loc_esp;
-        this.form_grat_repr_cmdo = this.$store.state.backupForm.form_grat_repr_cmdo;
-        this.form_grat_repr_2 = this.$store.state.backupForm.form_grat_repr_2;
-        this.form_dp_excmb_art_9 = this.$store.state.backupForm.form_dp_excmb_art_9;
-        this.form_pmil = this.$store.state.backupForm.form_pmil;
-        this.form_pmil_15 = this.$store.state.backupForm.form_pmil_15;
-        this.form_pmil_30 = this.$store.state.backupForm.form_pmil_30;
-        this.form_fusex_3 = this.$store.state.backupForm.form_fusex_3;
-        this.form_desc_dep_fusex = this.$store.state.backupForm.form_desc_dep_fusex;
-        this.form_pnr = this.$store.state.backupForm.form_pnr;
-        this.form_pens_judiciaria = this.$store.state.backupForm.form_pens_judiciaria;
-        this.f_aux_transporte = this.$store.state.backupForm.f_aux_transporte;
-        this.f_aux_alim_5x = this.$store.state.backupForm.f_aux_alim_5x;
-        this.f_aux_natalidade = this.$store.state.backupForm.f_aux_natalidade;
-        this.f_hvoo = this.$store.state.backupForm.f_hvoo;
-        this.f_grat_repr_2 = this.$store.state.backupForm.f_grat_repr_2;
-        this.f_pnr = this.$store.state.backupForm.f_pnr;
-        this.f_pens_judiciaria = this.$store.state.backupForm.f_pens_judiciaria;
+        this.universo = form.universo;
+        this.data_contracheque = form.data_contracheque;
+        this.maior_65 = form.maior_65;
+        this.isento_ir = form.isento_ir;
+        this.pg_soldo = form.pg_soldo;
+        this.pg_real = form.pg_real;
+        this.tipo_soldo = form.tipo_soldo;
+        this.soldo_cota_porcentagem = form.soldo_cota_porcentagem;
+        this.soldo_prop_cota_porcentagem = form.soldo_prop_cota_porcentagem;
+        this.compl_ct_soldo = form.compl_ct_soldo;
+        this.adic_tp_sv = form.adic_tp_sv;
+        this.adic_disp = form.adic_disp;
+        this.adic_hab_tipo = form.adic_hab_tipo;
+        this.adic_mil = form.adic_mil;
+        this.adic_comp_org_tipo = form.adic_comp_org_tipo;
+        this.adic_comp_org_percet = form.adic_comp_org_percet;
+        this.adic_comp_org_pg = form.adic_comp_org_pg;
+        this.hvoo_percet = form.hvoo_percet;
+        this.hvoo_pg = form.hvoo_pg;
+        this.acres_25_soldo = form.acres_25_soldo;
+        this.adic_perm = form.adic_perm;
+        this.salario_familia_dep = form.salario_familia_dep;
+        this.imposto_renda_dep = form.imposto_renda_dep;
+        this.adic_ferias = form.adic_ferias;
+        this.adic_pttc = form.adic_pttc;
+        this.adic_natalino = form.adic_natalino;
+        this.adic_natalino_qtd_meses = form.adic_natalino_qtd_meses;
+        this.adic_natalino_valor_adiantamento = form.adic_natalino_valor_adiantamento;
+        this.aux_pre_escolar_qtd = form.aux_pre_escolar_qtd;
+        this.aux_invalidez = form.aux_invalidez;
+        this.aux_transporte = form.aux_transporte;
+        this.aux_fard = form.aux_fard;
+        this.aux_fard_primeiro = form.aux_fard_primeiro;
+        this.aux_alim_c = form.aux_alim_c;
+        this.aux_alim_5x = form.aux_alim_5x;
+        this.aux_natalidade = form.aux_natalidade;
+        this.grat_loc_esp = form.grat_loc_esp;
+        this.grat_repr_cmdo = form.grat_repr_cmdo;
+        this.grat_repr_2 = form.grat_repr_2;
+        this.grat_repr_2_pg = form.grat_repr_2_pg;
+        this.dp_excmb_art_9 = form.dp_excmb_art_9;
+        this.pmil = form.pmil;
+        this.pmilmesmopg = form.pmilmesmopg;
+        this.pmil_pg = form.pmil_pg;
+        this.pmil_15 = form.pmil_15;
+        this.pmil_30 = form.pmil_30;
+        this.fusex_3 = form.fusex_3;
+        this.desc_dep_fusex = form.desc_dep_fusex;
+        this.pnr = form.pnr;
+        this.pens_judiciaria_1 = form.pens_judiciaria_1;
+        this.pens_judiciaria_2 = form.pens_judiciaria_2;
+        this.pens_judiciaria_3 = form.pens_judiciaria_3;
+        this.pens_judiciaria_4 = form.pens_judiciaria_4;
+        this.pens_judiciaria_5 = form.pens_judiciaria_5;
+        this.pens_judiciaria_6 = form.pens_judiciaria_6;
+        this.pens_judiciaria_adic_natal_1 = form.pens_judiciaria_adic_natal_1;
+        this.pens_judiciaria_adic_natal_2 = form.pens_judiciaria_adic_natal_2;
+        this.pens_judiciaria_adic_natal_3 = form.pens_judiciaria_adic_natal_3;
+        this.pens_judiciaria_adic_natal_4 = form.pens_judiciaria_adic_natal_4;
+        this.pens_judiciaria_adic_natal_5 = form.pens_judiciaria_adic_natal_5;
+        this.pens_judiciaria_adic_natal_6 = form.pens_judiciaria_adic_natal_6;
+        this.form_soldo_cota = form.form_soldo_cota;
+        this.form_soldo_prop_cota = form.form_soldo_prop_cota;
+        this.form_compl_ct_soldo = form.form_compl_ct_soldo;
+        this.form_adic_tp_sv = form.form_adic_tp_sv;
+        this.form_adic_disp = form.form_adic_disp;
+        this.form_adic_hab = form.form_adic_hab;
+        this.form_adic_mil = form.form_adic_mil;
+        this.form_adic_comp_org = form.form_adic_comp_org;
+        this.form_hvoo = form.form_hvoo;
+        this.form_acres_25_soldo = form.form_acres_25_soldo;
+        this.form_adic_perm = form.form_adic_perm;
+        this.form_salario_familia_ir = form.form_salario_familia_ir;
+        this.form_adic_ferias = form.form_adic_ferias;
+        this.form_adic_pttc = form.form_adic_pttc;
+        this.form_adic_natalino = form.form_adic_natalino;
+        this.form_aux_pre_escolar = form.form_aux_pre_escolar;
+        this.form_aux_invalidez = form.form_aux_invalidez;
+        this.form_aux_transporte = form.form_aux_transporte;
+        this.form_aux_fard = form.form_aux_fard;
+        this.form_aux_fard_primeiro = form.form_aux_fard_primeiro;
+        this.form_aux_alim_c = form.form_aux_alim_c;
+        this.form_aux_alim_5x = form.form_aux_alim_5x;
+        this.form_aux_natalidade = form.form_aux_natalidade;
+        this.form_grat_loc_esp = form.form_grat_loc_esp;
+        this.form_grat_repr_cmdo = form.form_grat_repr_cmdo;
+        this.form_grat_repr_2 = form.form_grat_repr_2;
+        this.form_dp_excmb_art_9 = form.form_dp_excmb_art_9;
+        this.form_pmil = form.form_pmil;
+        this.form_pmil_15 = form.form_pmil_15;
+        this.form_pmil_30 = form.form_pmil_30;
+        this.form_fusex_3 = form.form_fusex_3;
+        this.form_desc_dep_fusex = form.form_desc_dep_fusex;
+        this.form_pnr = form.form_pnr;
+        this.form_pens_judiciaria = form.form_pens_judiciaria;
+        this.f_aux_transporte = form.f_aux_transporte;
+        this.f_aux_alim_5x = form.f_aux_alim_5x;
+        this.f_aux_natalidade = form.f_aux_natalidade;
+        this.f_hvoo = form.f_hvoo;
+        this.f_grat_repr_2 = form.f_grat_repr_2;
+        this.f_pnr = form.f_pnr;
+        this.f_pens_judiciaria = form.f_pens_judiciaria;
       }
     }
   },
@@ -10473,7 +10473,102 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      data_assinatura: "------"
+    };
+  },
+  methods: {
+    restaurarData: function restaurarData() {
+      if (this.$store.state.activeUser.data_assinatura) {
+        this.data_assinatura = this.$store.state.activeUser.data_assinatura;
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.restaurarData();
+  }
+});
 
 /***/ }),
 
@@ -15719,6 +15814,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active,\n.fade-leave-active {\n    transition: opacity 0.5s, transform 0.5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {\n    opacity: 0;\n    transform: translateY(-1em);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.perfil_container form {\r\n    padding-left: 1.2em;\r\n    width: 80%;\n}\n.perfil_input {\r\n    width: 100%;\r\n    display: flex;\n}\n.perfil_container input {\r\n    margin-bottom: 0.7em;\r\n    flex: 1;\r\n    margin-left: 1em;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34074,6 +34193,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Perfil_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Perfil.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Perfil_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Perfil_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -34801,15 +34950,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Perfil_vue_vue_type_template_id_24e65dab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Perfil.vue?vue&type=template&id=24e65dab& */ "./resources/js/views/Perfil.vue?vue&type=template&id=24e65dab&");
 /* harmony import */ var _Perfil_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Perfil.vue?vue&type=script&lang=js& */ "./resources/js/views/Perfil.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Perfil_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Perfil.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Perfil_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Perfil_vue_vue_type_template_id_24e65dab___WEBPACK_IMPORTED_MODULE_0__.render,
   _Perfil_vue_vue_type_template_id_24e65dab___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -35054,6 +35205,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FichaAuxiliar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FichaAuxiliar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=style&index=0&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************!*\
+  !*** ./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Perfil_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Perfil.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/Perfil.vue?vue&type=style&index=0&lang=css&");
 
 
 /***/ }),
@@ -42882,61 +43046,182 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "perfil_container" }, [
     _c("h2", [_vm._v("Perfil")]),
-    _vm._v(" "),
-    _c("ul", [
-      _c("li", [
-        _c("strong", [_vm._v("Usuário:")]),
-        _vm._v(
-          "\n            " +
-            _vm._s(_vm.$store.state.activeUser.name) +
-            "\n        "
-        ),
+    _vm._v("\n\n    " + _vm._s(_vm.$store.state.activeUser) + "\n    "),
+    _c("form", [
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_nome", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.name },
+        }),
       ]),
       _vm._v(" "),
-      _c("li", [
-        _c("strong", [_vm._v("Posto/Grad:")]),
-        _vm._v(
-          "\n            " +
-            _vm._s(_vm.$store.state.activeUser.post_grad) +
-            "\n        "
-        ),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_post_grad", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.post_grad },
+        }),
       ]),
       _vm._v(" "),
-      _c("li", [
-        _c("strong", [_vm._v("Email:")]),
-        _vm._v(" " + _vm._s(_vm.$store.state.activeUser.email)),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_email", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.email },
+        }),
       ]),
       _vm._v(" "),
-      _c("li", [
-        _c("strong", [_vm._v("Chefe da equipe:")]),
-        _vm._v(
-          "\n            " +
-            _vm._s(_vm.$store.state.activeUser.ch_equipe_name) +
-            "\n        "
-        ),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_ch_equipe_name", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.ch_equipe_name },
+        }),
       ]),
       _vm._v(" "),
-      _c("li", [
-        _c("strong", [_vm._v(" Posto/Grad do chefe da euipe:")]),
-        _vm._v(
-          "\n            " +
-            _vm._s(_vm.$store.state.activeUser.ch_equipe_pg) +
-            "\n        "
-        ),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_ch_equipe_pg", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.ch_equipe_pg },
+        }),
       ]),
       _vm._v(" "),
-      _c("li", [
-        _c("strong", [_vm._v("Tipo de perfil:")]),
-        _vm._v(
-          "\n            " +
-            _vm._s(_vm.$store.state.activeUser.userType) +
-            "\n        "
-        ),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(5),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_userType", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.userType },
+        }),
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(6),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_local_assinatura", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.local_assinatura },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(7),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", id: "perfil_om", disabled: "" },
+          domProps: { value: _vm.$store.state.activeUser.om },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "perfil_input" }, [
+        _vm._m(8),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data_assinatura,
+              expression: "data_assinatura",
+            },
+          ],
+          attrs: { type: "date", id: "perfil_dataassinatura" },
+          domProps: { value: _vm.data_assinatura },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.data_assinatura = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v("\n        " + _vm._s(_vm.data_assinatura) + "\n    "),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_nome" } }, [
+      _c("strong", [_vm._v("Usuário:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_post_grad" } }, [
+      _c("strong", [_vm._v("Posto/Grad:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_email" } }, [
+      _c("strong", [_vm._v("E-mail:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_ch_equipe_name" } }, [
+      _c("strong", [_vm._v("Chefe da equipe:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_ch_equipe_pg" } }, [
+      _c("strong", [_vm._v("P/G chefe da equipe:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_userType" } }, [
+      _c("strong", [_vm._v("Nível de acesso:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_local_assinatura" } }, [
+      _c("strong", [_vm._v("Local da assinatura: ")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_om" } }, [
+      _c("strong", [_vm._v("OM: ")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "perfil_dataassinatura" } }, [
+      _c("strong", [_vm._v("Data de assinatura:")]),
+    ])
+  },
+]
 render._withStripped = true
 
 

@@ -2659,168 +2659,116 @@ export default {
         restoreForm() {
             let form = this.$store.state.backupForm;
             if (form) {
-                this.universo = this.$store.state.backupForm.universo;
-                this.data_contracheque =
-                    this.$store.state.backupForm.data_contracheque;
-                this.maior_65 = this.$store.state.backupForm.maior_65;
-                this.isento_ir = this.$store.state.backupForm.isento_ir;
-                this.pg_soldo = this.$store.state.backupForm.pg_soldo;
-                this.pg_real = this.$store.state.backupForm.pg_real;
-                this.tipo_soldo = this.$store.state.backupForm.tipo_soldo;
-                this.soldo_cota_porcentagem =
-                    this.$store.state.backupForm.soldo_cota_porcentagem;
+                this.universo = form.universo;
+                this.data_contracheque = form.data_contracheque;
+                this.maior_65 = form.maior_65;
+                this.isento_ir = form.isento_ir;
+                this.pg_soldo = form.pg_soldo;
+                this.pg_real = form.pg_real;
+                this.tipo_soldo = form.tipo_soldo;
+                this.soldo_cota_porcentagem = form.soldo_cota_porcentagem;
                 this.soldo_prop_cota_porcentagem =
-                    this.$store.state.backupForm.soldo_prop_cota_porcentagem;
-                this.compl_ct_soldo =
-                    this.$store.state.backupForm.compl_ct_soldo;
-                this.adic_tp_sv = this.$store.state.backupForm.adic_tp_sv;
-                this.adic_disp = this.$store.state.backupForm.adic_disp;
-                this.adic_hab_tipo = this.$store.state.backupForm.adic_hab_tipo;
-                this.adic_mil = this.$store.state.backupForm.adic_mil;
-                this.adic_comp_org_tipo =
-                    this.$store.state.backupForm.adic_comp_org_tipo;
-                this.adic_comp_org_percet =
-                    this.$store.state.backupForm.adic_comp_org_percet;
-                this.adic_comp_org_pg =
-                    this.$store.state.backupForm.adic_comp_org_pg;
-                this.hvoo_percet = this.$store.state.backupForm.hvoo_percet;
-                this.hvoo_pg = this.$store.state.backupForm.hvoo_pg;
-                this.acres_25_soldo =
-                    this.$store.state.backupForm.acres_25_soldo;
-                this.adic_perm = this.$store.state.backupForm.adic_perm;
-                this.salario_familia_dep =
-                    this.$store.state.backupForm.salario_familia_dep;
-                this.imposto_renda_dep =
-                    this.$store.state.backupForm.imposto_renda_dep;
-                this.adic_ferias = this.$store.state.backupForm.adic_ferias;
-                this.adic_pttc = this.$store.state.backupForm.adic_pttc;
-                this.adic_natalino = this.$store.state.backupForm.adic_natalino;
-                this.adic_natalino_qtd_meses =
-                    this.$store.state.backupForm.adic_natalino_qtd_meses;
+                    form.soldo_prop_cota_porcentagem;
+                this.compl_ct_soldo = form.compl_ct_soldo;
+                this.adic_tp_sv = form.adic_tp_sv;
+                this.adic_disp = form.adic_disp;
+                this.adic_hab_tipo = form.adic_hab_tipo;
+                this.adic_mil = form.adic_mil;
+                this.adic_comp_org_tipo = form.adic_comp_org_tipo;
+                this.adic_comp_org_percet = form.adic_comp_org_percet;
+                this.adic_comp_org_pg = form.adic_comp_org_pg;
+                this.hvoo_percet = form.hvoo_percet;
+                this.hvoo_pg = form.hvoo_pg;
+                this.acres_25_soldo = form.acres_25_soldo;
+                this.adic_perm = form.adic_perm;
+                this.salario_familia_dep = form.salario_familia_dep;
+                this.imposto_renda_dep = form.imposto_renda_dep;
+                this.adic_ferias = form.adic_ferias;
+                this.adic_pttc = form.adic_pttc;
+                this.adic_natalino = form.adic_natalino;
+                this.adic_natalino_qtd_meses = form.adic_natalino_qtd_meses;
                 this.adic_natalino_valor_adiantamento =
-                    this.$store.state.backupForm.adic_natalino_valor_adiantamento;
-                this.aux_pre_escolar_qtd =
-                    this.$store.state.backupForm.aux_pre_escolar_qtd;
-                this.aux_invalidez = this.$store.state.backupForm.aux_invalidez;
-                this.aux_transporte =
-                    this.$store.state.backupForm.aux_transporte;
-                this.aux_fard = this.$store.state.backupForm.aux_fard;
-                this.aux_fard_primeiro =
-                    this.$store.state.backupForm.aux_fard_primeiro;
-                this.aux_alim_c = this.$store.state.backupForm.aux_alim_c;
-                this.aux_alim_5x = this.$store.state.backupForm.aux_alim_5x;
-                this.aux_natalidade =
-                    this.$store.state.backupForm.aux_natalidade;
-                this.grat_loc_esp = this.$store.state.backupForm.grat_loc_esp;
-                this.grat_repr_cmdo =
-                    this.$store.state.backupForm.grat_repr_cmdo;
-                this.grat_repr_2 = this.$store.state.backupForm.grat_repr_2;
-                this.grat_repr_2_pg =
-                    this.$store.state.backupForm.grat_repr_2_pg;
-                this.dp_excmb_art_9 =
-                    this.$store.state.backupForm.dp_excmb_art_9;
-                this.pmil = this.$store.state.backupForm.pmil;
-                this.pmilmesmopg = this.$store.state.backupForm.pmilmesmopg;
-                this.pmil_pg = this.$store.state.backupForm.pmil_pg;
-                this.pmil_15 = this.$store.state.backupForm.pmil_15;
-                this.pmil_30 = this.$store.state.backupForm.pmil_30;
-                this.fusex_3 = this.$store.state.backupForm.fusex_3;
-                this.desc_dep_fusex =
-                    this.$store.state.backupForm.desc_dep_fusex;
-                this.pnr = this.$store.state.backupForm.pnr;
-                this.pens_judiciaria_1 =
-                    this.$store.state.backupForm.pens_judiciaria_1;
-                this.pens_judiciaria_2 =
-                    this.$store.state.backupForm.pens_judiciaria_2;
-                this.pens_judiciaria_3 =
-                    this.$store.state.backupForm.pens_judiciaria_3;
-                this.pens_judiciaria_4 =
-                    this.$store.state.backupForm.pens_judiciaria_4;
-                this.pens_judiciaria_5 =
-                    this.$store.state.backupForm.pens_judiciaria_5;
-                this.pens_judiciaria_6 =
-                    this.$store.state.backupForm.pens_judiciaria_6;
+                    form.adic_natalino_valor_adiantamento;
+                this.aux_pre_escolar_qtd = form.aux_pre_escolar_qtd;
+                this.aux_invalidez = form.aux_invalidez;
+                this.aux_transporte = form.aux_transporte;
+                this.aux_fard = form.aux_fard;
+                this.aux_fard_primeiro = form.aux_fard_primeiro;
+                this.aux_alim_c = form.aux_alim_c;
+                this.aux_alim_5x = form.aux_alim_5x;
+                this.aux_natalidade = form.aux_natalidade;
+                this.grat_loc_esp = form.grat_loc_esp;
+                this.grat_repr_cmdo = form.grat_repr_cmdo;
+                this.grat_repr_2 = form.grat_repr_2;
+                this.grat_repr_2_pg = form.grat_repr_2_pg;
+                this.dp_excmb_art_9 = form.dp_excmb_art_9;
+                this.pmil = form.pmil;
+                this.pmilmesmopg = form.pmilmesmopg;
+                this.pmil_pg = form.pmil_pg;
+                this.pmil_15 = form.pmil_15;
+                this.pmil_30 = form.pmil_30;
+                this.fusex_3 = form.fusex_3;
+                this.desc_dep_fusex = form.desc_dep_fusex;
+                this.pnr = form.pnr;
+                this.pens_judiciaria_1 = form.pens_judiciaria_1;
+                this.pens_judiciaria_2 = form.pens_judiciaria_2;
+                this.pens_judiciaria_3 = form.pens_judiciaria_3;
+                this.pens_judiciaria_4 = form.pens_judiciaria_4;
+                this.pens_judiciaria_5 = form.pens_judiciaria_5;
+                this.pens_judiciaria_6 = form.pens_judiciaria_6;
                 this.pens_judiciaria_adic_natal_1 =
-                    this.$store.state.backupForm.pens_judiciaria_adic_natal_1;
+                    form.pens_judiciaria_adic_natal_1;
                 this.pens_judiciaria_adic_natal_2 =
-                    this.$store.state.backupForm.pens_judiciaria_adic_natal_2;
+                    form.pens_judiciaria_adic_natal_2;
                 this.pens_judiciaria_adic_natal_3 =
-                    this.$store.state.backupForm.pens_judiciaria_adic_natal_3;
+                    form.pens_judiciaria_adic_natal_3;
                 this.pens_judiciaria_adic_natal_4 =
-                    this.$store.state.backupForm.pens_judiciaria_adic_natal_4;
+                    form.pens_judiciaria_adic_natal_4;
                 this.pens_judiciaria_adic_natal_5 =
-                    this.$store.state.backupForm.pens_judiciaria_adic_natal_5;
+                    form.pens_judiciaria_adic_natal_5;
                 this.pens_judiciaria_adic_natal_6 =
-                    this.$store.state.backupForm.pens_judiciaria_adic_natal_6;
-                this.form_soldo_cota =
-                    this.$store.state.backupForm.form_soldo_cota;
-                this.form_soldo_prop_cota =
-                    this.$store.state.backupForm.form_soldo_prop_cota;
-                this.form_compl_ct_soldo =
-                    this.$store.state.backupForm.form_compl_ct_soldo;
-                this.form_adic_tp_sv =
-                    this.$store.state.backupForm.form_adic_tp_sv;
-                this.form_adic_disp =
-                    this.$store.state.backupForm.form_adic_disp;
-                this.form_adic_hab = this.$store.state.backupForm.form_adic_hab;
-                this.form_adic_mil = this.$store.state.backupForm.form_adic_mil;
-                this.form_adic_comp_org =
-                    this.$store.state.backupForm.form_adic_comp_org;
-                this.form_hvoo = this.$store.state.backupForm.form_hvoo;
-                this.form_acres_25_soldo =
-                    this.$store.state.backupForm.form_acres_25_soldo;
-                this.form_adic_perm =
-                    this.$store.state.backupForm.form_adic_perm;
-                this.form_salario_familia_ir =
-                    this.$store.state.backupForm.form_salario_familia_ir;
-                this.form_adic_ferias =
-                    this.$store.state.backupForm.form_adic_ferias;
-                this.form_adic_pttc =
-                    this.$store.state.backupForm.form_adic_pttc;
-                this.form_adic_natalino =
-                    this.$store.state.backupForm.form_adic_natalino;
-                this.form_aux_pre_escolar =
-                    this.$store.state.backupForm.form_aux_pre_escolar;
-                this.form_aux_invalidez =
-                    this.$store.state.backupForm.form_aux_invalidez;
-                this.form_aux_transporte =
-                    this.$store.state.backupForm.form_aux_transporte;
-                this.form_aux_fard = this.$store.state.backupForm.form_aux_fard;
-                this.form_aux_fard_primeiro =
-                    this.$store.state.backupForm.form_aux_fard_primeiro;
-                this.form_aux_alim_c =
-                    this.$store.state.backupForm.form_aux_alim_c;
-                this.form_aux_alim_5x =
-                    this.$store.state.backupForm.form_aux_alim_5x;
-                this.form_aux_natalidade =
-                    this.$store.state.backupForm.form_aux_natalidade;
-                this.form_grat_loc_esp =
-                    this.$store.state.backupForm.form_grat_loc_esp;
-                this.form_grat_repr_cmdo =
-                    this.$store.state.backupForm.form_grat_repr_cmdo;
-                this.form_grat_repr_2 =
-                    this.$store.state.backupForm.form_grat_repr_2;
-                this.form_dp_excmb_art_9 =
-                    this.$store.state.backupForm.form_dp_excmb_art_9;
-                this.form_pmil = this.$store.state.backupForm.form_pmil;
-                this.form_pmil_15 = this.$store.state.backupForm.form_pmil_15;
-                this.form_pmil_30 = this.$store.state.backupForm.form_pmil_30;
-                this.form_fusex_3 = this.$store.state.backupForm.form_fusex_3;
-                this.form_desc_dep_fusex =
-                    this.$store.state.backupForm.form_desc_dep_fusex;
-                this.form_pnr = this.$store.state.backupForm.form_pnr;
-                this.form_pens_judiciaria =
-                    this.$store.state.backupForm.form_pens_judiciaria;
-                this.f_aux_transporte =
-                    this.$store.state.backupForm.f_aux_transporte;
-                this.f_aux_alim_5x = this.$store.state.backupForm.f_aux_alim_5x;
-                this.f_aux_natalidade =
-                    this.$store.state.backupForm.f_aux_natalidade;
-                this.f_hvoo = this.$store.state.backupForm.f_hvoo;
-                this.f_grat_repr_2 = this.$store.state.backupForm.f_grat_repr_2;
-                this.f_pnr = this.$store.state.backupForm.f_pnr;
-                this.f_pens_judiciaria =
-                    this.$store.state.backupForm.f_pens_judiciaria;
+                    form.pens_judiciaria_adic_natal_6;
+                this.form_soldo_cota = form.form_soldo_cota;
+                this.form_soldo_prop_cota = form.form_soldo_prop_cota;
+                this.form_compl_ct_soldo = form.form_compl_ct_soldo;
+                this.form_adic_tp_sv = form.form_adic_tp_sv;
+                this.form_adic_disp = form.form_adic_disp;
+                this.form_adic_hab = form.form_adic_hab;
+                this.form_adic_mil = form.form_adic_mil;
+                this.form_adic_comp_org = form.form_adic_comp_org;
+                this.form_hvoo = form.form_hvoo;
+                this.form_acres_25_soldo = form.form_acres_25_soldo;
+                this.form_adic_perm = form.form_adic_perm;
+                this.form_salario_familia_ir = form.form_salario_familia_ir;
+                this.form_adic_ferias = form.form_adic_ferias;
+                this.form_adic_pttc = form.form_adic_pttc;
+                this.form_adic_natalino = form.form_adic_natalino;
+                this.form_aux_pre_escolar = form.form_aux_pre_escolar;
+                this.form_aux_invalidez = form.form_aux_invalidez;
+                this.form_aux_transporte = form.form_aux_transporte;
+                this.form_aux_fard = form.form_aux_fard;
+                this.form_aux_fard_primeiro = form.form_aux_fard_primeiro;
+                this.form_aux_alim_c = form.form_aux_alim_c;
+                this.form_aux_alim_5x = form.form_aux_alim_5x;
+                this.form_aux_natalidade = form.form_aux_natalidade;
+                this.form_grat_loc_esp = form.form_grat_loc_esp;
+                this.form_grat_repr_cmdo = form.form_grat_repr_cmdo;
+                this.form_grat_repr_2 = form.form_grat_repr_2;
+                this.form_dp_excmb_art_9 = form.form_dp_excmb_art_9;
+                this.form_pmil = form.form_pmil;
+                this.form_pmil_15 = form.form_pmil_15;
+                this.form_pmil_30 = form.form_pmil_30;
+                this.form_fusex_3 = form.form_fusex_3;
+                this.form_desc_dep_fusex = form.form_desc_dep_fusex;
+                this.form_pnr = form.form_pnr;
+                this.form_pens_judiciaria = form.form_pens_judiciaria;
+                this.f_aux_transporte = form.f_aux_transporte;
+                this.f_aux_alim_5x = form.f_aux_alim_5x;
+                this.f_aux_natalidade = form.f_aux_natalidade;
+                this.f_hvoo = form.f_hvoo;
+                this.f_grat_repr_2 = form.f_grat_repr_2;
+                this.f_pnr = form.f_pnr;
+                this.f_pens_judiciaria = form.f_pens_judiciaria;
             }
         },
     },

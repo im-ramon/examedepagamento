@@ -9,7 +9,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credenciais = $request->all();
-        $user_info = \App\Models\User::where('email', '=', $credenciais)->get(['email', 'name', 'ch_equipe_name', 'ch_equipe_pg', 'post_grad', 'userType']);
+        $user_info = \App\Models\User::where('email', '=', $credenciais)->get(['email', 'name', 'ch_equipe_name', 'ch_equipe_pg', 'post_grad', 'userType', 'data_assinatura', 'om', 'local_assinatura']);
         $token = auth('api')->attempt($credenciais);
 
         if ($token) {

@@ -1012,6 +1012,7 @@ img.login_logo {
 
 .legislacao_item {
   width: 40%;
+  padding: 1em 2em;
   height: 70px;
   border-radius: 6px;
   font-size: 14px;
