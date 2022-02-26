@@ -10235,7 +10235,11 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(this.nowPath, "/api/legislacao"), config).then(function (r) {
-        return r.data.arquivos.slice(2, r.data.arquivos.length);
+        var retorno = [];
+        retorno = r.data.arquivos.filter(function (item) {
+          return item.length >= 3;
+        });
+        return retorno;
       }).then(function (r) {
         listaDeArquivos = r.map(function (item) {
           var path = "".concat(_this.nowPath, "/legislacao/").concat(item);

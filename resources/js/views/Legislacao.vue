@@ -60,7 +60,14 @@ export default {
 
             axios
                 .get(`${this.nowPath}/api/legislacao`, config)
-                .then((r) => r.data.arquivos.slice(2, r.data.arquivos.length))
+                .then((r) => {
+                    let retorno = [];
+                    retorno = r.data.arquivos.filter(
+                        (item) => item.length >= 3
+                    );
+
+                    return retorno;
+                })
                 .then((r) => {
                     listaDeArquivos = r.map((item) => {
                         let path = `${this.nowPath}/legislacao/${item}`;
