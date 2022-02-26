@@ -6,7 +6,8 @@ table {
 }
 
 #ficha_auxilitar input,
-#ficha_auxilitar textarea#observacoes_receitas {
+#ficha_auxilitar textarea#observacoes_receitas,
+#ficha_auxilitar textarea#observacoes_descontos {
   border: none;
 }
 /*# sourceMappingURL=print.css.map */

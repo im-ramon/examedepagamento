@@ -6,7 +6,8 @@ table {
 }
 #ficha_auxilitar {
     input,
-    textarea#observacoes_receitas {
+    textarea#observacoes_receitas,
+    textarea#observacoes_descontos {
         border: none;
     }
 }

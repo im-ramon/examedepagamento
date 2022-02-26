@@ -7188,6 +7188,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7300,6 +7306,34 @@ __webpack_require__.r(__webpack_exports__);
     dateToDateFormated: function dateToDateFormated(value) {
       var data = value.split("-");
       return "".concat(data[1], "/").concat(data[0]);
+    },
+    data_extenso: function data_extenso(value) {
+      var dia = "d";
+      var mes = "m";
+      value.split("-")[1] == "01" && (mes = "janeiro");
+      value.split("-")[1] == "02" && (mes = "fevereiro");
+      value.split("-")[1] == "03" && (mes = "março");
+      value.split("-")[1] == "04" && (mes = "abril");
+      value.split("-")[1] == "05" && (mes = "maio");
+      value.split("-")[1] == "06" && (mes = "junho");
+      value.split("-")[1] == "07" && (mes = "julho");
+      value.split("-")[1] == "08" && (mes = "agosto");
+      value.split("-")[1] == "09" && (mes = "setembro");
+      value.split("-")[1] == "10" && (mes = "outubro");
+      value.split("-")[1] == "11" && (mes = "novembro");
+      value.split("-")[1] == "12" && (mes = "dezembro"); // ----------------------------------------------//
+
+      value.split("-")[2] == "01" && (dia = "1º");
+      value.split("-")[2] == "02" && (dia = "2");
+      value.split("-")[2] == "03" && (dia = "3");
+      value.split("-")[2] == "04" && (dia = "4");
+      value.split("-")[2] == "05" && (dia = "5");
+      value.split("-")[2] == "06" && (dia = "6");
+      value.split("-")[2] == "07" && (dia = "7");
+      value.split("-")[2] == "08" && (dia = "8");
+      value.split("-")[2] == "09" && (dia = "9"); // ----------------------------------------------//
+
+      return "".concat(dia, " de ").concat(mes, " de ").concat(value.split("-")[0], ".");
     }
   }
 });
@@ -36091,13 +36125,33 @@ var render = function () {
               _vm._v(" "),
               _vm._m(15),
               _vm._v(" "),
+              _c("tr", [
+                _c(
+                  "td",
+                  { staticClass: "td_assinatura", attrs: { colspan: "11" } },
+                  [
+                    _c("p", [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.$store.state.activeUser.local_assinatura) +
+                          ",\n                    " +
+                          _vm._s(
+                            _vm._f("data_extenso")(
+                              _vm.$store.state.activeUser.data_assinatura
+                            )
+                          ) +
+                          "\n                "
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
               _vm._m(16),
               _vm._v(" "),
               _vm._m(17),
               _vm._v(" "),
               _vm._m(18),
-              _vm._v(" "),
-              _vm._m(19),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36119,11 +36173,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(19),
+              _vm._v(" "),
               _vm._m(20),
               _vm._v(" "),
               _vm._m(21),
-              _vm._v(" "),
-              _vm._m(22),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36143,11 +36197,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(22),
+              _vm._v(" "),
               _vm._m(23),
               _vm._v(" "),
               _vm._m(24),
-              _vm._v(" "),
-              _vm._m(25),
             ],
             2
           )
@@ -36498,16 +36552,6 @@ var staticRenderFns = [
     return _c("tr", [
       _c("td", { staticClass: "td_assinatura", attrs: { colspan: "11" } }, [
         _c("br"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "td_assinatura", attrs: { colspan: "11" } }, [
-        _c("p", [_vm._v("Feira de Santana/BA, 20 de janeiro de 2022.")]),
       ]),
     ])
   },

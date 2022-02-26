@@ -273,7 +273,13 @@
             </tr>
             <tr>
                 <td class="td_assinatura" colspan="11">
-                    <p>Feira de Santana/BA, 20 de janeiro de 2022.</p>
+                    <p>
+                        {{ $store.state.activeUser.local_assinatura }},
+                        {{
+                            $store.state.activeUser.data_assinatura
+                                | data_extenso
+                        }}
+                    </p>
                 </td>
             </tr>
             <tr>
@@ -526,6 +532,34 @@ export default {
         dateToDateFormated(value) {
             let data = value.split("-");
             return `${data[1]}/${data[0]}`;
+        },
+        data_extenso(value) {
+            let dia = "d";
+            let mes = "m";
+            value.split("-")[1] == "01" && (mes = "janeiro");
+            value.split("-")[1] == "02" && (mes = "fevereiro");
+            value.split("-")[1] == "03" && (mes = "março");
+            value.split("-")[1] == "04" && (mes = "abril");
+            value.split("-")[1] == "05" && (mes = "maio");
+            value.split("-")[1] == "06" && (mes = "junho");
+            value.split("-")[1] == "07" && (mes = "julho");
+            value.split("-")[1] == "08" && (mes = "agosto");
+            value.split("-")[1] == "09" && (mes = "setembro");
+            value.split("-")[1] == "10" && (mes = "outubro");
+            value.split("-")[1] == "11" && (mes = "novembro");
+            value.split("-")[1] == "12" && (mes = "dezembro");
+            // ----------------------------------------------//
+            value.split("-")[2] == "01" && (dia = "1º");
+            value.split("-")[2] == "02" && (dia = "2");
+            value.split("-")[2] == "03" && (dia = "3");
+            value.split("-")[2] == "04" && (dia = "4");
+            value.split("-")[2] == "05" && (dia = "5");
+            value.split("-")[2] == "06" && (dia = "6");
+            value.split("-")[2] == "07" && (dia = "7");
+            value.split("-")[2] == "08" && (dia = "8");
+            value.split("-")[2] == "09" && (dia = "9");
+            // ----------------------------------------------//
+            return `${dia} de ${mes} de ${value.split("-")[0]}.`;
         },
     },
 };
