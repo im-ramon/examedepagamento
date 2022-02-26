@@ -7191,9 +7191,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10576,37 +10573,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      data_assinatura: "------"
-    };
-  },
-  methods: {
-    restaurarData: function restaurarData() {
-      if (this.$store.state.activeUser.data_assinatura) {
-        this.data_assinatura = this.$store.state.activeUser.data_assinatura;
-      }
-    }
-  },
-  mounted: function mounted() {
-    this.restaurarData();
-  }
-});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -15875,7 +15842,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.perfil_container form {\r\n    padding-left: 1.2em;\r\n    width: 80%;\n}\n.perfil_input {\r\n    width: 100%;\r\n    display: flex;\n}\n.perfil_container input {\r\n    margin-bottom: 0.7em;\r\n    flex: 1;\r\n    margin-left: 1em;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.perfil_container form {\r\n    padding-left: 1.2em;\r\n    width: calc(100% - 1.2em);\n}\n.perfil_input {\r\n    width: 100%;\r\n    display: flex;\n}\n.perfil_container input {\r\n    margin-bottom: 0.7em;\r\n    flex: 1;\r\n    margin-left: 1em;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36134,13 +36101,7 @@ var render = function () {
                       _vm._v(
                         "\n                    " +
                           _vm._s(_vm.$store.state.activeUser.local_assinatura) +
-                          ",\n                    " +
-                          _vm._s(
-                            _vm._f("data_extenso")(
-                              _vm.$store.state.activeUser.data_assinatura
-                            )
-                          ) +
-                          "\n                "
+                          ", DATA DA\n                    ASSINATURA AQUI!!!\n                "
                       ),
                     ]),
                   ]
@@ -43094,7 +43055,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "perfil_container" }, [
     _c("h2", [_vm._v("Perfil")]),
-    _vm._v("\n\n    " + _vm._s(_vm.$store.state.activeUser) + "\n    "),
+    _vm._v(" "),
     _c("form", [
       _c("div", { staticClass: "perfil_input" }, [
         _vm._m(0),
@@ -43167,32 +43128,6 @@ var render = function () {
           domProps: { value: _vm.$store.state.activeUser.om },
         }),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "perfil_input" }, [
-        _vm._m(8),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data_assinatura,
-              expression: "data_assinatura",
-            },
-          ],
-          attrs: { type: "date", id: "perfil_dataassinatura" },
-          domProps: { value: _vm.data_assinatura },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.data_assinatura = $event.target.value
-            },
-          },
-        }),
-      ]),
-      _vm._v("\n        " + _vm._s(_vm.data_assinatura) + "\n    "),
     ]),
   ])
 }
@@ -43259,14 +43194,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "perfil_om" } }, [
       _c("strong", [_vm._v("OM: ")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "perfil_dataassinatura" } }, [
-      _c("strong", [_vm._v("Data de assinatura:")]),
     ])
   },
 ]

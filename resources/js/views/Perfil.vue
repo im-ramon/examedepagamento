@@ -1,8 +1,6 @@
 <template>
     <div class="perfil_container">
         <h2>Perfil</h2>
-
-        {{ $store.state.activeUser }}
         <form>
             <div class="perfil_input">
                 <label for="perfil_nome"><strong>Usuário:</strong></label>
@@ -90,47 +88,18 @@
                     disabled
                 />
             </div>
-
-            <div class="perfil_input">
-                <label for="perfil_dataassinatura">
-                    <strong>Data de assinatura:</strong>
-                </label>
-                <input
-                    type="date"
-                    v-model="data_assinatura"
-                    id="perfil_dataassinatura"
-                />
-            </div>
-            {{ data_assinatura }}
         </form>
     </div>
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            data_assinatura: "------",
-        };
-    },
-    methods: {
-        restaurarData() {
-            if (this.$store.state.activeUser.data_assinatura) {
-                this.data_assinatura =
-                    this.$store.state.activeUser.data_assinatura;
-            }
-        },
-    },
-    mounted() {
-        this.restaurarData();
-    },
-};
+export default {};
 </script>
 
 <style>
 .perfil_container form {
     padding-left: 1.2em;
-    width: 80%;
+    width: calc(100% - 1.2em);
 }
 .perfil_input {
     width: 100%;

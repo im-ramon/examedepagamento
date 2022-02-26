@@ -724,6 +724,7 @@ img.login_logo {
 .perfil_container {
     @include blocoNaPagina;
     flex-direction: column;
+    width: auto;
 
     li {
         list-style: circle;

@@ -274,11 +274,8 @@
             <tr>
                 <td class="td_assinatura" colspan="11">
                     <p>
-                        {{ $store.state.activeUser.local_assinatura }},
-                        {{
-                            $store.state.activeUser.data_assinatura
-                                | data_extenso
-                        }}
+                        {{ $store.state.activeUser.local_assinatura }}, DATA DA
+                        ASSINATURA AQUI!!!
                     </p>
                 </td>
             </tr>
