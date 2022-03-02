@@ -1264,6 +1264,7 @@ img.login_logo {
   border-radius: 6px;
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
+  width: auto;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;

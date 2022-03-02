@@ -971,6 +971,7 @@ img.login_logo {
 
 #index-container {
     @include blocoNaPagina();
+    width: auto;
     justify-content: flex-start;
 }
 
