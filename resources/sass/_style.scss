@@ -12,7 +12,6 @@ $success: #5cb85c;
 $info: #5bc0de;
 $warning: #f0ad4e;
 $danger: #d9534f;
-
 // ------------- --------- ------------- //
 
 // ------------- ANIMAÇÕES ------------- //
@@ -1016,6 +1015,22 @@ img.login_logo {
         &:hover {
             transform: scale(1.2);
             transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+@media print {
+    table {
+        visibility: visible;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #ficha_auxilitar {
+        input,
+        textarea#observacoes_receitas,
+        textarea#observacoes_descontos {
+            border: none;
         }
     }
 }

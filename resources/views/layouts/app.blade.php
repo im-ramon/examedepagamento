@@ -11,8 +11,8 @@
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/print.css') }}" media="print">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/print.css') }}" media="print"> --}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
