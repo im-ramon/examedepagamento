@@ -10367,14 +10367,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {
-    url: function url() {
-      var path = window.location.href;
-      return "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
-    }
-  }
-});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -42978,13 +43009,98 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("HOME INDEX")]),
+  return _c("div", { attrs: { id: "index-container" } }, [
+    _vm._m(0),
     _vm._v(" "),
-    _c("h3", [_vm._v(_vm._s(_vm.url))]),
+    _c("div", { attrs: { id: "index-main" } }, [
+      _c(
+        "div",
+        { staticClass: "index-main-item" },
+        [
+          _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
+            _c("img", {
+              attrs: { src: "/svg/make.svg", alt: "icone computador" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Gerar contracheque")]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "index-main-item" },
+        [
+          _c("router-link", { attrs: { to: "/gerenciar-contracheque" } }, [
+            _c("img", {
+              attrs: {
+                src: "/svg/search_database.svg",
+                alt: "icone computador",
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Gerenciar contracheques")]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "index-main-item" },
+        [
+          _c("router-link", { attrs: { to: "/perfil" } }, [
+            _c("img", {
+              attrs: { src: "/svg/user.svg", alt: "icone usuário" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Meu perfil")]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "index-main-item" },
+        [
+          _c("router-link", { attrs: { to: "/legislacao" } }, [
+            _c("img", { attrs: { src: "/svg/books.svg", alt: "icone livro" } }),
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Legislação")]),
+        ],
+        1
+      ),
+    ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "index-header" } }, [
+      _c("h1", [_vm._v("👋🏽 Bem vindo ao App Exame de Pagamento.")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n            Novo por aqui? Dê uma olhada no manual do App no seguinte link:\n            "
+        ),
+        _c("a", { attrs: { href: "/docs/manual.pdf", target: "_BLANK" } }, [
+          _vm._v("Manual do App"),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n            Já conhece o sistema? Então escolha uma das funcionalidades do\n            App:\n        "
+        ),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
