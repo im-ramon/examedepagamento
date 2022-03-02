@@ -583,36 +583,48 @@ form#formulario {
 }
 
 #gerar,
-#btn_gerar {
+.btn_gerar {
+    align-items: center;
     background: $preto;
     border-radius: $borderRadius;
     border: 2px solid $cinza-transparente;
     bottom: 1em;
     box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.863);
     cursor: pointer;
+    display: flex;
     height: 40px;
-    position: fixed;
+    justify-content: center;
     line-height: 100%;
+    position: fixed;
     right: 2em;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 1s;
     width: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 0 1em;
+
+    &.resetar {
+        right: calc(2em + 280px + 1em);
+        background: $warning;
+        width: auto;
+        padding: 0 1em;
+    }
     span {
         color: $branco;
     }
 }
 
 #gerar:hover,
-#btn_gerar:hover {
+.btn_gerar:hover {
     background: #000;
     transition: all 1s;
     border: 2px solid #000;
     transform: scale(1.1);
+
+    &.resetar {
+        background: $warning;
+    }
 }
 
 .icon_loading {
@@ -802,10 +814,21 @@ img.login_logo {
 #legislacao_container {
     @include blocoNaPagina();
     width: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #legislacao_header {
     @include cabecalhoNaPagina();
+}
+
+#legislacao_body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #legenda {
@@ -910,5 +933,15 @@ img.login_logo {
         justify-content: space-between;
         align-items: center;
         padding: 0.3em 0.7em;
+
+        img {
+            width: 25px;
+            margin-right: 0.4em;
+        }
     }
+}
+
+#contrachequeAtivo {
+    // background: #0275d8;
+    margin-left: 1em;
 }

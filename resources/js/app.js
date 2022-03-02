@@ -17,6 +17,7 @@ const store = new Vuex.Store({
         backupForm: false,
         dadosFinanceiros: false,
         activeUser: false,
+        contrachequeAtivo: false,
     }
 })
 /**

@@ -1,6 +1,14 @@
 <template>
     <form id="formulario" v-on:submit.prevent v-if="!loading">
         <input type="hidden" name="_token" :value="form_token" />
+        <div id="contrachequeAtivo">
+            <label>Código do contracheque:</label>
+            <input
+                type="text"
+                disabled
+                :value="$store.state.contrachequeAtivo || 'Novo contracheque'"
+            />
+        </div>
         <section id="form_informacoes_pessoais">
             <h2>Informações gerais</h2>
             <fieldset class="question_root">
@@ -2315,9 +2323,10 @@
                 </fieldset>
             </section>
         </section>
-        <router-link id="btn_gerar" to="/ficha-auxiliar">
+        <router-link class="btn_gerar" to="/ficha-auxiliar">
             <span>GERAR CONTRACHEQUE</span>
         </router-link>
+        <a @click="cleanForm" class="btn_gerar resetar">LIMPAR FORMULÁRIO</a>
     </form>
     <loading-component v-else></loading-component>
 </template>
@@ -2655,7 +2664,10 @@ export default {
 
             this.$store.state.backupForm = formSaved;
         },
-
+        cleanForm() {
+            this.$store.state.contrachequeAtivo = false;
+            window.location.reload();
+        },
         restoreForm() {
             let form = this.$store.state.backupForm;
             if (form) {

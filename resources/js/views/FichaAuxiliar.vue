@@ -1,5 +1,13 @@
 <template>
     <section id="ficha_auxilitar">
+        <div id="contrachequeAtivo">
+            <label>Código do contracheque:</label>
+            <input
+                type="text"
+                disabled
+                :value="$store.state.contrachequeAtivo || '-'"
+            />
+        </div>
         <button onClick="window.print()">IMPRIMIR</button>
         <button @click="salvarNoBancoDeDados">SALVAR</button>
         <table
@@ -361,8 +369,8 @@
                     <span @click="modalActive = false">X</span>
                     <!-- style="background: red" -->
                     <p v-if="modalType == 'success'">
-                        Registro inserido com sucesso! <br />
-                        O identificador do contracheque é:
+                        Contracheque salvo com sucesso! <br />
+                        O código identificador do contracheque é:
                         <strong>{{ identificadoContracheque }}</strong> <br />
                         Guarde esse número!<br />
                         Você precisará dele para consultar seu contracheque
@@ -482,7 +490,7 @@ export default {
     methods: {
         salvarNoBancoDeDados() {
             let ficha_auxiliar_json = JSON.stringify(
-                this.$store.state.dadosFinanceiros
+                this.$store.state.backupForm
             );
 
             let config = {
@@ -493,17 +501,39 @@ export default {
                 },
             };
 
-            axios
-                .post(
-                    `${this.nowPath}/api/ficha-auxiliar`,
-                    {
-                        ficha_auxiliar_json,
-                        user_email: this.$store.state.activeUser.email,
-                    },
-                    config
-                )
-                .then((r) => this.alertSuccess(r.data.id, true))
-                .catch((e) => this.alertSuccess(e, false));
+            if (this.$store.state.contrachequeAtivo) {
+                axios
+                    .patch(
+                        `${this.nowPath}/api/ficha-auxiliar/${this.$store.state.contrachequeAtivo}`,
+                        {
+                            ficha_auxiliar_json,
+                            user_email: this.$store.state.activeUser.email,
+                        },
+                        config
+                    )
+                    .then((r) => {
+                        this.alertSuccess(
+                            this.$store.state.contrachequeAtivo,
+                            true
+                        );
+                        setTimeout(() => {
+                            this.$router.push("/gerenciar-contracheque");
+                        }, 2000);
+                    })
+                    .catch((e) => console.log(e));
+            } else {
+                axios
+                    .post(
+                        `${this.nowPath}/api/ficha-auxiliar`,
+                        {
+                            ficha_auxiliar_json,
+                            user_email: this.$store.state.activeUser.email,
+                        },
+                        config
+                    )
+                    .then((r) => this.alertSuccess(r.data.id, true))
+                    .catch((e) => this.alertSuccess(e, false));
+            }
         },
         alertSuccess(id, success) {
             if (success) {
@@ -515,9 +545,6 @@ export default {
                 this.modalType = id;
             }
         },
-    },
-    beforeEnter: (to, from, next) => {
-        alert("ok");
     },
     filters: {
         numeroPreco(value) {

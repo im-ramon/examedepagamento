@@ -7191,6 +7191,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7262,7 +7270,7 @@ __webpack_require__.r(__webpack_exports__);
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
       var _this = this;
 
-      var ficha_auxiliar_json = JSON.stringify(this.$store.state.dadosFinanceiros);
+      var ficha_auxiliar_json = JSON.stringify(this.$store.state.backupForm);
       var config = {
         headers: {
           "Content-Type": "application/json",
@@ -7270,14 +7278,30 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: this.token
         }
       };
-      axios.post("".concat(this.nowPath, "/api/ficha-auxiliar"), {
-        ficha_auxiliar_json: ficha_auxiliar_json,
-        user_email: this.$store.state.activeUser.email
-      }, config).then(function (r) {
-        return _this.alertSuccess(r.data.id, true);
-      })["catch"](function (e) {
-        return _this.alertSuccess(e, false);
-      });
+
+      if (this.$store.state.contrachequeAtivo) {
+        axios.patch("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(this.$store.state.contrachequeAtivo), {
+          ficha_auxiliar_json: ficha_auxiliar_json,
+          user_email: this.$store.state.activeUser.email
+        }, config).then(function (r) {
+          _this.alertSuccess(_this.$store.state.contrachequeAtivo, true);
+
+          setTimeout(function () {
+            _this.$router.push("/gerenciar-contracheque");
+          }, 2000);
+        })["catch"](function (e) {
+          return console.log(e);
+        });
+      } else {
+        axios.post("".concat(this.nowPath, "/api/ficha-auxiliar"), {
+          ficha_auxiliar_json: ficha_auxiliar_json,
+          user_email: this.$store.state.activeUser.email
+        }, config).then(function (r) {
+          return _this.alertSuccess(r.data.id, true);
+        })["catch"](function (e) {
+          return _this.alertSuccess(e, false);
+        });
+      }
     },
     alertSuccess: function alertSuccess(id, success) {
       if (success) {
@@ -7289,9 +7313,6 @@ __webpack_require__.r(__webpack_exports__);
         this.modalType = id;
       }
     }
-  },
-  beforeEnter: function beforeEnter(to, from, next) {
-    alert("ok");
   },
   filters: {
     numeroPreco: function numeroPreco(value) {
@@ -7358,6 +7379,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10020,6 +10050,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       };
       this.$store.state.backupForm = formSaved;
     },
+    cleanForm: function cleanForm() {
+      this.$store.state.contrachequeAtivo = false;
+      window.location.reload();
+    },
     restoreForm: function restoreForm() {
       var form = this.$store.state.backupForm;
 
@@ -10185,6 +10219,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10209,6 +10262,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    // imprimir_contracheque(dados) {
+    //     this.$store.state.dadosFinanceiros = dados;
+    // },
+    excluir_contracheque: function excluir_contracheque(id) {
+      alert("excluir - " + id);
+    },
+    editar_contracheque: function editar_contracheque(id, dados) {
+      this.$store.state.backupForm = dados;
+      this.$store.state.contrachequeAtivo = id;
+    },
     recuperarContracheques: function recuperarContracheques() {
       var _this = this;
 
@@ -10250,6 +10313,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   beforeMount: function beforeMount() {
     this.recuperarContracheques();
+  },
+  filters: {
+    formataUniverso: function formataUniverso(v) {
+      if (v == "ativa") {
+        return "Ativa";
+      } else if (v == "inativo") {
+        return "Inativo";
+      } else if (v == "pens_mil") {
+        return "Pensionista Militar";
+      } else if (v == "pens_excmbt_2ten") {
+        return "Pensionista Ex-Cmbt - 2º Ten";
+      } else if (v == "pens_excmbt_2sgt") {
+        return "Pensionista Ex-Cmbt - 2º Sgt";
+      } else {
+        return v;
+      }
+    }
   }
 });
 
@@ -10297,6 +10377,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
 //
 //
 //
@@ -10699,7 +10781,8 @@ var store = new Vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     backupForm: false,
     dadosFinanceiros: false,
-    activeUser: false
+    activeUser: false,
+    contrachequeAtivo: false
   }
 });
 /**
@@ -35931,6 +36014,15 @@ var render = function () {
     "section",
     { attrs: { id: "ficha_auxilitar" } },
     [
+      _c("div", { attrs: { id: "contrachequeAtivo" } }, [
+        _c("label", [_vm._v("Código do contracheque:")]),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "text", disabled: "" },
+          domProps: { value: _vm.$store.state.contrachequeAtivo || "-" },
+        }),
+      ]),
+      _vm._v(" "),
       _c("button", { attrs: { onClick: "window.print()" } }, [
         _vm._v("IMPRIMIR"),
       ]),
@@ -36297,11 +36389,11 @@ var render = function () {
               _vm.modalType == "success"
                 ? _c("p", [
                     _vm._v(
-                      "\n                    Registro inserido com sucesso! "
+                      "\n                    Contracheque salvo com sucesso! "
                     ),
                     _c("br"),
                     _vm._v(
-                      "\n                    O identificador do contracheque é:\n                    "
+                      "\n                    O código identificador do contracheque é:\n                    "
                     ),
                     _c("strong", [
                       _vm._v(_vm._s(_vm.identificadoContracheque)),
@@ -36750,6 +36842,18 @@ var render = function () {
             attrs: { type: "hidden", name: "_token" },
             domProps: { value: _vm.form_token },
           }),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "contrachequeAtivo" } }, [
+            _c("label", [_vm._v("Código do contracheque:")]),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "text", disabled: "" },
+              domProps: {
+                value:
+                  _vm.$store.state.contrachequeAtivo || "Novo contracheque",
+              },
+            }),
+          ]),
           _vm._v(" "),
           _c("section", { attrs: { id: "form_informacoes_pessoais" } }, [
             _c("h2", [_vm._v("Informações gerais")]),
@@ -41863,8 +41967,14 @@ var render = function () {
           _vm._v(" "),
           _c(
             "router-link",
-            { attrs: { id: "btn_gerar", to: "/ficha-auxiliar" } },
+            { staticClass: "btn_gerar", attrs: { to: "/ficha-auxiliar" } },
             [_c("span", [_vm._v("GERAR CONTRACHEQUE")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "btn_gerar resetar", on: { click: _vm.cleanForm } },
+            [_vm._v("LIMPAR FORMULÁRIO")]
           ),
         ],
         1
@@ -42784,14 +42894,38 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("span", [
-              _vm._v(
-                "\n                P/G Real: " +
-                  _vm._s(c.dados.informacoes.pg_real_info.pg_abrev) +
-                  "\n            "
-              ),
+              _vm._v("\n                Universo:\n                "),
+              _c("strong", [
+                _vm._v(_vm._s(_vm._f("formataUniverso")(c.dados.universo))),
+              ]),
             ]),
             _vm._v(" "),
-            _vm._m(0, true),
+            _c(
+              "div",
+              { staticClass: "gererenciarContracheque-botoes" },
+              [
+                _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
+                  _c("img", {
+                    attrs: { src: "/svg/edit.svg", alt: "icone editar" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.editar_contracheque(c.id, c.dados)
+                      },
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: { src: "/svg/delete.svg", alt: "icone delete" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.excluir_contracheque(c.id)
+                    },
+                  },
+                }),
+              ],
+              1
+            ),
           ]
         )
       }),
@@ -42799,20 +42933,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "gererenciarContracheque-botoes" }, [
-      _c("img", { attrs: { src: "/svg/edit.svg", alt: "icone editar" } }),
-      _vm._v(" "),
-      _c("img", { attrs: { src: "/svg/delete.svg", alt: "icone delete" } }),
-      _vm._v(" "),
-      _c("img", { attrs: { src: "/svg/print.svg", alt: "icone print" } }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42864,33 +42985,39 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "legislacao_container" } },
-    [
-      _c("h2", { attrs: { id: "legislacao_header" } }, [_vm._v("Legislação")]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm.legislacao
-        ? _vm._l(_vm.legislacao, function (l) {
-            return _c(
-              "a",
-              {
-                key: l.title,
-                class: "legislacao_item " + "legislacao_item-" + l.type,
-                attrs: { href: l.path, target: "_BLANK" },
-              },
-              [_vm._v("\n            " + _vm._s(l.title) + "\n        ")]
-            )
-          })
-        : _c("img", {
-            staticStyle: { width: "25px" },
-            attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
-          }),
-    ],
-    2
-  )
+  return _c("div", { attrs: { id: "legislacao_container" } }, [
+    _c("h2", { attrs: { id: "legislacao_header" } }, [_vm._v("Legislação")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { id: "legislacao_body" } },
+      [
+        _vm.legislacao
+          ? _vm._l(_vm.legislacao, function (l) {
+              return _c(
+                "a",
+                {
+                  key: l.title,
+                  class: "legislacao_item " + "legislacao_item-" + l.type,
+                  attrs: { href: l.path, target: "_BLANK" },
+                },
+                [
+                  _vm._v(
+                    "\n                " + _vm._s(l.title) + "\n            "
+                  ),
+                ]
+              )
+            })
+          : _c("img", {
+              staticStyle: { width: "25px" },
+              attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
+            }),
+      ],
+      2
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {

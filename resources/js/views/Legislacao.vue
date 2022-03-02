@@ -11,23 +11,25 @@
                 </div>
             </section>
         </div>
-        <template v-if="legislacao">
-            <a
-                :class="'legislacao_item ' + 'legislacao_item-' + l.type"
-                v-for="l in legislacao"
-                :key="l.title"
-                :href="l.path"
-                target="_BLANK"
-            >
-                {{ l.title }}
-            </a>
-        </template>
-        <img
-            v-else
-            src="/svg/loading.svg"
-            style="width: 25px"
-            alt="Ícone de carregamento"
-        />
+        <div id="legislacao_body">
+            <template v-if="legislacao">
+                <a
+                    :class="'legislacao_item ' + 'legislacao_item-' + l.type"
+                    v-for="l in legislacao"
+                    :key="l.title"
+                    :href="l.path"
+                    target="_BLANK"
+                >
+                    {{ l.title }}
+                </a>
+            </template>
+            <img
+                v-else
+                src="/svg/loading.svg"
+                style="width: 25px"
+                alt="Ícone de carregamento"
+            />
+        </div>
     </div>
 </template>
 

@@ -15,12 +15,31 @@
                     Código do contracheque: <strong>{{ c.id }}</strong>
                 </span>
                 <span>
-                    P/G Real: {{ c.dados.informacoes.pg_real_info.pg_abrev }}
+                    Universo:
+                    <strong>{{ c.dados.universo | formataUniverso }}</strong>
                 </span>
                 <div class="gererenciarContracheque-botoes">
-                    <img src="/svg/edit.svg" alt="icone editar" />
-                    <img src="/svg/delete.svg" alt="icone delete" />
-                    <img src="/svg/print.svg" alt="icone print" />
+                    <router-link to="/gerar-contracheque">
+                        <img
+                            src="/svg/edit.svg"
+                            @click="editar_contracheque(c.id, c.dados)"
+                            alt="icone editar"
+                        />
+                    </router-link>
+
+                    <img
+                        src="/svg/delete.svg"
+                        @click="excluir_contracheque(c.id)"
+                        alt="icone delete"
+                    />
+
+                    <!-- <router-link to="/ficha-auxiliar">
+                        <img
+                            src="/svg/print.svg"
+                            @click="imprimir_contracheque(c.dados)"
+                            alt="icone print"
+                        />
+                    </router-link> -->
                 </div>
             </div>
         </div>
@@ -59,6 +78,16 @@ export default {
     },
 
     methods: {
+        // imprimir_contracheque(dados) {
+        //     this.$store.state.dadosFinanceiros = dados;
+        // },
+        excluir_contracheque(id) {
+            alert("excluir - " + id);
+        },
+        editar_contracheque(id, dados) {
+            this.$store.state.backupForm = dados;
+            this.$store.state.contrachequeAtivo = id;
+        },
         async recuperarContracheques() {
             let config = {
                 headers: {
@@ -87,6 +116,24 @@ export default {
     },
     beforeMount() {
         this.recuperarContracheques();
+    },
+
+    filters: {
+        formataUniverso(v) {
+            if (v == "ativa") {
+                return "Ativa";
+            } else if (v == "inativo") {
+                return "Inativo";
+            } else if (v == "pens_mil") {
+                return "Pensionista Militar";
+            } else if (v == "pens_excmbt_2ten") {
+                return "Pensionista Ex-Cmbt - 2º Ten";
+            } else if (v == "pens_excmbt_2sgt") {
+                return "Pensionista Ex-Cmbt - 2º Sgt";
+            } else {
+                return v;
+            }
+        },
     },
 };
 </script>

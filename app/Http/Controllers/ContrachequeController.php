@@ -219,14 +219,15 @@ class ContrachequeController extends Controller
         return ['contracheques' => $contracheques];
     }
 
-    public function edit(Contracheque $Contracheque)
+    public function edit(Request $request, Contracheque $Contracheque)
     {
         //
     }
 
-    public function update(UpdateContrachequeRequest $request, Contracheque $Contracheque)
+    public function update(Request $request, Contracheque $contracheque, $id) // PUT e PATCH
     {
-        //
+        $insert = \App\Models\Contracheque::where('id', '=', $id)->update($request->all());
+        return $insert;
     }
 
     public function destroy(Contracheque $Contracheque)
