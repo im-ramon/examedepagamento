@@ -1,5 +1,5 @@
 <template>
-    <section id="ficha_auxilitar">
+    <section id="ficha_auxilitar" v-show="$store.state.dadosFinanceiros">
         <div id="contrachequeAtivo">
             <label>Código do contracheque:</label>
             <input

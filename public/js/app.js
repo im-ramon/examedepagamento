@@ -36057,7 +36057,17 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { attrs: { id: "ficha_auxilitar" } },
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.$store.state.dadosFinanceiros,
+          expression: "$store.state.dadosFinanceiros",
+        },
+      ],
+      attrs: { id: "ficha_auxilitar" },
+    },
     [
       _c("div", { attrs: { id: "contrachequeAtivo" } }, [
         _c("label", [_vm._v("Código do contracheque:")]),
