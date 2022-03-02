@@ -24,6 +24,7 @@
                             src="/svg/edit.svg"
                             @click="editar_contracheque(c.id, c.dados)"
                             alt="icone editar"
+                            id="editar_contracheque"
                         />
                     </router-link>
 
@@ -31,6 +32,7 @@
                         src="/svg/delete.svg"
                         @click="excluir_contracheque(c.id)"
                         alt="icone delete"
+                        id="excluir_contracheque"
                     />
 
                     <!-- <router-link to="/ficha-auxiliar">
@@ -78,11 +80,23 @@ export default {
     },
 
     methods: {
-        // imprimir_contracheque(dados) {
-        //     this.$store.state.dadosFinanceiros = dados;
-        // },
         excluir_contracheque(id) {
-            alert("excluir - " + id);
+            if (
+                confirm(
+                    `Esta operação irá excluir DEFINITIVAMENTE o contracheque de código "${id}" do banco de dados. \n\n Deseja continuar?`
+                )
+            ) {
+                let config = {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: this.token,
+                    },
+                };
+                axios
+                    .delete(`${this.nowPath}/api/ficha-auxiliar/${id}`, config)
+                    .then((r) => this.recuperarContracheques())
+                    .catch((e) => console.log(e));
+            }
         },
         editar_contracheque(id, dados) {
             this.$store.state.backupForm = dados;

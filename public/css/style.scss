@@ -924,21 +924,44 @@ img.login_logo {
     padding-left: 1.2em;
     width: calc(100% - 1.2em);
 
+    .gererenciarContracheque-botoes {
+        height: auto;
+    }
+
     .gererenciarContracheque-item {
-        background: #0274d85d;
-        border-radius: $borderRadius;
-        margin-bottom: 0.7em;
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
         align-items: center;
+        background: #fff;
+        border-radius: $borderRadius;
+        border: 2px dashed $branco;
+        display: flex;
+        height: 50px;
+        justify-content: space-between;
+        margin-bottom: 1em;
         padding: 0.3em 0.7em;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 9px 9px 25px -11px rgba(0, 0, 0, 0.22);
+        }
 
         img {
             width: 25px;
             margin-right: 0.4em;
+            cursor: pointer;
         }
     }
+}
+
+#editar_contracheque {
+    filter: invert(58%) sepia(66%) saturate(373%) hue-rotate(71deg) brightness(97%) contrast(84%);
+    // background: $success;
+}
+
+#excluir_contracheque {
+    filter: invert(44%) sepia(62%) saturate(650%) hue-rotate(314deg) brightness(89%) contrast(91%);
+    // background: $danger;
 }
 
 #contrachequeAtivo {

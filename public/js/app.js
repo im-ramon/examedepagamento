@@ -7287,7 +7287,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.alertSuccess(_this.$store.state.contrachequeAtivo, true);
 
           setTimeout(function () {
-            _this.$router.push("/gerenciar-contracheque");
+            _this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
+
           }, 2000);
         })["catch"](function (e) {
           return console.log(e);
@@ -10238,6 +10239,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10262,18 +10265,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    // imprimir_contracheque(dados) {
-    //     this.$store.state.dadosFinanceiros = dados;
-    // },
     excluir_contracheque: function excluir_contracheque(id) {
-      alert("excluir - " + id);
+      var _this = this;
+
+      if (confirm("Esta opera\xE7\xE3o ir\xE1 excluir DEFINITIVAMENTE o contracheque de c\xF3digo \"".concat(id, "\" do banco de dados. \n\n Deseja continuar?"))) {
+        var config = {
+          headers: {
+            Accept: "application/json",
+            Authorization: this.token
+          }
+        };
+        axios["delete"]("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(id), config).then(function (r) {
+          return _this.recuperarContracheques();
+        })["catch"](function (e) {
+          return console.log(e);
+        });
+      }
     },
     editar_contracheque: function editar_contracheque(id, dados) {
       this.$store.state.backupForm = dados;
       this.$store.state.contrachequeAtivo = id;
     },
     recuperarContracheques: function recuperarContracheques() {
-      var _this = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var config;
@@ -10284,11 +10298,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 config = {
                   headers: {
                     Accept: "application/json",
-                    Authorization: _this.token
+                    Authorization: _this2.token
                   }
                 };
                 _context.next = 3;
-                return axios.get("".concat(_this.nowPath, "/api/ficha-auxiliar/").concat(_this.usuarioAtual.email), config) // .then((r) => (this.contrachequeList = r.data.contracheques))
+                return axios.get("".concat(_this2.nowPath, "/api/ficha-auxiliar/").concat(_this2.usuarioAtual.email), config) // .then((r) => (this.contrachequeList = r.data.contracheques))
                 .then(function (r) {
                   return r.data.contracheques.map(function (item) {
                     return {
@@ -10297,7 +10311,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
                   });
                 }).then(function (r) {
-                  return _this.contrachequeList = r;
+                  return _this2.contrachequeList = r;
                 })["catch"](function (e) {
                   return console.log(e);
                 });
@@ -42906,7 +42920,11 @@ var render = function () {
               [
                 _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
                   _c("img", {
-                    attrs: { src: "/svg/edit.svg", alt: "icone editar" },
+                    attrs: {
+                      src: "/svg/edit.svg",
+                      alt: "icone editar",
+                      id: "editar_contracheque",
+                    },
                     on: {
                       click: function ($event) {
                         return _vm.editar_contracheque(c.id, c.dados)
@@ -42916,7 +42934,11 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("img", {
-                  attrs: { src: "/svg/delete.svg", alt: "icone delete" },
+                  attrs: {
+                    src: "/svg/delete.svg",
+                    alt: "icone delete",
+                    id: "excluir_contracheque",
+                  },
                   on: {
                     click: function ($event) {
                       return _vm.excluir_contracheque(c.id)

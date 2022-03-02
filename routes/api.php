@@ -30,6 +30,7 @@ Route::middleware('jwt.auth')->group(function () {
     Route::get('ficha-auxiliar/{email}', 'App\Http\Controllers\ContrachequeController@recuperarContracheques');
     Route::post('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController@store');
     Route::patch('ficha-auxiliar/{id}', 'App\Http\Controllers\ContrachequeController@update');
+    Route::delete('ficha-auxiliar/{id}', 'App\Http\Controllers\ContrachequeController@destroy');
     Route::resource('pg-constantes', 'App\Http\Controllers\PgConstanteController');
     Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');

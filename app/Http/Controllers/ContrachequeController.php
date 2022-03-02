@@ -226,13 +226,14 @@ class ContrachequeController extends Controller
 
     public function update(Request $request, Contracheque $contracheque, $id) // PUT e PATCH
     {
-        $insert = \App\Models\Contracheque::where('id', '=', $id)->update($request->all());
-        return $insert;
+        $update = \App\Models\Contracheque::where('id', '=', $id)->update($request->all());
+        return $update;
     }
 
-    public function destroy(Contracheque $Contracheque)
+    public function destroy(Contracheque $Contracheque, $id) // DELETE
     {
-        //
+        $destroy = \App\Models\Contracheque::where('id', '=', $id)->delete();
+        return $destroy;
     }
 
     // ----- Metódos internos ----- //

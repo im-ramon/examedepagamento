@@ -517,7 +517,7 @@ export default {
                             true
                         );
                         setTimeout(() => {
-                            this.$router.push("/gerenciar-contracheque");
+                            this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
                         }, 2000);
                     })
                     .catch((e) => console.log(e));
