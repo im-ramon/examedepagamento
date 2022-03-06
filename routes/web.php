@@ -17,12 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-// Route::prefix('/app')->group(function () {
-//     Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'gerarFormulario'])->name('app.formulario');
-//     Route::post('/ficha-auxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
-// });
-
 Auth::routes();
 
 Route::get('/app', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
