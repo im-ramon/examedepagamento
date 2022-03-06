@@ -966,6 +966,13 @@ img.login_logo {
 #contrachequeAtivo {
     // background: #0275d8;
     margin-left: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+        margin-left: 0.5em;
+    }
 }
 
 #index-container {
@@ -976,9 +983,10 @@ img.login_logo {
 
 #index-main {
     @include blocoNaPagina();
-    display: grid;
-    gap: 1em;
-    grid-template-columns: 1fr 1fr;
+
+    p {
+        text-align: justify;
+    }
 }
 
 .index-main-item {
@@ -1032,5 +1040,106 @@ img.login_logo {
         textarea#observacoes_descontos {
             border: none;
         }
+    }
+}
+
+.btn_refresh {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.3em 0.7em;
+    border-radius: $borderRadius;
+    border: 2px solid $branco;
+    background: #fff;
+    cursor: pointer;
+
+    img {
+        transition: all 0.5s ease-in-out;
+        margin-left: 0.5em;
+    }
+
+    &:hover {
+        img {
+            transform: rotate(360deg);
+            transition: all 0.5s ease-in-out;
+            filter: invert(68%) sepia(31%) saturate(733%) hue-rotate(71deg) brightness(89%) contrast(84%);
+        }
+    }
+}
+
+.buscando_registros {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.3em 0.7em;
+    cursor: pointer;
+
+    img {
+        margin-left: 0.5em;
+    }
+}
+
+#ficha_auxiliar-head {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    border: 2px solid $branco;
+    border-radius: $borderRadius;
+    padding: 0.3em;
+    margin-bottom: 0.7em;
+
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        button {
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00000047;
+            padding: 0.4em 0.9em;
+            border-radius: $borderRadius;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                transition: all 0.3s ease-in-out;
+                transform: scale(1.12);
+            }
+
+            img {
+                margin-left: 0.3em;
+                width: 18px;
+            }
+        }
+
+        button:nth-child(1) {
+            background: $info;
+        }
+
+        button:nth-child(2) {
+            background: $success;
+            margin-left: 0.3em;
+        }
+    }
+}
+
+#gerar_contracheque-head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        border: 2px solid $branco;
+        border-radius: $borderRadius;
+        padding: 0.3em;
     }
 }

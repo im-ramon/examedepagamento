@@ -902,6 +902,12 @@ img.login_logo {
 
 #contrachequeAtivo {
   margin-left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contrachequeAtivo input {
+  margin-left: 0.5em;
 }
 
 #index-container {
@@ -926,9 +932,9 @@ img.login_logo {
   border-radius: 6px;
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
-  display: grid;
-  gap: 1em;
-  grid-template-columns: 1fr 1fr;
+}
+#index-main p {
+  text-align: justify;
 }
 
 .index-main-item {
@@ -983,4 +989,92 @@ img.login_logo {
 #ficha_auxilitar textarea#observacoes_descontos {
     border: none;
   }
+}
+.btn_refresh {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  border: 2px solid #e1e1e1;
+  background: #fff;
+  cursor: pointer;
+}
+.btn_refresh img {
+  transition: all 0.5s ease-in-out;
+  margin-left: 0.5em;
+}
+.btn_refresh:hover img {
+  transform: rotate(360deg);
+  transition: all 0.5s ease-in-out;
+  filter: invert(68%) sepia(31%) saturate(733%) hue-rotate(71deg) brightness(89%) contrast(84%);
+}
+
+.buscando_registros {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.3em 0.7em;
+  cursor: pointer;
+}
+.buscando_registros img {
+  margin-left: 0.5em;
+}
+
+#ficha_auxiliar-head {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  border: 2px solid #e1e1e1;
+  border-radius: 6px;
+  padding: 0.3em;
+  margin-bottom: 0.7em;
+}
+#ficha_auxiliar-head section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+#ficha_auxiliar-head section button {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #00000047;
+  padding: 0.4em 0.9em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#ficha_auxiliar-head section button:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.12);
+}
+#ficha_auxiliar-head section button img {
+  margin-left: 0.3em;
+  width: 18px;
+}
+#ficha_auxiliar-head section button:nth-child(1) {
+  background: #5bc0de;
+}
+#ficha_auxiliar-head section button:nth-child(2) {
+  background: #5cb85c;
+  margin-left: 0.3em;
+}
+
+#gerar_contracheque-head {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#gerar_contracheque-head div {
+  border: 2px solid #e1e1e1;
+  border-radius: 6px;
+  padding: 0.3em;
 }

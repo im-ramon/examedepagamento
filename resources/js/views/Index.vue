@@ -8,37 +8,20 @@
             </p>
             <p>
                 Já conhece o sistema? Então escolha uma das funcionalidades do
-                App:
+                App e siga em frente.
             </p>
         </div>
         <div id="index-main">
-            <div class="index-main-item">
-                <router-link to="/gerar-contracheque">
-                    <img src="/svg/make.svg" alt="icone computador" />
-                </router-link>
-                <span>Gerar contracheque</span>
-            </div>
-            <div class="index-main-item">
-                <router-link to="/gerenciar-contracheque">
-                    <img
-                        src="/svg/search_database.svg"
-                        alt="icone computador"
-                    />
-                </router-link>
-                <span>Gerenciar contracheques</span>
-            </div>
-            <div class="index-main-item">
-                <router-link to="/perfil">
-                    <img src="/svg/user.svg" alt="icone usuário" />
-                </router-link>
-                <span>Meu perfil</span>
-            </div>
-            <div class="index-main-item">
-                <router-link to="/legislacao">
-                    <img src="/svg/books.svg" alt="icone livro" />
-                </router-link>
-                <span>Legislação</span>
-            </div>
+            <h3>Aviso importantes</h3>
+            <p>
+                • Em razão de algumas restrições impostas pela Lei nº 13.709, de
+                14 de agosto de 2018 - Lei Geral de Proteção de Dados Pessoais
+                (LGPD), quanto ao tratamento de dados pessoais de terceiros,
+                esta aplicação
+                <strong>não armazena ou trata nenhum dado pessoal</strong>. Os
+                dados pessoais do examinado poderão ser inseridos no momento da
+                impressão da Ficha Auxiliar, porém não ficarão armazenados.
+            </p>
         </div>
     </div>
 </template>

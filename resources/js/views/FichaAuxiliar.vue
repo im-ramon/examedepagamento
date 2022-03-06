@@ -1,15 +1,27 @@
 <template>
     <section id="ficha_auxilitar" v-show="$store.state.dadosFinanceiros">
-        <div id="contrachequeAtivo">
-            <label>Código do contracheque:</label>
-            <input
-                type="text"
-                disabled
-                :value="$store.state.contrachequeAtivo || '-'"
-            />
+        <div id="ficha_auxiliar-head">
+            <div id="contrachequeAtivo">
+                <label>Código do contracheque ativo: </label>
+                <input
+                    type="text"
+                    disabled
+                    :value="
+                        $store.state.contrachequeAtivo || 'Novo contracheque'
+                    "
+                />
+            </div>
+            <section>
+                <button onClick="window.print()">
+                    <span>Imprimir</span>
+                    <img src="/svg/print.svg" alt="Ícone de Imprimir" />
+                </button>
+                <button @click="salvarNoBancoDeDados">
+                    <span>Salvar</span>
+                    <img src="/svg/save.svg" alt="Ícone de Imprimir" />
+                </button>
+            </section>
         </div>
-        <button onClick="window.print()">IMPRIMIR</button>
-        <button @click="salvarNoBancoDeDados">SALVAR</button>
         <table
             cellpadding="0"
             cellspacing="0"

@@ -1,9 +1,27 @@
 <template>
     <div id="gererenciarContracheque_container">
         <h2>Contracheques salvos</h2>
-        <!-- <pre>
-            {{ contrachequeList }}
-        </pre> -->
+        <div class="buscando_registros" v-show="buscandoRegistros">
+            <span>Buscando registros. Aguarde</span>
+            <img
+                src="/svg/loading.svg"
+                style="width: 25px"
+                alt="Ícone de carregamento"
+            />
+        </div>
+
+        <div
+            class="btn_refresh"
+            v-if="contrachequeList.length == 0"
+            @click="recuperarContracheques"
+        >
+            <span>Não registro de contracheques no banco de dados.</span>
+            <img
+                src="/svg/refresh.svg"
+                style="width: 25px"
+                alt="Ícone de refresh"
+            />
+        </div>
 
         <div id="gererenciarContracheque_section">
             <div
@@ -52,7 +70,8 @@
 export default {
     data() {
         return {
-            contrachequeList: [],
+            contrachequeList: false,
+            buscandoRegistros: false,
         };
     },
     computed: {
@@ -103,6 +122,7 @@ export default {
             this.$store.state.contrachequeAtivo = id;
         },
         async recuperarContracheques() {
+            this.buscandoRegistros = true;
             let config = {
                 headers: {
                     Accept: "application/json",
@@ -115,7 +135,6 @@ export default {
                     `${this.nowPath}/api/ficha-auxiliar/${this.usuarioAtual.email}`,
                     config
                 )
-                // .then((r) => (this.contrachequeList = r.data.contracheques))
                 .then((r) =>
                     r.data.contracheques.map((item) => {
                         return {
@@ -124,12 +143,19 @@ export default {
                         };
                     })
                 )
-                .then((r) => (this.contrachequeList = r))
-                .catch((e) => console.log(e));
+                .then((r) => {
+                    this.contrachequeList = r;
+                })
+                .catch((e) => {
+                    console.log(e);
+                })
+                .finally(() => (this.buscandoRegistros = false));
         },
     },
-    beforeMount() {
-        this.recuperarContracheques();
+    mounted() {
+        setTimeout(() => {
+            this.recuperarContracheques();
+        }, 1);
     },
 
     filters: {

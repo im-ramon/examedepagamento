@@ -1,13 +1,17 @@
 <template>
     <form id="formulario" v-on:submit.prevent v-if="!loading">
         <input type="hidden" name="_token" :value="form_token" />
-        <div id="contrachequeAtivo">
-            <label>Código do contracheque:</label>
-            <input
-                type="text"
-                disabled
-                :value="$store.state.contrachequeAtivo || 'Novo contracheque'"
-            />
+        <div id="gerar_contracheque-head">
+            <div id="contrachequeAtivo">
+                <label>Código do contracheque ativo: </label>
+                <input
+                    type="text"
+                    disabled
+                    :value="
+                        $store.state.contrachequeAtivo || 'Novo contracheque'
+                    "
+                />
+            </div>
         </div>
         <section id="form_informacoes_pessoais">
             <h2>Informações gerais</h2>

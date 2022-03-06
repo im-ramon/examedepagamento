@@ -7199,6 +7199,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7380,6 +7392,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -10241,10 +10257,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      contrachequeList: []
+      contrachequeList: false,
+      buscandoRegistros: false
     };
   },
   computed: {
@@ -10295,15 +10330,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this2.buscandoRegistros = true;
                 config = {
                   headers: {
                     Accept: "application/json",
                     Authorization: _this2.token
                   }
                 };
-                _context.next = 3;
-                return axios.get("".concat(_this2.nowPath, "/api/ficha-auxiliar/").concat(_this2.usuarioAtual.email), config) // .then((r) => (this.contrachequeList = r.data.contracheques))
-                .then(function (r) {
+                _context.next = 4;
+                return axios.get("".concat(_this2.nowPath, "/api/ficha-auxiliar/").concat(_this2.usuarioAtual.email), config).then(function (r) {
                   return r.data.contracheques.map(function (item) {
                     return {
                       id: item.id,
@@ -10311,12 +10346,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
                   });
                 }).then(function (r) {
-                  return _this2.contrachequeList = r;
+                  _this2.contrachequeList = r;
                 })["catch"](function (e) {
-                  return console.log(e);
+                  console.log(e);
+                })["finally"](function () {
+                  return _this2.buscandoRegistros = false;
                 });
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -10325,8 +10362,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   },
-  beforeMount: function beforeMount() {
-    this.recuperarContracheques();
+  mounted: function mounted() {
+    var _this3 = this;
+
+    setTimeout(function () {
+      _this3.recuperarContracheques();
+    }, 1);
   },
   filters: {
     formataUniverso: function formataUniverso(v) {
@@ -10360,23 +10401,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -36069,21 +36093,29 @@ var render = function () {
       attrs: { id: "ficha_auxilitar" },
     },
     [
-      _c("div", { attrs: { id: "contrachequeAtivo" } }, [
-        _c("label", [_vm._v("Código do contracheque:")]),
+      _c("div", { attrs: { id: "ficha_auxiliar-head" } }, [
+        _c("div", { attrs: { id: "contrachequeAtivo" } }, [
+          _c("label", [_vm._v("Código do contracheque ativo: ")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "text", disabled: "" },
+            domProps: {
+              value: _vm.$store.state.contrachequeAtivo || "Novo contracheque",
+            },
+          }),
+        ]),
         _vm._v(" "),
-        _c("input", {
-          attrs: { type: "text", disabled: "" },
-          domProps: { value: _vm.$store.state.contrachequeAtivo || "-" },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("button", { attrs: { onClick: "window.print()" } }, [
-        _vm._v("IMPRIMIR"),
-      ]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.salvarNoBancoDeDados } }, [
-        _vm._v("SALVAR"),
+        _c("section", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("button", { on: { click: _vm.salvarNoBancoDeDados } }, [
+            _c("span", [_vm._v("Salvar")]),
+            _vm._v(" "),
+            _c("img", {
+              attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
+            }),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
       this.$store.state.dadosFinanceiros
@@ -36091,14 +36123,14 @@ var render = function () {
             "table",
             { attrs: { cellpadding: "0", cellspacing: "0" } },
             [
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(1),
-                _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
                 _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
                 _vm._v(" "),
                 _c(
                   "td",
@@ -36123,11 +36155,11 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(4),
-                _vm._v(" "),
                 _vm._m(5),
                 _vm._v(" "),
                 _vm._m(6),
+                _vm._v(" "),
+                _vm._m(7),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_cabecalho pg_abrev" }, [
                   _c("p", [
@@ -36142,9 +36174,9 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(7),
-              _vm._v(" "),
               _vm._m(8),
+              _vm._v(" "),
+              _vm._m(9),
               _vm._v(" "),
               _vm._l(_vm.dadosApiReceitas, function (data, key) {
                 return _c("tr", { key: key }, [
@@ -36187,7 +36219,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(9),
+                _vm._m(10),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -36218,7 +36250,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(10),
+              _vm._m(11),
               _vm._v(" "),
               _vm._l(_vm.dadosApiDescontos, function (data, key) {
                 return _c("tr", { key: key + data.rubrica }, [
@@ -36261,7 +36293,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(11),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -36293,48 +36325,48 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(12),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(
-                          _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor -
-                              _vm.dadosApiCompleto.descontos.descontos_total
-                                .financeiro.valor
-                          )
-                        ) +
-                        "\n                "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(
-                          _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor -
-                              _vm.dadosApiCompleto.descontos.descontos_total
-                                .financeiro.valor
-                          )
-                        ) +
-                        "\n                "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
                 _vm._m(13),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor -
+                              _vm.dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor -
+                              _vm.dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(14),
               ]),
               _vm._v(" "),
-              _vm._m(14),
-              _vm._v(" "),
               _vm._m(15),
+              _vm._v(" "),
+              _vm._m(16),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36352,11 +36384,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(16),
-              _vm._v(" "),
               _vm._m(17),
               _vm._v(" "),
               _vm._m(18),
+              _vm._v(" "),
+              _vm._m(19),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36378,11 +36410,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(19),
-              _vm._v(" "),
               _vm._m(20),
               _vm._v(" "),
               _vm._m(21),
+              _vm._v(" "),
+              _vm._m(22),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36402,11 +36434,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(22),
-              _vm._v(" "),
               _vm._m(23),
               _vm._v(" "),
               _vm._m(24),
+              _vm._v(" "),
+              _vm._m(25),
             ],
             2
           )
@@ -36482,6 +36514,16 @@ var render = function () {
   )
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { attrs: { onClick: "window.print()" } }, [
+      _c("span", [_vm._v("Imprimir")]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: "/svg/print.svg", alt: "Ícone de Imprimir" } }),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -36898,16 +36940,18 @@ var render = function () {
             domProps: { value: _vm.form_token },
           }),
           _vm._v(" "),
-          _c("div", { attrs: { id: "contrachequeAtivo" } }, [
-            _c("label", [_vm._v("Código do contracheque:")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "text", disabled: "" },
-              domProps: {
-                value:
-                  _vm.$store.state.contrachequeAtivo || "Novo contracheque",
-              },
-            }),
+          _c("div", { attrs: { id: "gerar_contracheque-head" } }, [
+            _c("div", { attrs: { id: "contrachequeAtivo" } }, [
+              _c("label", [_vm._v("Código do contracheque ativo: ")]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "text", disabled: "" },
+                domProps: {
+                  value:
+                    _vm.$store.state.contrachequeAtivo || "Novo contracheque",
+                },
+              }),
+            ]),
           ]),
           _vm._v(" "),
           _c("section", { attrs: { id: "form_informacoes_pessoais" } }, [
@@ -42937,6 +42981,49 @@ var render = function () {
     _vm._v(" "),
     _c(
       "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.buscandoRegistros,
+            expression: "buscandoRegistros",
+          },
+        ],
+        staticClass: "buscando_registros",
+      },
+      [
+        _c("span", [_vm._v("Buscando registros. Aguarde")]),
+        _vm._v(" "),
+        _c("img", {
+          staticStyle: { width: "25px" },
+          attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
+        }),
+      ]
+    ),
+    _vm._v(" "),
+    _vm.contrachequeList.length == 0
+      ? _c(
+          "div",
+          {
+            staticClass: "btn_refresh",
+            on: { click: _vm.recuperarContracheques },
+          },
+          [
+            _c("span", [
+              _vm._v("Não registro de contracheques no banco de dados."),
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticStyle: { width: "25px" },
+              attrs: { src: "/svg/refresh.svg", alt: "Ícone de refresh" },
+            }),
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
       { attrs: { id: "gererenciarContracheque_section" } },
       _vm._l(_vm.contrachequeList, function (c) {
         return _c(
@@ -43019,94 +43106,45 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "index-container" } }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "index-main" } }, [
-      _c(
-        "div",
-        { staticClass: "index-main-item" },
-        [
-          _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
-            _c("img", {
-              attrs: { src: "/svg/make.svg", alt: "icone computador" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", [_vm._v("Gerar contracheque")]),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "index-main-item" },
-        [
-          _c("router-link", { attrs: { to: "/gerenciar-contracheque" } }, [
-            _c("img", {
-              attrs: {
-                src: "/svg/search_database.svg",
-                alt: "icone computador",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", [_vm._v("Gerenciar contracheques")]),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "index-main-item" },
-        [
-          _c("router-link", { attrs: { to: "/perfil" } }, [
-            _c("img", {
-              attrs: { src: "/svg/user.svg", alt: "icone usuário" },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("span", [_vm._v("Meu perfil")]),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "index-main-item" },
-        [
-          _c("router-link", { attrs: { to: "/legislacao" } }, [
-            _c("img", { attrs: { src: "/svg/books.svg", alt: "icone livro" } }),
-          ]),
-          _vm._v(" "),
-          _c("span", [_vm._v("Legislação")]),
-        ],
-        1
-      ),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "index-header" } }, [
-      _c("h1", [_vm._v("👋🏽 Bem vindo ao App Exame de Pagamento.")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n            Novo por aqui? Dê uma olhada no manual do App no seguinte link:\n            "
-        ),
-        _c("a", { attrs: { href: "/docs/manual.pdf", target: "_BLANK" } }, [
-          _vm._v("Manual do App"),
+    return _c("div", { attrs: { id: "index-container" } }, [
+      _c("div", { attrs: { id: "index-header" } }, [
+        _c("h1", [_vm._v("👋🏽 Bem vindo ao App Exame de Pagamento.")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n            Novo por aqui? Dê uma olhada no manual do App no seguinte link:\n            "
+          ),
+          _c("a", { attrs: { href: "/docs/manual.pdf", target: "_BLANK" } }, [
+            _vm._v("Manual do App"),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n            Já conhece o sistema? Então escolha uma das funcionalidades do\n            App e siga em frente.\n        "
+          ),
         ]),
       ]),
       _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n            Já conhece o sistema? Então escolha uma das funcionalidades do\n            App:\n        "
-        ),
+      _c("div", { attrs: { id: "index-main" } }, [
+        _c("h3", [_vm._v("Aviso importantes")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n            • Em razão de algumas restrições impostas pela Lei nº 13.709, de\n            14 de agosto de 2018 - Lei Geral de Proteção de Dados Pessoais\n            (LGPD), quanto ao tratamento de dados pessoais de terceiros,\n            esta aplicação\n            "
+          ),
+          _c("strong", [_vm._v("não armazena ou trata nenhum dado pessoal")]),
+          _vm._v(
+            ". Os\n            dados pessoais do examinado poderão ser inseridos no momento da\n            impressão da Ficha Auxiliar, porém não ficarão armazenados.\n        "
+          ),
+        ]),
       ]),
     ])
   },
