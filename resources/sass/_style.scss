@@ -909,7 +909,8 @@ img.login_logo {
     border-left: 2px solid $primary;
 }
 
-#gererenciarContracheque_container {
+#gererenciarContracheque_container,
+#gererenciarContracheque_container2 {
     @include blocoNaPagina;
     flex-direction: column;
     width: auto;
@@ -917,6 +918,54 @@ img.login_logo {
     h2 {
         @include cabecalhoNaPagina;
     }
+}
+
+#input_area-data_assinatura_cc {
+    display: flex;
+    flex-direction: row;
+    padding: 0.3em 1em;
+
+    align-items: center;
+    background: #fff;
+    border-radius: $borderRadius;
+    border: 2px dashed $branco;
+    display: flex;
+    height: 50px;
+    margin-bottom: 1em;
+    padding: 0.3em 0.7em;
+    transition: all 0.3s ease-in-out;
+
+    margin: 0 1.2em;
+    // width: calc(100% - 1.2em);
+
+    button {
+        margin-left: 2em;
+        border-radius: $borderRadius;
+        background: $success;
+        border: 2px solid #00000047;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+        padding: 0.2em 0.8em;
+        display: flex;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            transform: scale(1.2);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+    }
+}
+
+label {
+    margin-right: 0.5em;
+}
+
+#data_assinatura_cc {
+    border-radius: $borderRadius;
+    width: 150px;
 }
 
 #gererenciarContracheque_section {

@@ -7216,7 +7216,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       identificadoContracheque: "-",
       modalActive: false,
-      modalType: "-"
+      modalType: "-",
+      dataAssinatura: "2022-01-01"
     };
   },
   computed: {
@@ -7279,6 +7280,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    recuperarDataAssinatura: function recuperarDataAssinatura() {
+      this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
+    },
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
       var _this = this;
 
@@ -7339,7 +7343,17 @@ __webpack_require__.r(__webpack_exports__);
       return "".concat(data[1], "/").concat(data[0]);
     },
     data_extenso: function data_extenso(value) {
-      var dia = "d";
+      var dia = value.split("-")[2];
+      value.split("-")[2] == "01" && (dia = "1º");
+      value.split("-")[2] == "02" && (dia = "2");
+      value.split("-")[2] == "03" && (dia = "3");
+      value.split("-")[2] == "04" && (dia = "4");
+      value.split("-")[2] == "05" && (dia = "5");
+      value.split("-")[2] == "06" && (dia = "6");
+      value.split("-")[2] == "07" && (dia = "7");
+      value.split("-")[2] == "08" && (dia = "8");
+      value.split("-")[2] == "09" && (dia = "9"); // ----------------------------------------------//
+
       var mes = "m";
       value.split("-")[1] == "01" && (mes = "janeiro");
       value.split("-")[1] == "02" && (mes = "fevereiro");
@@ -7354,18 +7368,15 @@ __webpack_require__.r(__webpack_exports__);
       value.split("-")[1] == "11" && (mes = "novembro");
       value.split("-")[1] == "12" && (mes = "dezembro"); // ----------------------------------------------//
 
-      value.split("-")[2] == "01" && (dia = "1º");
-      value.split("-")[2] == "02" && (dia = "2");
-      value.split("-")[2] == "03" && (dia = "3");
-      value.split("-")[2] == "04" && (dia = "4");
-      value.split("-")[2] == "05" && (dia = "5");
-      value.split("-")[2] == "06" && (dia = "6");
-      value.split("-")[2] == "07" && (dia = "7");
-      value.split("-")[2] == "08" && (dia = "8");
-      value.split("-")[2] == "09" && (dia = "9"); // ----------------------------------------------//
-
       return "".concat(dia, " de ").concat(mes, " de ").concat(value.split("-")[0], ".");
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    setTimeout(function () {
+      _this2.recuperarDataAssinatura();
+    }, 1);
   }
 });
 
@@ -10275,11 +10286,41 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       contrachequeList: false,
-      buscandoRegistros: false
+      loadingSalvarData: false,
+      buscandoRegistros: false,
+      dataAssinatura: "2021-01-01"
     };
   },
   computed: {
@@ -10300,8 +10341,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    excluir_contracheque: function excluir_contracheque(id) {
+    salvarDataAssinatura: function salvarDataAssinatura() {
       var _this = this;
+
+      this.loadingSalvarData = true;
+      localStorage.setItem("data_assinatura_cc", this.dataAssinatura);
+      setTimeout(function () {
+        _this.loadingSalvarData = false;
+      }, 1000);
+    },
+    recuperarDataAssinatura: function recuperarDataAssinatura() {
+      this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
+    },
+    excluir_contracheque: function excluir_contracheque(id) {
+      var _this2 = this;
 
       if (confirm("Esta opera\xE7\xE3o ir\xE1 excluir DEFINITIVAMENTE o contracheque de c\xF3digo \"".concat(id, "\" do banco de dados. \n\n Deseja continuar?"))) {
         var config = {
@@ -10311,7 +10364,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         };
         axios["delete"]("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(id), config).then(function (r) {
-          return _this.recuperarContracheques();
+          return _this2.recuperarContracheques();
         })["catch"](function (e) {
           return console.log(e);
         });
@@ -10322,7 +10375,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$store.state.contrachequeAtivo = id;
     },
     recuperarContracheques: function recuperarContracheques() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var config;
@@ -10330,15 +10383,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this2.buscandoRegistros = true;
+                _this3.buscandoRegistros = true;
                 config = {
                   headers: {
                     Accept: "application/json",
-                    Authorization: _this2.token
+                    Authorization: _this3.token
                   }
                 };
                 _context.next = 4;
-                return axios.get("".concat(_this2.nowPath, "/api/ficha-auxiliar/").concat(_this2.usuarioAtual.email), config).then(function (r) {
+                return axios.get("".concat(_this3.nowPath, "/api/ficha-auxiliar/").concat(_this3.usuarioAtual.email), config).then(function (r) {
                   return r.data.contracheques.map(function (item) {
                     return {
                       id: item.id,
@@ -10346,11 +10399,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
                   });
                 }).then(function (r) {
-                  _this2.contrachequeList = r;
+                  _this3.contrachequeList = r;
                 })["catch"](function (e) {
                   console.log(e);
                 })["finally"](function () {
-                  return _this2.buscandoRegistros = false;
+                  return _this3.buscandoRegistros = false;
                 });
 
               case 4:
@@ -10363,10 +10416,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
 
     setTimeout(function () {
-      _this3.recuperarContracheques();
+      _this4.recuperarContracheques();
+
+      _this4.recuperarDataAssinatura();
     }, 1);
   },
   filters: {
@@ -36377,7 +36432,9 @@ var render = function () {
                       _vm._v(
                         "\n                    " +
                           _vm._s(_vm.$store.state.activeUser.local_assinatura) +
-                          ", DATA DA\n                    ASSINATURA AQUI!!!\n                "
+                          ",\n                    " +
+                          _vm._s(_vm._f("data_extenso")(_vm.dataAssinatura)) +
+                          "\n                "
                       ),
                     ]),
                   ]
@@ -42784,11 +42841,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "question_title" }, [
       _c("p", [
         _vm._v(
-          "\n                            Possui quantos dependentes,\n                            "
+          "\n                            Qual percentual de\n                            "
         ),
-        _c("u", [_vm._v("excluíndo a esposa")]),
-        _vm._v(", para o\n                            "),
-        _c("strong", [_vm._v("FuSEx")]),
+        _c("strong", [_vm._v("desconto de dependentes no FuSEx")]),
         _vm._v("?\n                        "),
       ]),
     ])
@@ -42976,111 +43031,160 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "gererenciarContracheque_container" } }, [
-    _c("h2", [_vm._v("Contracheques salvos")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.buscandoRegistros,
-            expression: "buscandoRegistros",
-          },
-        ],
-        staticClass: "buscando_registros",
-      },
-      [
-        _c("span", [_vm._v("Buscando registros. Aguarde")]),
+  return _c("div", { attrs: { id: "gererenciarContracheque_body" } }, [
+    _c("div", { attrs: { id: "gererenciarContracheque_container2" } }, [
+      _c("h2", [_vm._v("Dados para impressão")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "input_area-data_assinatura_cc" } }, [
+        _c("label", { attrs: { for: "data_assinatura_cc" } }, [
+          _vm._v("Data da assinatura do contracheque:\n            "),
+        ]),
         _vm._v(" "),
-        _c("img", {
-          staticStyle: { width: "25px" },
-          attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
-        }),
-      ]
-    ),
-    _vm._v(" "),
-    _vm.contrachequeList.length == 0
-      ? _c(
-          "div",
-          {
-            staticClass: "btn_refresh",
-            on: { click: _vm.recuperarContracheques },
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.dataAssinatura,
+              expression: "dataAssinatura",
+            },
+          ],
+          attrs: {
+            type: "date",
+            name: "data_assinatura",
+            id: "data_assinatura_cc",
           },
-          [
-            _c("span", [
-              _vm._v("Não registro de contracheques no banco de dados."),
-            ]),
-            _vm._v(" "),
-            _c("img", {
-              staticStyle: { width: "25px" },
-              attrs: { src: "/svg/refresh.svg", alt: "Ícone de refresh" },
-            }),
-          ]
-        )
-      : _vm._e(),
+          domProps: { value: _vm.dataAssinatura },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.dataAssinatura = $event.target.value
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.salvarDataAssinatura } }, [
+          _vm.loadingSalvarData
+            ? _c("img", {
+                staticStyle: { width: "18px" },
+                attrs: {
+                  src: "/svg/loading.svg",
+                  alt: "Ícone de carregamento",
+                },
+              })
+            : _c("span", [_vm._v("Salvar")]),
+        ]),
+      ]),
+    ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { attrs: { id: "gererenciarContracheque_section" } },
-      _vm._l(_vm.contrachequeList, function (c) {
-        return _c(
-          "div",
-          { key: c.id, staticClass: "gererenciarContracheque-item" },
-          [
-            _c("span", [
-              _vm._v("\n                Código do contracheque: "),
-              _c("strong", [_vm._v(_vm._s(c.id))]),
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _vm._v("\n                Universo:\n                "),
-              _c("strong", [
-                _vm._v(_vm._s(_vm._f("formataUniverso")(c.dados.universo))),
+    _c("div", { attrs: { id: "gererenciarContracheque_container" } }, [
+      _c("h2", [_vm._v("Contracheques salvos")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.buscandoRegistros,
+              expression: "buscandoRegistros",
+            },
+          ],
+          staticClass: "buscando_registros",
+        },
+        [
+          _c("span", [_vm._v("Buscando registros. Aguarde")]),
+          _vm._v(" "),
+          _c("img", {
+            staticStyle: { width: "25px" },
+            attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
+          }),
+        ]
+      ),
+      _vm._v(" "),
+      _vm.contrachequeList.length == 0
+        ? _c(
+            "div",
+            {
+              staticClass: "btn_refresh",
+              on: { click: _vm.recuperarContracheques },
+            },
+            [
+              _c("span", [
+                _vm._v("Não registro de contracheques no banco de dados."),
               ]),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "gererenciarContracheque-botoes" },
-              [
-                _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
+              _vm._v(" "),
+              _c("img", {
+                staticStyle: { width: "25px" },
+                attrs: { src: "/svg/refresh.svg", alt: "Ícone de refresh" },
+              }),
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { attrs: { id: "gererenciarContracheque_section" } },
+        _vm._l(_vm.contrachequeList, function (c) {
+          return _c(
+            "div",
+            { key: c.id, staticClass: "gererenciarContracheque-item" },
+            [
+              _c("span", [
+                _vm._v("\n                    Código do contracheque: "),
+                _c("strong", [_vm._v(_vm._s(c.id))]),
+              ]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v("\n                    Universo:\n                    "),
+                _c("strong", [
+                  _vm._v(_vm._s(_vm._f("formataUniverso")(c.dados.universo))),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "gererenciarContracheque-botoes" },
+                [
+                  _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/svg/edit.svg",
+                        alt: "icone editar",
+                        id: "editar_contracheque",
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.editar_contracheque(c.id, c.dados)
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
                   _c("img", {
                     attrs: {
-                      src: "/svg/edit.svg",
-                      alt: "icone editar",
-                      id: "editar_contracheque",
+                      src: "/svg/delete.svg",
+                      alt: "icone delete",
+                      id: "excluir_contracheque",
                     },
                     on: {
                       click: function ($event) {
-                        return _vm.editar_contracheque(c.id, c.dados)
+                        return _vm.excluir_contracheque(c.id)
                       },
                     },
                   }),
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  attrs: {
-                    src: "/svg/delete.svg",
-                    alt: "icone delete",
-                    id: "excluir_contracheque",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.excluir_contracheque(c.id)
-                    },
-                  },
-                }),
-              ],
-              1
-            ),
-          ]
-        )
-      }),
-      0
-    ),
+                ],
+                1
+              ),
+            ]
+          )
+        }),
+        0
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []

@@ -294,8 +294,8 @@
             <tr>
                 <td class="td_assinatura" colspan="11">
                     <p>
-                        {{ $store.state.activeUser.local_assinatura }}, DATA DA
-                        ASSINATURA AQUI!!!
+                        {{ $store.state.activeUser.local_assinatura }},
+                        {{ dataAssinatura | data_extenso }}
                     </p>
                 </td>
             </tr>
@@ -418,6 +418,7 @@ export default {
             identificadoContracheque: "-",
             modalActive: false,
             modalType: "-",
+            dataAssinatura: "2022-01-01",
         };
     },
     computed: {
@@ -500,6 +501,9 @@ export default {
         },
     },
     methods: {
+        recuperarDataAssinatura() {
+            this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
+        },
         salvarNoBancoDeDados() {
             let ficha_auxiliar_json = JSON.stringify(
                 this.$store.state.backupForm
@@ -570,7 +574,18 @@ export default {
             return `${data[1]}/${data[0]}`;
         },
         data_extenso(value) {
-            let dia = "d";
+            let dia = value.split("-")[2];
+            value.split("-")[2] == "01" && (dia = "1º");
+            value.split("-")[2] == "02" && (dia = "2");
+            value.split("-")[2] == "03" && (dia = "3");
+            value.split("-")[2] == "04" && (dia = "4");
+            value.split("-")[2] == "05" && (dia = "5");
+            value.split("-")[2] == "06" && (dia = "6");
+            value.split("-")[2] == "07" && (dia = "7");
+            value.split("-")[2] == "08" && (dia = "8");
+            value.split("-")[2] == "09" && (dia = "9");
+            // ----------------------------------------------//
+
             let mes = "m";
             value.split("-")[1] == "01" && (mes = "janeiro");
             value.split("-")[1] == "02" && (mes = "fevereiro");
@@ -585,18 +600,14 @@ export default {
             value.split("-")[1] == "11" && (mes = "novembro");
             value.split("-")[1] == "12" && (mes = "dezembro");
             // ----------------------------------------------//
-            value.split("-")[2] == "01" && (dia = "1º");
-            value.split("-")[2] == "02" && (dia = "2");
-            value.split("-")[2] == "03" && (dia = "3");
-            value.split("-")[2] == "04" && (dia = "4");
-            value.split("-")[2] == "05" && (dia = "5");
-            value.split("-")[2] == "06" && (dia = "6");
-            value.split("-")[2] == "07" && (dia = "7");
-            value.split("-")[2] == "08" && (dia = "8");
-            value.split("-")[2] == "09" && (dia = "9");
-            // ----------------------------------------------//
+
             return `${dia} de ${mes} de ${value.split("-")[0]}.`;
         },
+    },
+    mounted() {
+        setTimeout(() => {
+            this.recuperarDataAssinatura();
+        }, 1);
     },
 };
 </script>

@@ -1887,9 +1887,9 @@
                     <section class="question_body">
                         <div class="question_title">
                             <p>
-                                Possui quantos dependentes,
-                                <u>excluíndo a esposa</u>, para o
-                                <strong>FuSEx</strong>?
+                                Qual percentual de
+                                <strong>desconto de dependentes no FuSEx</strong
+                                >?
                             </p>
                         </div>
                         <div class="question_options">
