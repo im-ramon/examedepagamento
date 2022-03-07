@@ -45,6 +45,7 @@
                         type="text"
                         placeholder="Sigla da UG"
                         name="UG"
+                        :value="$store.state.activeUser.om"
                         id="UG"
                     />
                 </td>
@@ -142,15 +143,16 @@
                 <td class="td_calculos rubrica" colspan="2">
                     {{ data.rubrica }}
                 </td>
-                <td class="td_calculos">{{ data.financeiro.porcentagem }}</td>
+                <td class="td_calculos">
+                    {{ data.financeiro.porcentagem }}
+                </td>
                 <td class="td_calculos valor">
                     {{ data.financeiro.valor | numeroPreco }}
                 </td>
                 <td class="td_calculos valor">
                     <input
                         type="text"
-                        :value="data.financeiro.valor | numeroPreco"
-                        step="0.01"
+                        v-model="valorContrachequeReceitas[key]"
                     />
                 </td>
             </tr>
@@ -167,10 +169,7 @@
                 </td>
                 <td class="td_calculos valor">
                     <p>
-                        {{
-                            dadosApiCompleto.receitas.bruto_total.financeiro
-                                .valor | numeroPreco
-                        }}
+                        {{ somaValoresContrachequeReceitas | numeroPreco }}
                     </p>
                 </td>
             </tr>
@@ -223,7 +222,7 @@
                 <td class="td_calculos valor">
                     <input
                         type="text"
-                        :value="data.financeiro.valor | numeroPreco"
+                        v-model="valorContrachequeDescontos[key]"
                         step="0.01"
                     />
                 </td>
@@ -241,10 +240,7 @@
                 </td>
                 <td class="td_calculos valor">
                     <p>
-                        {{
-                            dadosApiCompleto.descontos.descontos_total
-                                .financeiro.valor | numeroPreco
-                        }}
+                        {{ somaValoresContrachequeDescontos | numeroPreco }}
                     </p>
                 </td>
             </tr>
@@ -378,7 +374,7 @@
                 :class="modalType == 'success' ? 'success' : 'erro'"
             >
                 <div id="modalRespostaBD_container">
-                    <span @click="modalActive = false">X</span>
+                    <span @click="fechaModal">X</span>
                     <!-- style="background: red" -->
                     <p v-if="modalType == 'success'">
                         Contracheque salvo com sucesso! <br />
@@ -419,65 +415,37 @@ export default {
             modalActive: false,
             modalType: "-",
             dataAssinatura: "2022-01-01",
+            valorContrachequeReceitas: [],
+            valorContrachequeDescontos: [],
+            dadosApiReceitas: [],
+            dadosApiDescontos: [],
         };
     },
     computed: {
-        dadosApiReceitas() {
-            let data = [];
-            for (const key in this.$store.state.dadosFinanceiros.receitas) {
-                if (
-                    this.$store.state.dadosFinanceiros.receitas[key].financeiro
-                        .valor > 0 &&
-                    this.$store.state.dadosFinanceiros.receitas[key].rubrica !=
-                        "BRUTO TOTAL" &&
-                    this.$store.state.dadosFinanceiros.receitas[key].rubrica !=
-                        "BRUTO PARA IR"
-                ) {
-                    data.push(this.$store.state.dadosFinanceiros.receitas[key]);
-                }
-            }
-            for (let i = 0; data.length < 17; i++) {
-                data.push({
-                    financeiro: {
-                        valor: "\n",
-                        porcentagem: "\n",
-                    },
-                    rubrica: "\n",
-                });
-            }
+        somaValoresContrachequeReceitas() {
+            let arr = this.valorContrachequeReceitas;
+            arr = arr.map((item) =>
+                parseFloat(item.replace(/[R$ ]|[.]/gi, "").replace(/[,]/, "."))
+            );
 
-            return data;
+            let soma = 0;
+            arr.forEach((element) => {
+                element >= 0.01 ? (soma += element) : soma;
+            });
+            return soma;
         },
+        somaValoresContrachequeDescontos() {
+            let arr = this.valorContrachequeDescontos;
+            arr = arr.map((item) =>
+                parseFloat(item.replace(/[R$ ]|[.]/gi, "").replace(/[,]/, "."))
+            );
 
-        dadosApiDescontos() {
-            let data = [];
-            for (const key in this.$store.state.dadosFinanceiros.descontos) {
-                if (
-                    this.$store.state.dadosFinanceiros.descontos[key].financeiro
-                        .valor > 0 &&
-                    this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
-                        "DESCONTOS TOTAL" &&
-                    this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
-                        "DESCONTOS PARA IR"
-                ) {
-                    data.push(
-                        this.$store.state.dadosFinanceiros.descontos[key]
-                    );
-                }
-            }
-            for (let i = 0; data.length < 17; i++) {
-                data.push({
-                    financeiro: {
-                        valor: "\n",
-                        porcentagem: "\n",
-                    },
-                    rubrica: "\n",
-                });
-            }
-
-            return data;
+            let soma = 0;
+            arr.forEach((element) => {
+                element >= 0.01 ? (soma += element) : soma;
+            });
+            return soma;
         },
-
         dadosApiCompleto() {
             return this.$store.state.dadosFinanceiros;
         },
@@ -501,6 +469,84 @@ export default {
         },
     },
     methods: {
+        fechaModal() {
+            this.modalActive = false;
+            setTimeout(() => {
+                this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
+            }, 1000);
+        },
+        montarDadosApiDescontos() {
+            let data = [];
+            for (const key in this.$store.state.dadosFinanceiros.descontos) {
+                if (
+                    this.$store.state.dadosFinanceiros.descontos[key].financeiro
+                        .valor > 0 &&
+                    this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
+                        "DESCONTOS TOTAL" &&
+                    this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
+                        "DESCONTOS PARA IR"
+                ) {
+                    this.valorContrachequeDescontos.push(
+                        this.$store.state.dadosFinanceiros.descontos[
+                            key
+                        ].financeiro.valor.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                        })
+                    );
+                    data.push(
+                        this.$store.state.dadosFinanceiros.descontos[key]
+                    );
+                }
+            }
+            for (let i = 0; data.length < 17; i++) {
+                this.valorContrachequeReceitas.push("");
+                data.push({
+                    financeiro: {
+                        valor: "\n",
+                        porcentagem: "\n",
+                    },
+                    rubrica: "\n",
+                });
+            }
+
+            this.dadosApiDescontos = data;
+        },
+        montarDadosApiReceitas() {
+            let data = [];
+            for (const key in this.$store.state.dadosFinanceiros.receitas) {
+                if (
+                    this.$store.state.dadosFinanceiros.receitas[key].financeiro
+                        .valor > 0 &&
+                    this.$store.state.dadosFinanceiros.receitas[key].rubrica !=
+                        "BRUTO TOTAL" &&
+                    this.$store.state.dadosFinanceiros.receitas[key].rubrica !=
+                        "BRUTO PARA IR"
+                ) {
+                    this.valorContrachequeReceitas.push(
+                        this.$store.state.dadosFinanceiros.receitas[
+                            key
+                        ].financeiro.valor.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                        })
+                    );
+                    data.push(this.$store.state.dadosFinanceiros.receitas[key]);
+                }
+            }
+            for (let i = 0; data.length < 17; i++) {
+                this.valorContrachequeReceitas.push("");
+                data.push({
+                    financeiro: {
+                        valor: "\n",
+                        porcentagem: "\n",
+                    },
+                    rubrica: "\n",
+                });
+            }
+
+            this.dadosApiReceitas = data;
+        },
         recuperarDataAssinatura() {
             this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
         },
@@ -532,9 +578,6 @@ export default {
                             this.$store.state.contrachequeAtivo,
                             true
                         );
-                        setTimeout(() => {
-                            this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
-                        }, 2000);
                     })
                     .catch((e) => console.log(e));
             } else {
@@ -547,7 +590,9 @@ export default {
                         },
                         config
                     )
-                    .then((r) => this.alertSuccess(r.data.id, true))
+                    .then((r) => {
+                        this.alertSuccess(r.data.id, true);
+                    })
                     .catch((e) => this.alertSuccess(e, false));
             }
         },
@@ -604,10 +649,10 @@ export default {
             return `${dia} de ${mes} de ${value.split("-")[0]}.`;
         },
     },
-    mounted() {
-        setTimeout(() => {
-            this.recuperarDataAssinatura();
-        }, 1);
+    beforeMount() {
+        this.montarDadosApiReceitas();
+        this.montarDadosApiDescontos();
+        this.recuperarDataAssinatura();
     },
 };
 </script>

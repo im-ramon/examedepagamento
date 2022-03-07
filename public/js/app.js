@@ -7207,61 +7207,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       identificadoContracheque: "-",
       modalActive: false,
       modalType: "-",
-      dataAssinatura: "2022-01-01"
+      dataAssinatura: "2022-01-01",
+      valorContrachequeReceitas: [],
+      valorContrachequeDescontos: [],
+      dadosApiReceitas: [],
+      dadosApiDescontos: []
     };
   },
   computed: {
-    dadosApiReceitas: function dadosApiReceitas() {
-      var data = [];
-
-      for (var key in this.$store.state.dadosFinanceiros.receitas) {
-        if (this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO TOTAL" && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO PARA IR") {
-          data.push(this.$store.state.dadosFinanceiros.receitas[key]);
-        }
-      }
-
-      for (var i = 0; data.length < 17; i++) {
-        data.push({
-          financeiro: {
-            valor: "\n",
-            porcentagem: "\n"
-          },
-          rubrica: "\n"
-        });
-      }
-
-      return data;
+    somaValoresContrachequeReceitas: function somaValoresContrachequeReceitas() {
+      var arr = this.valorContrachequeReceitas;
+      arr = arr.map(function (item) {
+        return parseFloat(item.replace(/[R$ ]|[.]/gi, "").replace(/[,]/, "."));
+      });
+      var soma = 0;
+      arr.forEach(function (element) {
+        element >= 0.01 ? soma += element : soma;
+      });
+      return soma;
     },
-    dadosApiDescontos: function dadosApiDescontos() {
-      var data = [];
-
-      for (var key in this.$store.state.dadosFinanceiros.descontos) {
-        if (this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS TOTAL" && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS PARA IR") {
-          data.push(this.$store.state.dadosFinanceiros.descontos[key]);
-        }
-      }
-
-      for (var i = 0; data.length < 17; i++) {
-        data.push({
-          financeiro: {
-            valor: "\n",
-            porcentagem: "\n"
-          },
-          rubrica: "\n"
-        });
-      }
-
-      return data;
+    somaValoresContrachequeDescontos: function somaValoresContrachequeDescontos() {
+      var arr = this.valorContrachequeDescontos;
+      arr = arr.map(function (item) {
+        return parseFloat(item.replace(/[R$ ]|[.]/gi, "").replace(/[,]/, "."));
+      });
+      var soma = 0;
+      arr.forEach(function (element) {
+        element >= 0.01 ? soma += element : soma;
+      });
+      return soma;
     },
     dadosApiCompleto: function dadosApiCompleto() {
       return this.$store.state.dadosFinanceiros;
@@ -7280,11 +7260,72 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    fechaModal: function fechaModal() {
+      var _this = this;
+
+      this.modalActive = false;
+      setTimeout(function () {
+        _this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
+
+      }, 1000);
+    },
+    montarDadosApiDescontos: function montarDadosApiDescontos() {
+      var data = [];
+
+      for (var key in this.$store.state.dadosFinanceiros.descontos) {
+        if (this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS TOTAL" && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS PARA IR") {
+          this.valorContrachequeDescontos.push(this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+          }));
+          data.push(this.$store.state.dadosFinanceiros.descontos[key]);
+        }
+      }
+
+      for (var i = 0; data.length < 17; i++) {
+        this.valorContrachequeReceitas.push("");
+        data.push({
+          financeiro: {
+            valor: "\n",
+            porcentagem: "\n"
+          },
+          rubrica: "\n"
+        });
+      }
+
+      this.dadosApiDescontos = data;
+    },
+    montarDadosApiReceitas: function montarDadosApiReceitas() {
+      var data = [];
+
+      for (var key in this.$store.state.dadosFinanceiros.receitas) {
+        if (this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO TOTAL" && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO PARA IR") {
+          this.valorContrachequeReceitas.push(this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+          }));
+          data.push(this.$store.state.dadosFinanceiros.receitas[key]);
+        }
+      }
+
+      for (var i = 0; data.length < 17; i++) {
+        this.valorContrachequeReceitas.push("");
+        data.push({
+          financeiro: {
+            valor: "\n",
+            porcentagem: "\n"
+          },
+          rubrica: "\n"
+        });
+      }
+
+      this.dadosApiReceitas = data;
+    },
     recuperarDataAssinatura: function recuperarDataAssinatura() {
       this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
     },
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
-      var _this = this;
+      var _this2 = this;
 
       var ficha_auxiliar_json = JSON.stringify(this.$store.state.backupForm);
       var config = {
@@ -7300,12 +7341,7 @@ __webpack_require__.r(__webpack_exports__);
           ficha_auxiliar_json: ficha_auxiliar_json,
           user_email: this.$store.state.activeUser.email
         }, config).then(function (r) {
-          _this.alertSuccess(_this.$store.state.contrachequeAtivo, true);
-
-          setTimeout(function () {
-            _this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
-
-          }, 2000);
+          _this2.alertSuccess(_this2.$store.state.contrachequeAtivo, true);
         })["catch"](function (e) {
           return console.log(e);
         });
@@ -7314,9 +7350,9 @@ __webpack_require__.r(__webpack_exports__);
           ficha_auxiliar_json: ficha_auxiliar_json,
           user_email: this.$store.state.activeUser.email
         }, config).then(function (r) {
-          return _this.alertSuccess(r.data.id, true);
+          _this2.alertSuccess(r.data.id, true);
         })["catch"](function (e) {
-          return _this.alertSuccess(e, false);
+          return _this2.alertSuccess(e, false);
         });
       }
     },
@@ -7371,12 +7407,10 @@ __webpack_require__.r(__webpack_exports__);
       return "".concat(dia, " de ").concat(mes, " de ").concat(value.split("-")[0], ".");
     }
   },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    setTimeout(function () {
-      _this2.recuperarDataAssinatura();
-    }, 1);
+  beforeMount: function beforeMount() {
+    this.montarDadosApiReceitas();
+    this.montarDadosApiDescontos();
+    this.recuperarDataAssinatura();
   }
 });
 
@@ -36183,9 +36217,23 @@ var render = function () {
               _c("tr", [
                 _vm._m(2),
                 _vm._v(" "),
-                _vm._m(3),
+                _c(
+                  "td",
+                  { staticClass: "td_cabecalho", attrs: { colspan: "3" } },
+                  [
+                    _c("input", {
+                      attrs: {
+                        type: "text",
+                        placeholder: "Sigla da UG",
+                        name: "UG",
+                        id: "UG",
+                      },
+                      domProps: { value: _vm.$store.state.activeUser.om },
+                    }),
+                  ]
+                ),
                 _vm._v(" "),
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c(
                   "td",
@@ -36210,11 +36258,11 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
+                _vm._m(4),
+                _vm._v(" "),
                 _vm._m(5),
                 _vm._v(" "),
                 _vm._m(6),
-                _vm._v(" "),
-                _vm._m(7),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_cabecalho pg_abrev" }, [
                   _c("p", [
@@ -36229,9 +36277,9 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(8),
+              _vm._m(7),
               _vm._v(" "),
-              _vm._m(9),
+              _vm._m(8),
               _vm._v(" "),
               _vm._l(_vm.dadosApiReceitas, function (data, key) {
                 return _c("tr", { key: key }, [
@@ -36251,7 +36299,11 @@ var render = function () {
                   ),
                   _vm._v(" "),
                   _c("td", { staticClass: "td_calculos" }, [
-                    _vm._v(_vm._s(data.financeiro.porcentagem)),
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(data.financeiro.porcentagem) +
+                        "\n            "
+                    ),
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "td_calculos valor" }, [
@@ -36264,9 +36316,27 @@ var render = function () {
                   _vm._v(" "),
                   _c("td", { staticClass: "td_calculos valor" }, [
                     _c("input", {
-                      attrs: { type: "text", step: "0.01" },
-                      domProps: {
-                        value: _vm._f("numeroPreco")(data.financeiro.valor),
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.valorContrachequeReceitas[key],
+                          expression: "valorContrachequeReceitas[key]",
+                        },
+                      ],
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.valorContrachequeReceitas[key] },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.valorContrachequeReceitas,
+                            key,
+                            $event.target.value
+                          )
+                        },
                       },
                     }),
                   ]),
@@ -36274,7 +36344,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(10),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -36295,8 +36365,7 @@ var render = function () {
                       "\n                    " +
                         _vm._s(
                           _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor
+                            _vm.somaValoresContrachequeReceitas
                           )
                         ) +
                         "\n                "
@@ -36305,7 +36374,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(11),
+              _vm._m(10),
               _vm._v(" "),
               _vm._l(_vm.dadosApiDescontos, function (data, key) {
                 return _c("tr", { key: key + data.rubrica }, [
@@ -36338,9 +36407,27 @@ var render = function () {
                   _vm._v(" "),
                   _c("td", { staticClass: "td_calculos valor" }, [
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.valorContrachequeDescontos[key],
+                          expression: "valorContrachequeDescontos[key]",
+                        },
+                      ],
                       attrs: { type: "text", step: "0.01" },
-                      domProps: {
-                        value: _vm._f("numeroPreco")(data.financeiro.valor),
+                      domProps: { value: _vm.valorContrachequeDescontos[key] },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.valorContrachequeDescontos,
+                            key,
+                            $event.target.value
+                          )
+                        },
                       },
                     }),
                   ]),
@@ -36348,7 +36435,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(12),
+                _vm._m(11),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -36369,8 +36456,7 @@ var render = function () {
                       "\n                    " +
                         _vm._s(
                           _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.descontos.descontos_total
-                              .financeiro.valor
+                            _vm.somaValoresContrachequeDescontos
                           )
                         ) +
                         "\n                "
@@ -36380,48 +36466,48 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
+                _vm._m(12),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor -
+                              _vm.dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "td_calculos valor" }, [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          _vm._f("numeroPreco")(
+                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
+                              .valor -
+                              _vm.dadosApiCompleto.descontos.descontos_total
+                                .financeiro.valor
+                          )
+                        ) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
                 _vm._m(13),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(
-                          _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor -
-                              _vm.dadosApiCompleto.descontos.descontos_total
-                                .financeiro.valor
-                          )
-                        ) +
-                        "\n                "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "td_calculos valor" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(
-                          _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor -
-                              _vm.dadosApiCompleto.descontos.descontos_total
-                                .financeiro.valor
-                          )
-                        ) +
-                        "\n                "
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _vm._m(14),
               ]),
               _vm._v(" "),
-              _vm._m(15),
+              _vm._m(14),
               _vm._v(" "),
-              _vm._m(16),
+              _vm._m(15),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36441,11 +36527,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(16),
+              _vm._v(" "),
               _vm._m(17),
               _vm._v(" "),
               _vm._m(18),
-              _vm._v(" "),
-              _vm._m(19),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36467,11 +36553,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(19),
+              _vm._v(" "),
               _vm._m(20),
               _vm._v(" "),
               _vm._m(21),
-              _vm._v(" "),
-              _vm._m(22),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36491,11 +36577,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(22),
+              _vm._v(" "),
               _vm._m(23),
               _vm._v(" "),
               _vm._m(24),
-              _vm._v(" "),
-              _vm._m(25),
             ],
             2
           )
@@ -36518,17 +36604,7 @@ var render = function () {
           },
           [
             _c("div", { attrs: { id: "modalRespostaBD_container" } }, [
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function ($event) {
-                      _vm.modalActive = false
-                    },
-                  },
-                },
-                [_vm._v("X")]
-              ),
+              _c("span", { on: { click: _vm.fechaModal } }, [_vm._v("X")]),
               _vm._v(" "),
               _vm.modalType == "success"
                 ? _c("p", [
@@ -36606,21 +36682,6 @@ var staticRenderFns = [
       { staticClass: "td_cabecalho", staticStyle: { "text-align": "left" } },
       [_c("p", [_vm._v("UG:")])]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "td_cabecalho", attrs: { colspan: "3" } }, [
-      _c("input", {
-        attrs: {
-          type: "text",
-          placeholder: "Sigla da UG",
-          name: "UG",
-          id: "UG",
-        },
-      }),
-    ])
   },
   function () {
     var _vm = this
