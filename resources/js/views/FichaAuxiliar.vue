@@ -500,7 +500,7 @@ export default {
                 }
             }
             for (let i = 0; data.length < 17; i++) {
-                this.valorContrachequeReceitas.push("");
+                this.valorContrachequeDescontos.push("");
                 data.push({
                     financeiro: {
                         valor: "\n",
