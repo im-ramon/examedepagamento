@@ -539,7 +539,7 @@ export default {
         recuperarDataAssinatura() {
             let data = localStorage.getItem("data_assinatura_cc");
             if (data) {
-                this.dataAssinatura = localStorage.getItem(data);
+                this.dataAssinatura = data;
             } else {
                 this.dataAssinatura = "2022-01-01";
             }
