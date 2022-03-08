@@ -7246,14 +7246,6 @@ __webpack_require__.r(__webpack_exports__);
     dadosApiCompleto: function dadosApiCompleto() {
       return this.$store.state.dadosFinanceiros;
     },
-    token: function token() {
-      var token = document.cookie.split(";").find(function (indice) {
-        return indice.includes("token=");
-      });
-      token = token.split("=")[1];
-      token = "Bearer " + token;
-      return token;
-    },
     nowPath: function nowPath() {
       var path = window.location.href;
       return "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
@@ -7328,20 +7320,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var ficha_auxiliar_json = JSON.stringify(this.$store.state.backupForm);
-      var config = {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: this.token
-        }
-      };
 
       if (this.$store.state.contrachequeAtivo) {
         axios.patch("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(this.$store.state.contrachequeAtivo), {
           ficha_auxiliar_json: ficha_auxiliar_json,
           user_email: this.$store.state.activeUser.email
-        }, config).then(function (r) {
+        }).then(function () {
           _this2.alertSuccess(_this2.$store.state.contrachequeAtivo, true);
+
+          _this2.$store.state.contrachequeAtivo = false;
         })["catch"](function (e) {
           return console.log(e);
         });
@@ -7349,7 +7336,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post("".concat(this.nowPath, "/api/ficha-auxiliar"), {
           ficha_auxiliar_json: ficha_auxiliar_json,
           user_email: this.$store.state.activeUser.email
-        }, config).then(function (r) {
+        }).then(function (r) {
           _this2.alertSuccess(r.data.id, true);
         })["catch"](function (e) {
           return _this2.alertSuccess(e, false);
@@ -9960,13 +9947,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       this.loading_select = true;
-      var config = {
-        headers: {
-          Accept: "application/json",
-          Authorization: this.token
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(this.nowPath, "/api/pg-constantes"), config).then(function (r) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(this.nowPath, "/api/pg-constantes")).then(function (r) {
         _this2.selectPg = r.data;
         _this2.loading_select = false;
       })["catch"](function (e) {
@@ -9977,27 +9958,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var data, config;
+        var data;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 data = "_token=".concat(_this3.token, "&universo=").concat(_this3.universo, "&data_contracheque=").concat(_this3.data_contracheque, "&maior_65=").concat(_this3.maior_65, "&isento_ir=").concat(_this3.isento_ir, "&pg_soldo=").concat(_this3.pg_soldo, "&pg_real=").concat(_this3.pg_real, "&tipo_soldo=").concat(_this3.tipo_soldo, "&soldo_cota_porcentagem=").concat(_this3.soldo_cota_porcentagem, "&soldo_prop_cota_porcentagem=").concat(_this3.soldo_prop_cota_porcentagem, "&compl_ct_soldo=").concat(_this3.compl_ct_soldo, "&adic_tp_sv=").concat(_this3.adic_tp_sv, "&adic_disp=").concat(_this3.adic_disp, "&adic_hab_tipo=").concat(_this3.adic_hab_tipo, "&adic_mil=").concat(_this3.adic_mil, "&adic_comp_org_tipo=").concat(_this3.adic_comp_org_tipo, "&adic_comp_org_percet=").concat(_this3.adic_comp_org_percet, "&adic_comp_org_pg=").concat(_this3.adic_comp_org_pg, "&f_hvoo=").concat(_this3.f_hvoo, "&hvoo_percet=").concat(_this3.hvoo_percet, "&hvoo_pg=").concat(_this3.hvoo_pg, "&acres_25_soldo=").concat(_this3.acres_25_soldo, "&adic_perm=").concat(_this3.adic_perm, "&salario_familia_dep=").concat(_this3.salario_familia_dep, "&imposto_renda_dep=").concat(_this3.imposto_renda_dep, "&adic_ferias=").concat(_this3.adic_ferias, "&adic_pttc=").concat(_this3.adic_pttc, "&adic_natalino=").concat(_this3.adic_natalino, "&adic_natalino_qtd_meses=").concat(_this3.adic_natalino_qtd_meses, "&adic_natalino_valor_adiantamento=").concat(_this3.adic_natalino_valor_adiantamento, "&aux_pre_escolar_qtd=").concat(_this3.aux_pre_escolar_qtd, "&aux_invalidez=").concat(_this3.aux_invalidez, "&aux_transporte=").concat(_this3.aux_transporte, "&aux_fard=").concat(_this3.aux_fard, "&aux_fard_primeiro=").concat(_this3.aux_fard_primeiro, "&aux_alim_c=").concat(_this3.aux_alim_c, "&aux_alim_5x=").concat(_this3.aux_alim_5x, "&aux_natalidade=").concat(_this3.aux_natalidade, "&grat_loc_esp=").concat(_this3.grat_loc_esp, "&grat_repr_cmdo=").concat(_this3.grat_repr_cmdo, "&grat_repr_2=").concat(_this3.grat_repr_2, "&grat_repr_2_pg=").concat(_this3.grat_repr_2_pg, "&dp_excmb_art_9=").concat(_this3.dp_excmb_art_9, "&pmil=").concat(_this3.pmil, "&pmilmesmopg=").concat(_this3.pmilmesmopg, "&pmil_pg=").concat(_this3.pmil_pg, "&pmil_15=").concat(_this3.pmil_15, "&pmil_30=").concat(_this3.pmil_30, "&fusex_3=").concat(_this3.fusex_3, "&desc_dep_fusex=").concat(_this3.desc_dep_fusex, "&pnr=").concat(_this3.pnr, "&pens_judiciaria_1=").concat(_this3.pens_judiciaria_1, "&pens_judiciaria_2=").concat(_this3.pens_judiciaria_2, "&pens_judiciaria_3=").concat(_this3.pens_judiciaria_3, "&pens_judiciaria_4=").concat(_this3.pens_judiciaria_4, "&pens_judiciaria_5=").concat(_this3.pens_judiciaria_5, "&pens_judiciaria_6=").concat(_this3.pens_judiciaria_6, "&pens_judiciaria_adic_natal_1=").concat(_this3.pens_judiciaria_adic_natal_1, "&pens_judiciaria_adic_natal_2=").concat(_this3.pens_judiciaria_adic_natal_2, "&pens_judiciaria_adic_natal_3=").concat(_this3.pens_judiciaria_adic_natal_3, "&pens_judiciaria_adic_natal_4=").concat(_this3.pens_judiciaria_adic_natal_4, "&pens_judiciaria_adic_natal_5=").concat(_this3.pens_judiciaria_adic_natal_5, "&pens_judiciaria_adic_natal_6=").concat(_this3.pens_judiciaria_adic_natal_6);
-                config = {
-                  headers: {
-                    Accept: "application/json",
-                    Authorization: _this3.token // 'Content-Type': 'multipart/form-data'
-
-                  }
-                };
-                _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(_this3.nowPath, "/api/ficha-auxiliar?").concat(data), config).then(function (r) {
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(_this3.nowPath, "/api/ficha-auxiliar?").concat(data)).then(function (r) {
                   return _this3.$store.state.dadosFinanceiros = r.data;
                 })["catch"](function (e) {
                   return alert(e);
                 });
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -10391,13 +10365,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       if (confirm("Esta opera\xE7\xE3o ir\xE1 excluir DEFINITIVAMENTE o contracheque de c\xF3digo \"".concat(id, "\" do banco de dados. \n\n Deseja continuar?"))) {
-        var config = {
-          headers: {
-            Accept: "application/json",
-            Authorization: this.token
-          }
-        };
-        axios["delete"]("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(id), config).then(function (r) {
+        axios["delete"]("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(id)).then(function (r) {
           return _this2.recuperarContracheques();
         })["catch"](function (e) {
           return console.log(e);
@@ -10412,20 +10380,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var config;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _this3.buscandoRegistros = true;
-                config = {
-                  headers: {
-                    Accept: "application/json",
-                    Authorization: _this3.token
-                  }
-                };
-                _context.next = 4;
-                return axios.get("".concat(_this3.nowPath, "/api/ficha-auxiliar/").concat(_this3.usuarioAtual.email), config).then(function (r) {
+                _context.next = 3;
+                return axios.get("".concat(_this3.nowPath, "/api/ficha-auxiliar/").concat(_this3.usuarioAtual.email)).then(function (r) {
                   return r.data.contracheques.map(function (item) {
                     return {
                       id: item.id,
@@ -10440,7 +10401,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return _this3.buscandoRegistros = false;
                 });
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -10596,13 +10557,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var listaDeArquivos = [];
-      var config = {
-        headers: {
-          Accept: "application/json",
-          Authorization: this.token
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(this.nowPath, "/api/legislacao"), config).then(function (r) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat(this.nowPath, "/api/legislacao")).then(function (r) {
         var retorno = [];
         retorno = r.data.arquivos.filter(function (item) {
           return item.length >= 3;
@@ -10981,6 +10936,9 @@ var app = new Vue({
   \***********************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 try {
@@ -11008,6 +10966,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+axios.interceptors.request.use(function (config) {
+  config.headers.Accept = 'application/json';
+  var token = document.cookie.split(";").find(function (indice) {
+    return indice.includes("token=");
+  });
+  token = token.split("=")[1];
+  token = "Bearer " + token;
+  config.headers.Authorization = token;
+  return config;
+}, function (error) {
+  console.log(error);
+  return Promise.reject(error);
+});
 
 /***/ }),
 

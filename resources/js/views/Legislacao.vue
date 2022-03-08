@@ -63,15 +63,8 @@ export default {
         listarLegislacao() {
             let listaDeArquivos = [];
 
-            let config = {
-                headers: {
-                    Accept: "application/json",
-                    Authorization: this.token,
-                },
-            };
-
             axios
-                .get(`${this.nowPath}/api/legislacao`, config)
+                .get(`${this.nowPath}/api/legislacao`)
                 .then((r) => {
                     let retorno = [];
                     retorno = r.data.arquivos.filter(

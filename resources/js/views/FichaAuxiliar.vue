@@ -450,17 +450,6 @@ export default {
             return this.$store.state.dadosFinanceiros;
         },
 
-        token() {
-            let token = document.cookie.split(";").find((indice) => {
-                return indice.includes("token=");
-            });
-
-            token = token.split("=")[1];
-            token = "Bearer " + token;
-
-            return token;
-        },
-
         nowPath() {
             let path = window.location.href;
             return `${path.split("/")[0]}//${path.split("/")[1]}${
@@ -555,14 +544,6 @@ export default {
                 this.$store.state.backupForm
             );
 
-            let config = {
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                    Authorization: this.token,
-                },
-            };
-
             if (this.$store.state.contrachequeAtivo) {
                 axios
                     .patch(
@@ -570,26 +551,22 @@ export default {
                         {
                             ficha_auxiliar_json,
                             user_email: this.$store.state.activeUser.email,
-                        },
-                        config
+                        }
                     )
-                    .then((r) => {
+                    .then(() => {
                         this.alertSuccess(
                             this.$store.state.contrachequeAtivo,
                             true
                         );
+                        this.$store.state.contrachequeAtivo = false;
                     })
                     .catch((e) => console.log(e));
             } else {
                 axios
-                    .post(
-                        `${this.nowPath}/api/ficha-auxiliar`,
-                        {
-                            ficha_auxiliar_json,
-                            user_email: this.$store.state.activeUser.email,
-                        },
-                        config
-                    )
+                    .post(`${this.nowPath}/api/ficha-auxiliar`, {
+                        ficha_auxiliar_json,
+                        user_email: this.$store.state.activeUser.email,
+                    })
                     .then((r) => {
                         this.alertSuccess(r.data.id, true);
                     })

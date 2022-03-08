@@ -147,14 +147,8 @@ export default {
                     `Esta operação irá excluir DEFINITIVAMENTE o contracheque de código "${id}" do banco de dados. \n\n Deseja continuar?`
                 )
             ) {
-                let config = {
-                    headers: {
-                        Accept: "application/json",
-                        Authorization: this.token,
-                    },
-                };
                 axios
-                    .delete(`${this.nowPath}/api/ficha-auxiliar/${id}`, config)
+                    .delete(`${this.nowPath}/api/ficha-auxiliar/${id}`)
                     .then((r) => this.recuperarContracheques())
                     .catch((e) => console.log(e));
             }
@@ -165,17 +159,10 @@ export default {
         },
         async recuperarContracheques() {
             this.buscandoRegistros = true;
-            let config = {
-                headers: {
-                    Accept: "application/json",
-                    Authorization: this.token,
-                },
-            };
 
             await axios
                 .get(
-                    `${this.nowPath}/api/ficha-auxiliar/${this.usuarioAtual.email}`,
-                    config
+                    `${this.nowPath}/api/ficha-auxiliar/${this.usuarioAtual.email}`
                 )
                 .then((r) =>
                     r.data.contracheques.map((item) => {
