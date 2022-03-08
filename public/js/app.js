@@ -7314,7 +7314,13 @@ __webpack_require__.r(__webpack_exports__);
       this.dadosApiReceitas = data;
     },
     recuperarDataAssinatura: function recuperarDataAssinatura() {
-      this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
+      var data = localStorage.getItem("data_assinatura_cc");
+
+      if (data) {
+        this.dataAssinatura = localStorage.getItem(data);
+      } else {
+        this.dataAssinatura = "2022-01-01";
+      }
     },
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
       var _this2 = this;

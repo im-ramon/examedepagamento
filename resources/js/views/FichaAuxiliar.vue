@@ -537,7 +537,12 @@ export default {
             this.dadosApiReceitas = data;
         },
         recuperarDataAssinatura() {
-            this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
+            let data = localStorage.getItem("data_assinatura_cc");
+            if (data) {
+                this.dataAssinatura = localStorage.getItem(data);
+            } else {
+                this.dataAssinatura = "2022-01-01";
+            }
         },
         salvarNoBancoDeDados() {
             let ficha_auxiliar_json = JSON.stringify(
