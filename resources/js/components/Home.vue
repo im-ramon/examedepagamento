@@ -1,71 +1,81 @@
 <template>
     <section id="home">
-        <aside id="sidebar">
-            <!-- <div id="btn_fechar">
-                <img src="/svg/arrow.svg" alt="Ícone de seta para esquerda" />
-            </div> -->
-            <div id="logo">
-                <img
-                    src="/image/logo.png"
-                    alt="Logo Exame de Pagamento"
-                    title="App Exame de Pagamento"
-                />
-                <span>App | <strong>Exame de Pagamento</strong></span>
-            </div>
-
-            <nav>
-                <router-link class="navbutton" to="/">
-                    <img src="/svg/home.svg" alt="icone casa" />
-                    <span class="navbutton_title">Página inicial</span>
-                </router-link>
-
-                <router-link class="navbutton" to="/gerar-contracheque">
-                    <img src="/svg/make.svg" alt="icone computador" />
-                    <span class="navbutton_title">Gerar contracheque</span>
-                </router-link>
-
-                <router-link class="navbutton" to="/gerenciar-contracheque">
+        <transition name="sidebar">
+            <aside id="sidebar" v-if="showSidebar">
+                <div id="logo">
                     <img
-                        src="/svg/search_database.svg"
-                        alt="icone computador"
+                        src="/image/logo.png"
+                        alt="Logo Exame de Pagamento"
+                        title="App Exame de Pagamento"
                     />
-                    <span class="navbutton_title">Gerenciar contracheques</span>
-                </router-link>
-
-                <router-link class="navbutton" to="/perfil">
-                    <img src="/svg/user.svg" alt="icone usuário" />
-                    <span class="navbutton_title">Meu perfil</span>
-                </router-link>
-
-                <router-link class="navbutton" to="/legislacao">
-                    <img src="/svg/books.svg" alt="icone livro" />
-                    <span class="navbutton_title">Legislação</span>
-                </router-link>
-            </nav>
-            <div
-                id="sugestoes_contaneir"
-                @mouseover="sugestoes_ativa = true"
-                @mouseleave="sugestoes_ativa = false"
-            >
-                <div id="sugestoes">
-                    <div id="lampada">
-                        <img src="/svg/lifebouy.svg" alt="Imagem lâmpada" />
-                    </div>
-                    <h5>Precisando de ajuda?</h5>
-                    <transition>
-                        <div v-if="sugestoes_ativa">
-                            <p>
-                                Encontrou alguma falha ou tem alguma sugestão
-                                para melhoria do App? Sinta-se à vontade para
-                                nos comunicar:
-                                <a href="#">Enviar mensagem</a>
-                            </p>
-                        </div>
-                    </transition>
+                    <span>App | <strong>Exame de Pagamento</strong></span>
                 </div>
-            </div>
-        </aside>
+
+                <nav>
+                    <router-link class="navbutton" to="/">
+                        <img src="/svg/home.svg" alt="icone casa" />
+                        <span class="navbutton_title">Página inicial</span>
+                    </router-link>
+
+                    <router-link class="navbutton" to="/gerar-contracheque">
+                        <img src="/svg/make.svg" alt="icone computador" />
+                        <span class="navbutton_title">Gerar contracheque</span>
+                    </router-link>
+
+                    <router-link class="navbutton" to="/gerenciar-contracheque">
+                        <img
+                            src="/svg/search_database.svg"
+                            alt="icone computador"
+                        />
+                        <span class="navbutton_title"
+                            >Gerenciar contracheques</span
+                        >
+                    </router-link>
+
+                    <router-link class="navbutton" to="/perfil">
+                        <img src="/svg/user.svg" alt="icone usuário" />
+                        <span class="navbutton_title">Meu perfil</span>
+                    </router-link>
+
+                    <router-link class="navbutton" to="/legislacao">
+                        <img src="/svg/books.svg" alt="icone livro" />
+                        <span class="navbutton_title">Legislação</span>
+                    </router-link>
+                </nav>
+                <div
+                    id="sugestoes_contaneir"
+                    @mouseover="sugestoes_ativa = true"
+                    @mouseleave="sugestoes_ativa = false"
+                >
+                    <div id="sugestoes">
+                        <div id="lampada">
+                            <img src="/svg/lifebouy.svg" alt="Imagem lâmpada" />
+                        </div>
+                        <h5>Precisando de ajuda?</h5>
+                        <transition name="sugestoes">
+                            <div v-if="sugestoes_ativa">
+                                <p>
+                                    Encontrou alguma falha ou tem alguma
+                                    sugestão para melhoria do App? Sinta-se à
+                                    vontade para nos comunicar:
+                                    <a href="#">Enviar mensagem</a>
+                                </p>
+                            </div>
+                        </transition>
+                    </div>
+                </div>
+            </aside>
+        </transition>
+
         <main>
+            <div @click="showSidebar = !showSidebar" id="btn_hide_sibdebar">
+                <span
+                    ><img
+                        :class="showSidebar ? '' : 'reverse'"
+                        src="/svg/arrow.svg"
+                        alt="Ícone de seta para esquerda"
+                /></span>
+            </div>
             <section id="main_header">
                 <div id="saudacao">
                     <span>
@@ -111,6 +121,7 @@ export default {
     data() {
         return {
             sugestoes_ativa: false,
+            showSidebar: true,
         };
     },
     props: ["csrf_token", "routeLogout"],
@@ -153,14 +164,35 @@ export default {
         height: 150px;
     }
 }
-.v-enter-active,
-.v-leave-active {
+.sugestoes-enter-active {
     animation: move 1s;
     overflow: hidden;
 }
-.v-enter-from,
-.v-leave-to {
+.sugestoes-enter-from,
+.sugestoes-leave-to {
     overflow: hidden;
     animation: move 1s reverse;
+}
+
+@keyframes moveSidebar {
+    0% {
+        opacity: 1;
+        margin-left: 0;
+    }
+
+    100% {
+        opacity: 0;
+        margin-left: -360px;
+    }
+}
+
+.sidebar-enter-active {
+    animation: moveSidebar 0.7s reverse;
+    overflow: hidden;
+}
+.sidebar-enter-from,
+.sidebar-leave-to {
+    animation: moveSidebar 0.7s;
+    overflow: hidden;
 }
 </style>

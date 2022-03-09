@@ -6730,10 +6730,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      sugestoes_ativa: false
+      sugestoes_ativa: false,
+      showSidebar: true
     };
   },
   props: ["csrf_token", "routeLogout"],
@@ -16119,7 +16130,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.v-enter-active,\r\n.v-leave-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.v-enter-from,\r\n.v-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.sugestoes-enter-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.sugestoes-enter-from,\r\n.sugestoes-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\n@-webkit-keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n@keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n.sidebar-enter-active {\r\n    animation: moveSidebar 0.7s reverse;\r\n    overflow: hidden;\n}\n.sidebar-enter-from,\r\n.sidebar-leave-to {\r\n    -webkit-animation: moveSidebar 0.7s;\r\n            animation: moveSidebar 0.7s;\r\n    overflow: hidden;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -35908,196 +35919,235 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { attrs: { id: "home" } }, [
-    _c("aside", { attrs: { id: "sidebar" } }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "nav",
-        [
-          _c("router-link", { staticClass: "navbutton", attrs: { to: "/" } }, [
-            _c("img", { attrs: { src: "/svg/home.svg", alt: "icone casa" } }),
-            _vm._v(" "),
-            _c("span", { staticClass: "navbutton_title" }, [
-              _vm._v("Página inicial"),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { staticClass: "navbutton", attrs: { to: "/gerar-contracheque" } },
-            [
-              _c("img", {
-                attrs: { src: "/svg/make.svg", alt: "icone computador" },
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "navbutton_title" }, [
-                _vm._v("Gerar contracheque"),
+  return _c(
+    "section",
+    { attrs: { id: "home" } },
+    [
+      _c("transition", { attrs: { name: "sidebar" } }, [
+        _vm.showSidebar
+          ? _c("aside", { attrs: { id: "sidebar" } }, [
+              _c("div", { attrs: { id: "logo" } }, [
+                _c("img", {
+                  attrs: {
+                    src: "/image/logo.png",
+                    alt: "Logo Exame de Pagamento",
+                    title: "App Exame de Pagamento",
+                  },
+                }),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v("App | "),
+                  _c("strong", [_vm._v("Exame de Pagamento")]),
+                ]),
               ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "navbutton",
-              attrs: { to: "/gerenciar-contracheque" },
-            },
-            [
-              _c("img", {
-                attrs: {
-                  src: "/svg/search_database.svg",
-                  alt: "icone computador",
-                },
-              }),
               _vm._v(" "),
-              _c("span", { staticClass: "navbutton_title" }, [
-                _vm._v("Gerenciar contracheques"),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { staticClass: "navbutton", attrs: { to: "/perfil" } },
-            [
-              _c("img", {
-                attrs: { src: "/svg/user.svg", alt: "icone usuário" },
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "navbutton_title" }, [
-                _vm._v("Meu perfil"),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { staticClass: "navbutton", attrs: { to: "/legislacao" } },
-            [
-              _c("img", {
-                attrs: { src: "/svg/books.svg", alt: "icone livro" },
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "navbutton_title" }, [
-                _vm._v("Legislação"),
-              ]),
-            ]
-          ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          attrs: { id: "sugestoes_contaneir" },
-          on: {
-            mouseover: function ($event) {
-              _vm.sugestoes_ativa = true
-            },
-            mouseleave: function ($event) {
-              _vm.sugestoes_ativa = false
-            },
-          },
-        },
-        [
-          _c(
-            "div",
-            { attrs: { id: "sugestoes" } },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("h5", [_vm._v("Precisando de ajuda?")]),
-              _vm._v(" "),
-              _c("transition", [
-                _vm.sugestoes_ativa
-                  ? _c("div", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                            Encontrou alguma falha ou tem alguma sugestão\n                            para melhoria do App? Sinta-se à vontade para\n                            nos comunicar:\n                            "
-                        ),
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Enviar mensagem"),
-                        ]),
+              _c(
+                "nav",
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "navbutton", attrs: { to: "/" } },
+                    [
+                      _c("img", {
+                        attrs: { src: "/svg/home.svg", alt: "icone casa" },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Página inicial"),
                       ]),
-                    ])
-                  : _vm._e(),
-              ]),
-            ],
-            1
-          ),
-        ]
-      ),
-    ]),
-    _vm._v(" "),
-    _c("main", [
-      _c("section", { attrs: { id: "main_header" } }, [
-        _c("div", { attrs: { id: "saudacao" } }, [
-          _c("span", [
-            _vm._v("\n                    Bem vindo,\n                    "),
-            _c("span", { staticStyle: { "text-transform": "capitalize" } }, [
-              _vm._v("\n                        " + _vm._s(_vm.userFirstName)),
-            ]),
-            _vm._v("!\n                "),
-          ]),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticClass: "d-none",
-              attrs: {
-                id: "logout-form",
-                action: _vm.routeLogout,
-                method: "POST",
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbutton",
+                      attrs: { to: "/gerar-contracheque" },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/svg/make.svg",
+                          alt: "icone computador",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Gerar contracheque"),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "navbutton",
+                      attrs: { to: "/gerenciar-contracheque" },
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "/svg/search_database.svg",
+                          alt: "icone computador",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Gerenciar contracheques"),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    { staticClass: "navbutton", attrs: { to: "/perfil" } },
+                    [
+                      _c("img", {
+                        attrs: { src: "/svg/user.svg", alt: "icone usuário" },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Meu perfil"),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    { staticClass: "navbutton", attrs: { to: "/legislacao" } },
+                    [
+                      _c("img", {
+                        attrs: { src: "/svg/books.svg", alt: "icone livro" },
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Legislação"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  attrs: { id: "sugestoes_contaneir" },
+                  on: {
+                    mouseover: function ($event) {
+                      _vm.sugestoes_ativa = true
+                    },
+                    mouseleave: function ($event) {
+                      _vm.sugestoes_ativa = false
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    { attrs: { id: "sugestoes" } },
+                    [
+                      _c("div", { attrs: { id: "lampada" } }, [
+                        _c("img", {
+                          attrs: {
+                            src: "/svg/lifebouy.svg",
+                            alt: "Imagem lâmpada",
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("h5", [_vm._v("Precisando de ajuda?")]),
+                      _vm._v(" "),
+                      _c("transition", { attrs: { name: "sugestoes" } }, [
+                        _vm.sugestoes_ativa
+                          ? _c("div", [
+                              _c("p", [
+                                _vm._v(
+                                  "\n                                Encontrou alguma falha ou tem alguma\n                                sugestão para melhoria do App? Sinta-se à\n                                vontade para nos comunicar:\n                                "
+                                ),
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _vm._v("Enviar mensagem"),
+                                ]),
+                              ]),
+                            ])
+                          : _vm._e(),
+                      ]),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+            ])
+          : _vm._e(),
+      ]),
+      _vm._v(" "),
+      _c("main", [
+        _c(
+          "div",
+          {
+            attrs: { id: "btn_hide_sibdebar" },
+            on: {
+              click: function ($event) {
+                _vm.showSidebar = !_vm.showSidebar
               },
             },
-            [
-              _c("input", {
-                attrs: { type: "hidden", name: "_token" },
-                domProps: { value: _vm.csrf_token },
+          },
+          [
+            _c("span", [
+              _c("img", {
+                class: _vm.showSidebar ? "" : "reverse",
+                attrs: {
+                  src: "/svg/arrow.svg",
+                  alt: "Ícone de seta para esquerda",
+                },
               }),
-            ]
-          ),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c("section", { attrs: { id: "main_header" } }, [
+          _c("div", { attrs: { id: "saudacao" } }, [
+            _c("span", [
+              _vm._v("\n                    Bem vindo,\n                    "),
+              _c("span", { staticStyle: { "text-transform": "capitalize" } }, [
+                _vm._v(
+                  "\n                        " + _vm._s(_vm.userFirstName)
+                ),
+              ]),
+              _vm._v("!\n                "),
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "d-none",
+                attrs: {
+                  id: "logout-form",
+                  action: _vm.routeLogout,
+                  method: "POST",
+                },
+              },
+              [
+                _c("input", {
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf_token },
+                }),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "logout" } }),
         ]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "logout" } }),
+        _c("section", { attrs: { id: "main_body" } }, [_c("router-view")], 1),
       ]),
-      _vm._v(" "),
-      _c("section", { attrs: { id: "main_body" } }, [_c("router-view")], 1),
-    ]),
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "logo" } }, [
-      _c("img", {
-        attrs: {
-          src: "/image/logo.png",
-          alt: "Logo Exame de Pagamento",
-          title: "App Exame de Pagamento",
-        },
-      }),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v("App | "),
-        _c("strong", [_vm._v("Exame de Pagamento")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "lampada" } }, [
-      _c("img", { attrs: { src: "/svg/lifebouy.svg", alt: "Imagem lâmpada" } }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

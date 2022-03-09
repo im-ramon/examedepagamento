@@ -48,6 +48,7 @@ main {
   overflow-y: scroll;
   width: 100%;
   padding: 1em 0;
+  position: relative;
 }
 
 #saudacao {
@@ -83,7 +84,46 @@ main {
   text-decoration: none;
 }
 
+#btn_hide_sibdebar {
+  background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  height: 32px;
+  width: 38px;
+  left: -23px;
+  top: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#btn_hide_sibdebar:hover img {
+  -webkit-animation: setaParaFechar 0.5s infinite alternate ease-out;
+          animation: setaParaFechar 0.5s infinite alternate ease-out;
+}
+#btn_hide_sibdebar img {
+  margin-left: 8px;
+  width: 24px;
+  margin-right: 3px;
+  transition: all 0.5s ease-in-out;
+}
+
+.reverse {
+  transform: rotate(180deg);
+  transition: all 0.5s ease-in-out;
+}
+
 aside#sidebar {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   align-items: center;
   background: white;
   display: flex;
@@ -92,26 +132,6 @@ aside#sidebar {
   padding: 2em 1em;
   position: relative;
   width: 360px;
-}
-
-#btn_fechar {
-  align-items: center;
-  background: #ffffff;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  height: 32px;
-  position: absolute;
-  right: -18px;
-  top: 1em;
-  width: 32px;
-}
-#btn_fechar:hover img {
-  -webkit-animation: setaParaFechar 0.5s infinite alternate ease-out;
-          animation: setaParaFechar 0.5s infinite alternate ease-out;
-}
-#btn_fechar img {
-  margin-left: 8px;
 }
 
 #logo {
@@ -416,7 +436,7 @@ form#formulario {
 }
 #ficha_auxilitar table {
   background: #fff;
-  width: 260mm;
+  width: 250mm;
   border-radius: 6px;
   padding: 0 0.5em;
 }
@@ -1021,20 +1041,6 @@ label {
   transition: all 0.3s ease-in-out;
 }
 
-@media print {
-  table {
-    visibility: visible;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  #ficha_auxilitar input,
-#ficha_auxilitar textarea#observacoes_receitas,
-#ficha_auxilitar textarea#observacoes_descontos {
-    border: none;
-  }
-}
 .btn_refresh {
   display: flex;
   flex-direction: row;
@@ -1144,4 +1150,27 @@ label {
   border: 2px solid #e1e1e1;
   border-radius: 6px;
   padding: 0.3em;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #ficha_auxilitar table {
+    visibility: visible;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  #ficha_auxilitar table * {
+    visibility: visible;
+  }
+
+  #ficha_auxilitar input,
+#ficha_auxilitar textarea#observacoes_receitas,
+#ficha_auxilitar textarea#observacoes_descontos {
+    border: none;
+  }
 }
