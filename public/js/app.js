@@ -7292,16 +7292,24 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var key in this.$store.state.dadosFinanceiros.receitas) {
         if (this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO TOTAL" && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO PARA IR") {
-          this.valorContrachequeReceitas.push(this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-          }));
+          if (this.$store.state.contrachequeAtivo) {
+            this.recuperaArrayValorDoContracheque();
+          } else {
+            this.valorContrachequeReceitas.push(this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL"
+            }));
+          }
+
           data.push(this.$store.state.dadosFinanceiros.receitas[key]);
         }
       }
 
       for (var i = 0; data.length < 17; i++) {
-        this.valorContrachequeReceitas.push("");
+        if (!this.$store.state.contrachequeAtivo) {
+          this.valorContrachequeReceitas.push("");
+        }
+
         data.push({
           financeiro: {
             valor: "\n",
@@ -7322,6 +7330,10 @@ __webpack_require__.r(__webpack_exports__);
         this.dataAssinatura = "2022-01-01";
       }
     },
+    recuperaArrayValorDoContracheque: function recuperaArrayValorDoContracheque() {
+      this.valorContrachequeReceitas = this.$store.state.valorReceitasCC_array_atual;
+      this.valorContrachequeDescontos = this.$store.state.valorDescontosCC_array_atual;
+    },
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
       var _this2 = this;
 
@@ -7330,6 +7342,8 @@ __webpack_require__.r(__webpack_exports__);
       if (this.$store.state.contrachequeAtivo) {
         axios.patch("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(this.$store.state.contrachequeAtivo), {
           ficha_auxiliar_json: ficha_auxiliar_json,
+          valorReceitasCC_array: this.valorContrachequeReceitas.join("#"),
+          valorDescontosCC_array: this.valorContrachequeDescontos.join("#"),
           user_email: this.$store.state.activeUser.email
         }).then(function () {
           _this2.alertSuccess(_this2.$store.state.contrachequeAtivo, true);
@@ -7341,6 +7355,8 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         axios.post("".concat(this.nowPath, "/api/ficha-auxiliar"), {
           ficha_auxiliar_json: ficha_auxiliar_json,
+          valorReceitasCC_array: this.valorContrachequeReceitas.join("#"),
+          valorDescontosCC_array: this.valorContrachequeDescontos.join("#"),
           user_email: this.$store.state.activeUser.email
         }).then(function (r) {
           _this2.alertSuccess(r.data.id, true);
@@ -10328,6 +10344,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10378,9 +10401,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         });
       }
     },
-    editar_contracheque: function editar_contracheque(id, dados) {
+    editar_contracheque: function editar_contracheque(id, dados, valorReceitasCC_array, valorDescontosCC_array) {
       this.$store.state.backupForm = dados;
       this.$store.state.contrachequeAtivo = id;
+      this.$store.state.valorReceitasCC_array_atual = valorReceitasCC_array;
+      this.$store.state.valorDescontosCC_array_atual = valorDescontosCC_array;
     },
     recuperarContracheques: function recuperarContracheques() {
       var _this3 = this;
@@ -10396,7 +10421,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return r.data.contracheques.map(function (item) {
                     return {
                       id: item.id,
-                      dados: JSON.parse(item.ficha_auxiliar_json)
+                      dados: JSON.parse(item.ficha_auxiliar_json),
+                      valorDescontosCC_array: item.valorDescontosCC_array.split("#"),
+                      valorReceitasCC_array: item.valorReceitasCC_array.split("#")
                     };
                   });
                 }).then(function (r) {
@@ -10901,7 +10928,9 @@ var store = new Vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     backupForm: false,
     dadosFinanceiros: false,
     activeUser: false,
-    contrachequeAtivo: false
+    contrachequeAtivo: false,
+    valorDescontosCC_array_atual: '-',
+    valorReceitasCC_array_atual: '-'
   }
 });
 /**
@@ -43197,7 +43226,12 @@ var render = function () {
                       },
                       on: {
                         click: function ($event) {
-                          return _vm.editar_contracheque(c.id, c.dados)
+                          return _vm.editar_contracheque(
+                            c.id,
+                            c.dados,
+                            c.valorReceitasCC_array,
+                            c.valorDescontosCC_array
+                          )
                         },
                       },
                     }),

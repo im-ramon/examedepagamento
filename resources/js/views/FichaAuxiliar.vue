@@ -512,19 +512,25 @@ export default {
                     this.$store.state.dadosFinanceiros.receitas[key].rubrica !=
                         "BRUTO PARA IR"
                 ) {
-                    this.valorContrachequeReceitas.push(
-                        this.$store.state.dadosFinanceiros.receitas[
-                            key
-                        ].financeiro.valor.toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                        })
-                    );
+                    if (this.$store.state.contrachequeAtivo) {
+                        this.recuperaArrayValorDoContracheque();
+                    } else {
+                        this.valorContrachequeReceitas.push(
+                            this.$store.state.dadosFinanceiros.receitas[
+                                key
+                            ].financeiro.valor.toLocaleString("pt-BR", {
+                                style: "currency",
+                                currency: "BRL",
+                            })
+                        );
+                    }
                     data.push(this.$store.state.dadosFinanceiros.receitas[key]);
                 }
             }
             for (let i = 0; data.length < 17; i++) {
-                this.valorContrachequeReceitas.push("");
+                if (!this.$store.state.contrachequeAtivo) {
+                    this.valorContrachequeReceitas.push("");
+                }
                 data.push({
                     financeiro: {
                         valor: "\n",
@@ -544,6 +550,12 @@ export default {
                 this.dataAssinatura = "2022-01-01";
             }
         },
+        recuperaArrayValorDoContracheque() {
+            this.valorContrachequeReceitas =
+                this.$store.state.valorReceitasCC_array_atual;
+            this.valorContrachequeDescontos =
+                this.$store.state.valorDescontosCC_array_atual;
+        },
         salvarNoBancoDeDados() {
             let ficha_auxiliar_json = JSON.stringify(
                 this.$store.state.backupForm
@@ -555,6 +567,10 @@ export default {
                         `${this.nowPath}/api/ficha-auxiliar/${this.$store.state.contrachequeAtivo}`,
                         {
                             ficha_auxiliar_json,
+                            valorReceitasCC_array:
+                                this.valorContrachequeReceitas.join("#"),
+                            valorDescontosCC_array:
+                                this.valorContrachequeDescontos.join("#"),
                             user_email: this.$store.state.activeUser.email,
                         }
                     )
@@ -570,6 +586,10 @@ export default {
                 axios
                     .post(`${this.nowPath}/api/ficha-auxiliar`, {
                         ficha_auxiliar_json,
+                        valorReceitasCC_array:
+                            this.valorContrachequeReceitas.join("#"),
+                        valorDescontosCC_array:
+                            this.valorContrachequeDescontos.join("#"),
                         user_email: this.$store.state.activeUser.email,
                     })
                     .then((r) => {

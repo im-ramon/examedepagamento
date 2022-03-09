@@ -67,7 +67,14 @@
                         <router-link to="/gerar-contracheque">
                             <img
                                 src="/svg/edit.svg"
-                                @click="editar_contracheque(c.id, c.dados)"
+                                @click="
+                                    editar_contracheque(
+                                        c.id,
+                                        c.dados,
+                                        c.valorReceitasCC_array,
+                                        c.valorDescontosCC_array
+                                    )
+                                "
                                 alt="icone editar"
                                 id="editar_contracheque"
                             />
@@ -153,9 +160,18 @@ export default {
                     .catch((e) => console.log(e));
             }
         },
-        editar_contracheque(id, dados) {
+        editar_contracheque(
+            id,
+            dados,
+            valorReceitasCC_array,
+            valorDescontosCC_array
+        ) {
             this.$store.state.backupForm = dados;
             this.$store.state.contrachequeAtivo = id;
+            this.$store.state.valorReceitasCC_array_atual =
+                valorReceitasCC_array;
+            this.$store.state.valorDescontosCC_array_atual =
+                valorDescontosCC_array;
         },
         async recuperarContracheques() {
             this.buscandoRegistros = true;
@@ -164,14 +180,18 @@ export default {
                 .get(
                     `${this.nowPath}/api/ficha-auxiliar/${this.usuarioAtual.email}`
                 )
-                .then((r) =>
-                    r.data.contracheques.map((item) => {
+                .then((r) => {
+                    return r.data.contracheques.map((item) => {
                         return {
                             id: item.id,
                             dados: JSON.parse(item.ficha_auxiliar_json),
+                            valorDescontosCC_array:
+                                item.valorDescontosCC_array.split("#"),
+                            valorReceitasCC_array:
+                                item.valorReceitasCC_array.split("#"),
                         };
-                    })
-                )
+                    });
+                })
                 .then((r) => {
                     this.contrachequeList = r;
                 })

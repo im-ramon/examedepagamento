@@ -18,6 +18,8 @@ const store = new Vuex.Store({
         dadosFinanceiros: false,
         activeUser: false,
         contrachequeAtivo: false,
+        valorDescontosCC_array_atual: '-',
+        valorReceitasCC_array_atual: '-',
     }
 })
 /**
