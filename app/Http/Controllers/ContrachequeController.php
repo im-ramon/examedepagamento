@@ -215,7 +215,7 @@ class ContrachequeController extends Controller
 
     public function recuperarContracheques(Contracheque $Contracheque, $email)
     {
-        $contracheques = Contracheque::where('user_email', '=', $email)->get(['id', 'ficha_auxiliar_json']);
+        $contracheques = Contracheque::where('user_email', '=', $email)->get(['id', 'ficha_auxiliar_json', 'valorReceitasCC_array', 'valorDescontosCC_array']);
         return ['contracheques' => $contracheques];
     }
 
