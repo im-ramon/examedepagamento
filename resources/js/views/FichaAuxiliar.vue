@@ -1,6 +1,10 @@
 <template>
     <section id="ficha_auxilitar" v-show="$store.state.dadosFinanceiros">
         <div id="ficha_auxiliar-head">
+            <router-link id="ficha_auxiliar-voltar" to="/gerar-contracheque">
+                <img src="/svg/back.svg" alt="Ícone sair" />
+            </router-link>
+
             <div id="contrachequeAtivo">
                 <label>Código do contracheque ativo: </label>
                 <input

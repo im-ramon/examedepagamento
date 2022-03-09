@@ -7207,6 +7207,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -36189,30 +36193,44 @@ var render = function () {
       attrs: { id: "ficha_auxilitar" },
     },
     [
-      _c("div", { attrs: { id: "ficha_auxiliar-head" } }, [
-        _c("div", { attrs: { id: "contrachequeAtivo" } }, [
-          _c("label", [_vm._v("Código do contracheque ativo: ")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "text", disabled: "" },
-            domProps: {
-              value: _vm.$store.state.contrachequeAtivo || "Novo contracheque",
+      _c(
+        "div",
+        { attrs: { id: "ficha_auxiliar-head" } },
+        [
+          _c(
+            "router-link",
+            {
+              attrs: { id: "ficha_auxiliar-voltar", to: "/gerar-contracheque" },
             },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("section", [
-          _vm._m(0),
+            [_c("img", { attrs: { src: "/svg/back.svg", alt: "Ícone sair" } })]
+          ),
           _vm._v(" "),
-          _c("button", { on: { click: _vm.salvarNoBancoDeDados } }, [
-            _c("span", [_vm._v("Salvar")]),
+          _c("div", { attrs: { id: "contrachequeAtivo" } }, [
+            _c("label", [_vm._v("Código do contracheque ativo: ")]),
             _vm._v(" "),
-            _c("img", {
-              attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
+            _c("input", {
+              attrs: { type: "text", disabled: "" },
+              domProps: {
+                value:
+                  _vm.$store.state.contrachequeAtivo || "Novo contracheque",
+              },
             }),
           ]),
-        ]),
-      ]),
+          _vm._v(" "),
+          _c("section", [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.salvarNoBancoDeDados } }, [
+              _c("span", [_vm._v("Salvar")]),
+              _vm._v(" "),
+              _c("img", {
+                attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
+              }),
+            ]),
+          ]),
+        ],
+        1
+      ),
       _vm._v(" "),
       this.$store.state.dadosFinanceiros
         ? _c(
