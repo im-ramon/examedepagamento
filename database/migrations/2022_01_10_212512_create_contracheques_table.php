@@ -19,6 +19,7 @@ class CreateContrachequesTable extends Migration
             $table->string('ficha_auxiliar_json', 8000);
             $table->string('valorReceitasCC_array', 512)->default('-');
             $table->string('valorDescontosCC_array', 512)->default('-');
+            $table->string('observacoes', 1024)->default('-');
             $table->string('user_email');
 
             $table->foreign('user_email')->references('email')->on('users');

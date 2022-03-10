@@ -14,5 +14,6 @@ class Contracheque extends Model
         'user_email',
         'valorReceitasCC_array',
         'valorDescontosCC_array',
+        'observacoes'
     ];
 }

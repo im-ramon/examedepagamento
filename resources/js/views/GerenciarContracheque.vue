@@ -72,7 +72,8 @@
                                         c.id,
                                         c.dados,
                                         c.valorReceitasCC_array,
-                                        c.valorDescontosCC_array
+                                        c.valorDescontosCC_array,
+                                        c.observacoes
                                     )
                                 "
                                 alt="icone editar"
@@ -164,7 +165,8 @@ export default {
             id,
             dados,
             valorReceitasCC_array,
-            valorDescontosCC_array
+            valorDescontosCC_array,
+            observacoes
         ) {
             this.$store.state.backupForm = dados;
             this.$store.state.contrachequeAtivo = id;
@@ -172,6 +174,7 @@ export default {
                 valorReceitasCC_array;
             this.$store.state.valorDescontosCC_array_atual =
                 valorDescontosCC_array;
+            this.$store.state.observacoes = observacoes;
         },
         async recuperarContracheques() {
             this.buscandoRegistros = true;
@@ -189,6 +192,7 @@ export default {
                                 item.valorDescontosCC_array.split("#"),
                             valorReceitasCC_array:
                                 item.valorReceitasCC_array.split("#"),
+                            observacoes: JSON.parse(item.observacoes),
                         };
                     });
                 })

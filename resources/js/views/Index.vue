@@ -12,7 +12,7 @@
             </p>
         </div>
         <div id="index-main">
-            <h3>Aviso importantes</h3>
+            <h3>Avisos importantes</h3>
             <p>
                 • Em razão de algumas restrições impostas pela Lei nº 13.709, de
                 14 de agosto de 2018 - Lei Geral de Proteção de Dados Pessoais

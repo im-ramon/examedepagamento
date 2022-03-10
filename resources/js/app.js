@@ -20,6 +20,7 @@ const store = new Vuex.Store({
         contrachequeAtivo: false,
         valorDescontosCC_array_atual: '-',
         valorReceitasCC_array_atual: '-',
+        observacoes: '-',
     }
 })
 /**

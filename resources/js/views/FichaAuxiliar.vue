@@ -139,6 +139,7 @@
                         id="observacoes_receitas"
                         name="observacoes_receitas"
                         rows="18"
+                        v-model="observacoesReceitas"
                     ></textarea>
                 </td>
             </tr>
@@ -208,10 +209,10 @@
                         id="observacoes_descontos"
                         name="observacoes_descontos"
                         rows="18"
+                        v-model="observacoesDescontos"
                     ></textarea>
                 </td>
             </tr>
-
             <tr
                 v-for="(data, key) in dadosApiDescontos"
                 :key="key + data.rubrica"
@@ -423,6 +424,8 @@ export default {
             valorContrachequeDescontos: [],
             dadosApiReceitas: [],
             dadosApiDescontos: [],
+            observacoesReceitas: "",
+            observacoesDescontos: "",
         };
     },
     computed: {
@@ -518,6 +521,7 @@ export default {
                 ) {
                     if (this.$store.state.contrachequeAtivo) {
                         this.recuperaArrayValorDoContracheque();
+                        this.recuperaObservacoes();
                     } else {
                         this.valorContrachequeReceitas.push(
                             this.$store.state.dadosFinanceiros.receitas[
@@ -560,6 +564,11 @@ export default {
             this.valorContrachequeDescontos =
                 this.$store.state.valorDescontosCC_array_atual;
         },
+        recuperaObservacoes() {
+            let obs = this.$store.state.observacoes;
+            this.observacoesReceitas = obs.observacoesReceitas;
+            this.observacoesDescontos = obs.observacoesDescontos;
+        },
         salvarNoBancoDeDados() {
             let ficha_auxiliar_json = JSON.stringify(
                 this.$store.state.backupForm
@@ -576,6 +585,10 @@ export default {
                             valorDescontosCC_array:
                                 this.valorContrachequeDescontos.join("#"),
                             user_email: this.$store.state.activeUser.email,
+                            observacoes: JSON.stringify({
+                                observacoesReceitas: this.observacoesReceitas,
+                                observacoesDescontos: this.observacoesDescontos,
+                            }),
                         }
                     )
                     .then(() => {
@@ -595,6 +608,10 @@ export default {
                         valorDescontosCC_array:
                             this.valorContrachequeDescontos.join("#"),
                         user_email: this.$store.state.activeUser.email,
+                        observacoes: JSON.stringify({
+                            observacoesReceitas: this.observacoesReceitas,
+                            observacoesDescontos: this.observacoesDescontos,
+                        }),
                     })
                     .then((r) => {
                         this.alertSuccess(r.data.id, true);

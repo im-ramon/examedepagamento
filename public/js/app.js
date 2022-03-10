@@ -7222,6 +7222,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7232,7 +7233,9 @@ __webpack_require__.r(__webpack_exports__);
       valorContrachequeReceitas: [],
       valorContrachequeDescontos: [],
       dadosApiReceitas: [],
-      dadosApiDescontos: []
+      dadosApiDescontos: [],
+      observacoesReceitas: "",
+      observacoesDescontos: ""
     };
   },
   computed: {
@@ -7309,6 +7312,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO TOTAL" && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO PARA IR") {
           if (this.$store.state.contrachequeAtivo) {
             this.recuperaArrayValorDoContracheque();
+            this.recuperaObservacoes();
           } else {
             this.valorContrachequeReceitas.push(this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor.toLocaleString("pt-BR", {
               style: "currency",
@@ -7349,6 +7353,11 @@ __webpack_require__.r(__webpack_exports__);
       this.valorContrachequeReceitas = this.$store.state.valorReceitasCC_array_atual;
       this.valorContrachequeDescontos = this.$store.state.valorDescontosCC_array_atual;
     },
+    recuperaObservacoes: function recuperaObservacoes() {
+      var obs = this.$store.state.observacoes;
+      this.observacoesReceitas = obs.observacoesReceitas;
+      this.observacoesDescontos = obs.observacoesDescontos;
+    },
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
       var _this2 = this;
 
@@ -7359,7 +7368,11 @@ __webpack_require__.r(__webpack_exports__);
           ficha_auxiliar_json: ficha_auxiliar_json,
           valorReceitasCC_array: this.valorContrachequeReceitas.join("#"),
           valorDescontosCC_array: this.valorContrachequeDescontos.join("#"),
-          user_email: this.$store.state.activeUser.email
+          user_email: this.$store.state.activeUser.email,
+          observacoes: JSON.stringify({
+            observacoesReceitas: this.observacoesReceitas,
+            observacoesDescontos: this.observacoesDescontos
+          })
         }).then(function () {
           _this2.alertSuccess(_this2.$store.state.contrachequeAtivo, true);
 
@@ -7372,7 +7385,11 @@ __webpack_require__.r(__webpack_exports__);
           ficha_auxiliar_json: ficha_auxiliar_json,
           valorReceitasCC_array: this.valorContrachequeReceitas.join("#"),
           valorDescontosCC_array: this.valorContrachequeDescontos.join("#"),
-          user_email: this.$store.state.activeUser.email
+          user_email: this.$store.state.activeUser.email,
+          observacoes: JSON.stringify({
+            observacoesReceitas: this.observacoesReceitas,
+            observacoesDescontos: this.observacoesDescontos
+          })
         }).then(function (r) {
           _this2.alertSuccess(r.data.id, true);
         })["catch"](function (e) {
@@ -10366,6 +10383,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10416,11 +10434,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         });
       }
     },
-    editar_contracheque: function editar_contracheque(id, dados, valorReceitasCC_array, valorDescontosCC_array) {
+    editar_contracheque: function editar_contracheque(id, dados, valorReceitasCC_array, valorDescontosCC_array, observacoes) {
       this.$store.state.backupForm = dados;
       this.$store.state.contrachequeAtivo = id;
       this.$store.state.valorReceitasCC_array_atual = valorReceitasCC_array;
       this.$store.state.valorDescontosCC_array_atual = valorDescontosCC_array;
+      this.$store.state.observacoes = observacoes;
     },
     recuperarContracheques: function recuperarContracheques() {
       var _this3 = this;
@@ -10438,7 +10457,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       id: item.id,
                       dados: JSON.parse(item.ficha_auxiliar_json),
                       valorDescontosCC_array: item.valorDescontosCC_array.split("#"),
-                      valorReceitasCC_array: item.valorReceitasCC_array.split("#")
+                      valorReceitasCC_array: item.valorReceitasCC_array.split("#"),
+                      observacoes: JSON.parse(item.observacoes)
                     };
                   });
                 }).then(function (r) {
@@ -10945,7 +10965,8 @@ var store = new Vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     activeUser: false,
     contrachequeAtivo: false,
     valorDescontosCC_array_atual: '-',
-    valorReceitasCC_array_atual: '-'
+    valorReceitasCC_array_atual: '-',
+    observacoes: '-'
   }
 });
 /**
@@ -36354,7 +36375,53 @@ var render = function () {
               _vm._v(" "),
               _vm._m(7),
               _vm._v(" "),
-              _vm._m(8),
+              _c("tr", [
+                _vm._m(8),
+                _vm._v(" "),
+                _vm._m(9),
+                _vm._v(" "),
+                _vm._m(10),
+                _vm._v(" "),
+                _vm._m(11),
+                _vm._v(" "),
+                _vm._m(12),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "td_calculos obs",
+                    attrs: { colspan: "5", rowspan: "19" },
+                  },
+                  [
+                    _c("p", [_vm._v("OBSERVAÇÕES")]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.observacoesReceitas,
+                          expression: "observacoesReceitas",
+                        },
+                      ],
+                      attrs: {
+                        id: "observacoes_receitas",
+                        name: "observacoes_receitas",
+                        rows: "18",
+                      },
+                      domProps: { value: _vm.observacoesReceitas },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.observacoesReceitas = $event.target.value
+                        },
+                      },
+                    }),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _vm._l(_vm.dadosApiReceitas, function (data, key) {
                 return _c("tr", { key: key }, [
@@ -36419,7 +36486,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(9),
+                _vm._m(13),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -36449,7 +36516,53 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(10),
+              _c("tr", [
+                _vm._m(14),
+                _vm._v(" "),
+                _vm._m(15),
+                _vm._v(" "),
+                _vm._m(16),
+                _vm._v(" "),
+                _vm._m(17),
+                _vm._v(" "),
+                _vm._m(18),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "td_calculos obs",
+                    attrs: { colspan: "5", rowspan: "19" },
+                  },
+                  [
+                    _c("p", [_vm._v("OBSERVAÇÕES")]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.observacoesDescontos,
+                          expression: "observacoesDescontos",
+                        },
+                      ],
+                      attrs: {
+                        id: "observacoes_descontos",
+                        name: "observacoes_descontos",
+                        rows: "18",
+                      },
+                      domProps: { value: _vm.observacoesDescontos },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.observacoesDescontos = $event.target.value
+                        },
+                      },
+                    }),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _vm._l(_vm.dadosApiDescontos, function (data, key) {
                 return _c("tr", { key: key + data.rubrica }, [
@@ -36510,7 +36623,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(11),
+                _vm._m(19),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -36541,7 +36654,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(12),
+                _vm._m(20),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _c("p", [
@@ -36577,12 +36690,12 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _vm._m(13),
+                _vm._m(21),
               ]),
               _vm._v(" "),
-              _vm._m(14),
+              _vm._m(22),
               _vm._v(" "),
-              _vm._m(15),
+              _vm._m(23),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36602,11 +36715,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(16),
+              _vm._m(24),
               _vm._v(" "),
-              _vm._m(17),
+              _vm._m(25),
               _vm._v(" "),
-              _vm._m(18),
+              _vm._m(26),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36628,11 +36741,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(19),
+              _vm._m(27),
               _vm._v(" "),
-              _vm._m(20),
+              _vm._m(28),
               _vm._v(" "),
-              _vm._m(21),
+              _vm._m(29),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -36652,11 +36765,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(22),
+              _vm._m(30),
               _vm._v(" "),
-              _vm._m(23),
+              _vm._m(31),
               _vm._v(" "),
-              _vm._m(24),
+              _vm._m(32),
             ],
             2
           )
@@ -36833,57 +36946,52 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "td_calculos", attrs: { rowspan: "18" } }, [
-        _c("p", [_vm._v("R")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("E")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("C")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("E")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("I")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("T")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("A")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("S")]),
-      ]),
+    return _c("td", { staticClass: "td_calculos", attrs: { rowspan: "18" } }, [
+      _c("p", [_vm._v("R")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos", attrs: { colspan: "2" } }, [
-        _c("p", [_vm._v("DISCRIMINAÇÃO")]),
-      ]),
+      _c("p", [_vm._v("E")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos" }, [_c("p", [_vm._v("%")])]),
+      _c("p", [_vm._v("C")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos" }, [
-        _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("PESQUISADO")]),
-      ]),
+      _c("p", [_vm._v("E")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos valor_contracheque" }, [
-        _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("CONTRACHEQUE")]),
-      ]),
+      _c("p", [_vm._v("I")]),
       _vm._v(" "),
-      _c(
-        "td",
-        {
-          staticClass: "td_calculos obs",
-          attrs: { colspan: "5", rowspan: "19" },
-        },
-        [
-          _c("p", [_vm._v("OBSERVAÇÕES")]),
-          _vm._v(" "),
-          _c("textarea", {
-            attrs: {
-              id: "observacoes_receitas",
-              name: "observacoes_receitas",
-              rows: "18",
-            },
-          }),
-        ]
-      ),
+      _c("p", [_vm._v("T")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("A")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("S")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos", attrs: { colspan: "2" } }, [
+      _c("p", [_vm._v("DISCRIMINAÇÃO")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos" }, [_c("p", [_vm._v("%")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos" }, [
+      _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("PESQUISADO")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos valor_contracheque" }, [
+      _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("CONTRACHEQUE")]),
     ])
   },
   function () {
@@ -36898,57 +37006,52 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "td_calculos", attrs: { rowspan: "18" } }, [
-        _c("p", [_vm._v("D")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("E")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("S")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("P")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("E")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("S")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("A")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("S")]),
-      ]),
+    return _c("td", { staticClass: "td_calculos", attrs: { rowspan: "18" } }, [
+      _c("p", [_vm._v("D")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos", attrs: { colspan: "2" } }, [
-        _c("p", [_vm._v("DISCRIMINAÇÃO")]),
-      ]),
+      _c("p", [_vm._v("E")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos" }, [_c("p", [_vm._v("%")])]),
+      _c("p", [_vm._v("S")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos" }, [
-        _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("PESQUISADO")]),
-      ]),
+      _c("p", [_vm._v("P")]),
       _vm._v(" "),
-      _c("td", { staticClass: "td_calculos" }, [
-        _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("CONTRACHEQUE")]),
-      ]),
+      _c("p", [_vm._v("E")]),
       _vm._v(" "),
-      _c(
-        "td",
-        {
-          staticClass: "td_calculos obs",
-          attrs: { colspan: "5", rowspan: "19" },
-        },
-        [
-          _c("p", [_vm._v("OBSERVAÇÕES")]),
-          _vm._v(" "),
-          _c("textarea", {
-            attrs: {
-              id: "observacoes_descontos",
-              name: "observacoes_descontos",
-              rows: "18",
-            },
-          }),
-        ]
-      ),
+      _c("p", [_vm._v("S")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("A")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("S")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos", attrs: { colspan: "2" } }, [
+      _c("p", [_vm._v("DISCRIMINAÇÃO")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos" }, [_c("p", [_vm._v("%")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos" }, [
+      _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("PESQUISADO")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "td_calculos" }, [
+      _c("p", [_vm._v("VALOR"), _c("br"), _vm._v("CONTRACHEQUE")]),
     ])
   },
   function () {
@@ -43298,7 +43401,8 @@ var render = function () {
                             c.id,
                             c.dados,
                             c.valorReceitasCC_array,
-                            c.valorDescontosCC_array
+                            c.valorDescontosCC_array,
+                            c.observacoes
                           )
                         },
                       },
@@ -43379,7 +43483,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { attrs: { id: "index-main" } }, [
-        _c("h3", [_vm._v("Aviso importantes")]),
+        _c("h3", [_vm._v("Avisos importantes")]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
