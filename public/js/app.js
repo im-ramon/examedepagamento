@@ -7219,10 +7219,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7239,6 +7235,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
+    liquidoDoContracheque: function liquidoDoContracheque() {
+      return this.somaValoresContrachequeReceitas - this.somaValoresContrachequeDescontos;
+    },
     somaValoresContrachequeReceitas: function somaValoresContrachequeReceitas() {
       var arr = this.valorContrachequeReceitas;
       arr = arr.map(function (item) {
@@ -7284,10 +7283,13 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var key in this.$store.state.dadosFinanceiros.descontos) {
         if (this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS TOTAL" && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS PARA IR") {
-          this.valorContrachequeDescontos.push(this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-          }));
+          if (!this.$store.state.contrachequeAtivo) {
+            this.valorContrachequeDescontos.push(this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL"
+            }));
+          }
+
           data.push(this.$store.state.dadosFinanceiros.descontos[key]);
         }
       }
@@ -36678,12 +36680,7 @@ var render = function () {
                     _vm._v(
                       "\n                    " +
                         _vm._s(
-                          _vm._f("numeroPreco")(
-                            _vm.dadosApiCompleto.receitas.bruto_total.financeiro
-                              .valor -
-                              _vm.dadosApiCompleto.descontos.descontos_total
-                                .financeiro.valor
-                          )
+                          _vm._f("numeroPreco")(_vm.liquidoDoContracheque)
                         ) +
                         "\n                "
                     ),
@@ -36830,6 +36827,11 @@ var render = function () {
           ]
         ),
       ]),
+      _vm._v(
+        "\n\n    " +
+          _vm._s(_vm.$store.state.valorDescontosCC_array_atual) +
+          "\n"
+      ),
     ],
     1
   )

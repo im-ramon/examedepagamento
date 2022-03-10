@@ -267,13 +267,7 @@
                 </td>
                 <td class="td_calculos valor">
                     <p>
-                        {{
-                            (dadosApiCompleto.receitas.bruto_total.financeiro
-                                .valor -
-                                dadosApiCompleto.descontos.descontos_total
-                                    .financeiro.valor)
-                                | numeroPreco
-                        }}
+                        {{ liquidoDoContracheque | numeroPreco }}
                     </p>
                 </td>
                 <td class="td_calculos" colspan="4">
@@ -398,6 +392,8 @@
                 </div>
             </div>
         </transition>
+
+        {{ $store.state.valorDescontosCC_array_atual }}
     </section>
 </template>
 
@@ -429,6 +425,12 @@ export default {
         };
     },
     computed: {
+        liquidoDoContracheque() {
+            return (
+                this.somaValoresContrachequeReceitas -
+                this.somaValoresContrachequeDescontos
+            );
+        },
         somaValoresContrachequeReceitas() {
             let arr = this.valorContrachequeReceitas;
             arr = arr.map((item) =>
@@ -482,14 +484,17 @@ export default {
                     this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
                         "DESCONTOS PARA IR"
                 ) {
-                    this.valorContrachequeDescontos.push(
-                        this.$store.state.dadosFinanceiros.descontos[
-                            key
-                        ].financeiro.valor.toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                        })
-                    );
+                    if (!this.$store.state.contrachequeAtivo) {
+                        this.valorContrachequeDescontos.push(
+                            this.$store.state.dadosFinanceiros.descontos[
+                                key
+                            ].financeiro.valor.toLocaleString("pt-BR", {
+                                style: "currency",
+                                currency: "BRL",
+                            })
+                        );
+                    }
+
                     data.push(
                         this.$store.state.dadosFinanceiros.descontos[key]
                     );
