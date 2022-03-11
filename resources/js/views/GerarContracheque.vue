@@ -2471,12 +2471,18 @@ export default {
     },
     beforeRouteLeave(to, from, next) {
         if (to.path == "/ficha-auxiliar") {
-            this.loading = true;
-            this.saveForm();
-            this.geraDadosFinanceiros().then((r) => {
-                this.loading = false;
-                next();
-            });
+            if (this.pg_soldo == 1 || this.pg_real == 1) {
+                alert(
+                    'Volte até a área "Informações gerais" e selecione o Posto ou Graduação para poder continuar.'
+                );
+            } else {
+                this.loading = true;
+                this.saveForm();
+                this.geraDadosFinanceiros().then((r) => {
+                    this.loading = false;
+                    next();
+                });
+            }
         } else {
             next();
         }

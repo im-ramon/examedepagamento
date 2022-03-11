@@ -108,9 +108,9 @@
                 <div id="logout"></div>
             </section>
             <section id="main_body">
-                <!-- <formulario-component :form_token="csrf_token">
-                </formulario-component> -->
-                <router-view></router-view>
+                <transition name="home">
+                    <router-view></router-view>
+                </transition>
             </section>
         </main>
     </section>
@@ -194,5 +194,31 @@ export default {
 .sidebar-leave-to {
     animation: moveSidebar 0.7s;
     overflow: hidden;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: translateX(-5em);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.home-enter-active {
+    animation-name: show;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    position: absolute;
+}
+.home-leave-active {
+    animation-name: show;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    animation-direction: reverse;
+    position: absolute;
 }
 </style>

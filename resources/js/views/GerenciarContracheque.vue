@@ -58,6 +58,13 @@
                         Código do contracheque: <strong>{{ c.id }}</strong>
                     </span>
                     <span>
+                        P/G:
+                        <strong>{{
+                            pgFiltrados[c.dados.pg_real - 1] || "buscando..."
+                        }}</strong>
+                    </span>
+
+                    <span>
                         Universo:
                         <strong>{{
                             c.dados.universo | formataUniverso
@@ -67,6 +74,7 @@
                         <router-link to="/gerar-contracheque">
                             <img
                                 src="/svg/edit.svg"
+                                title="Editar contracheque"
                                 @click="
                                     editar_contracheque(
                                         c.id,
@@ -83,6 +91,7 @@
 
                         <img
                             src="/svg/delete.svg"
+                            title="Excluir contracheque"
                             @click="excluir_contracheque(c.id)"
                             alt="icone delete"
                             id="excluir_contracheque"
@@ -110,9 +119,16 @@ export default {
             loadingSalvarData: false,
             buscandoRegistros: false,
             dataAssinatura: "2021-01-01",
+            listaPg: [],
         };
     },
     computed: {
+        pgFiltrados() {
+            let objPg = this.listaPg;
+            return objPg.map((valorAtual) => {
+                return (valorAtual = valorAtual.pg_abrev);
+            });
+        },
         token() {
             let token = document.cookie.split(";").find((indice) => {
                 return indice.includes("token=");
@@ -137,6 +153,14 @@ export default {
     },
 
     methods: {
+        carregaPg() {
+            axios
+                .get(`${this.nowPath}/api/pg-constantes`)
+                .then((r) => {
+                    this.listaPg = r.data;
+                })
+                .catch((e) => console.log(e));
+        },
         salvarDataAssinatura() {
             this.loadingSalvarData = true;
 
@@ -209,6 +233,7 @@ export default {
         setTimeout(() => {
             this.recuperarContracheques();
             this.recuperarDataAssinatura();
+            this.carregaPg();
         }, 1);
     },
 

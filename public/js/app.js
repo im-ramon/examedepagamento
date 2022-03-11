@@ -7217,8 +7217,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9947,12 +9945,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this = this;
 
     if (to.path == "/ficha-auxiliar") {
-      this.loading = true;
-      this.saveForm();
-      this.geraDadosFinanceiros().then(function (r) {
-        _this.loading = false;
-        next();
-      });
+      if (this.pg_soldo == 1 || this.pg_real == 1) {
+        alert('Volte até a área "Informações gerais" e selecione o Posto ou Graduação para poder continuar.');
+      } else {
+        this.loading = true;
+        this.saveForm();
+        this.geraDadosFinanceiros().then(function (r) {
+          _this.loading = false;
+          next();
+        });
+      }
     } else {
       next();
     }
@@ -10386,16 +10388,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       contrachequeList: false,
       loadingSalvarData: false,
       buscandoRegistros: false,
-      dataAssinatura: "2021-01-01"
+      dataAssinatura: "2021-01-01",
+      listaPg: []
     };
   },
   computed: {
+    pgFiltrados: function pgFiltrados() {
+      var objPg = this.listaPg;
+      return objPg.map(function (valorAtual) {
+        return valorAtual = valorAtual.pg_abrev;
+      });
+    },
     token: function token() {
       var token = document.cookie.split(";").find(function (indice) {
         return indice.includes("token=");
@@ -10413,24 +10431,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
-    salvarDataAssinatura: function salvarDataAssinatura() {
+    carregaPg: function carregaPg() {
       var _this = this;
+
+      axios.get("".concat(this.nowPath, "/api/pg-constantes")).then(function (r) {
+        _this.listaPg = r.data;
+      })["catch"](function (e) {
+        return console.log(e);
+      });
+    },
+    salvarDataAssinatura: function salvarDataAssinatura() {
+      var _this2 = this;
 
       this.loadingSalvarData = true;
       localStorage.setItem("data_assinatura_cc", this.dataAssinatura);
       setTimeout(function () {
-        _this.loadingSalvarData = false;
+        _this2.loadingSalvarData = false;
       }, 1000);
     },
     recuperarDataAssinatura: function recuperarDataAssinatura() {
       this.dataAssinatura = localStorage.getItem("data_assinatura_cc");
     },
     excluir_contracheque: function excluir_contracheque(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (confirm("Esta opera\xE7\xE3o ir\xE1 excluir DEFINITIVAMENTE o contracheque de c\xF3digo \"".concat(id, "\" do banco de dados. \n\n Deseja continuar?"))) {
         axios["delete"]("".concat(this.nowPath, "/api/ficha-auxiliar/").concat(id)).then(function (r) {
-          return _this2.recuperarContracheques();
+          return _this3.recuperarContracheques();
         })["catch"](function (e) {
           return console.log(e);
         });
@@ -10444,16 +10471,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$store.state.observacoes = observacoes;
     },
     recuperarContracheques: function recuperarContracheques() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this3.buscandoRegistros = true;
+                _this4.buscandoRegistros = true;
                 _context.next = 3;
-                return axios.get("".concat(_this3.nowPath, "/api/ficha-auxiliar/").concat(_this3.usuarioAtual.email)).then(function (r) {
+                return axios.get("".concat(_this4.nowPath, "/api/ficha-auxiliar/").concat(_this4.usuarioAtual.email)).then(function (r) {
                   return r.data.contracheques.map(function (item) {
                     return {
                       id: item.id,
@@ -10464,11 +10491,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
                   });
                 }).then(function (r) {
-                  _this3.contrachequeList = r;
+                  _this4.contrachequeList = r;
                 })["catch"](function (e) {
                   console.log(e);
                 })["finally"](function () {
-                  return _this3.buscandoRegistros = false;
+                  return _this4.buscandoRegistros = false;
                 });
 
               case 3:
@@ -10481,12 +10508,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this5 = this;
 
     setTimeout(function () {
-      _this4.recuperarContracheques();
+      _this5.recuperarContracheques();
 
-      _this4.recuperarDataAssinatura();
+      _this5.recuperarDataAssinatura();
+
+      _this5.carregaPg();
     }, 1);
   },
   filters: {
@@ -16153,7 +16182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.sugestoes-enter-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.sugestoes-enter-from,\r\n.sugestoes-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\n@-webkit-keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n@keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n.sidebar-enter-active {\r\n    animation: moveSidebar 0.7s reverse;\r\n    overflow: hidden;\n}\n.sidebar-enter-from,\r\n.sidebar-leave-to {\r\n    -webkit-animation: moveSidebar 0.7s;\r\n            animation: moveSidebar 0.7s;\r\n    overflow: hidden;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.sugestoes-enter-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.sugestoes-enter-from,\r\n.sugestoes-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\n@-webkit-keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n@keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n.sidebar-enter-active {\r\n    animation: moveSidebar 0.7s reverse;\r\n    overflow: hidden;\n}\n.sidebar-enter-from,\r\n.sidebar-leave-to {\r\n    -webkit-animation: moveSidebar 0.7s;\r\n            animation: moveSidebar 0.7s;\r\n    overflow: hidden;\n}\n@-webkit-keyframes show {\n0% {\r\n        opacity: 0;\r\n        transform: translateX(-5em);\n}\n100% {\r\n        opacity: 1;\r\n        transform: translateX(0);\n}\n}\n@keyframes show {\n0% {\r\n        opacity: 0;\r\n        transform: translateX(-5em);\n}\n100% {\r\n        opacity: 1;\r\n        transform: translateX(0);\n}\n}\n.home-enter-active {\r\n    -webkit-animation-name: show;\r\n            animation-name: show;\r\n    -webkit-animation-duration: 0.8s;\r\n            animation-duration: 0.8s;\r\n    -webkit-animation-timing-function: ease;\r\n            animation-timing-function: ease;\r\n    position: absolute;\n}\n.home-leave-active {\r\n    -webkit-animation-name: show;\r\n            animation-name: show;\r\n    -webkit-animation-duration: 0.3s;\r\n            animation-duration: 0.3s;\r\n    -webkit-animation-timing-function: ease;\r\n            animation-timing-function: ease;\r\n    animation-direction: reverse;\r\n    position: absolute;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36164,7 +36193,19 @@ var render = function () {
           _c("div", { attrs: { id: "logout" } }),
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "main_body" } }, [_c("router-view")], 1),
+        _c(
+          "section",
+          { attrs: { id: "main_body" } },
+          [
+            _c(
+              "transition",
+              { attrs: { name: "home" } },
+              [_c("router-view")],
+              1
+            ),
+          ],
+          1
+        ),
       ]),
     ],
     1
@@ -36827,11 +36868,6 @@ var render = function () {
           ]
         ),
       ]),
-      _vm._v(
-        "\n\n    " +
-          _vm._s(_vm.$store.state.valorDescontosCC_array_atual) +
-          "\n"
-      ),
     ],
     1
   )
@@ -43380,6 +43416,17 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("span", [
+                _vm._v("\n                    P/G:\n                    "),
+                _c("strong", [
+                  _vm._v(
+                    _vm._s(
+                      _vm.pgFiltrados[c.dados.pg_real - 1] || "buscando..."
+                    )
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("span", [
                 _vm._v("\n                    Universo:\n                    "),
                 _c("strong", [
                   _vm._v(_vm._s(_vm._f("formataUniverso")(c.dados.universo))),
@@ -43394,6 +43441,7 @@ var render = function () {
                     _c("img", {
                       attrs: {
                         src: "/svg/edit.svg",
+                        title: "Editar contracheque",
                         alt: "icone editar",
                         id: "editar_contracheque",
                       },
@@ -43414,6 +43462,7 @@ var render = function () {
                   _c("img", {
                     attrs: {
                       src: "/svg/delete.svg",
+                      title: "Excluir contracheque",
                       alt: "icone delete",
                       id: "excluir_contracheque",
                     },

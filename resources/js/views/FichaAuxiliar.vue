@@ -392,8 +392,6 @@
                 </div>
             </div>
         </transition>
-
-        {{ $store.state.valorDescontosCC_array_atual }}
     </section>
 </template>
 

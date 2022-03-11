@@ -51,6 +51,10 @@ main {
   position: relative;
 }
 
+#main_header {
+  transform: translateY(-30px);
+}
+
 #saudacao {
   align-items: center;
   display: flex;
@@ -98,6 +102,7 @@ main {
   width: 38px;
   left: -23px;
   top: 10px;
+  z-index: 80;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -672,7 +677,7 @@ img.login_logo {
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
   flex-direction: column;
-  width: auto;
+  width: 98%;
 }
 .perfil_container li {
   list-style: circle;
@@ -754,7 +759,7 @@ img.login_logo {
   border-radius: 6px;
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
-  width: auto;
+  width: 98%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -858,6 +863,10 @@ img.login_logo {
   border-left: 2px solid #0275d8;
 }
 
+#gererenciarContracheque_body {
+  width: 100%;
+}
+
 #gererenciarContracheque_container,
 #gererenciarContracheque_container2 {
   width: 100%;
@@ -869,7 +878,7 @@ img.login_logo {
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
   flex-direction: column;
-  width: auto;
+  width: 98%;
 }
 #gererenciarContracheque_container h2,
 #gererenciarContracheque_container2 h2 {
@@ -939,17 +948,31 @@ label {
   background: #fff;
   border-radius: 6px;
   border: 2px dashed #e1e1e1;
-  display: flex;
   height: 50px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   margin-bottom: 1em;
   padding: 0.3em 0.7em;
   transition: all 0.3s ease-in-out;
 }
+#gererenciarContracheque_section .gererenciarContracheque-item > * {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#gererenciarContracheque_section .gererenciarContracheque-item > div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 #gererenciarContracheque_section .gererenciarContracheque-item:hover {
-  transform: scale(1.05);
+  background: #ffffff2d;
+  cursor: default;
   transition: all 0.3s ease-in-out;
   box-shadow: 9px 9px 25px -11px rgba(0, 0, 0, 0.22);
+}
+#gererenciarContracheque_section .gererenciarContracheque-item strong {
+  margin-left: 4px;
 }
 #gererenciarContracheque_section .gererenciarContracheque-item img {
   width: 25px;
@@ -984,7 +1007,7 @@ label {
   border-radius: 6px;
   border: 2px solid #e1e1e1;
   margin: 1em 0.7em;
-  width: auto;
+  width: 98%;
   justify-content: flex-start;
 }
 

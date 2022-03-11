@@ -99,6 +99,10 @@ main {
     position: relative;
 }
 
+#main_header {
+    transform: translateY(-30px);
+}
+
 #saudacao {
     align-items: center;
     display: flex;
@@ -145,6 +149,7 @@ main {
     width: 38px;
     left: -23px;
     top: 10px;
+    z-index: 80;
     user-select: none;
 
     &:hover {
@@ -749,7 +754,7 @@ img.login_logo {
 .perfil_container {
     @include blocoNaPagina;
     flex-direction: column;
-    width: auto;
+    width: 98%;
 
     li {
         list-style: circle;
@@ -826,7 +831,7 @@ img.login_logo {
 
 #legislacao_container {
     @include blocoNaPagina();
-    width: auto;
+    width: 98%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -923,11 +928,15 @@ img.login_logo {
     border-left: 2px solid $primary;
 }
 
+#gererenciarContracheque_body {
+    width: 100%;
+}
+
 #gererenciarContracheque_container,
 #gererenciarContracheque_container2 {
     @include blocoNaPagina;
     flex-direction: column;
-    width: auto;
+    width: 98%;
 
     h2 {
         @include cabecalhoNaPagina;
@@ -995,17 +1004,36 @@ label {
         background: #fff;
         border-radius: $borderRadius;
         border: 2px dashed $branco;
-        display: flex;
         height: 50px;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        // display: flex;
+        // justify-content: space-between;
         margin-bottom: 1em;
         padding: 0.3em 0.7em;
         transition: all 0.3s ease-in-out;
 
+        & > * {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        & > div {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
         &:hover {
-            transform: scale(1.05);
+            background: #ffffff2d;
+            cursor: default;
             transition: all 0.3s ease-in-out;
             box-shadow: 9px 9px 25px -11px rgba(0, 0, 0, 0.22);
+        }
+
+        strong {
+            margin-left: 4px;
         }
 
         img {
@@ -1040,7 +1068,7 @@ label {
 
 #index-container {
     @include blocoNaPagina();
-    width: auto;
+    width: 98%;
     justify-content: flex-start;
 }
 
