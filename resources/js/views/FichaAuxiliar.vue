@@ -21,7 +21,9 @@
                     <img src="/svg/print.svg" alt="Ícone de Imprimir" />
                 </button>
                 <button @click="salvarNoBancoDeDados">
-                    <span>Salvar</span>
+                    <span>{{
+                        $store.state.contrachequeAtivo ? "Atualizar" : "Salvar"
+                    }}</span>
                     <img src="/svg/save.svg" alt="Ícone de Imprimir" />
                 </button>
             </section>

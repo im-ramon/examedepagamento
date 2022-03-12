@@ -7217,6 +7217,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10284,6 +10286,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
 //
 //
 //
@@ -36335,7 +36340,13 @@ var render = function () {
             _vm._m(0),
             _vm._v(" "),
             _c("button", { on: { click: _vm.salvarNoBancoDeDados } }, [
-              _c("span", [_vm._v("Salvar")]),
+              _c("span", [
+                _vm._v(
+                  _vm._s(
+                    _vm.$store.state.contrachequeAtivo ? "Atualizar" : "Salvar"
+                  )
+                ),
+              ]),
               _vm._v(" "),
               _c("img", {
                 attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
@@ -43391,7 +43402,9 @@ var render = function () {
             },
             [
               _c("span", [
-                _vm._v("Não registro de contracheques no banco de dados."),
+                _vm._v(
+                  "Você não possui contracheques salvos no banco de\n                dados."
+                ),
               ]),
               _vm._v(" "),
               _c("img", {

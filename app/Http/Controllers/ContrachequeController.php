@@ -32,7 +32,12 @@ class ContrachequeController extends Controller
     public $adic_ferias = ['valor' => 0, 'porcentagem' => '-'];
     public $adic_pttc = ['valor' => 0, 'porcentagem' => '-'];
     public $adic_natalino = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar1 = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar2 = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar3 = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar4 = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar5 = ['valor' => 0, 'porcentagem' => '-'];
+    public $aux_pre_escolar6 = ['valor' => 0, 'porcentagem' => '-'];
     public $aux_invalidez = ['valor' => 0, 'porcentagem' => '-'];
     public $aux_transporte = ['valor' => 0, 'porcentagem' => '-'];
     public $aux_fard = ['valor' => 0, 'porcentagem' => '-'];
@@ -154,7 +159,12 @@ class ContrachequeController extends Controller
                     'grat_loc_esp' => ['financeiro' => $this->grat_loc_esp, 'rubrica' => 'GRAT LOC ESP'],
                     'grat_repr_2' => ['financeiro' => $this->grat_repr_2, 'rubrica' => 'GRAT REPRES 2%'],
                     'grat_repr_cmdo' => ['financeiro' => $this->grat_repr_cmdo, 'rubrica' => 'GRAT REPR CMDO'],
-                    'aux_pre_escolar' => ['financeiro' => $this->aux_pre_escolar, 'rubrica' => 'ASSIST PRE-ESC'],
+                    'aux_pre_escolar1' => ['financeiro' => $this->aux_pre_escolar1, 'rubrica' => 'ASSIST PRE-ESC'],
+                    'aux_pre_escolar2' => ['financeiro' => $this->aux_pre_escolar2, 'rubrica' => 'ASSIST PRE-ESC'],
+                    'aux_pre_escolar3' => ['financeiro' => $this->aux_pre_escolar3, 'rubrica' => 'ASSIST PRE-ESC'],
+                    'aux_pre_escolar4' => ['financeiro' => $this->aux_pre_escolar4, 'rubrica' => 'ASSIST PRE-ESC'],
+                    'aux_pre_escolar5' => ['financeiro' => $this->aux_pre_escolar5, 'rubrica' => 'ASSIST PRE-ESC'],
+                    'aux_pre_escolar6' => ['financeiro' => $this->aux_pre_escolar6, 'rubrica' => 'ASSIST PRE-ESC'],
                     'aux_transporte' => ['financeiro' => $this->aux_transporte, 'rubrica' => 'AUX TRANSPORTE'],
                     'aux_alim_c' => ['financeiro' => $this->aux_alim_c, 'rubrica' => 'AUX ALIM C'],
                     'aux_alim_5x' => ['financeiro' => $this->aux_alim_5x, 'rubrica' => 'AUX ALIM 5X'],
@@ -285,7 +295,12 @@ class ContrachequeController extends Controller
             $this->adic_ferias['valor'],
             $this->adic_pttc['valor'],
             $this->adic_natalino['valor'],
-            $this->aux_pre_escolar['valor'],
+            $this->aux_pre_escolar1['valor'],
+            $this->aux_pre_escolar2['valor'],
+            $this->aux_pre_escolar3['valor'],
+            $this->aux_pre_escolar4['valor'],
+            $this->aux_pre_escolar5['valor'],
+            $this->aux_pre_escolar6['valor'],
             $this->aux_invalidez['valor'],
             $this->aux_transporte['valor'],
             $this->aux_fard['valor'],
@@ -569,7 +584,24 @@ class ContrachequeController extends Controller
                 $cota_parte = 0.25;
             }
 
-            $this->aux_pre_escolar['valor'] = $valor_base_pres_escolar - ($cota_parte * $valor_base_pres_escolar);
+            $valorPreEscolar = $valor_base_pres_escolar - ($cota_parte * $valor_base_pres_escolar);
+            $this->aux_pre_escolar1['valor'] = $valorPreEscolar;
+
+            if ($formulario["aux_pre_escolar_qtd"] > 1) {
+                $this->aux_pre_escolar2['valor'] = $valorPreEscolar;
+            }
+            if ($formulario["aux_pre_escolar_qtd"] > 2) {
+                $this->aux_pre_escolar3['valor'] = $valorPreEscolar;
+            }
+            if ($formulario["aux_pre_escolar_qtd"] > 3) {
+                $this->aux_pre_escolar4['valor'] = $valorPreEscolar;
+            }
+            if ($formulario["aux_pre_escolar_qtd"] > 4) {
+                $this->aux_pre_escolar5['valor'] = $valorPreEscolar;
+            }
+            if ($formulario["aux_pre_escolar_qtd"] > 5) {
+                $this->aux_pre_escolar6['valor'] = $valorPreEscolar;
+            }
         }
     }
 

@@ -40,7 +40,10 @@
                 v-if="contrachequeList.length == 0"
                 @click="recuperarContracheques"
             >
-                <span>Não registro de contracheques no banco de dados.</span>
+                <span
+                    >Você não possui contracheques salvos no banco de
+                    dados.</span
+                >
                 <img
                     src="/svg/refresh.svg"
                     style="width: 25px"
