@@ -24,7 +24,13 @@
                     <span>{{
                         $store.state.contrachequeAtivo ? "Atualizar" : "Salvar"
                     }}</span>
-                    <img src="/svg/save.svg" alt="Ícone de Imprimir" />
+
+                    <img
+                        v-if="loading"
+                        src="/svg/loading.svg"
+                        alt="Ícone de carregamento"
+                    />
+                    <img v-else src="/svg/save.svg" alt="Ícone de Imprimir" />
                 </button>
             </section>
         </div>
@@ -422,6 +428,7 @@ export default {
             dadosApiDescontos: [],
             observacoesReceitas: "",
             observacoesDescontos: "",
+            loading: false,
         };
     },
     computed: {
@@ -575,6 +582,7 @@ export default {
             this.observacoesDescontos = obs.observacoesDescontos;
         },
         salvarNoBancoDeDados() {
+            this.loading = true;
             let ficha_auxiliar_json = JSON.stringify(
                 this.$store.state.backupForm
             );
@@ -602,6 +610,7 @@ export default {
                             true
                         );
                         this.$store.state.contrachequeAtivo = false;
+                        this.loading = false;
                     })
                     .catch((e) => console.log(e));
             } else {
@@ -620,6 +629,7 @@ export default {
                     })
                     .then((r) => {
                         this.alertSuccess(r.data.id, true);
+                        this.loading = false;
                     })
                     .catch((e) => this.alertSuccess(e, false));
             }

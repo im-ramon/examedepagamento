@@ -7219,6 +7219,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7231,7 +7237,8 @@ __webpack_require__.r(__webpack_exports__);
       dadosApiReceitas: [],
       dadosApiDescontos: [],
       observacoesReceitas: "",
-      observacoesDescontos: ""
+      observacoesDescontos: "",
+      loading: false
     };
   },
   computed: {
@@ -7363,6 +7370,7 @@ __webpack_require__.r(__webpack_exports__);
     salvarNoBancoDeDados: function salvarNoBancoDeDados() {
       var _this2 = this;
 
+      this.loading = true;
       var ficha_auxiliar_json = JSON.stringify(this.$store.state.backupForm);
 
       if (this.$store.state.contrachequeAtivo) {
@@ -7379,6 +7387,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.alertSuccess(_this2.$store.state.contrachequeAtivo, true);
 
           _this2.$store.state.contrachequeAtivo = false;
+          _this2.loading = false;
         })["catch"](function (e) {
           return console.log(e);
         });
@@ -7394,6 +7403,8 @@ __webpack_require__.r(__webpack_exports__);
           })
         }).then(function (r) {
           _this2.alertSuccess(r.data.id, true);
+
+          _this2.loading = false;
         })["catch"](function (e) {
           return _this2.alertSuccess(e, false);
         });
@@ -36348,9 +36359,16 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("img", {
-                attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
-              }),
+              _vm.loading
+                ? _c("img", {
+                    attrs: {
+                      src: "/svg/loading.svg",
+                      alt: "Ícone de carregamento",
+                    },
+                  })
+                : _c("img", {
+                    attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
+                  }),
             ]),
           ]),
         ],
