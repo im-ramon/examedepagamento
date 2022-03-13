@@ -9,7 +9,7 @@ class LegislacaoController extends Controller
     public function index(Request $request)
     {
         $dados = [];
-        $path = 'legislacao/';
+        $path = 'docs/legislacao/';
         $diretorio = dir($path);
 
         while ($arquivo = $diretorio->read()) {
