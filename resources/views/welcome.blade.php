@@ -1,1 +1,5 @@
-<h1>Você está no diretório "/"</h1>
+@extends('layouts.app')
+
+@section('content')
+    <welcome-component></welcome-component>
+@endsection

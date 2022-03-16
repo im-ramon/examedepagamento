@@ -1197,3 +1197,206 @@ label {
     border: none;
   }
 }
+@-webkit-keyframes moveLaptop {
+  100% {
+    transform: translateY(-3em);
+  }
+}
+@keyframes moveLaptop {
+  100% {
+    transform: translateY(-3em);
+  }
+}
+@-webkit-keyframes moveShadow {
+  100% {
+    opacity: 35%;
+  }
+}
+@keyframes moveShadow {
+  100% {
+    opacity: 35%;
+  }
+}
+#sidebar {
+  background: #181818;
+  position: absolute;
+  width: 33%;
+  display: flex;
+  height: 100%;
+}
+#sidebar #dev {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#sidebar #dev .sidebar-footer {
+  opacity: 50%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  padding: 0.3em 0.6em;
+  color: #e1e1e1;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#sidebar #dev .sidebar-footer:hover {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+#sidebar #dev .sidebar-footer img {
+  width: 25px;
+}
+#sidebar #dev .sidebar-footer a {
+  color: #e1e1e1;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+#welcome_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#welcome_container #menu-links {
+  background: #181818;
+  border-radius: 6px;
+  max-width: 1000px;
+  right: -25%;
+  transform: translateY(-170px);
+  width: 70%;
+  z-index: 50;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#welcome_container #menu-links ul {
+  display: flex;
+  justify-content: center;
+  padding: 0.7em;
+  margin: 0;
+}
+#welcome_container #menu-links ul li {
+  list-style: none;
+  padding: 0 1em;
+  border-right: 1px solid #5cb85c;
+  margin: 0;
+}
+#welcome_container #menu-links ul li a {
+  text-decoration: none;
+  color: #e1e1e1;
+  transition: all 0.3s ease-in-out;
+}
+#welcome_container #menu-links ul li a:hover {
+  color: #5cb85c;
+  transition: all 0.3s ease-in-out;
+}
+#welcome_container #menu-links ul li:last-child {
+  border-right: none;
+}
+
+#card {
+  width: 80%;
+  height: 350px;
+  background: #e1e1e1;
+  border-radius: 16px;
+  border: 2px dashed #9f9f9f3b;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+#laptop {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#laptop img#welcome_laptop,
+#laptop img#welcome_laptop_shadow {
+  position: absolute;
+  top: -90px;
+  left: -400px;
+  width: 670px;
+}
+#laptop img#welcome_laptop_shadow {
+  -webkit-animation: moveShadow 5s ease-in-out 0s infinite alternate;
+          animation: moveShadow 5s ease-in-out 0s infinite alternate;
+}
+#laptop img#welcome_laptop {
+  -webkit-animation: moveLaptop 5s ease-in-out 0s infinite alternate;
+          animation: moveLaptop 5s ease-in-out 0s infinite alternate;
+  z-index: 1;
+}
+
+#text_area {
+  width: 60%;
+  height: 100%;
+  padding: 0.3em 0em 1em 2em;
+  position: relative;
+}
+#text_area img {
+  width: 56px;
+}
+#text_area h1 {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: "Dancing Script", cursive;
+  font-size: 56px;
+  font-weight: bold;
+}
+#text_area p {
+  font-size: 18px;
+}
+#text_area a {
+  text-decoration: none;
+  background: #5cb85c;
+  padding: 1em 2em;
+  border-radius: 6px;
+  position: absolute;
+  color: #000000;
+  bottom: -20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: 2px dotted #00000047;
+  transition: all 0.3s ease-in-out;
+}
+#text_area a:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  filter: brightness(110%);
+}
+#text_area #br {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#text_area #br b:nth-child(1) {
+  color: #30983a;
+}
+#text_area #br b:nth-child(2) {
+  color: #f7d802;
+}
+
+#copyrigth {
+  position: fixed;
+  bottom: 6px;
+  opacity: 50%;
+  right: 6px;
+  cursor: default;
+  transition: all 0.3s ease-in-out;
+  font-size: 12px;
+}
+#copyrigth:hover {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}

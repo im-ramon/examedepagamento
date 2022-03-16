@@ -42,6 +42,7 @@ Vue.component('gerenciarcontracheque-component', require('./views/GerenciarContr
 Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
 Vue.component('loading-component', require('./components/Loading.vue').default);
 Vue.component('botao-component', require('./components/Botao.vue').default);
+Vue.component('welcome-component', require('./views/Welcome.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
