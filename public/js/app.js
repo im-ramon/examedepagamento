@@ -6798,6 +6798,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OndeEncontrar.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OndeEncontrar.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/FichaAuxiliar.vue?vue&type=script&lang=js& ***!
@@ -7491,6 +7515,73 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10680,7 +10771,7 @@ __webpack_require__.r(__webpack_exports__);
         return retorno;
       }).then(function (r) {
         listaDeArquivos = r.map(function (item) {
-          var path = "".concat(_this.nowPath, "/legislacao/").concat(item);
+          var path = "".concat(_this.nowPath, "/docs/legislacao/").concat(item);
           var title = item.split("@")[1].replace(".pdf", "").replace(/_/g, " ");
           var type = item.split("@")[0].toLowerCase();
           return {
@@ -11107,6 +11198,7 @@ Vue.component('home-component', (__webpack_require__(/*! ./components/Home.vue *
 Vue.component('gerarcontracheque-component', (__webpack_require__(/*! ./views/GerarContracheque.vue */ "./resources/js/views/GerarContracheque.vue")["default"]));
 Vue.component('gerenciarcontracheque-component', (__webpack_require__(/*! ./views/GerenciarContracheque.vue */ "./resources/js/views/GerenciarContracheque.vue")["default"]));
 Vue.component('ajuda-component', (__webpack_require__(/*! ./components/Ajuda.vue */ "./resources/js/components/Ajuda.vue")["default"]));
+Vue.component('ondeencontrar-component', (__webpack_require__(/*! ./components/OndeEncontrar.vue */ "./resources/js/components/OndeEncontrar.vue")["default"]));
 Vue.component('loading-component', (__webpack_require__(/*! ./components/Loading.vue */ "./resources/js/components/Loading.vue")["default"]));
 Vue.component('botao-component', (__webpack_require__(/*! ./components/Botao.vue */ "./resources/js/components/Botao.vue")["default"]));
 Vue.component('welcome-component', (__webpack_require__(/*! ./views/Welcome.vue */ "./resources/js/views/Welcome.vue")["default"]));
@@ -35210,6 +35302,45 @@ component.options.__file = "resources/js/components/Loading.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/OndeEncontrar.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/OndeEncontrar.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _OndeEncontrar_vue_vue_type_template_id_270eb3cd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OndeEncontrar.vue?vue&type=template&id=270eb3cd& */ "./resources/js/components/OndeEncontrar.vue?vue&type=template&id=270eb3cd&");
+/* harmony import */ var _OndeEncontrar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OndeEncontrar.vue?vue&type=script&lang=js& */ "./resources/js/components/OndeEncontrar.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OndeEncontrar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OndeEncontrar_vue_vue_type_template_id_270eb3cd___WEBPACK_IMPORTED_MODULE_0__.render,
+  _OndeEncontrar_vue_vue_type_template_id_270eb3cd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OndeEncontrar.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/views/FichaAuxiliar.vue":
 /*!**********************************************!*\
   !*** ./resources/js/views/FichaAuxiliar.vue ***!
@@ -35606,6 +35737,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/OndeEncontrar.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/OndeEncontrar.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OndeEncontrar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OndeEncontrar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OndeEncontrar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OndeEncontrar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/views/FichaAuxiliar.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/views/FichaAuxiliar.vue?vue&type=script&lang=js& ***!
@@ -35867,6 +36014,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_6ca9e6be___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_6ca9e6be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Loading.vue?vue&type=template&id=6ca9e6be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Loading.vue?vue&type=template&id=6ca9e6be&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OndeEncontrar.vue?vue&type=template&id=270eb3cd&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/OndeEncontrar.vue?vue&type=template&id=270eb3cd& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OndeEncontrar_vue_vue_type_template_id_270eb3cd___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OndeEncontrar_vue_vue_type_template_id_270eb3cd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OndeEncontrar_vue_vue_type_template_id_270eb3cd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OndeEncontrar.vue?vue&type=template&id=270eb3cd& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OndeEncontrar.vue?vue&type=template&id=270eb3cd&");
 
 
 /***/ }),
@@ -36435,6 +36599,35 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OndeEncontrar.vue?vue&type=template&id=270eb3cd&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OndeEncontrar.vue?vue&type=template&id=270eb3cd& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "onde_pesquisar" }, [
+    _c("strong", [_vm._v("Onde encontro essa informação?")]),
+    _vm._v(" "),
+    _c("ul", [_vm._t("default")], 2),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37551,6 +37744,9 @@ var render = function () {
                         "Esta não é data de assintura da ficha\n                        auxiliar."
                       ),
                     ]),
+                    _vm._v(
+                      '\n                    Caso queira alterar a data de assinatura do\n                    contracheque, navegue até "Gerenciar contracheques" e\n                    escolha a data da assinatura para impressão.\n                '
+                    ),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -37595,11 +37791,20 @@ var render = function () {
                 _c("legend", [_vm._v("Idade")]),
                 _vm._v(" "),
                 _c("ajuda-component", [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Essa informação irá influenciar no valor final do\n                    imposto de renda.\n                "
-                    ),
-                  ]),
+                  _c(
+                    "p",
+                    [
+                      _vm._v(
+                        "\n                    Essa informação irá influenciar no valor final do\n                    imposto de renda.\n                    "
+                      ),
+                      _c("ondeencontrar-component", [
+                        _c("li", [_vm._v("Carteira de identidade")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Certidão de nascimento")]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("section", { staticClass: "question_body" }, [
@@ -37673,48 +37878,39 @@ var render = function () {
                 _c("legend", [_vm._v("Isenção de Imposto de Renda")]),
                 _vm._v(" "),
                 _c("ajuda-component", [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Poderá encontrar essa informções nos seguintes\n                    documentos: "
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Militares inativos: ")]),
-                    _vm._v(
-                      " Essa informação\n                    está presente na "
-                    ),
-                    _c("u", [_vm._v("Ficha de Controle")]),
-                    _vm._v(
-                      " do Inativo ou\n                    existe em sua PHPM uma\n                    "
-                    ),
-                    _c("u", [
-                      _vm._v("Portaria de Isenção de Imposto de Renda."),
-                    ]),
-                    _c("br"),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Pensionistas: ")]),
-                    _vm._v(
-                      " A informação pode está\n                    presente no "
-                    ),
-                    _c("u", [_vm._v("Título de Pensão")]),
-                    _vm._v(" ou "),
-                    _c("u", [_vm._v("Apostila")]),
-                    _vm._v(
-                      ".\n                    A Pensionista Especial de Ex-combatente que recebe o\n                    soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de\n                    renda, mesmo que em seu título de pensão não exista essa\n                    informação. Já a Pensionista Especial de Ex-combatente\n                    que recebe o soldo de 2º Sgt (Lei nº 8.059/90) não é\n                    automaticamente isenta de imposto de renda. "
-                    ),
-                    _c("br"),
-                    _c("br"),
-                    _vm._v(
-                      "\n                    *Observação: Ao contrário que muitos pensam, maiores de\n                    65 anos\n                    "
-                    ),
-                    _c("strong", [
-                      _vm._v("não são isentos de imposto de renda"),
-                    ]),
-                    _vm._v(
-                      ".\n                    Esses recebem um abatimento no valor final.\n                "
-                    ),
-                  ]),
+                  _c(
+                    "p",
+                    [
+                      _c("ondeencontrar-component", [
+                        _c("li", [
+                          _vm._v("Portaria de Isenção de Imposto de Renda"),
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Ficha de Controle")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Título de Pensão")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Apostila de Pensão")]),
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    A Pensionista Especial de Ex-combatente que recebe o\n                    soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de\n                    renda, mesmo que em seu título de pensão não exista essa\n                    informação. Já a Pensionista Especial de Ex-combatente\n                    que recebe o soldo de 2º Sgt (Lei nº 8.059/90) não é\n                    automaticamente isenta de imposto de renda. "
+                      ),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    *Observação: Ao contrário que muitos pensam, maiores de\n                    65 anos\n                    "
+                      ),
+                      _c("strong", [
+                        _vm._v("não são isentos de imposto de renda"),
+                      ]),
+                      _vm._v(
+                        ".\n                    Esses recebem apenas um abatimento no valor final.\n                "
+                      ),
+                    ],
+                    1
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("section", { staticClass: "question_body" }, [
@@ -37788,11 +37984,22 @@ var render = function () {
                 _c("legend", [_vm._v("P/G Soldo")]),
                 _vm._v(" "),
                 _c("ajuda-component", [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Deve ser selecionado o Posto/ Graduação em que o\n                    examinado recebe o soldo. No caso dos miltiares da\n                    ativa, o P/G para soldo e P/G Real são os mesmos,\n                    entretanto, no caso dos Militares Inativos e\n                    Pensionistas, essas informações poderão ser difirentes:\n                "
-                    ),
-                  ]),
+                  _c(
+                    "p",
+                    [
+                      _vm._v(
+                        "\n                    Deve ser selecionado o Posto/ Graduação em que o\n                    examinado recebe o soldo. No caso dos miltiares da\n                    ativa, o P/G para soldo e P/G Real são os mesmos,\n                    entretanto, no caso dos Militares Inativos e\n                    Pensionistas, essas informações poderão ser difirentes.\n                    "
+                      ),
+                      _c("ondeencontrar-component", [
+                        _c("li", [_vm._v("Ficha de Controle")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Título de Pensão")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Apostila de Pensão")]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("section", { staticClass: "question_body" }, [
@@ -37863,36 +38070,48 @@ var render = function () {
                 _c("legend", [_vm._v("P/G Real")]),
                 _vm._v(" "),
                 _c("ajuda-component", [
-                  _c("p", [
-                    _vm._v(
-                      "\n                    O P/G real é o último Posto ou Graduação do militar (ou\n                    instituidor de pensão) enquanto na ativa. Não deve ser\n                    considerado: "
-                    ),
-                    _c("br"),
-                    _c("br"),
-                    _vm._v(
-                      "\n                    - Postos ou graduações alcançados pelo militar como\n                    benefício, na forma prevista em lei, em decorrência de\n                    reforma, morte ou transferência para a reserva;\n                    "
-                    ),
-                    _c("br"),
-                    _c("br"),
-                    _vm._v(
-                      "\n                    - Percepção de soldo ou de remuneração correspondente a\n                    grau hierárquico superior ao alcançado na ativa, em\n                    decorrência de reforma, morte ou transferência para a\n                    reserva; e\n                    "
-                    ),
-                    _c("br"),
-                    _c("br"),
-                    _vm._v(
-                      "\n                    - Percepção de pensão militar correspondente a grau\n                    hierárquico superior ao alcançado pelo militar em\n                    atividade, em decorrência de benefícios concedidos pela\n                    "
-                    ),
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          href: "http://www.planalto.gov.br/ccivil_03/leis/l3765.htm",
-                          target: "_BLANK",
+                  _c(
+                    "p",
+                    [
+                      _vm._v(
+                        "\n                    O P/G real é o último Posto ou Graduação do militar (ou\n                    instituidor de pensão) enquanto na ativa. Não deve ser\n                    considerado: "
+                      ),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    - Postos ou graduações alcançados pelo militar como\n                    benefício, na forma prevista em lei, em decorrência de\n                    reforma, morte ou transferência para a reserva;\n                    "
+                      ),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    - Percepção de soldo ou de remuneração correspondente a\n                    grau hierárquico superior ao alcançado na ativa, em\n                    decorrência de reforma, morte ou transferência para a\n                    reserva; e\n                    "
+                      ),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    - Percepção de pensão militar correspondente a grau\n                    hierárquico superior ao alcançado pelo militar em\n                    atividade, em decorrência de benefícios concedidos pela\n                    "
+                      ),
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "http://www.planalto.gov.br/ccivil_03/leis/l3765.htm",
+                            target: "_BLANK",
+                          },
                         },
-                      },
-                      [_vm._v("Lei nº 3.765, de 4 de maio de 1960.")]
-                    ),
-                  ]),
+                        [_vm._v("Lei nº 3.765, de 4 de maio de 1960.")]
+                      ),
+                      _vm._v(" "),
+                      _c("ondeencontrar-component", [
+                        _c("li", [_vm._v("Ficha de Controle")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Título de Pensão")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Apostila de Pensão")]),
+                      ]),
+                    ],
+                    1
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("section", { staticClass: "question_body" }, [
@@ -37971,26 +38190,38 @@ var render = function () {
                     _c("legend", [_vm._v("Soldo")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          '\n                        Escolha a categoria de soldo que o examinado recebe.\n                        São duas opções, a primeira "Normal/Integral"\n                        significa que o examinado recebe o valor do seu\n                        soldo por completo, normalmente militares da ativa,\n                        inativos que completaram o tempo mínimo para reserva\n                        e seus pensionistas recebem essa categoria de soldo.\n                        A categoria " Soldo Proporcional para Cota" é\n                        devida, normalmente, aos militares que fora para a\n                        reserva antes do tempo mínimo, como no caso de\n                        militares reformados por ser julgado incapaz\n                        definitivamente. '
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Referência: ")]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href: "http://www.planalto.gov.br/ccivil_03/leis/l6880.htm",
-                              target: "_BLANK",
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            '\n                        Escolha a categoria de soldo que o examinado recebe.\n                        São duas opções, a primeira "Normal/Integral"\n                        significa que o examinado recebe o valor do seu\n                        soldo por completo, normalmente militares da ativa,\n                        inativos que completaram o tempo mínimo para reserva\n                        e seus pensionistas recebem essa categoria de soldo.\n                        A categoria " Soldo Proporcional para Cota" é\n                        devida, normalmente, aos militares que fora para a\n                        reserva antes do tempo mínimo, como no caso de\n                        militares reformados por ser julgado incapaz\n                        definitivamente. '
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v("Referência: ")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "http://www.planalto.gov.br/ccivil_03/leis/l6880.htm",
+                                target: "_BLANK",
+                              },
                             },
-                          },
-                          [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
-                        ),
-                      ]),
+                            [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
+                          ),
+                          _vm._v(" "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de Controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de Pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Apostila de Pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -38060,30 +38291,44 @@ var render = function () {
                     _c("legend", [_vm._v("Soldo Proporcional para Cota")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v("\n                        O "),
-                        _c("strong", [_vm._v("soldo proporcional para cota")]),
-                        _vm._v(" é\n                        difirente da "),
-                        _c("strong", [_vm._v("cota-parte do soldo")]),
-                        _vm._v(
-                          ". O\n                        soldo proporcional para cota é devido, normalmente,\n                        aos militares que foram para a reserva antes do\n                        tempo mínimo, como no caso de militares reformados\n                        por ser julgado incapaz definitivamente. Os\n                        pensionistas desses militares também pode receber o\n                        soldo proporcional para cota. Por exemplo, o\n                        instituidor da pensão poderia receber soldo\n                        proporcional para cota de 29/30 e ao falecer deixar\n                        a pensão de 1/3 para cada dependente, logo, a pensão\n                        será calculada primeiro sobre o soldo proporcional\n                        depois será dividida por cota-parte para cada\n                        beneficiário."
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Referência: ")]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href: "http://www.planalto.gov.br/ccivil_03/leis/l6880.htm",
-                              target: "_BLANK",
+                      _c(
+                        "p",
+                        [
+                          _vm._v("\n                        O "),
+                          _c("strong", [
+                            _vm._v("soldo proporcional para cota"),
+                          ]),
+                          _vm._v(" é\n                        difirente da "),
+                          _c("strong", [_vm._v("cota-parte do soldo")]),
+                          _vm._v(
+                            ". O\n                        soldo proporcional para cota é devido, normalmente,\n                        aos militares que foram para a reserva antes do\n                        tempo mínimo, como no caso de militares reformados\n                        por ser julgado incapaz definitivamente. Os\n                        pensionistas desses militares também pode receber o\n                        soldo proporcional para cota. Por exemplo, o\n                        instituidor da pensão poderia receber soldo\n                        proporcional para cota de 29/30 e ao falecer deixar\n                        a pensão de 1/3 para cada dependente, logo, a pensão\n                        será calculada primeiro sobre o soldo proporcional\n                        depois será dividida por cota-parte para cada\n                        beneficiário."
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v("Referência: ")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "http://www.planalto.gov.br/ccivil_03/leis/l6880.htm",
+                                target: "_BLANK",
+                              },
                             },
-                          },
-                          [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
-                        ),
-                      ]),
+                            [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
+                          ),
+                          _vm._v(" "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de Controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de Pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Apostila de Pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -38148,38 +38393,54 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        O Adicional de compensação por disponibilidade\n                        militar é a parcela remuneratória mensal devida ao\n                        militar em razão da disponibilidade permanente e da\n                        dedicação exclusiva. É vedada a concessão cumulativa\n                        do adicional de compensação por disponibilidade\n                        militar com o adicional de tempo de serviço, sendo\n                        assegurado, caso o militar faça jus a ambos os\n                        adicionais, o recebimento do mais vantajoso. O\n                        percentual do adicional de compensação por\n                        disponibilidade militar é irredutível e corresponde\n                        sempre ao maior percentual inerente aos postos ou\n                        graduações alcançados pelo militar durante sua\n                        carreira no serviço ativo, independentemente de\n                        mudança de círculos hierárquicos, postos ou\n                        graduações. O percentual do adicional de compensação\n                        por disponibilidade militar a que o militar faz jus\n                        incidirá sobre o soldo do posto ou da graduação\n                        atual, e não serão considerados: "
-                        ),
-                        _c("br"),
-                        _vm._v(
-                          "I - postos ou\n                        graduações alcançados pelo militar como benefício,\n                        na forma prevista em lei, em decorrência de reforma,\n                        morte ou transferência para a reserva;\n                        "
-                        ),
-                        _c("br"),
-                        _vm._v(
-                          "\n                        percepção de soldo ou de remuneração correspondente\n                        a grau hierárquico superior ao alcançado na ativa,\n                        em decorrência de reforma, morte ou transferência\n                        para a reserva; e\n                        "
-                        ),
-                        _c("br"),
-                        _vm._v(
-                          "\n                        percepção de pensão militar correspondente a grau\n                        hierárquico superior ao alcançado pelo militar em\n                        atividade, em decorrência de benefícios concedidos\n                        pela Lei nº 3.765, de 4 de maio de 1960."
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("strong", [_vm._v("Referência: ")]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              href: "planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm",
-                              target: "_BLANK",
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        O Adicional de compensação por disponibilidade\n                        militar é a parcela remuneratória mensal devida ao\n                        militar em razão da disponibilidade permanente e da\n                        dedicação exclusiva. É vedada a concessão cumulativa\n                        do adicional de compensação por disponibilidade\n                        militar com o adicional de tempo de serviço, sendo\n                        assegurado, caso o militar faça jus a ambos os\n                        adicionais, o recebimento do mais vantajoso. O\n                        percentual do adicional de compensação por\n                        disponibilidade militar é irredutível e corresponde\n                        sempre ao maior percentual inerente aos postos ou\n                        graduações alcançados pelo militar durante sua\n                        carreira no serviço ativo, independentemente de\n                        mudança de círculos hierárquicos, postos ou\n                        graduações. O percentual do adicional de compensação\n                        por disponibilidade militar a que o militar faz jus\n                        incidirá sobre o soldo do posto ou da graduação\n                        atual, e não serão considerados: "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "I - postos ou\n                        graduações alcançados pelo militar como benefício,\n                        na forma prevista em lei, em decorrência de reforma,\n                        morte ou transferência para a reserva;\n                        "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        percepção de soldo ou de remuneração correspondente\n                        a grau hierárquico superior ao alcançado na ativa,\n                        em decorrência de reforma, morte ou transferência\n                        para a reserva; e\n                        "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        percepção de pensão militar correspondente a grau\n                        hierárquico superior ao alcançado pelo militar em\n                        atividade, em decorrência de benefícios concedidos\n                        pela Lei nº 3.765, de 4 de maio de 1960."
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v("Referência: ")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm",
+                                target: "_BLANK",
+                              },
                             },
-                          },
-                          [_vm._v("Lei nº 13.954, de 16 de dezembro de 2019.")]
-                        ),
-                      ]),
+                            [
+                              _vm._v(
+                                "Lei nº 13.954, de 16 de dezembro de 2019."
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de Controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de Pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Apostila de Pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -38265,8 +38526,28 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a rerum empora quibusdam\n                        aliquid doloremque obcaecati eum eveniet voluptate\n                        harum voluptatum vitae cumque?\n                    "
+                          "\n                        O Adicional Militar é a parcela remuneratória mensal\n                        devida ao militar, inerente a cada círculo\n                        hierárquico da carreira militar. Os percentuais\n                        estão presentes na\n                        "
                         ),
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: "http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm",
+                              target: "_BLANK",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "Medida Provisória nº 2.215-10, de 31 de agosto\n                            de 2001."
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("strong", [
+                          _vm._v(
+                            "O próprio CPEx faz a gerencia sobre que\n                            percentual do Adicional Militar deve ser pago\n                            para cadas militar/ pensionistas."
+                          ),
+                        ]),
                       ]),
                     ]),
                     _vm._v(" "),
@@ -38349,11 +38630,41 @@ var render = function () {
                     _c("legend", [_vm._v("Adicional de Compensação Orgânica")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        O Adicional de Compensação Orgânica é parcela\n                        remuneratória mensal devida ao militar para\n                        compensação de desgaste orgânico resultante do\n                        desempenho continuado de atividades especiais. É\n                        possível encontrar os percentuais no Anexo V da\n                        "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm",
+                                target: "_BLANK",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "Medida Provisória nº 2.215-10, de 31 de agosto\n                            de 2001."
+                              ),
+                            ]
+                          ),
+                          _vm._v(".\n\n                        "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de Controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de Pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Apostila de Pensão")]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v("Certificado de conclusão de cursos"),
+                            ]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -38581,11 +38892,37 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        Vantagem concedida aos Ex-combatentes incapacitados\n                        fisicamente para o serviço militar, em consequência\n                        de ferimentos verificados ou moléstias adquiridas\n                        quando participavam da Força Expedicionária\n                        Brasileira destacada, em 1944-1945, no teatro de\n                        operações da Itália. O amparo para o pagamento deste\n                        adicional encontra-se no\n                        "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "http://www.planalto.gov.br/ccivil_03/decreto-lei/1937-1946/Del8795.htm",
+                                target: "_BLANK",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "Decreto Lei nº 8.795, de 23 de janeiro de\n                            1946"
+                              ),
+                            ]
+                          ),
+                          _vm._v(".\n                        "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de Controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de Pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Apostila de Pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [

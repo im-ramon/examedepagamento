@@ -40,6 +40,7 @@ Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('gerarcontracheque-component', require('./views/GerarContracheque.vue').default);
 Vue.component('gerenciarcontracheque-component', require('./views/GerenciarContracheque.vue').default);
 Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
+Vue.component('ondeencontrar-component', require('./components/OndeEncontrar.vue').default);
 Vue.component('loading-component', require('./components/Loading.vue').default);
 Vue.component('botao-component', require('./components/Botao.vue').default);
 Vue.component('welcome-component', require('./views/Welcome.vue').default);

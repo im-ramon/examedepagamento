@@ -408,6 +408,17 @@ form#formulario {
   transition: all 0.3s;
 }
 
+.onde_pesquisar {
+  background: #00ff7320;
+  border-radius: 6px;
+  padding: 1em 0;
+  margin-top: 0.5em;
+}
+.onde_pesquisar ul {
+  margin: 5px 0 0 0;
+  list-style: square;
+}
+
 .question_body {
   display: flex;
   flex-direction: column;

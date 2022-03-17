@@ -75,7 +75,7 @@ export default {
                 })
                 .then((r) => {
                     listaDeArquivos = r.map((item) => {
-                        let path = `${this.nowPath}/legislacao/${item}`;
+                        let path = `${this.nowPath}/docs/legislacao/${item}`;
                         let title = item
                             .split("@")[1]
                             .replace(".pdf", "")

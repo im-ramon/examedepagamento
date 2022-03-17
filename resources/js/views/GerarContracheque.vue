@@ -55,6 +55,9 @@
                             >Esta não é data de assintura da ficha
                             auxiliar.</strong
                         >
+                        Caso queira alterar a data de assinatura do
+                        contracheque, navegue até "Gerenciar contracheques" e
+                        escolha a data da assinatura para impressão.
                     </p>
                 </ajuda-component>
 
@@ -79,6 +82,10 @@
                     <p>
                         Essa informação irá influenciar no valor final do
                         imposto de renda.
+                        <ondeencontrar-component>
+                            <li>Carteira de identidade</li>
+                            <li>Certidão de nascimento</li>
+                        </ondeencontrar-component>
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -111,15 +118,13 @@
                 <legend>Isenção de Imposto de Renda</legend>
                 <ajuda-component>
                     <p>
-                        Poderá encontrar essa informções nos seguintes
-                        documentos: <br />
-                        <strong>Militares inativos: </strong> Essa informação
-                        está presente na <u>Ficha de Controle</u> do Inativo ou
-                        existe em sua PHPM uma
-                        <u>Portaria de Isenção de Imposto de Renda.</u
-                        ><br /><br />
-                        <strong>Pensionistas: </strong> A informação pode está
-                        presente no <u>Título de Pensão</u> ou <u>Apostila</u>.
+                        <ondeencontrar-component>
+                            <li>Portaria de Isenção de Imposto de Renda</li>
+                            <li>Ficha de Controle</li>
+                            <li>Título de Pensão</li>
+                            <li>Apostila de Pensão</li>
+                        </ondeencontrar-component>
+                        <br />
                         A Pensionista Especial de Ex-combatente que recebe o
                         soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de
                         renda, mesmo que em seu título de pensão não exista essa
@@ -129,7 +134,7 @@
                         *Observação: Ao contrário que muitos pensam, maiores de
                         65 anos
                         <strong>não são isentos de imposto de renda</strong>.
-                        Esses recebem um abatimento no valor final.
+                        Esses recebem apenas um abatimento no valor final.
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -169,7 +174,12 @@
                         examinado recebe o soldo. No caso dos miltiares da
                         ativa, o P/G para soldo e P/G Real são os mesmos,
                         entretanto, no caso dos Militares Inativos e
-                        Pensionistas, essas informações poderão ser difirentes:
+                        Pensionistas, essas informações poderão ser difirentes.
+                        <ondeencontrar-component>
+                            <li>Ficha de Controle</li>
+                            <li>Título de Pensão</li>
+                            <li>Apostila de Pensão</li>
+                        </ondeencontrar-component>
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -223,6 +233,12 @@
                             target="_BLANK"
                             >Lei nº 3.765, de 4 de maio de 1960.</a
                         >
+
+                        <ondeencontrar-component>
+                            <li>Ficha de Controle</li>
+                            <li>Título de Pensão</li>
+                            <li>Apostila de Pensão</li>
+                        </ondeencontrar-component>
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -275,6 +291,11 @@
                                 target="_BLANK"
                                 >Lei nº 6.880, de 9 de dezembro de 1980.</a
                             >
+                            <ondeencontrar-component>
+                                <li>Ficha de Controle</li>
+                                <li>Título de Pensão</li>
+                                <li>Apostila de Pensão</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -323,6 +344,11 @@
                                 target="_BLANK"
                                 >Lei nº 6.880, de 9 de dezembro de 1980.</a
                             >
+                            <ondeencontrar-component>
+                                <li>Ficha de Controle</li>
+                                <li>Título de Pensão</li>
+                                <li>Apostila de Pensão</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -391,6 +417,11 @@
                                 target="_BLANK"
                                 >Lei nº 13.954, de 16 de dezembro de 2019.</a
                             >
+                            <ondeencontrar-component>
+                                <li>Ficha de Controle</li>
+                                <li>Título de Pensão</li>
+                                <li>Apostila de Pensão</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -430,11 +461,21 @@
                     <legend>Adicional Militar</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a rerum empora quibusdam
-                            aliquid doloremque obcaecati eum eveniet voluptate
-                            harum voluptatum vitae cumque?
+                            O Adicional Militar é a parcela remuneratória mensal
+                            devida ao militar, inerente a cada círculo
+                            hierárquico da carreira militar. Os percentuais
+                            estão presentes na
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm"
+                                target="_BLANK"
+                                >Medida Provisória nº 2.215-10, de 31 de agosto
+                                de 2001.</a
+                            >
+                            <strong
+                                >O próprio CPEx faz a gerencia sobre que
+                                percentual do Adicional Militar deve ser pago
+                                para cadas militar/ pensionistas.</strong
+                            >
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -468,11 +509,24 @@
                     <legend>Adicional de Compensação Orgânica</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O Adicional de Compensação Orgânica é parcela
+                            remuneratória mensal devida ao militar para
+                            compensação de desgaste orgânico resultante do
+                            desempenho continuado de atividades especiais. É
+                            possível encontrar os percentuais no Anexo V da
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/mpv/2215-10.htm"
+                                target="_BLANK"
+                                >Medida Provisória nº 2.215-10, de 31 de agosto
+                                de 2001.</a
+                            >.
+
+                            <ondeencontrar-component>
+                                <li>Ficha de Controle</li>
+                                <li>Título de Pensão</li>
+                                <li>Apostila de Pensão</li>
+                                <li>Certificado de conclusão de cursos</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -561,11 +615,24 @@
                     <legend>Adicional de Acréscimo de 25% sobre o soldo</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Vantagem concedida aos Ex-combatentes incapacitados
+                            fisicamente para o serviço militar, em consequência
+                            de ferimentos verificados ou moléstias adquiridas
+                            quando participavam da Força Expedicionária
+                            Brasileira destacada, em 1944-1945, no teatro de
+                            operações da Itália. O amparo para o pagamento deste
+                            adicional encontra-se no
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/decreto-lei/1937-1946/Del8795.htm"
+                                target="_BLANK"
+                                >Decreto Lei nº 8.795, de 23 de janeiro de
+                                1946</a
+                            >.
+                            <ondeencontrar-component>
+                                <li>Ficha de Controle</li>
+                                <li>Título de Pensão</li>
+                                <li>Apostila de Pensão</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
