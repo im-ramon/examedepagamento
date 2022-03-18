@@ -7307,7 +7307,7 @@ __webpack_require__.r(__webpack_exports__);
       setTimeout(function () {
         _this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
 
-      }, 1000);
+      }, 500);
     },
     montarDadosApiDescontos: function montarDadosApiDescontos() {
       var data = [];

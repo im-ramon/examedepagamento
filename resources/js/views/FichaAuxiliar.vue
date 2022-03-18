@@ -478,7 +478,7 @@ export default {
             this.modalActive = false;
             setTimeout(() => {
                 this.$router.push("/gerenciar-contracheque"); /// ATENÇÃO AQUI - PODE DAR ERRADO
-            }, 1000);
+            }, 500);
         },
         montarDadosApiDescontos() {
             let data = [];
