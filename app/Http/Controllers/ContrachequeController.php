@@ -52,9 +52,11 @@ class ContrachequeController extends Controller
     public $pmil_15 = ['valor' => 0, 'porcentagem' => 1.5];
     public $pmil_30 = ['valor' => 0, 'porcentagem' => 3];
     public $fusex_3 = ['valor' => 0, 'porcentagem' => 3];
-    public $desc_dep_fusex = ['valor' => 0, 'porcentagem' => 0]; // ----!!-----------------------------!!
+    public $desc_dep_fusex = ['valor' => 0, 'porcentagem' => 0];
     public $adic_natalino_valor_adiantamento = ['valor' => 0, 'porcentagem' => '-'];
-    public $pnr = ['valor' => 0, 'porcentagem' => 0]; // ----!!-----------------------------!!
+    public $pnr_f_ex_cnst  = ['valor' => 0, 'porcentagem' => '-'];
+    public $pnr_cod_ua  = ['valor' => 0, 'porcentagem' => '-'];
+    public $pnr_f_ex_mnt  = ['valor' => 0, 'porcentagem' => '-'];
     public $pens_judiciaria_1 = ['valor' => 0, 'porcentagem' => '-'];
     public $pens_judiciaria_2 = ['valor' => 0, 'porcentagem' => '-'];
     public $pens_judiciaria_3 = ['valor' => 0, 'porcentagem' => '-'];
@@ -183,7 +185,9 @@ class ContrachequeController extends Controller
                     'fusex_3' => ['financeiro' => $this->fusex_3, 'rubrica' => 'FUSEX 3%'],
                     'desc_dep_fusex' => ['financeiro' => $this->desc_dep_fusex, 'rubrica' => 'DESC DEP FUSEX'],
                     'adic_natalino_valor_adiantamento' => ['financeiro' => $this->adic_natalino_valor_adiantamento, 'rubrica' => 'DED AD AD NATAL'],
-                    'pnr' => ['financeiro' => $this->pnr, 'rubrica' => 'PNR'],
+                    'pnr_f_ex_cnst' => ['financeiro' => $this->pnr_f_ex_cnst, 'rubrica' => 'PNR (F EX-CNST)'],
+                    'pnr_cod_ua' => ['financeiro' => $this->pnr_cod_ua, 'rubrica' => 'PNR (COD/UA)'],
+                    'pnr_f_ex_mnt' => ['financeiro' => $this->pnr_f_ex_mnt, 'rubrica' => 'PNR (F EX-MNT)'],
                     'pens_judiciaria_1' => ['financeiro' => $this->pens_judiciaria_1, 'rubrica' => 'PENS JUDICIARIA'],
                     'pens_judiciaria_2' => ['financeiro' => $this->pens_judiciaria_2, 'rubrica' => 'PENS JUDICIARIA'],
                     'pens_judiciaria_3' => ['financeiro' => $this->pens_judiciaria_3, 'rubrica' => 'PENS JUDICIARIA'],
@@ -360,7 +364,9 @@ class ContrachequeController extends Controller
             $this->fusex_3['valor'],
             $this->desc_dep_fusex['valor'],
             $this->adic_natalino_valor_adiantamento['valor'],
-            $this->pnr['valor'],
+            $this->pnr_f_ex_cnst['valor'],
+            $this->pnr_cod_ua['valor'],
+            $this->pnr_f_ex_mnt['valor'],
             $this->pens_judiciaria_1['valor'],
             $this->pens_judiciaria_2['valor'],
             $this->pens_judiciaria_3['valor'],
@@ -743,12 +749,18 @@ class ContrachequeController extends Controller
 
     private function pnr($formulario)
     {
-        if ($formulario["pnr"] == '1') {
-            $this->pnr['valor'] = $this->truncar($this->soldo_base['valor'] * 0.05);
-            $this->pnr['porcentagem'] = 5;
-        } elseif ($formulario["pnr"] == '2') {
-            $this->pnr['valor'] = $this->truncar($this->soldo_base['valor'] * 0.035);
-            $this->pnr['porcentagem'] = 3.5;
+        if ($formulario["pnr"] !== '0') {
+            $valor_base = 0;
+
+            if ($formulario["pnr"] == '1') {
+                $valor_base = $this->truncar($this->soldo_base['valor'] * 0.05);
+            } elseif ($formulario["pnr"] == '2') {
+                $valor_base = $this->truncar($this->soldo_base['valor'] * 0.035);
+            }
+
+            $this->pnr_f_ex_cnst['valor'] = $this->truncar($valor_base  * 0.2);
+            $this->pnr_f_ex_mnt['valor'] = $this->truncar($valor_base  * 0.1);
+            $this->pnr_cod_ua['valor'] = $valor_base - $this->truncar($valor_base  * 0.2) - $this->truncar($valor_base  * 0.1);
         }
     }
 
