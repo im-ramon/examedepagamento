@@ -7249,6 +7249,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -9919,6 +9922,145 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -9926,6 +10068,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       loading: false,
       loading_select: false,
+      dadosIndisponiveis: "0",
+      dadosIndisponiveisLista: [{
+        descricao: "SOLDO AT",
+        valor: 98,
+        tributavel: 1,
+        tipo: 0
+      }, {
+        descricao: "SOLDO AT",
+        valor: 752,
+        tributavel: 0,
+        tipo: 1
+      }],
       selectPg: [],
       universo: "ativa",
       data_contracheque: "2022-01-01",
@@ -10105,6 +10259,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    dadosIndisponiveisLista_push: function dadosIndisponiveisLista_push(item) {
+      this.dadosIndisponiveisLista.push(item);
+    },
+    dadosIndisponiveisLista_delete: function dadosIndisponiveisLista_delete(key) {
+      this.dadosIndisponiveisLista.splice(key, 1);
+    },
     carregaSelectPg: function carregaSelectPg() {
       var _this2 = this;
 
@@ -10125,7 +10285,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                data = "_token=".concat(_this3.token, "&universo=").concat(_this3.universo, "&data_contracheque=").concat(_this3.data_contracheque, "&maior_65=").concat(_this3.maior_65, "&isento_ir=").concat(_this3.isento_ir, "&pg_soldo=").concat(_this3.pg_soldo, "&pg_real=").concat(_this3.pg_real, "&tipo_soldo=").concat(_this3.tipo_soldo, "&soldo_cota_porcentagem=").concat(_this3.soldo_cota_porcentagem, "&soldo_prop_cota_porcentagem=").concat(_this3.soldo_prop_cota_porcentagem, "&compl_ct_soldo=").concat(_this3.compl_ct_soldo, "&adic_tp_sv=").concat(_this3.adic_tp_sv, "&adic_disp=").concat(_this3.adic_disp, "&adic_hab_tipo=").concat(_this3.adic_hab_tipo, "&adic_mil=").concat(_this3.adic_mil, "&adic_comp_org_tipo=").concat(_this3.adic_comp_org_tipo, "&adic_comp_org_percet=").concat(_this3.adic_comp_org_percet, "&adic_comp_org_pg=").concat(_this3.adic_comp_org_pg, "&f_hvoo=").concat(_this3.f_hvoo, "&hvoo_percet=").concat(_this3.hvoo_percet, "&hvoo_pg=").concat(_this3.hvoo_pg, "&acres_25_soldo=").concat(_this3.acres_25_soldo, "&adic_perm=").concat(_this3.adic_perm, "&salario_familia_dep=").concat(_this3.salario_familia_dep, "&imposto_renda_dep=").concat(_this3.imposto_renda_dep, "&adic_ferias=").concat(_this3.adic_ferias, "&adic_pttc=").concat(_this3.adic_pttc, "&adic_natalino=").concat(_this3.adic_natalino, "&adic_natalino_qtd_meses=").concat(_this3.adic_natalino_qtd_meses, "&adic_natalino_valor_adiantamento=").concat(_this3.adic_natalino_valor_adiantamento, "&aux_pre_escolar_qtd=").concat(_this3.aux_pre_escolar_qtd, "&aux_invalidez=").concat(_this3.aux_invalidez, "&aux_transporte=").concat(_this3.aux_transporte, "&aux_fard=").concat(_this3.aux_fard, "&aux_fard_primeiro=").concat(_this3.aux_fard_primeiro, "&aux_alim_c=").concat(_this3.aux_alim_c, "&aux_alim_5x=").concat(_this3.aux_alim_5x, "&aux_natalidade=").concat(_this3.aux_natalidade, "&grat_loc_esp=").concat(_this3.grat_loc_esp, "&grat_repr_cmdo=").concat(_this3.grat_repr_cmdo, "&grat_repr_2=").concat(_this3.grat_repr_2, "&grat_repr_2_pg=").concat(_this3.grat_repr_2_pg, "&dp_excmb_art_9=").concat(_this3.dp_excmb_art_9, "&pmil=").concat(_this3.pmil, "&pmilmesmopg=").concat(_this3.pmilmesmopg, "&pmil_pg=").concat(_this3.pmil_pg, "&pmil_15=").concat(_this3.pmil_15, "&pmil_30=").concat(_this3.pmil_30, "&fusex_3=").concat(_this3.fusex_3, "&desc_dep_fusex=").concat(_this3.desc_dep_fusex, "&pnr=").concat(_this3.pnr, "&pens_judiciaria_1=").concat(_this3.pens_judiciaria_1, "&pens_judiciaria_2=").concat(_this3.pens_judiciaria_2, "&pens_judiciaria_3=").concat(_this3.pens_judiciaria_3, "&pens_judiciaria_4=").concat(_this3.pens_judiciaria_4, "&pens_judiciaria_5=").concat(_this3.pens_judiciaria_5, "&pens_judiciaria_6=").concat(_this3.pens_judiciaria_6, "&pens_judiciaria_adic_natal_1=").concat(_this3.pens_judiciaria_adic_natal_1, "&pens_judiciaria_adic_natal_2=").concat(_this3.pens_judiciaria_adic_natal_2, "&pens_judiciaria_adic_natal_3=").concat(_this3.pens_judiciaria_adic_natal_3, "&pens_judiciaria_adic_natal_4=").concat(_this3.pens_judiciaria_adic_natal_4, "&pens_judiciaria_adic_natal_5=").concat(_this3.pens_judiciaria_adic_natal_5, "&pens_judiciaria_adic_natal_6=").concat(_this3.pens_judiciaria_adic_natal_6);
+                data = "_token=".concat(_this3.token, "&universo=").concat(_this3.universo, "&data_contracheque=").concat(_this3.data_contracheque, "&maior_65=").concat(_this3.maior_65, "&isento_ir=").concat(_this3.isento_ir, "&pg_soldo=").concat(_this3.pg_soldo, "&pg_real=").concat(_this3.pg_real, "&tipo_soldo=").concat(_this3.tipo_soldo, "&soldo_cota_porcentagem=").concat(_this3.soldo_cota_porcentagem, "&soldo_prop_cota_porcentagem=").concat(_this3.soldo_prop_cota_porcentagem, "&compl_ct_soldo=").concat(_this3.compl_ct_soldo, "&adic_tp_sv=").concat(_this3.adic_tp_sv, "&adic_disp=").concat(_this3.adic_disp, "&adic_hab_tipo=").concat(_this3.adic_hab_tipo, "&adic_mil=").concat(_this3.adic_mil, "&adic_comp_org_tipo=").concat(_this3.adic_comp_org_tipo, "&adic_comp_org_percet=").concat(_this3.adic_comp_org_percet, "&adic_comp_org_pg=").concat(_this3.adic_comp_org_pg, "&f_hvoo=").concat(_this3.f_hvoo, "&hvoo_percet=").concat(_this3.hvoo_percet, "&hvoo_pg=").concat(_this3.hvoo_pg, "&acres_25_soldo=").concat(_this3.acres_25_soldo, "&adic_perm=").concat(_this3.adic_perm, "&salario_familia_dep=").concat(_this3.salario_familia_dep, "&imposto_renda_dep=").concat(_this3.imposto_renda_dep, "&adic_ferias=").concat(_this3.adic_ferias, "&adic_pttc=").concat(_this3.adic_pttc, "&adic_natalino=").concat(_this3.adic_natalino, "&adic_natalino_qtd_meses=").concat(_this3.adic_natalino_qtd_meses, "&adic_natalino_valor_adiantamento=").concat(_this3.adic_natalino_valor_adiantamento, "&aux_pre_escolar_qtd=").concat(_this3.aux_pre_escolar_qtd, "&aux_invalidez=").concat(_this3.aux_invalidez, "&aux_transporte=").concat(_this3.aux_transporte, "&aux_fard=").concat(_this3.aux_fard, "&aux_fard_primeiro=").concat(_this3.aux_fard_primeiro, "&aux_alim_c=").concat(_this3.aux_alim_c, "&aux_alim_5x=").concat(_this3.aux_alim_5x, "&aux_natalidade=").concat(_this3.aux_natalidade, "&grat_loc_esp=").concat(_this3.grat_loc_esp, "&grat_repr_cmdo=").concat(_this3.grat_repr_cmdo, "&grat_repr_2=").concat(_this3.grat_repr_2, "&grat_repr_2_pg=").concat(_this3.grat_repr_2_pg, "&dp_excmb_art_9=").concat(_this3.dp_excmb_art_9, "&pmil=").concat(_this3.pmil, "&pmilmesmopg=").concat(_this3.pmilmesmopg, "&pmil_pg=").concat(_this3.pmil_pg, "&pmil_15=").concat(_this3.pmil_15, "&pmil_30=").concat(_this3.pmil_30, "&fusex_3=").concat(_this3.fusex_3, "&desc_dep_fusex=").concat(_this3.desc_dep_fusex, "&pnr=").concat(_this3.pnr, "&pens_judiciaria_1=").concat(_this3.pens_judiciaria_1, "&pens_judiciaria_2=").concat(_this3.pens_judiciaria_2, "&pens_judiciaria_3=").concat(_this3.pens_judiciaria_3, "&pens_judiciaria_4=").concat(_this3.pens_judiciaria_4, "&pens_judiciaria_5=").concat(_this3.pens_judiciaria_5, "&pens_judiciaria_6=").concat(_this3.pens_judiciaria_6, "&pens_judiciaria_adic_natal_1=").concat(_this3.pens_judiciaria_adic_natal_1, "&pens_judiciaria_adic_natal_2=").concat(_this3.pens_judiciaria_adic_natal_2, "&pens_judiciaria_adic_natal_3=").concat(_this3.pens_judiciaria_adic_natal_3, "&pens_judiciaria_adic_natal_4=").concat(_this3.pens_judiciaria_adic_natal_4, "&pens_judiciaria_adic_natal_5=").concat(_this3.pens_judiciaria_adic_natal_5, "&pens_judiciaria_adic_natal_6=").concat(_this3.pens_judiciaria_adic_natal_6, "&dadosIndisponiveisLista=").concat(_this3.dadosIndisponiveisLista);
                 _context.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(_this3.nowPath, "/api/ficha-auxiliar?").concat(data)).then(function (r) {
                   return _this3.$store.state.dadosFinanceiros = r.data;
@@ -36664,6 +36824,12 @@ var render = function () {
       attrs: { id: "ficha_auxilitar" },
     },
     [
+      _c("pre", [
+        _vm._v(
+          "        " + _vm._s(_vm.$store.state.dadosFinanceiros) + "\n    "
+        ),
+      ]),
+      _vm._v(" "),
       _c(
         "div",
         { attrs: { id: "ficha_auxiliar-head" } },
@@ -42912,6 +43078,391 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
+          _c("section", { attrs: { id: "form_informacoes_indisponiveis" } }, [
+            _c("h2", [_vm._v("Receitas e descontos não disponíveis")]),
+            _vm._v(" "),
+            _c(
+              "fieldset",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.form_fusex_3,
+                    expression: "form_fusex_3",
+                  },
+                ],
+                staticClass: "question_root",
+              },
+              [
+                _c("ajuda-component", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                    Selecione esta opção caso no formulário não exista a\n                    "
+                    ),
+                    _c("strong", [_vm._v("receita")]),
+                    _vm._v(" ou\n                    "),
+                    _c("strong", [_vm._v("desconto")]),
+                    _vm._v(" que você quer incluir.\n                    "),
+                    _c("br"),
+                    _vm._v("\n                    Caso essa "),
+                    _c("strong", [_vm._v("receita")]),
+                    _vm._v(" ou\n                    "),
+                    _c("strong", [_vm._v("desconto")]),
+                    _vm._v(
+                      " influencie no imposto de\n                    renda, marque a opção "
+                    ),
+                    _c("strong", [_vm._v('"tributável"')]),
+                    _vm._v(
+                      ' como\n                    "sim".\n                '
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("section", { staticClass: "question_body" }, [
+                  _vm._m(69),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "question_options" }, [
+                    _c("div", { staticClass: "question_options" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.dadosIndisponiveis,
+                            expression: "dadosIndisponiveis",
+                          },
+                        ],
+                        attrs: {
+                          type: "radio",
+                          value: "1",
+                          name: "dadosIndisponiveis",
+                          id: "dadosIndisponiveissim",
+                          checked: "",
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.dadosIndisponiveis, "1"),
+                        },
+                        on: {
+                          change: function ($event) {
+                            _vm.dadosIndisponiveis = "1"
+                          },
+                        },
+                      }),
+                      _c("label", { attrs: { for: "dadosIndisponiveissim" } }, [
+                        _vm._v("Sim"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.dadosIndisponiveis,
+                            expression: "dadosIndisponiveis",
+                          },
+                        ],
+                        attrs: {
+                          type: "radio",
+                          value: "0",
+                          name: "dadosIndisponiveis",
+                          id: "dadosIndisponiveisnao",
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.dadosIndisponiveis, "0"),
+                        },
+                        on: {
+                          change: function ($event) {
+                            _vm.dadosIndisponiveis = "0"
+                          },
+                        },
+                      }),
+                      _c("label", { attrs: { for: "dadosIndisponiveisnao" } }, [
+                        _vm._v("Não"),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "section",
+              { attrs: { id: "form_informacoes_indisponiveis_form" } },
+              [
+                _vm.dadosIndisponiveisLista.length == 0
+                  ? _c("h3", [
+                      _vm._v(
+                        "\n                Nenhuma linha foi adicionada. Clique no botão abaixo para\n                adicionar.\n            "
+                      ),
+                    ])
+                  : _c("table", { staticClass: "question_root" }, [
+                      _vm._m(70),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(
+                          _vm.dadosIndisponiveisLista,
+                          function (item, key) {
+                            return _c("tr", { key: key }, [
+                              _c("td", [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value:
+                                        _vm.dadosIndisponiveisLista[key]
+                                          .descricao,
+                                      expression:
+                                        "\n                                    dadosIndisponiveisLista[key].descricao\n                                ",
+                                    },
+                                  ],
+                                  attrs: { type: "text" },
+                                  domProps: {
+                                    value:
+                                      _vm.dadosIndisponiveisLista[key]
+                                        .descricao,
+                                  },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.dadosIndisponiveisLista[key],
+                                        "descricao",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { attrs: { width: "80px" } }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value:
+                                        _vm.dadosIndisponiveisLista[key].valor,
+                                      expression:
+                                        "dadosIndisponiveisLista[key].valor",
+                                    },
+                                  ],
+                                  attrs: { type: "number", step: "0.01" },
+                                  domProps: {
+                                    value:
+                                      _vm.dadosIndisponiveisLista[key].valor,
+                                  },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.dadosIndisponiveisLista[key],
+                                        "valor",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                { staticClass: "tributavel_container" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.dadosIndisponiveisLista[key]
+                                            .tributavel,
+                                        expression:
+                                          "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
+                                      },
+                                    ],
+                                    attrs: { type: "radio", value: "1" },
+                                    domProps: {
+                                      checked: _vm._q(
+                                        _vm.dadosIndisponiveisLista[key]
+                                          .tributavel,
+                                        "1"
+                                      ),
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        return _vm.$set(
+                                          _vm.dadosIndisponiveisLista[key],
+                                          "tributavel",
+                                          "1"
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("label", [_vm._v("Sim")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.dadosIndisponiveisLista[key]
+                                            .tributavel,
+                                        expression:
+                                          "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "radio",
+                                      value: "0",
+                                      checked: "",
+                                    },
+                                    domProps: {
+                                      checked: _vm._q(
+                                        _vm.dadosIndisponiveisLista[key]
+                                          .tributavel,
+                                        "0"
+                                      ),
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        return _vm.$set(
+                                          _vm.dadosIndisponiveisLista[key],
+                                          "tributavel",
+                                          "0"
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("label", [_vm._v("Não")]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "td",
+                                { staticClass: "tributavel_container" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.dadosIndisponiveisLista[key].tipo,
+                                        expression:
+                                          "dadosIndisponiveisLista[key].tipo",
+                                      },
+                                    ],
+                                    attrs: { type: "radio", value: "1" },
+                                    domProps: {
+                                      checked: _vm._q(
+                                        _vm.dadosIndisponiveisLista[key].tipo,
+                                        "1"
+                                      ),
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        return _vm.$set(
+                                          _vm.dadosIndisponiveisLista[key],
+                                          "tipo",
+                                          "1"
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("label", [_vm._v("Receita")]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value:
+                                          _vm.dadosIndisponiveisLista[key].tipo,
+                                        expression:
+                                          "dadosIndisponiveisLista[key].tipo",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "radio",
+                                      value: "0",
+                                      checked: "",
+                                    },
+                                    domProps: {
+                                      checked: _vm._q(
+                                        _vm.dadosIndisponiveisLista[key].tipo,
+                                        "0"
+                                      ),
+                                    },
+                                    on: {
+                                      change: function ($event) {
+                                        return _vm.$set(
+                                          _vm.dadosIndisponiveisLista[key],
+                                          "tipo",
+                                          "0"
+                                        )
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("label", [_vm._v("Desconto")]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("img", {
+                                  staticClass: "btn_delete_row",
+                                  attrs: {
+                                    src: "/svg/x.svg",
+                                    alt: "Botão excluir",
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.dadosIndisponiveisLista_delete(
+                                        key
+                                      )
+                                    },
+                                  },
+                                }),
+                              ]),
+                            ])
+                          }
+                        ),
+                        0
+                      ),
+                    ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    attrs: { id: "plus_container" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.dadosIndisponiveisLista_push({})
+                      },
+                    },
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: "/svg/plus.svg", alt: "Botão Adicionar" },
+                    }),
+                  ]
+                ),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
           _c(
             "router-link",
             { staticClass: "btn_gerar", attrs: { to: "/ficha-auxiliar" } },
@@ -43796,6 +44347,40 @@ var staticRenderFns = [
         _vm._v(
           "\n                            Valor da Pensão Judiciária do Adicional Natalino\n                            nº 6:\n                        "
         ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "question_title" }, [
+      _c("p", [
+        _vm._v("\n                        Existem "),
+        _c("strong", [_vm._v("receitas")]),
+        _vm._v(" ou\n                        "),
+        _c("strong", [_vm._v("descontos")]),
+        _vm._v(
+          " que não estão disponíveis\n                        no formulário acima?\n                    "
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Descrição")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Valor")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tributável")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tipo")]),
+        _vm._v(" "),
+        _c("th"),
       ]),
     ])
   },

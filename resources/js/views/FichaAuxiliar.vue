@@ -1,5 +1,8 @@
 <template>
     <section id="ficha_auxilitar" v-show="$store.state.dadosFinanceiros">
+        <pre>
+            {{ $store.state.dadosFinanceiros }}
+        </pre>
         <div id="ficha_auxiliar-head">
             <router-link id="ficha_auxiliar-voltar" to="/gerar-contracheque">
                 <img src="/svg/back.svg" alt="Ícone sair" />

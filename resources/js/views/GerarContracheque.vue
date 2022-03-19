@@ -2394,6 +2394,145 @@
                 </fieldset>
             </section>
         </section>
+
+        <section id="form_informacoes_indisponiveis">
+            <h2>Receitas e descontos não disponíveis</h2>
+
+            <fieldset class="question_root" v-show="form_fusex_3">
+                <ajuda-component>
+                    <p>
+                        Selecione esta opção caso no formulário não exista a
+                        <strong>receita</strong> ou
+                        <strong>desconto</strong> que você quer incluir.
+                        <br />
+                        Caso essa <strong>receita</strong> ou
+                        <strong>desconto</strong> influencie no imposto de
+                        renda, marque a opção <strong>"tributável"</strong> como
+                        "sim".
+                    </p>
+                </ajuda-component>
+                <section class="question_body">
+                    <div class="question_title">
+                        <p>
+                            Existem <strong>receitas</strong> ou
+                            <strong>descontos</strong> que não estão disponíveis
+                            no formulário acima?
+                        </p>
+                    </div>
+                    <div class="question_options">
+                        <div class="question_options">
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="dadosIndisponiveis"
+                                name="dadosIndisponiveis"
+                                id="dadosIndisponiveissim"
+                                checked
+                            /><label for="dadosIndisponiveissim">Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="dadosIndisponiveis"
+                                name="dadosIndisponiveis"
+                                id="dadosIndisponiveisnao"
+                            /><label for="dadosIndisponiveisnao">Não</label>
+                        </div>
+                    </div>
+                </section>
+            </fieldset>
+
+            <section id="form_informacoes_indisponiveis_form">
+                <h3 v-if="dadosIndisponiveisLista.length == 0">
+                    Nenhuma linha foi adicionada. Clique no botão abaixo para
+                    adicionar.
+                </h3>
+                <table v-else class="question_root">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Tributável</th>
+                            <th>Tipo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            v-for="(item, key) in dadosIndisponiveisLista"
+                            :key="key"
+                        >
+                            <td>
+                                <input
+                                    type="text"
+                                    v-model="
+                                        dadosIndisponiveisLista[key].descricao
+                                    "
+                                />
+                            </td>
+                            <td width="80px">
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    v-model="dadosIndisponiveisLista[key].valor"
+                                />
+                            </td>
+                            <td class="tributavel_container">
+                                <input
+                                    type="radio"
+                                    value="1"
+                                    v-model="
+                                        dadosIndisponiveisLista[key].tributavel
+                                    "
+                                />
+                                <label>Sim</label>
+
+                                <input
+                                    type="radio"
+                                    value="0"
+                                    v-model="
+                                        dadosIndisponiveisLista[key].tributavel
+                                    "
+                                    checked
+                                />
+                                <label>Não</label>
+                            </td>
+
+                            <td class="tributavel_container">
+                                <input
+                                    type="radio"
+                                    value="1"
+                                    v-model="dadosIndisponiveisLista[key].tipo"
+                                />
+                                <label>Receita</label>
+
+                                <input
+                                    type="radio"
+                                    value="0"
+                                    v-model="dadosIndisponiveisLista[key].tipo"
+                                    checked
+                                />
+                                <label>Desconto</label>
+                            </td>
+
+                            <td>
+                                <img
+                                    @click="dadosIndisponiveisLista_delete(key)"
+                                    src="/svg/x.svg"
+                                    class="btn_delete_row"
+                                    alt="Botão excluir"
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div
+                    id="plus_container"
+                    @click="dadosIndisponiveisLista_push({})"
+                >
+                    <img src="/svg/plus.svg" alt="Botão Adicionar" />
+                </div>
+            </section>
+        </section>
         <router-link class="btn_gerar" to="/ficha-auxiliar">
             <span>GERAR CONTRACHEQUE</span>
         </router-link>
@@ -2411,6 +2550,11 @@ export default {
         return {
             loading: false,
             loading_select: false,
+            dadosIndisponiveis: "0",
+            dadosIndisponiveisLista: [
+                { descricao: "SOLDO AT", valor: 98, tributavel: 1, tipo: 0 },
+                { descricao: "SOLDO AT", valor: 752, tributavel: 0, tipo: 1 },
+            ],
             selectPg: [],
             universo: "ativa",
             data_contracheque: "2022-01-01",
@@ -2599,6 +2743,12 @@ export default {
         },
     },
     methods: {
+        dadosIndisponiveisLista_push(item) {
+            this.dadosIndisponiveisLista.push(item);
+        },
+        dadosIndisponiveisLista_delete(key) {
+            this.dadosIndisponiveisLista.splice(key, 1);
+        },
         carregaSelectPg() {
             this.loading_select = true;
 
@@ -2612,7 +2762,7 @@ export default {
         },
 
         async geraDadosFinanceiros() {
-            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}`;
+            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}&dadosIndisponiveisLista=${this.dadosIndisponiveisLista}`;
 
             await axios
                 .get(`${this.nowPath}/api/ficha-auxiliar?${data}`)

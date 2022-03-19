@@ -346,6 +346,7 @@ form#formulario {
 }
 
 #form_informacoes_pessoais,
+#form_informacoes_indisponiveis,
 #form_informacoes_financeiras {
     @include blocoNaPagina;
 
@@ -1477,5 +1478,89 @@ label {
     &:hover {
         opacity: 1;
         transition: all 0.3s ease-in-out;
+    }
+}
+
+#form_informacoes_indisponiveis {
+    .question_root {
+        width: 90%;
+    }
+}
+
+#form_informacoes_indisponiveis_form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    h3 {
+        margin-bottom: 3em;
+    }
+    table {
+        padding: 1em;
+        width: 100%;
+        border-spacing: 10px;
+        th,
+        td {
+            text-align: center;
+        }
+
+        tr {
+            border-radius: $borderRadius;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                td:nth-child(3),
+                td:nth-child(4) {
+                    transition: all 0.3s ease-in-out;
+                    background: #e1e1e170;
+                }
+            }
+        }
+
+        td {
+            margin: 0 50px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            border: 2px dashed $branco;
+            border-radius: $borderRadius;
+            height: 26px;
+            width: 100%;
+        }
+        .tributavel_container {
+            border: 2px dashed $branco;
+            border-radius: $borderRadius;
+            height: 26px;
+        }
+    }
+
+    #plus_container {
+        align-items: center;
+        background: $success;
+        border-radius: $borderRadius;
+        border: 2px solid $preto;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        padding: 8px;
+        right: 50%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-25px);
+        &:hover {
+            transform: scale(1.1) translateY(-25px);
+            transition: all 0.3s ease-in-out;
+        }
+        img {
+            width: 20px;
+        }
+    }
+
+    .btn_delete_row {
+        cursor: pointer;
     }
 }
