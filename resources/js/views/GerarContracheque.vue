@@ -90,7 +90,10 @@
                 </ajuda-component>
                 <section class="question_body">
                     <div class="question_title">
-                        <p>O examinado tem <strong>mais de 65 anos</strong>?</p>
+                        <p>
+                            O examinado tem
+                            <strong>mais de 65 anos</strong>?
+                        </p>
                     </div>
                     <div class="question_options">
                         <input
@@ -324,7 +327,8 @@
                     <legend>Soldo Proporcional para Cota</legend>
                     <ajuda-component>
                         <p>
-                            O <strong>soldo proporcional para cota</strong> é
+                            O
+                            <strong>soldo proporcional para cota</strong> é
                             difirente da <strong>cota-parte do soldo</strong>. O
                             soldo proporcional para cota é devido, normalmente,
                             aos militares que foram para a reserva antes do
@@ -355,8 +359,8 @@
                         <div class="question_title">
                             <p>
                                 Qual porcentagem de
-                                <strong>soldo proporcional para cota</strong> o
-                                examinado recebe?
+                                <strong>soldo proporcional para cota</strong>
+                                o examinado recebe?
                             </p>
                         </div>
                         <div class="question_options">
@@ -397,10 +401,11 @@
                             graduações. O percentual do adicional de compensação
                             por disponibilidade militar a que o militar faz jus
                             incidirá sobre o soldo do posto ou da graduação
-                            atual, e não serão considerados: <br />I - postos ou
-                            graduações alcançados pelo militar como benefício,
-                            na forma prevista em lei, em decorrência de reforma,
-                            morte ou transferência para a reserva;
+                            atual, e não serão considerados:
+                            <br />I - postos ou graduações alcançados pelo
+                            militar como benefício, na forma prevista em lei, em
+                            decorrência de reforma, morte ou transferência para
+                            a reserva;
                             <br />
                             percepção de soldo ou de remuneração correspondente
                             a grau hierárquico superior ao alcançado na ativa,
@@ -1160,7 +1165,8 @@
                             Esse campo é exclusivo para pensionistas. Aqui deve
                             ser informado qual porcentagem de cota-parte o(a)
                             pensionista recebe. Essa informação fica disponível
-                            no <strong>título de pensão</strong> ou na
+                            no
+                            <strong>título de pensão</strong> ou na
                             <strong>apostila</strong>, na PHPM do(a)
                             examinado(a). Em documentos mais antigos, é
                             informado o percentual em fração, então, para
@@ -1177,8 +1183,9 @@
                     <section class="question_body">
                         <div class="question_title">
                             <p>
-                                Qual porcetagem de <strong>cota-parte</strong> a
-                                pensionista recebe?
+                                Qual porcetagem de
+                                <strong>cota-parte</strong> a pensionista
+                                recebe?
                             </p>
                         </div>
                         <div class="question_options">
@@ -1478,7 +1485,8 @@
                     <section class="question_body">
                         <div class="question_title">
                             <p>
-                                O examinado irá gozar <strong>Férias</strong>?
+                                O examinado irá gozar
+                                <strong>Férias</strong>?
                             </p>
                         </div>
                         <div class="question_options">
@@ -2395,6 +2403,18 @@
             </section>
         </section>
 
+        <pre>
+            {{ dadosIndisponiveisLista }}
+        </pre>
+
+        <pre>
+            {{ php }}
+        </pre>
+
+        <pre>
+            {{ $store.state.dadosFinanceiros.php }}
+        </pre>
+
         <section id="form_informacoes_indisponiveis">
             <h2>Receitas e descontos não disponíveis</h2>
 
@@ -2527,7 +2547,14 @@
                 </table>
                 <div
                     id="plus_container"
-                    @click="dadosIndisponiveisLista_push({})"
+                    @click="
+                        dadosIndisponiveisLista_push({
+                            descricao: '',
+                            valor: 0,
+                            tributavel: 0,
+                            tipo: 1,
+                        })
+                    "
                 >
                     <img src="/svg/plus.svg" alt="Botão Adicionar" />
                 </div>
@@ -2663,6 +2690,16 @@ export default {
         };
     },
     computed: {
+        php() {
+            let str = "";
+            this.dadosIndisponiveisLista.forEach((element) => {
+                if (element.descricao != "") {
+                    str = str + JSON.stringify(element) + "@";
+                }
+            });
+
+            return str.slice(0, -1); //removendo o último "@"
+        },
         token() {
             let token = document.cookie.split(";").find((indice) => {
                 return indice.includes("token=");
@@ -2762,7 +2799,7 @@ export default {
         },
 
         async geraDadosFinanceiros() {
-            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}&dadosIndisponiveisLista=${this.dadosIndisponiveisLista}`;
+            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}&php=${this.php}`;
 
             await axios
                 .get(`${this.nowPath}/api/ficha-auxiliar?${data}`)

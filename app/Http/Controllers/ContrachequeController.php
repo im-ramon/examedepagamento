@@ -11,6 +11,8 @@ class ContrachequeController extends Controller
 {
     public $data_contracheque = 0;
 
+    public $valoresNaoPrevisto = [];
+
     public $soldo = ['valor' => 0, 'porcentagem' => '-'];
     public $soldo_prop = ['valor' => 0, 'porcentagem' => '-'];
     public $soldo_base = ['valor' => 0, 'porcentagem' => '-']; // Atributo utilizado para realizar os cálculos dentro do sistema sem precisa usar um "IF" para escolher entre soldo normal e soldo proporcional e não deve ser exibido no Front-End.
@@ -95,6 +97,14 @@ class ContrachequeController extends Controller
             $pg_soldo_info = \App\Models\PgConstante::find($formulario['pg_soldo'])->toArray();
             $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
 
+            if ($formulario['php']) {
+                $arr = explode('@', $formulario['php']);
+                foreach ($arr as &$value) {
+                    $value = json_decode($value, true);
+                };
+                $this->valoresNaoPrevisto = $arr;
+            }
+
             $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
 
             //Exclusivo para pensionada de Ex-Cmbt:
@@ -141,8 +151,9 @@ class ContrachequeController extends Controller
             $this->descontos_ir['valor'] = $this->somaDescontosParaIRMensal();
             $this->descontos_total['valor'] = $this->somaDescontosTotal();
 
-            // return  $formulario;
+
             return [
+                'dadosNaoPrevitos' => $this->valoresNaoPrevisto,
                 'receitas' => [
                     'soldo' => ['financeiro' => $this->soldo, 'rubrica' => 'SOLDO'],
                     'soldo_prop' => ['financeiro' => $this->soldo_prop, 'rubrica' => 'SLD PROP P/COTA'],
@@ -284,6 +295,15 @@ class ContrachequeController extends Controller
 
     private function brutoTotal()
     {
+        $indisponiveis = 0;
+        if (!empty($this->valoresNaoPrevisto)) {
+            foreach ($this->valoresNaoPrevisto as $value) {
+                if ($value['tipo'] == 1) {
+                    $indisponiveis += $value['valor'];
+                }
+            };
+        }
+
         return array_sum([
             $this->soldo_base['valor'],
             $this->compl_ct_soldo['valor'],
@@ -314,12 +334,21 @@ class ContrachequeController extends Controller
             $this->aux_natalidade['valor'],
             $this->grat_loc_esp['valor'],
             $this->grat_repr_cmdo['valor'],
-            $this->grat_repr_2
+            $this->grat_repr_2,
+            $indisponiveis
         ]);
     }
 
     private function brutoDescontoIR()
     {
+        $indisponiveis = 0;
+        if (!empty($this->valoresNaoPrevisto)) {
+            foreach ($this->valoresNaoPrevisto as $value) {
+                if ($value['tipo'] == 1 and $value['tributavel'] == 1) {
+                    $indisponiveis += $value['valor'];
+                }
+            };
+        }
         return array_sum([
             $this->soldo_base['valor'],
             $this->compl_ct_soldo['valor'],
@@ -334,12 +363,22 @@ class ContrachequeController extends Controller
             $this->adic_pttc['valor'],
             $this->grat_loc_esp['valor'],
             $this->grat_repr_cmdo['valor'],
-            $this->grat_repr_2
+            $this->grat_repr_2,
+            $indisponiveis
         ]);
     }
 
     private function somaDescontosParaIRMensal()
     {
+        $indisponiveis = 0;
+        if (!empty($this->valoresNaoPrevisto)) {
+            foreach ($this->valoresNaoPrevisto as $value) {
+                if ($value['tipo'] == 0 and $value['tributavel'] == 1) {
+                    $indisponiveis += $value['valor'];
+                }
+            };
+        }
+
         return array_sum([
             $this->pmil['valor'],
             $this->pmil_15['valor'],
@@ -351,12 +390,21 @@ class ContrachequeController extends Controller
             $this->pens_judiciaria_3['valor'],
             $this->pens_judiciaria_4['valor'],
             $this->pens_judiciaria_5['valor'],
-            $this->pens_judiciaria_6
+            $this->pens_judiciaria_6,
+            $indisponiveis
         ]);
     }
 
     private function somaDescontosTotal()
     {
+        $indisponiveis = 0;
+        if (!empty($this->valoresNaoPrevisto)) {
+            foreach ($this->valoresNaoPrevisto as $value) {
+                if ($value['tipo'] == 0) {
+                    $indisponiveis += $value['valor'];
+                }
+            };
+        }
         return array_sum([
             $this->pmil['valor'],
             $this->pmil_15['valor'],
@@ -382,6 +430,7 @@ class ContrachequeController extends Controller
             $this->imposto_renda_mensal['valor'],
             $this->imposto_renda_adic_natal['valor'],
             $this->imposto_renda_adic_ferias['valor'],
+            $indisponiveis
         ]);
     }
 

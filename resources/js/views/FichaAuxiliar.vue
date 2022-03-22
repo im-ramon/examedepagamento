@@ -1,8 +1,5 @@
 <template>
     <section id="ficha_auxilitar" v-show="$store.state.dadosFinanceiros">
-        <pre>
-            {{ $store.state.dadosFinanceiros }}
-        </pre>
         <div id="ficha_auxiliar-head">
             <router-link id="ficha_auxiliar-voltar" to="/gerar-contracheque">
                 <img src="/svg/back.svg" alt="Ícone sair" />
@@ -18,6 +15,11 @@
                     "
                 />
             </div>
+
+            <pre>
+                {{ $store.state.dadosFinanceiros.dadosNaoPrevitos }}
+            </pre>
+
             <section>
                 <button onClick="window.print()">
                     <span>Imprimir</span>

@@ -7252,6 +7252,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10061,6 +10063,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10186,6 +10215,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   computed: {
+    php: function php() {
+      var str = "";
+      this.dadosIndisponiveisLista.forEach(function (element) {
+        if (element.descricao != "") {
+          str = str + JSON.stringify(element) + "@";
+        }
+      });
+      return str.slice(0, -1); //removendo o último "@"
+    },
     token: function token() {
       var token = document.cookie.split(";").find(function (indice) {
         return indice.includes("token=");
@@ -10285,7 +10323,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                data = "_token=".concat(_this3.token, "&universo=").concat(_this3.universo, "&data_contracheque=").concat(_this3.data_contracheque, "&maior_65=").concat(_this3.maior_65, "&isento_ir=").concat(_this3.isento_ir, "&pg_soldo=").concat(_this3.pg_soldo, "&pg_real=").concat(_this3.pg_real, "&tipo_soldo=").concat(_this3.tipo_soldo, "&soldo_cota_porcentagem=").concat(_this3.soldo_cota_porcentagem, "&soldo_prop_cota_porcentagem=").concat(_this3.soldo_prop_cota_porcentagem, "&compl_ct_soldo=").concat(_this3.compl_ct_soldo, "&adic_tp_sv=").concat(_this3.adic_tp_sv, "&adic_disp=").concat(_this3.adic_disp, "&adic_hab_tipo=").concat(_this3.adic_hab_tipo, "&adic_mil=").concat(_this3.adic_mil, "&adic_comp_org_tipo=").concat(_this3.adic_comp_org_tipo, "&adic_comp_org_percet=").concat(_this3.adic_comp_org_percet, "&adic_comp_org_pg=").concat(_this3.adic_comp_org_pg, "&f_hvoo=").concat(_this3.f_hvoo, "&hvoo_percet=").concat(_this3.hvoo_percet, "&hvoo_pg=").concat(_this3.hvoo_pg, "&acres_25_soldo=").concat(_this3.acres_25_soldo, "&adic_perm=").concat(_this3.adic_perm, "&salario_familia_dep=").concat(_this3.salario_familia_dep, "&imposto_renda_dep=").concat(_this3.imposto_renda_dep, "&adic_ferias=").concat(_this3.adic_ferias, "&adic_pttc=").concat(_this3.adic_pttc, "&adic_natalino=").concat(_this3.adic_natalino, "&adic_natalino_qtd_meses=").concat(_this3.adic_natalino_qtd_meses, "&adic_natalino_valor_adiantamento=").concat(_this3.adic_natalino_valor_adiantamento, "&aux_pre_escolar_qtd=").concat(_this3.aux_pre_escolar_qtd, "&aux_invalidez=").concat(_this3.aux_invalidez, "&aux_transporte=").concat(_this3.aux_transporte, "&aux_fard=").concat(_this3.aux_fard, "&aux_fard_primeiro=").concat(_this3.aux_fard_primeiro, "&aux_alim_c=").concat(_this3.aux_alim_c, "&aux_alim_5x=").concat(_this3.aux_alim_5x, "&aux_natalidade=").concat(_this3.aux_natalidade, "&grat_loc_esp=").concat(_this3.grat_loc_esp, "&grat_repr_cmdo=").concat(_this3.grat_repr_cmdo, "&grat_repr_2=").concat(_this3.grat_repr_2, "&grat_repr_2_pg=").concat(_this3.grat_repr_2_pg, "&dp_excmb_art_9=").concat(_this3.dp_excmb_art_9, "&pmil=").concat(_this3.pmil, "&pmilmesmopg=").concat(_this3.pmilmesmopg, "&pmil_pg=").concat(_this3.pmil_pg, "&pmil_15=").concat(_this3.pmil_15, "&pmil_30=").concat(_this3.pmil_30, "&fusex_3=").concat(_this3.fusex_3, "&desc_dep_fusex=").concat(_this3.desc_dep_fusex, "&pnr=").concat(_this3.pnr, "&pens_judiciaria_1=").concat(_this3.pens_judiciaria_1, "&pens_judiciaria_2=").concat(_this3.pens_judiciaria_2, "&pens_judiciaria_3=").concat(_this3.pens_judiciaria_3, "&pens_judiciaria_4=").concat(_this3.pens_judiciaria_4, "&pens_judiciaria_5=").concat(_this3.pens_judiciaria_5, "&pens_judiciaria_6=").concat(_this3.pens_judiciaria_6, "&pens_judiciaria_adic_natal_1=").concat(_this3.pens_judiciaria_adic_natal_1, "&pens_judiciaria_adic_natal_2=").concat(_this3.pens_judiciaria_adic_natal_2, "&pens_judiciaria_adic_natal_3=").concat(_this3.pens_judiciaria_adic_natal_3, "&pens_judiciaria_adic_natal_4=").concat(_this3.pens_judiciaria_adic_natal_4, "&pens_judiciaria_adic_natal_5=").concat(_this3.pens_judiciaria_adic_natal_5, "&pens_judiciaria_adic_natal_6=").concat(_this3.pens_judiciaria_adic_natal_6, "&dadosIndisponiveisLista=").concat(_this3.dadosIndisponiveisLista);
+                data = "_token=".concat(_this3.token, "&universo=").concat(_this3.universo, "&data_contracheque=").concat(_this3.data_contracheque, "&maior_65=").concat(_this3.maior_65, "&isento_ir=").concat(_this3.isento_ir, "&pg_soldo=").concat(_this3.pg_soldo, "&pg_real=").concat(_this3.pg_real, "&tipo_soldo=").concat(_this3.tipo_soldo, "&soldo_cota_porcentagem=").concat(_this3.soldo_cota_porcentagem, "&soldo_prop_cota_porcentagem=").concat(_this3.soldo_prop_cota_porcentagem, "&compl_ct_soldo=").concat(_this3.compl_ct_soldo, "&adic_tp_sv=").concat(_this3.adic_tp_sv, "&adic_disp=").concat(_this3.adic_disp, "&adic_hab_tipo=").concat(_this3.adic_hab_tipo, "&adic_mil=").concat(_this3.adic_mil, "&adic_comp_org_tipo=").concat(_this3.adic_comp_org_tipo, "&adic_comp_org_percet=").concat(_this3.adic_comp_org_percet, "&adic_comp_org_pg=").concat(_this3.adic_comp_org_pg, "&f_hvoo=").concat(_this3.f_hvoo, "&hvoo_percet=").concat(_this3.hvoo_percet, "&hvoo_pg=").concat(_this3.hvoo_pg, "&acres_25_soldo=").concat(_this3.acres_25_soldo, "&adic_perm=").concat(_this3.adic_perm, "&salario_familia_dep=").concat(_this3.salario_familia_dep, "&imposto_renda_dep=").concat(_this3.imposto_renda_dep, "&adic_ferias=").concat(_this3.adic_ferias, "&adic_pttc=").concat(_this3.adic_pttc, "&adic_natalino=").concat(_this3.adic_natalino, "&adic_natalino_qtd_meses=").concat(_this3.adic_natalino_qtd_meses, "&adic_natalino_valor_adiantamento=").concat(_this3.adic_natalino_valor_adiantamento, "&aux_pre_escolar_qtd=").concat(_this3.aux_pre_escolar_qtd, "&aux_invalidez=").concat(_this3.aux_invalidez, "&aux_transporte=").concat(_this3.aux_transporte, "&aux_fard=").concat(_this3.aux_fard, "&aux_fard_primeiro=").concat(_this3.aux_fard_primeiro, "&aux_alim_c=").concat(_this3.aux_alim_c, "&aux_alim_5x=").concat(_this3.aux_alim_5x, "&aux_natalidade=").concat(_this3.aux_natalidade, "&grat_loc_esp=").concat(_this3.grat_loc_esp, "&grat_repr_cmdo=").concat(_this3.grat_repr_cmdo, "&grat_repr_2=").concat(_this3.grat_repr_2, "&grat_repr_2_pg=").concat(_this3.grat_repr_2_pg, "&dp_excmb_art_9=").concat(_this3.dp_excmb_art_9, "&pmil=").concat(_this3.pmil, "&pmilmesmopg=").concat(_this3.pmilmesmopg, "&pmil_pg=").concat(_this3.pmil_pg, "&pmil_15=").concat(_this3.pmil_15, "&pmil_30=").concat(_this3.pmil_30, "&fusex_3=").concat(_this3.fusex_3, "&desc_dep_fusex=").concat(_this3.desc_dep_fusex, "&pnr=").concat(_this3.pnr, "&pens_judiciaria_1=").concat(_this3.pens_judiciaria_1, "&pens_judiciaria_2=").concat(_this3.pens_judiciaria_2, "&pens_judiciaria_3=").concat(_this3.pens_judiciaria_3, "&pens_judiciaria_4=").concat(_this3.pens_judiciaria_4, "&pens_judiciaria_5=").concat(_this3.pens_judiciaria_5, "&pens_judiciaria_6=").concat(_this3.pens_judiciaria_6, "&pens_judiciaria_adic_natal_1=").concat(_this3.pens_judiciaria_adic_natal_1, "&pens_judiciaria_adic_natal_2=").concat(_this3.pens_judiciaria_adic_natal_2, "&pens_judiciaria_adic_natal_3=").concat(_this3.pens_judiciaria_adic_natal_3, "&pens_judiciaria_adic_natal_4=").concat(_this3.pens_judiciaria_adic_natal_4, "&pens_judiciaria_adic_natal_5=").concat(_this3.pens_judiciaria_adic_natal_5, "&pens_judiciaria_adic_natal_6=").concat(_this3.pens_judiciaria_adic_natal_6, "&php=").concat(_this3.php);
                 _context.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(_this3.nowPath, "/api/ficha-auxiliar?").concat(data)).then(function (r) {
                   return _this3.$store.state.dadosFinanceiros = r.data;
@@ -36824,12 +36862,6 @@ var render = function () {
       attrs: { id: "ficha_auxilitar" },
     },
     [
-      _c("pre", [
-        _vm._v(
-          "        " + _vm._s(_vm.$store.state.dadosFinanceiros) + "\n    "
-        ),
-      ]),
-      _vm._v(" "),
       _c(
         "div",
         { attrs: { id: "ficha_auxiliar-head" } },
@@ -36852,6 +36884,14 @@ var render = function () {
                   _vm.$store.state.contrachequeAtivo || "Novo contracheque",
               },
             }),
+          ]),
+          _vm._v(" "),
+          _c("pre", [
+            _vm._v(
+              "            " +
+                _vm._s(_vm.$store.state.dadosFinanceiros.dadosNaoPrevitos) +
+                "\n        "
+            ),
           ]),
           _vm._v(" "),
           _c("section", [
@@ -38460,7 +38500,9 @@ var render = function () {
                       _c(
                         "p",
                         [
-                          _vm._v("\n                        O "),
+                          _vm._v(
+                            "\n                        O\n                        "
+                          ),
                           _c("strong", [
                             _vm._v("soldo proporcional para cota"),
                           ]),
@@ -38563,11 +38605,11 @@ var render = function () {
                         "p",
                         [
                           _vm._v(
-                            "\n                        O Adicional de compensação por disponibilidade\n                        militar é a parcela remuneratória mensal devida ao\n                        militar em razão da disponibilidade permanente e da\n                        dedicação exclusiva. É vedada a concessão cumulativa\n                        do adicional de compensação por disponibilidade\n                        militar com o adicional de tempo de serviço, sendo\n                        assegurado, caso o militar faça jus a ambos os\n                        adicionais, o recebimento do mais vantajoso. O\n                        percentual do adicional de compensação por\n                        disponibilidade militar é irredutível e corresponde\n                        sempre ao maior percentual inerente aos postos ou\n                        graduações alcançados pelo militar durante sua\n                        carreira no serviço ativo, independentemente de\n                        mudança de círculos hierárquicos, postos ou\n                        graduações. O percentual do adicional de compensação\n                        por disponibilidade militar a que o militar faz jus\n                        incidirá sobre o soldo do posto ou da graduação\n                        atual, e não serão considerados: "
+                            "\n                        O Adicional de compensação por disponibilidade\n                        militar é a parcela remuneratória mensal devida ao\n                        militar em razão da disponibilidade permanente e da\n                        dedicação exclusiva. É vedada a concessão cumulativa\n                        do adicional de compensação por disponibilidade\n                        militar com o adicional de tempo de serviço, sendo\n                        assegurado, caso o militar faça jus a ambos os\n                        adicionais, o recebimento do mais vantajoso. O\n                        percentual do adicional de compensação por\n                        disponibilidade militar é irredutível e corresponde\n                        sempre ao maior percentual inerente aos postos ou\n                        graduações alcançados pelo militar durante sua\n                        carreira no serviço ativo, independentemente de\n                        mudança de círculos hierárquicos, postos ou\n                        graduações. O percentual do adicional de compensação\n                        por disponibilidade militar a que o militar faz jus\n                        incidirá sobre o soldo do posto ou da graduação\n                        atual, e não serão considerados:\n                        "
                           ),
                           _c("br"),
                           _vm._v(
-                            "I - postos ou\n                        graduações alcançados pelo militar como benefício,\n                        na forma prevista em lei, em decorrência de reforma,\n                        morte ou transferência para a reserva;\n                        "
+                            "I - postos ou graduações alcançados pelo\n                        militar como benefício, na forma prevista em lei, em\n                        decorrência de reforma, morte ou transferência para\n                        a reserva;\n                        "
                           ),
                           _c("br"),
                           _vm._v(
@@ -40303,7 +40345,7 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        Esse campo é exclusivo para pensionistas. Aqui deve\n                        ser informado qual porcentagem de cota-parte o(a)\n                        pensionista recebe. Essa informação fica disponível\n                        no "
+                          "\n                        Esse campo é exclusivo para pensionistas. Aqui deve\n                        ser informado qual porcentagem de cota-parte o(a)\n                        pensionista recebe. Essa informação fica disponível\n                        no\n                        "
                         ),
                         _c("strong", [_vm._v("título de pensão")]),
                         _vm._v(" ou na\n                        "),
@@ -43078,6 +43120,20 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
+          _c("pre", [
+            _vm._v("        " + _vm._s(_vm.dadosIndisponiveisLista) + "\n    "),
+          ]),
+          _vm._v(" "),
+          _c("pre", [_vm._v("        " + _vm._s(_vm.php) + "\n    ")]),
+          _vm._v(" "),
+          _c("pre", [
+            _vm._v(
+              "        " +
+                _vm._s(_vm.$store.state.dadosFinanceiros.php) +
+                "\n    "
+            ),
+          ]),
+          _vm._v(" "),
           _c("section", { attrs: { id: "form_informacoes_indisponiveis" } }, [
             _c("h2", [_vm._v("Receitas e descontos não disponíveis")]),
             _vm._v(" "),
@@ -43449,7 +43505,12 @@ var render = function () {
                     attrs: { id: "plus_container" },
                     on: {
                       click: function ($event) {
-                        return _vm.dadosIndisponiveisLista_push({})
+                        return _vm.dadosIndisponiveisLista_push({
+                          descricao: "",
+                          valor: 0,
+                          tributavel: 0,
+                          tipo: 1,
+                        })
                       },
                     },
                   },
@@ -43510,9 +43571,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "question_title" }, [
       _c("p", [
-        _vm._v("O examinado tem "),
+        _vm._v(
+          "\n                        O examinado tem\n                        "
+        ),
         _c("strong", [_vm._v("mais de 65 anos")]),
-        _vm._v("?"),
+        _vm._v("?\n                    "),
       ]),
     ])
   },
@@ -43581,7 +43644,7 @@ var staticRenderFns = [
         ),
         _c("strong", [_vm._v("soldo proporcional para cota")]),
         _vm._v(
-          " o\n                            examinado recebe?\n                        "
+          "\n                            o examinado recebe?\n                        "
         ),
       ]),
     ])
@@ -43875,10 +43938,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "question_title" }, [
       _c("p", [
-        _vm._v("\n                            Qual porcetagem de "),
+        _vm._v(
+          "\n                            Qual porcetagem de\n                            "
+        ),
         _c("strong", [_vm._v("cota-parte")]),
         _vm._v(
-          " a\n                            pensionista recebe?\n                        "
+          " a pensionista\n                            recebe?\n                        "
         ),
       ]),
     ])
@@ -43983,7 +44048,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "question_title" }, [
       _c("p", [
-        _vm._v("\n                            O examinado irá gozar "),
+        _vm._v(
+          "\n                            O examinado irá gozar\n                            "
+        ),
         _c("strong", [_vm._v("Férias")]),
         _vm._v("?\n                        "),
       ]),
