@@ -551,7 +551,7 @@
                             >
                                 <option value="0">- Não recebe -</option>
                                 <option value="PDQT">Paraquedista</option>
-                                <option value="RAIOX">Raio-X</option>
+                                <option value="RAIO-X">Raio-X</option>
                                 <option value="TO/ OMA/ FO">
                                     Tripulante Orgânico
                                 </option>

@@ -38923,7 +38923,7 @@ var render = function () {
                               _vm._v("Paraquedista"),
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "RAIOX" } }, [
+                            _c("option", { attrs: { value: "RAIO-X" } }, [
                               _vm._v("Raio-X"),
                             ]),
                             _vm._v(" "),
