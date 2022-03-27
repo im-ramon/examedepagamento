@@ -441,7 +441,7 @@ class ContrachequeController extends Controller
     private function auxPreEscolar($formulario)
     {
         $valor_base_pres_escolar = 321;
-        $bruto = $this->calculos['receitas']['bruto_ir_descontos']['financeiro']['valor'];
+        $bruto = $this->bruto_ir;
         $soldo_Sd = \App\Models\PgConstante::where('pg', '=', 'SOLDADO DO EXERCITO')->get()->toArray()[0]['soldo'];
         $cota_parte = $bruto / $soldo_Sd;
 
@@ -608,9 +608,9 @@ class ContrachequeController extends Controller
             } elseif ($formulario["pnr"] == '2') {
                 $valor_base = $this->truncar($this->soldo_base['valor'] * 0.035);
             }
-            $this->push('descontos', 'pnr_f_ex_cnst', ($this->truncar($valor_base  * 0.2)), 'PNR (F EX-CNST)', 'ir', '13N', 'n_ptcc', 'n_descontos');
-            $this->push('descontos', 'pnr_cod_ua', ($this->truncar($valor_base  * 0.1)), 'PNR (COD/UA)', 'ir', '13N', 'n_ptcc', 'n_descontos');
-            $this->push('descontos', 'pnr_f_ex_mnt', ($valor_base - $this->truncar($valor_base  * 0.2) - $this->truncar($valor_base  * 0.1)), 'PNR (F EX-MNT)', 'ir', '13N', 'n_ptcc', 'n_descontos');
+            $this->push('descontos', 'pnr_f_ex_cnst', ($this->truncar($valor_base  * 0.2)), 'PNR (F EX-CNST)', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            $this->push('descontos', 'pnr_cod_ua', ($valor_base - $this->truncar($valor_base  * 0.2) - $this->truncar($valor_base  * 0.1)), 'PNR (COD/UA)', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            $this->push('descontos', 'pnr_f_ex_mnt', ($this->truncar($valor_base  * 0.1)), 'PNR (F EX-MNT)', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
         }
     }
 
