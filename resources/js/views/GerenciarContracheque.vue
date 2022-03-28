@@ -27,7 +27,7 @@
         <div id="gererenciarContracheque_container">
             <h2>Contracheques salvos</h2>
             <div class="buscando_registros" v-show="buscandoRegistros">
-                <span>Buscando registros. Aguarde</span>
+                <span>Estamos atualizando os registros, aguarde...</span>
                 <img
                     src="/svg/loading.svg"
                     style="width: 25px"

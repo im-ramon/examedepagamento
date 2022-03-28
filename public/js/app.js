@@ -44529,7 +44529,7 @@ var render = function () {
           staticClass: "buscando_registros",
         },
         [
-          _c("span", [_vm._v("Buscando registros. Aguarde")]),
+          _c("span", [_vm._v("Estamos atualizando os registros, aguarde...")]),
           _vm._v(" "),
           _c("img", {
             staticStyle: { width: "25px" },
