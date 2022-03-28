@@ -7254,6 +7254,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -36982,6 +36990,31 @@ var render = function () {
               _vm._m(7),
               _vm._v(" "),
               _c("tr", [
+                _c(
+                  "td",
+                  {
+                    staticClass: "td_calculos",
+                    attrs: { rowspan: _vm.dadosApiReceitas.length + 1 },
+                  },
+                  [
+                    _c("p", [_vm._v("R")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("E")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("C")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("E")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("I")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("T")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("A")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("S")]),
+                  ]
+                ),
+                _vm._v(" "),
                 _vm._m(8),
                 _vm._v(" "),
                 _vm._m(9),
@@ -36990,13 +37023,14 @@ var render = function () {
                 _vm._v(" "),
                 _vm._m(11),
                 _vm._v(" "),
-                _vm._m(12),
-                _vm._v(" "),
                 _c(
                   "td",
                   {
                     staticClass: "td_calculos obs",
-                    attrs: { colspan: "5", rowspan: "19" },
+                    attrs: {
+                      colspan: "5",
+                      rowspan: _vm.dadosApiReceitas.length + 2,
+                    },
                   },
                   [
                     _c("p", [_vm._v("OBSERVAÇÕES")]),
@@ -37092,7 +37126,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(13),
+                _vm._m(12),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -37123,21 +37157,47 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
+                _c(
+                  "td",
+                  {
+                    staticClass: "td_calculos",
+                    attrs: { rowspan: _vm.dadosApiDescontos.length + 1 },
+                  },
+                  [
+                    _c("p", [_vm._v("D")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("E")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("S")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("P")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("E")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("S")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("A")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("S")]),
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(13),
+                _vm._v(" "),
                 _vm._m(14),
                 _vm._v(" "),
                 _vm._m(15),
                 _vm._v(" "),
                 _vm._m(16),
                 _vm._v(" "),
-                _vm._m(17),
-                _vm._v(" "),
-                _vm._m(18),
-                _vm._v(" "),
                 _c(
                   "td",
                   {
                     staticClass: "td_calculos obs",
-                    attrs: { colspan: "5", rowspan: "19" },
+                    attrs: {
+                      colspan: "5",
+                      rowspan: _vm.dadosApiDescontos.length + 2,
+                    },
                   },
                   [
                     _c("p", [_vm._v("OBSERVAÇÕES")]),
@@ -37229,7 +37289,7 @@ var render = function () {
               }),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(19),
+                _vm._m(17),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _vm._v(
@@ -37260,7 +37320,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("tr", [
-                _vm._m(20),
+                _vm._m(18),
                 _vm._v(" "),
                 _c("td", { staticClass: "td_calculos valor" }, [
                   _c("p", [
@@ -37291,12 +37351,12 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _vm._m(21),
+                _vm._m(19),
               ]),
               _vm._v(" "),
-              _vm._m(22),
+              _vm._m(20),
               _vm._v(" "),
-              _vm._m(23),
+              _vm._m(21),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -37316,11 +37376,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(22),
+              _vm._v(" "),
+              _vm._m(23),
+              _vm._v(" "),
               _vm._m(24),
-              _vm._v(" "),
-              _vm._m(25),
-              _vm._v(" "),
-              _vm._m(26),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -37342,11 +37402,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(25),
+              _vm._v(" "),
+              _vm._m(26),
+              _vm._v(" "),
               _vm._m(27),
-              _vm._v(" "),
-              _vm._m(28),
-              _vm._v(" "),
-              _vm._m(29),
               _vm._v(" "),
               _c("tr", [
                 _c(
@@ -37366,11 +37426,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _vm._m(28),
+              _vm._v(" "),
+              _vm._m(29),
+              _vm._v(" "),
               _vm._m(30),
-              _vm._v(" "),
-              _vm._m(31),
-              _vm._v(" "),
-              _vm._m(32),
             ],
             2
           )
@@ -37547,28 +37607,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "td_calculos", attrs: { rowspan: "18" } }, [
-      _c("p", [_vm._v("R")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("E")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("C")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("E")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("I")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("T")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("A")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("S")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("td", { staticClass: "td_calculos", attrs: { colspan: "2" } }, [
       _c("p", [_vm._v("DISCRIMINAÇÃO")]),
     ])
@@ -37601,28 +37639,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", { staticClass: "td_calculos", attrs: { colspan: "4" } }, [
       _c("p", [_vm._v("SOMA")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "td_calculos", attrs: { rowspan: "18" } }, [
-      _c("p", [_vm._v("D")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("E")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("S")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("P")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("E")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("S")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("A")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("S")]),
     ])
   },
   function () {

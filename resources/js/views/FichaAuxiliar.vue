@@ -124,7 +124,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="td_calculos" rowspan="18">
+                <td class="td_calculos" :rowspan="dadosApiReceitas.length + 1">
                     <p>R</p>
                     <p>E</p>
                     <p>C</p>
@@ -146,7 +146,11 @@
                 <td class="td_calculos valor_contracheque">
                     <p>VALOR<br />CONTRACHEQUE</p>
                 </td>
-                <td class="td_calculos obs" colspan="5" rowspan="19">
+                <td
+                    class="td_calculos obs"
+                    colspan="5"
+                    :rowspan="dadosApiReceitas.length + 2"
+                >
                     <p>OBSERVA&Ccedil;&Otilde;ES</p>
                     <textarea
                         id="observacoes_receitas"
@@ -194,7 +198,7 @@
 
             <!-- DESCONTOS -->
             <tr>
-                <td class="td_calculos" rowspan="18">
+                <td class="td_calculos" :rowspan="dadosApiDescontos.length + 1">
                     <p>D</p>
                     <p>E</p>
                     <p>S</p>
@@ -216,7 +220,11 @@
                 <td class="td_calculos">
                     <p>VALOR<br />CONTRACHEQUE</p>
                 </td>
-                <td class="td_calculos obs" colspan="5" rowspan="19">
+                <td
+                    class="td_calculos obs"
+                    colspan="5"
+                    :rowspan="dadosApiDescontos.length + 2"
+                >
                     <p>OBSERVA&Ccedil;&Otilde;ES</p>
                     <textarea
                         id="observacoes_descontos"
