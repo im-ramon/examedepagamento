@@ -90,12 +90,6 @@ class ContrachequeController extends Controller
     public $descontos_ir = ['valor' => 0, 'porcentagem' => '-'];
     public $descontos_total = ['valor' => 0, 'porcentagem' => '-'];
 
-    public function gerarFormulario() //POST
-    {
-        $pg_info = \App\Models\PgConstante::all();
-        return view('app.formulario', ['pg_info' => $pg_info]);
-    }
-
     public function gerarContracheque() //GET
     {
         if ($_GET) {
@@ -107,13 +101,8 @@ class ContrachequeController extends Controller
             $this->calculos['informacoes']['date'] = $formulario['data_contracheque'];
             $this->calculos['informacoes']['pg_real_info'] = $pg_real_info;
 
-            if ($formulario['php']) {
-                $arr = explode('@', $formulario['php']);
-                foreach ($arr as &$value) {
-                    $value = json_decode($value, true);
-                };
-                $this->valoresNaoPrevisto = $arr;
-            }
+            // $this->gerenciaValoresIndisponiveis($formulario);
+            // dd($this->valoresNaoPrevisto);
 
             $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
 
@@ -152,10 +141,15 @@ class ContrachequeController extends Controller
                 $this->descDepFusex($formulario);
                 $this->pnr($formulario);
                 $this->pensJudiciaria($formulario);
+
+                $this->gerenciaValoresIndisponiveis($formulario);
+
                 $this->impostoRendaMensal($formulario);
                 $this->impostoRendaAdicNatal($formulario);
                 $this->impostoRendaAdicFerias($formulario);
             }
+
+
 
             return $this->calculos;
         } else {
@@ -202,6 +196,7 @@ class ContrachequeController extends Controller
     {
         return floor($numero * 100) / 100;
     }
+
     private function push($tipo, $abrev, $valor, $rubrica, $ir, $adicNatal, $ptcc, $descontos, $porcentagem = '-')
     {
 
@@ -236,6 +231,34 @@ class ContrachequeController extends Controller
             if ($ir == 'ir_natal') {
                 $this->abatimentos_ir_adic_natal += $valor;
             }
+        }
+    }
+
+    private function gerenciaValoresIndisponiveis($formulario)
+    {
+        if ($formulario['php']) {
+            $arr = explode('@', $formulario['php']);
+            foreach ($arr as &$value) {
+                $value = json_decode($value, true);
+            };
+            unset($value);
+
+            $this->valoresNaoPrevisto = $arr;
+
+            foreach ($arr as $value) {
+                $tipos = $value['tipo'] == 1 ? 'receitas' : 'descontos';
+                $abrev = strtolower($value['descricao']);
+                $abrev = '_' . str_replace(" ", "_", $abrev);
+                $valor = intval($value['valor']);
+                $rubrica = strtoupper($value['descricao']);
+                $ir = $value['tributavel'] == 1 ? 'ir' : 'n_ir';
+                $adicNatal = '13N';
+                $ptcc = 'n_pttc';
+                $descontos = 'n_descontos';
+
+                $this->push($tipos, $abrev, $valor, $rubrica, $ir, $adicNatal, $ptcc, $descontos);
+            }
+            // $this->valoresNaoPrevisto = $arr;
         }
     }
 
