@@ -2403,18 +2403,6 @@
             </section>
         </section>
 
-        <pre>
-            {{ dadosIndisponiveisLista }}
-        </pre>
-
-        <pre>
-            {{ php }}
-        </pre>
-
-        <pre>
-            {{ $store.state.dadosFinanceiros.php }}
-        </pre>
-
         <section id="form_informacoes_indisponiveis">
             <h2>Receitas e descontos não disponíveis</h2>
 
@@ -2454,6 +2442,7 @@
                                 value="0"
                                 v-model="dadosIndisponiveis"
                                 name="dadosIndisponiveis"
+                                @change="dadosIndisponiveisLista = []"
                                 id="dadosIndisponiveisnao"
                             /><label for="dadosIndisponiveisnao">Não</label>
                         </div>
@@ -2461,7 +2450,10 @@
                 </section>
             </fieldset>
 
-            <section id="form_informacoes_indisponiveis_form">
+            <section
+                v-if="dadosIndisponiveis == '1'"
+                id="form_informacoes_indisponiveis_form"
+            >
                 <h3 v-if="dadosIndisponiveisLista.length == 0">
                     Nenhuma linha foi adicionada. Clique no botão abaixo para
                     adicionar.
@@ -2538,6 +2530,7 @@
                                 <img
                                     @click="dadosIndisponiveisLista_delete(key)"
                                     src="/svg/x.svg"
+                                    title="Excluir linha"
                                     class="btn_delete_row"
                                     alt="Botão excluir"
                                 />
@@ -2578,10 +2571,7 @@ export default {
             loading: false,
             loading_select: false,
             dadosIndisponiveis: "0",
-            dadosIndisponiveisLista: [
-                { descricao: "SOLDO AT", valor: 98, tributavel: 1, tipo: 0 },
-                { descricao: "SOLDO AT", valor: 752, tributavel: 0, tipo: 1 },
-            ],
+            dadosIndisponiveisLista: [],
             selectPg: [],
             universo: "ativa",
             data_contracheque: "2022-01-01",
@@ -2911,6 +2901,8 @@ export default {
                 f_grat_repr_2: this.f_grat_repr_2,
                 f_pnr: this.f_pnr,
                 f_pens_judiciaria: this.f_pens_judiciaria,
+                dadosIndisponiveisLista: this.dadosIndisponiveisLista,
+                dadosIndisponiveis: this.dadosIndisponiveis,
             };
 
             this.$store.state.backupForm = formSaved;
@@ -3032,6 +3024,8 @@ export default {
                 this.f_grat_repr_2 = form.f_grat_repr_2;
                 this.f_pnr = form.f_pnr;
                 this.f_pens_judiciaria = form.f_pens_judiciaria;
+                this.dadosIndisponiveisLista = form.dadosIndisponiveisLista;
+                this.dadosIndisponiveis = form.dadosIndisponiveis;
             }
         },
     },

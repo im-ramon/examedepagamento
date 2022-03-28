@@ -10083,13 +10083,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10098,17 +10091,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       loading: false,
       loading_select: false,
       dadosIndisponiveis: "0",
-      dadosIndisponiveisLista: [{
-        descricao: "SOLDO AT",
-        valor: 98,
-        tributavel: 1,
-        tipo: 0
-      }, {
-        descricao: "SOLDO AT",
-        valor: 752,
-        tributavel: 0,
-        tipo: 1
-      }],
+      dadosIndisponiveisLista: [],
       selectPg: [],
       universo: "ativa",
       data_contracheque: "2022-01-01",
@@ -10442,7 +10425,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         f_hvoo: this.f_hvoo,
         f_grat_repr_2: this.f_grat_repr_2,
         f_pnr: this.f_pnr,
-        f_pens_judiciaria: this.f_pens_judiciaria
+        f_pens_judiciaria: this.f_pens_judiciaria,
+        dadosIndisponiveisLista: this.dadosIndisponiveisLista,
+        dadosIndisponiveis: this.dadosIndisponiveis
       };
       this.$store.state.backupForm = formSaved;
     },
@@ -10556,6 +10541,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.f_grat_repr_2 = form.f_grat_repr_2;
         this.f_pnr = form.f_pnr;
         this.f_pens_judiciaria = form.f_pens_judiciaria;
+        this.dadosIndisponiveisLista = form.dadosIndisponiveisLista;
+        this.dadosIndisponiveis = form.dadosIndisponiveis;
       }
     }
   },
@@ -43120,20 +43107,6 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("pre", [
-            _vm._v("        " + _vm._s(_vm.dadosIndisponiveisLista) + "\n    "),
-          ]),
-          _vm._v(" "),
-          _c("pre", [_vm._v("        " + _vm._s(_vm.php) + "\n    ")]),
-          _vm._v(" "),
-          _c("pre", [
-            _vm._v(
-              "        " +
-                _vm._s(_vm.$store.state.dadosFinanceiros.php) +
-                "\n    "
-            ),
-          ]),
-          _vm._v(" "),
           _c("section", { attrs: { id: "form_informacoes_indisponiveis" } }, [
             _c("h2", [_vm._v("Receitas e descontos não disponíveis")]),
             _vm._v(" "),
@@ -43228,9 +43201,14 @@ var render = function () {
                           checked: _vm._q(_vm.dadosIndisponiveis, "0"),
                         },
                         on: {
-                          change: function ($event) {
-                            _vm.dadosIndisponiveis = "0"
-                          },
+                          change: [
+                            function ($event) {
+                              _vm.dadosIndisponiveis = "0"
+                            },
+                            function ($event) {
+                              _vm.dadosIndisponiveisLista = []
+                            },
+                          ],
                         },
                       }),
                       _c("label", { attrs: { for: "dadosIndisponiveisnao" } }, [
@@ -43243,285 +43221,297 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _c(
-              "section",
-              { attrs: { id: "form_informacoes_indisponiveis_form" } },
-              [
-                _vm.dadosIndisponiveisLista.length == 0
-                  ? _c("h3", [
-                      _vm._v(
-                        "\n                Nenhuma linha foi adicionada. Clique no botão abaixo para\n                adicionar.\n            "
-                      ),
-                    ])
-                  : _c("table", { staticClass: "question_root" }, [
-                      _vm._m(70),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        _vm._l(
-                          _vm.dadosIndisponiveisLista,
-                          function (item, key) {
-                            return _c("tr", { key: key }, [
-                              _c("td", [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.dadosIndisponiveisLista[key]
-                                          .descricao,
-                                      expression:
-                                        "\n                                    dadosIndisponiveisLista[key].descricao\n                                ",
-                                    },
-                                  ],
-                                  attrs: { type: "text" },
-                                  domProps: {
-                                    value:
-                                      _vm.dadosIndisponiveisLista[key]
-                                        .descricao,
-                                  },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.dadosIndisponiveisLista[key],
-                                        "descricao",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { attrs: { width: "80px" } }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value:
-                                        _vm.dadosIndisponiveisLista[key].valor,
-                                      expression:
-                                        "dadosIndisponiveisLista[key].valor",
-                                    },
-                                  ],
-                                  attrs: { type: "number", step: "0.01" },
-                                  domProps: {
-                                    value:
-                                      _vm.dadosIndisponiveisLista[key].valor,
-                                  },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.dadosIndisponiveisLista[key],
-                                        "valor",
-                                        $event.target.value
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                { staticClass: "tributavel_container" },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value:
-                                          _vm.dadosIndisponiveisLista[key]
-                                            .tributavel,
-                                        expression:
-                                          "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
-                                      },
-                                    ],
-                                    attrs: { type: "radio", value: "1" },
-                                    domProps: {
-                                      checked: _vm._q(
-                                        _vm.dadosIndisponiveisLista[key]
-                                          .tributavel,
-                                        "1"
-                                      ),
-                                    },
-                                    on: {
-                                      change: function ($event) {
-                                        return _vm.$set(
-                                          _vm.dadosIndisponiveisLista[key],
-                                          "tributavel",
-                                          "1"
-                                        )
-                                      },
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Sim")]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value:
-                                          _vm.dadosIndisponiveisLista[key]
-                                            .tributavel,
-                                        expression:
-                                          "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
-                                      },
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      value: "0",
-                                      checked: "",
-                                    },
-                                    domProps: {
-                                      checked: _vm._q(
-                                        _vm.dadosIndisponiveisLista[key]
-                                          .tributavel,
-                                        "0"
-                                      ),
-                                    },
-                                    on: {
-                                      change: function ($event) {
-                                        return _vm.$set(
-                                          _vm.dadosIndisponiveisLista[key],
-                                          "tributavel",
-                                          "0"
-                                        )
-                                      },
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Não")]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                { staticClass: "tributavel_container" },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value:
-                                          _vm.dadosIndisponiveisLista[key].tipo,
-                                        expression:
-                                          "dadosIndisponiveisLista[key].tipo",
-                                      },
-                                    ],
-                                    attrs: { type: "radio", value: "1" },
-                                    domProps: {
-                                      checked: _vm._q(
-                                        _vm.dadosIndisponiveisLista[key].tipo,
-                                        "1"
-                                      ),
-                                    },
-                                    on: {
-                                      change: function ($event) {
-                                        return _vm.$set(
-                                          _vm.dadosIndisponiveisLista[key],
-                                          "tipo",
-                                          "1"
-                                        )
-                                      },
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Receita")]),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value:
-                                          _vm.dadosIndisponiveisLista[key].tipo,
-                                        expression:
-                                          "dadosIndisponiveisLista[key].tipo",
-                                      },
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      value: "0",
-                                      checked: "",
-                                    },
-                                    domProps: {
-                                      checked: _vm._q(
-                                        _vm.dadosIndisponiveisLista[key].tipo,
-                                        "0"
-                                      ),
-                                    },
-                                    on: {
-                                      change: function ($event) {
-                                        return _vm.$set(
-                                          _vm.dadosIndisponiveisLista[key],
-                                          "tipo",
-                                          "0"
-                                        )
-                                      },
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Desconto")]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("img", {
-                                  staticClass: "btn_delete_row",
-                                  attrs: {
-                                    src: "/svg/x.svg",
-                                    alt: "Botão excluir",
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.dadosIndisponiveisLista_delete(
-                                        key
-                                      )
-                                    },
-                                  },
-                                }),
-                              ]),
-                            ])
-                          }
-                        ),
-                        0
-                      ),
-                    ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    attrs: { id: "plus_container" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.dadosIndisponiveisLista_push({
-                          descricao: "",
-                          valor: 0,
-                          tributavel: 0,
-                          tipo: 1,
-                        })
-                      },
-                    },
-                  },
+            _vm.dadosIndisponiveis == "1"
+              ? _c(
+                  "section",
+                  { attrs: { id: "form_informacoes_indisponiveis_form" } },
                   [
-                    _c("img", {
-                      attrs: { src: "/svg/plus.svg", alt: "Botão Adicionar" },
-                    }),
+                    _vm.dadosIndisponiveisLista.length == 0
+                      ? _c("h3", [
+                          _vm._v(
+                            "\n                Nenhuma linha foi adicionada. Clique no botão abaixo para\n                adicionar.\n            "
+                          ),
+                        ])
+                      : _c("table", { staticClass: "question_root" }, [
+                          _vm._m(70),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(
+                              _vm.dadosIndisponiveisLista,
+                              function (item, key) {
+                                return _c("tr", { key: key }, [
+                                  _c("td", [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.dadosIndisponiveisLista[key]
+                                              .descricao,
+                                          expression:
+                                            "\n                                    dadosIndisponiveisLista[key].descricao\n                                ",
+                                        },
+                                      ],
+                                      attrs: { type: "text" },
+                                      domProps: {
+                                        value:
+                                          _vm.dadosIndisponiveisLista[key]
+                                            .descricao,
+                                      },
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.dadosIndisponiveisLista[key],
+                                            "descricao",
+                                            $event.target.value
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("td", { attrs: { width: "80px" } }, [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.dadosIndisponiveisLista[key]
+                                              .valor,
+                                          expression:
+                                            "dadosIndisponiveisLista[key].valor",
+                                        },
+                                      ],
+                                      attrs: { type: "number", step: "0.01" },
+                                      domProps: {
+                                        value:
+                                          _vm.dadosIndisponiveisLista[key]
+                                            .valor,
+                                      },
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.dadosIndisponiveisLista[key],
+                                            "valor",
+                                            $event.target.value
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { staticClass: "tributavel_container" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.dadosIndisponiveisLista[key]
+                                                .tributavel,
+                                            expression:
+                                              "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
+                                          },
+                                        ],
+                                        attrs: { type: "radio", value: "1" },
+                                        domProps: {
+                                          checked: _vm._q(
+                                            _vm.dadosIndisponiveisLista[key]
+                                              .tributavel,
+                                            "1"
+                                          ),
+                                        },
+                                        on: {
+                                          change: function ($event) {
+                                            return _vm.$set(
+                                              _vm.dadosIndisponiveisLista[key],
+                                              "tributavel",
+                                              "1"
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", [_vm._v("Sim")]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.dadosIndisponiveisLista[key]
+                                                .tributavel,
+                                            expression:
+                                              "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
+                                          },
+                                        ],
+                                        attrs: {
+                                          type: "radio",
+                                          value: "0",
+                                          checked: "",
+                                        },
+                                        domProps: {
+                                          checked: _vm._q(
+                                            _vm.dadosIndisponiveisLista[key]
+                                              .tributavel,
+                                            "0"
+                                          ),
+                                        },
+                                        on: {
+                                          change: function ($event) {
+                                            return _vm.$set(
+                                              _vm.dadosIndisponiveisLista[key],
+                                              "tributavel",
+                                              "0"
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", [_vm._v("Não")]),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { staticClass: "tributavel_container" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.dadosIndisponiveisLista[key]
+                                                .tipo,
+                                            expression:
+                                              "dadosIndisponiveisLista[key].tipo",
+                                          },
+                                        ],
+                                        attrs: { type: "radio", value: "1" },
+                                        domProps: {
+                                          checked: _vm._q(
+                                            _vm.dadosIndisponiveisLista[key]
+                                              .tipo,
+                                            "1"
+                                          ),
+                                        },
+                                        on: {
+                                          change: function ($event) {
+                                            return _vm.$set(
+                                              _vm.dadosIndisponiveisLista[key],
+                                              "tipo",
+                                              "1"
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", [_vm._v("Receita")]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.dadosIndisponiveisLista[key]
+                                                .tipo,
+                                            expression:
+                                              "dadosIndisponiveisLista[key].tipo",
+                                          },
+                                        ],
+                                        attrs: {
+                                          type: "radio",
+                                          value: "0",
+                                          checked: "",
+                                        },
+                                        domProps: {
+                                          checked: _vm._q(
+                                            _vm.dadosIndisponiveisLista[key]
+                                              .tipo,
+                                            "0"
+                                          ),
+                                        },
+                                        on: {
+                                          change: function ($event) {
+                                            return _vm.$set(
+                                              _vm.dadosIndisponiveisLista[key],
+                                              "tipo",
+                                              "0"
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("label", [_vm._v("Desconto")]),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _c("img", {
+                                      staticClass: "btn_delete_row",
+                                      attrs: {
+                                        src: "/svg/x.svg",
+                                        title: "Excluir linha",
+                                        alt: "Botão excluir",
+                                      },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.dadosIndisponiveisLista_delete(
+                                            key
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ]),
+                                ])
+                              }
+                            ),
+                            0
+                          ),
+                        ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        attrs: { id: "plus_container" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.dadosIndisponiveisLista_push({
+                              descricao: "",
+                              valor: 0,
+                              tributavel: 0,
+                              tipo: 1,
+                            })
+                          },
+                        },
+                      },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src: "/svg/plus.svg",
+                            alt: "Botão Adicionar",
+                          },
+                        }),
+                      ]
+                    ),
                   ]
-                ),
-              ]
-            ),
+                )
+              : _vm._e(),
           ]),
           _vm._v(" "),
           _c(
