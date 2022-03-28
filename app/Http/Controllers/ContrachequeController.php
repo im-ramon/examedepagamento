@@ -36,59 +36,7 @@ class ContrachequeController extends Controller
     public $bruto_ir = 0; // Atributo utilizado para realizar os cálculos dentro do sistema
     public $abatimentos_ir = 0; // Atributo utilizado para realizar os cálculos dentro do sistema
     public $abatimentos_ir_adic_natal = 0; // Atributo utilizado para realizar os cálculos dentro do sistema
-
-    public $adic_tp_sv = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_mil = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_comp_disp = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_hab = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_perm = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_comp_org = ['valor' => 0, 'porcentagem' => 0];
-    public $hvoo = ['valor' => 0, 'porcentagem' => 0];
-    public $acres_25_soldo = ['valor' => 0, 'porcentagem' => 25];
-    public $salario_familia = ['valor' => 0, 'porcentagem' => '-'];
-    public $adic_natalino = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar1 = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar2 = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar3 = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar4 = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar5 = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_pre_escolar6 = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_invalidez = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_transporte = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_fard = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_alim_c = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_alim_5x = ['valor' => 0, 'porcentagem' => '-'];
-    public $aux_natalidade = ['valor' => 0, 'porcentagem' => '-'];
-    public $grat_loc_esp = ['valor' => 0, 'porcentagem' => '-'];
-    public $grat_repr_cmdo = ['valor' => 0, 'porcentagem' => 10];
-    public $grat_repr_2 = ['valor' => 0, 'porcentagem' => '-'];
-    public $dp_excmb_art_9 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pmil = ['valor' => 0, 'porcentagem' => 10.5];
-    public $pmil_15 = ['valor' => 0, 'porcentagem' => 1.5];
-    public $pmil_30 = ['valor' => 0, 'porcentagem' => 3];
-    public $fusex_3 = ['valor' => 0, 'porcentagem' => 3];
-    public $desc_dep_fusex = ['valor' => 0, 'porcentagem' => 0];
-    public $adic_natalino_valor_adiantamento = ['valor' => 0, 'porcentagem' => '-'];
-    public $pnr_f_ex_cnst  = ['valor' => 0, 'porcentagem' => '-'];
-    public $pnr_cod_ua  = ['valor' => 0, 'porcentagem' => '-'];
-    public $pnr_f_ex_mnt  = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_1 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_2 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_3 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_4 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_5 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_6 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_adic_natal_1 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_adic_natal_2 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_adic_natal_3 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_adic_natal_4 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_adic_natal_5 = ['valor' => 0, 'porcentagem' => '-'];
-    public $pens_judiciaria_adic_natal_6 = ['valor' => 0, 'porcentagem' => '-'];
-    public $imposto_renda_mensal = ['valor' => 0, 'porcentagem' => '-'];
-    public $imposto_renda_adic_natal = ['valor' => 0, 'porcentagem' => '-'];
-    public $imposto_renda_adic_ferias = ['valor' => 0, 'porcentagem' => '-'];
-    public $descontos_ir = ['valor' => 0, 'porcentagem' => '-'];
-    public $descontos_total = ['valor' => 0, 'porcentagem' => '-'];
+    public $dp_excmb_art_9 = ['valor' => 0, 'porcentagem' => '-']; // Atributo utilizado para realizar os cálculos dentro do sistema
 
     public function gerarContracheque() //GET
     {
@@ -100,9 +48,6 @@ class ContrachequeController extends Controller
             $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
             $this->calculos['informacoes']['date'] = $formulario['data_contracheque'];
             $this->calculos['informacoes']['pg_real_info'] = $pg_real_info;
-
-            // $this->gerenciaValoresIndisponiveis($formulario);
-            // dd($this->valoresNaoPrevisto);
 
             $this->soldo($formulario, $pg_soldo_info, $pg_real_info);
 
@@ -148,8 +93,6 @@ class ContrachequeController extends Controller
                 $this->impostoRendaAdicNatal($formulario);
                 $this->impostoRendaAdicFerias($formulario);
             }
-
-
 
             return $this->calculos;
         } else {
@@ -241,7 +184,7 @@ class ContrachequeController extends Controller
             foreach ($arr as &$value) {
                 $value = json_decode($value, true);
             };
-            unset($value);
+            unset($value); // quebra a referência com o último elemento
 
             $this->valoresNaoPrevisto = $arr;
 
@@ -258,7 +201,6 @@ class ContrachequeController extends Controller
 
                 $this->push($tipos, $abrev, $valor, $rubrica, $ir, $adicNatal, $ptcc, $descontos);
             }
-            // $this->valoresNaoPrevisto = $arr;
         }
     }
 
