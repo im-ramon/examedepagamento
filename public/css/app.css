@@ -1301,6 +1301,7 @@ label {
   padding: 0 1em;
   border-right: 1px solid #5cb85c;
   margin: 0;
+  position: relative;
 }
 #welcome_container #menu-links ul li a {
   text-decoration: none;
@@ -1313,6 +1314,50 @@ label {
 }
 #welcome_container #menu-links ul li:last-child {
   border-right: none;
+}
+
+#modal_index {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #000000a1;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal_index #modal_container {
+  background: #fff;
+  width: 70%;
+  border-radius: 6px;
+  position: relative;
+  padding: 1em 3em;
+  max-height: 700px;
+  max-width: 900px;
+  border: 2px solid #00000026;
+}
+#modal_index #modal_container img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(40%, -40%);
+  background: #fff;
+  width: 30px;
+  border-radius: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+#modal_index #modal_container #link1 li.firt-li {
+  list-style-image: url("/svg/star.svg");
+}
+#modal_index #modal_container #link1 li.firt-li li {
+  list-style: circle;
+}
+#modal_index #modal_container #link1 i {
+  opacity: 25%;
+  font-size: 12px;
 }
 
 #card {
