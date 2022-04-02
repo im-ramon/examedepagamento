@@ -1602,6 +1602,47 @@ label {
   #form_informacoes_indisponiveis {
     margin-bottom: 115px !important;
   }
+
+  #input_area-data_assinatura_cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0.7em;
+  }
+  #input_area-data_assinatura_cc label {
+    text-align: center;
+  }
+  #input_area-data_assinatura_cc button {
+    margin: 0;
+  }
+  #input_area-data_assinatura_cc input[type=date] {
+    margin: 10px 0;
+  }
+
+  #gererenciarContracheque_section .gererenciarContracheque-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+  }
+  #gererenciarContracheque_section .gererenciarContracheque-botoes {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  #gererenciarContracheque_section .btn_area_gc {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+  }
+  #gererenciarContracheque_section .gererenciarContracheque-botoes {
+    margin: 10px 0 2px 0;
+  }
 }
 @media (max-width: 1200px) {
   #form_informacoes_indisponiveis_form .naoDisp-linha {

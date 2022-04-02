@@ -10723,10 +10723,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -44922,32 +44918,41 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "gererenciarContracheque-botoes" },
-                [
-                  _c("router-link", { attrs: { to: "/gerar-contracheque" } }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/svg/edit.svg",
-                        title: "Editar contracheque",
-                        alt: "icone editar",
-                        id: "editar_contracheque",
-                      },
-                      on: {
-                        click: function ($event) {
-                          return _vm.editar_contracheque(
-                            c.id,
-                            c.dados,
-                            c.valorReceitasCC_array,
-                            c.valorDescontosCC_array,
-                            c.observacoes
-                          )
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
+              _c("div", { staticClass: "gererenciarContracheque-botoes" }, [
+                _c(
+                  "div",
+                  { staticClass: "btn_area_gc" },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: "/gerar-contracheque" } },
+                      [
+                        _c("img", {
+                          attrs: {
+                            src: "/svg/edit.svg",
+                            title: "Editar contracheque",
+                            alt: "icone editar",
+                            id: "editar_contracheque",
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.editar_contracheque(
+                                c.id,
+                                c.dados,
+                                c.valorReceitasCC_array,
+                                c.valorDescontosCC_array,
+                                c.observacoes
+                              )
+                            },
+                          },
+                        }),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "btn_area_gc" }, [
                   _c("img", {
                     attrs: {
                       src: "/svg/delete.svg",
@@ -44961,9 +44966,8 @@ var render = function () {
                       },
                     },
                   }),
-                ],
-                1
-              ),
+                ]),
+              ]),
             ]
           )
         }),

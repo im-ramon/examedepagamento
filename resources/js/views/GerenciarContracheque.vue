@@ -74,39 +74,35 @@
                         }}</strong>
                     </span>
                     <div class="gererenciarContracheque-botoes">
-                        <router-link to="/gerar-contracheque">
+                        <div class="btn_area_gc">
+                            <router-link to="/gerar-contracheque">
+                                <img
+                                    src="/svg/edit.svg"
+                                    title="Editar contracheque"
+                                    @click="
+                                        editar_contracheque(
+                                            c.id,
+                                            c.dados,
+                                            c.valorReceitasCC_array,
+                                            c.valorDescontosCC_array,
+                                            c.observacoes
+                                        )
+                                    "
+                                    alt="icone editar"
+                                    id="editar_contracheque"
+                                />
+                            </router-link>
+                        </div>
+
+                        <div class="btn_area_gc">
                             <img
-                                src="/svg/edit.svg"
-                                title="Editar contracheque"
-                                @click="
-                                    editar_contracheque(
-                                        c.id,
-                                        c.dados,
-                                        c.valorReceitasCC_array,
-                                        c.valorDescontosCC_array,
-                                        c.observacoes
-                                    )
-                                "
-                                alt="icone editar"
-                                id="editar_contracheque"
+                                src="/svg/delete.svg"
+                                title="Excluir contracheque"
+                                @click="excluir_contracheque(c.id)"
+                                alt="icone delete"
+                                id="excluir_contracheque"
                             />
-                        </router-link>
-
-                        <img
-                            src="/svg/delete.svg"
-                            title="Excluir contracheque"
-                            @click="excluir_contracheque(c.id)"
-                            alt="icone delete"
-                            id="excluir_contracheque"
-                        />
-
-                        <!-- <router-link to="/ficha-auxiliar">
-                        <img
-                            src="/svg/print.svg"
-                            @click="imprimir_contracheque(c.dados)"
-                            alt="icone print"
-                        />
-                    </router-link> -->
+                        </div>
                     </div>
                 </div>
             </div>
