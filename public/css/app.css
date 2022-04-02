@@ -1643,6 +1643,18 @@ label {
   #gererenciarContracheque_section .gererenciarContracheque-botoes {
     margin: 10px 0 2px 0;
   }
+
+  .perfil_input {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .perfil_input input {
+    width: 90%;
+    text-align: center;
+  }
 }
 @media (max-width: 1200px) {
   #form_informacoes_indisponiveis_form .naoDisp-linha {
