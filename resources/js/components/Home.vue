@@ -14,20 +14,12 @@
                 <nav>
                     <router-link class="navbutton" to="/">
                         <img src="/svg/home.svg" alt="icone casa" />
-                        <span
-                            @click="showSidebar = false"
-                            class="navbutton_title"
-                            >Página inicial</span
-                        >
+                        <span class="navbutton_title">Página inicial</span>
                     </router-link>
 
                     <router-link class="navbutton" to="/gerar-contracheque">
                         <img src="/svg/make.svg" alt="icone computador" />
-                        <span
-                            @click="showSidebar = false"
-                            class="navbutton_title"
-                            >Gerar contracheque</span
-                        >
+                        <span class="navbutton_title">Gerar contracheque</span>
                     </router-link>
 
                     <router-link class="navbutton" to="/gerenciar-contracheque">
@@ -35,29 +27,19 @@
                             src="/svg/search_database.svg"
                             alt="icone computador"
                         />
-                        <span
-                            @click="showSidebar = false"
-                            class="navbutton_title"
+                        <span class="navbutton_title"
                             >Gerenciar contracheques</span
                         >
                     </router-link>
 
                     <router-link class="navbutton" to="/perfil">
                         <img src="/svg/user.svg" alt="icone usuário" />
-                        <span
-                            @click="showSidebar = false"
-                            class="navbutton_title"
-                            >Meu perfil</span
-                        >
+                        <span class="navbutton_title">Meu perfil</span>
                     </router-link>
 
                     <router-link class="navbutton" to="/legislacao">
                         <img src="/svg/books.svg" alt="icone livro" />
-                        <span
-                            @click="showSidebar = false"
-                            class="navbutton_title"
-                            >Legislação</span
-                        >
+                        <span class="navbutton_title">Legislação</span>
                     </router-link>
                 </nav>
                 <div

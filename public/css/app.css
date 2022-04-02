@@ -1547,6 +1547,11 @@ label {
   cursor: pointer;
 }
 
+@media (max-width: 400px) {
+  aside#sidebar {
+    width: 280px;
+  }
+}
 @media (max-width: 800px) {
   aside#sidebar {
     z-index: 50;

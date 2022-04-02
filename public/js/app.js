@@ -6739,24 +6739,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -36746,18 +36728,9 @@ var render = function () {
                         attrs: { src: "/svg/home.svg", alt: "icone casa" },
                       }),
                       _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "navbutton_title",
-                          on: {
-                            click: function ($event) {
-                              _vm.showSidebar = false
-                            },
-                          },
-                        },
-                        [_vm._v("Página inicial")]
-                      ),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Página inicial"),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -36775,18 +36748,9 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "navbutton_title",
-                          on: {
-                            click: function ($event) {
-                              _vm.showSidebar = false
-                            },
-                          },
-                        },
-                        [_vm._v("Gerar contracheque")]
-                      ),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Gerar contracheque"),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -36804,18 +36768,9 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "navbutton_title",
-                          on: {
-                            click: function ($event) {
-                              _vm.showSidebar = false
-                            },
-                          },
-                        },
-                        [_vm._v("Gerenciar contracheques")]
-                      ),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Gerenciar contracheques"),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -36827,18 +36782,9 @@ var render = function () {
                         attrs: { src: "/svg/user.svg", alt: "icone usuário" },
                       }),
                       _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "navbutton_title",
-                          on: {
-                            click: function ($event) {
-                              _vm.showSidebar = false
-                            },
-                          },
-                        },
-                        [_vm._v("Meu perfil")]
-                      ),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Meu perfil"),
+                      ]),
                     ]
                   ),
                   _vm._v(" "),
@@ -36850,18 +36796,9 @@ var render = function () {
                         attrs: { src: "/svg/books.svg", alt: "icone livro" },
                       }),
                       _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticClass: "navbutton_title",
-                          on: {
-                            click: function ($event) {
-                              _vm.showSidebar = false
-                            },
-                          },
-                        },
-                        [_vm._v("Legislação")]
-                      ),
+                      _c("span", { staticClass: "navbutton_title" }, [
+                        _vm._v("Legislação"),
+                      ]),
                     ]
                   ),
                 ],
