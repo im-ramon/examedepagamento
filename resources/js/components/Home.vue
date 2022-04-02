@@ -198,7 +198,7 @@ export default {
 @keyframes show {
     0% {
         opacity: 0;
-        transform: translateX(-5em);
+        transform: translateX(-6em);
     }
 
     100% {
@@ -209,14 +209,14 @@ export default {
 
 .home-enter-active {
     animation-name: show;
-    animation-duration: 0.8s;
-    animation-timing-function: ease;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
     position: absolute;
 }
 .home-leave-active {
     animation-name: show;
     animation-duration: 0.3s;
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
     animation-direction: reverse;
     position: absolute;
 }
