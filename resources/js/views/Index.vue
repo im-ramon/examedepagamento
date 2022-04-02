@@ -1,5 +1,13 @@
 <template>
     <div id="index-container">
+        <div class="logo">
+            <img
+                src="/image/logo.png"
+                alt="Logo Exame de Pagamento"
+                title="App Exame de Pagamento"
+            />
+            <span>App | <strong>Exame de Pagamento</strong></span>
+        </div>
         <div id="index-header">
             <h1>👋🏽 Bem vindo ao App Exame de Pagamento.</h1>
             <p>

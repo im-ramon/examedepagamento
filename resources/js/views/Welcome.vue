@@ -12,7 +12,7 @@
                     <h1>{{ h1 }}</h1>
                     <div id="link1" v-if="paginaAtiva == 'link1'">
                         <ul>
-                            <li class="firt-li">
+                            <li class="first-li">
                                 <h3>
                                     Versão 1.1
                                     <i>- Disponibilizada em 10/04/2022 -</i>
@@ -45,7 +45,7 @@
             </div>
         </transition>
 
-        <div id="sidebar">
+        <div id="wellcome_sidebar">
             <div id="dev">
                 <div class="sidebar-footer">
                     <img src="svg/logo-ramon.svg" alt="Logo Ramon Oliveira" />

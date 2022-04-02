@@ -6740,6 +6740,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10091,6 +10108,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10098,8 +10121,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       loading: false,
       loading_select: false,
-      dadosIndisponiveis: "0",
-      dadosIndisponiveisLista: [],
+      dadosIndisponiveis: "1",
+      // mudar para 0
+      dadosIndisponiveisLista: [{
+        descricao: "ATRASADO",
+        valor: 150,
+        tributavel: 0,
+        tipo: 1
+      } // limpar para []
+      ],
       selectPg: [],
       universo: "ativa",
       data_contracheque: "2022-01-01",
@@ -10850,6 +10880,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -36686,7 +36724,7 @@ var render = function () {
       _c("transition", { attrs: { name: "sidebar" } }, [
         _vm.showSidebar
           ? _c("aside", { attrs: { id: "sidebar" } }, [
-              _c("div", { attrs: { id: "logo" } }, [
+              _c("div", { staticClass: "logo" }, [
                 _c("img", {
                   attrs: {
                     src: "/image/logo.png",
@@ -36712,9 +36750,18 @@ var render = function () {
                         attrs: { src: "/svg/home.svg", alt: "icone casa" },
                       }),
                       _vm._v(" "),
-                      _c("span", { staticClass: "navbutton_title" }, [
-                        _vm._v("Página inicial"),
-                      ]),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "navbutton_title",
+                          on: {
+                            click: function ($event) {
+                              _vm.showSidebar = false
+                            },
+                          },
+                        },
+                        [_vm._v("Página inicial")]
+                      ),
                     ]
                   ),
                   _vm._v(" "),
@@ -36732,9 +36779,18 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("span", { staticClass: "navbutton_title" }, [
-                        _vm._v("Gerar contracheque"),
-                      ]),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "navbutton_title",
+                          on: {
+                            click: function ($event) {
+                              _vm.showSidebar = false
+                            },
+                          },
+                        },
+                        [_vm._v("Gerar contracheque")]
+                      ),
                     ]
                   ),
                   _vm._v(" "),
@@ -36752,9 +36808,18 @@ var render = function () {
                         },
                       }),
                       _vm._v(" "),
-                      _c("span", { staticClass: "navbutton_title" }, [
-                        _vm._v("Gerenciar contracheques"),
-                      ]),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "navbutton_title",
+                          on: {
+                            click: function ($event) {
+                              _vm.showSidebar = false
+                            },
+                          },
+                        },
+                        [_vm._v("Gerenciar contracheques")]
+                      ),
                     ]
                   ),
                   _vm._v(" "),
@@ -36766,9 +36831,18 @@ var render = function () {
                         attrs: { src: "/svg/user.svg", alt: "icone usuário" },
                       }),
                       _vm._v(" "),
-                      _c("span", { staticClass: "navbutton_title" }, [
-                        _vm._v("Meu perfil"),
-                      ]),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "navbutton_title",
+                          on: {
+                            click: function ($event) {
+                              _vm.showSidebar = false
+                            },
+                          },
+                        },
+                        [_vm._v("Meu perfil")]
+                      ),
                     ]
                   ),
                   _vm._v(" "),
@@ -36780,9 +36854,18 @@ var render = function () {
                         attrs: { src: "/svg/books.svg", alt: "icone livro" },
                       }),
                       _vm._v(" "),
-                      _c("span", { staticClass: "navbutton_title" }, [
-                        _vm._v("Legislação"),
-                      ]),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "navbutton_title",
+                          on: {
+                            click: function ($event) {
+                              _vm.showSidebar = false
+                            },
+                          },
+                        },
+                        [_vm._v("Legislação")]
+                      ),
                     ]
                   ),
                 ],
@@ -36853,15 +36936,13 @@ var render = function () {
             },
           },
           [
-            _c("span", [
-              _c("img", {
-                class: _vm.showSidebar ? "" : "reverse",
-                attrs: {
-                  src: "/svg/arrow.svg",
-                  alt: "Ícone de seta para esquerda",
-                },
-              }),
-            ]),
+            _c("img", {
+              class: _vm.showSidebar ? "" : "reverse",
+              attrs: {
+                src: _vm.showSidebar ? "/svg/x.svg" : "/svg/hamburger.svg",
+                alt: "Ícone de menu hamburger/ fechar",
+              },
+            }),
           ]
         ),
         _vm._v(" "),
@@ -43435,87 +43516,111 @@ var render = function () {
                             "\n                Nenhuma linha foi adicionada. Clique no botão abaixo para\n                adicionar.\n            "
                           ),
                         ])
-                      : _c("table", { staticClass: "question_root" }, [
-                          _vm._m(70),
-                          _vm._v(" "),
-                          _c(
-                            "tbody",
-                            _vm._l(
-                              _vm.dadosIndisponiveisLista,
-                              function (item, key) {
-                                return _c("tr", { key: key }, [
-                                  _c("td", [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
+                      : _c(
+                          "div",
+                          { staticClass: "question_root" },
+                          _vm._l(
+                            _vm.dadosIndisponiveisLista,
+                            function (item, key) {
+                              return _c(
+                                "div",
+                                { key: key, staticClass: "naoDisp-linha" },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "naoDisp-item naoDisp-descricao",
+                                    },
+                                    [
+                                      _c("label", [_vm._v("Descrição: ")]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.dadosIndisponiveisLista[key]
+                                                .descricao,
+                                            expression:
+                                              "dadosIndisponiveisLista[key].descricao",
+                                          },
+                                        ],
+                                        attrs: { type: "text" },
+                                        domProps: {
                                           value:
                                             _vm.dadosIndisponiveisLista[key]
                                               .descricao,
-                                          expression:
-                                            "\n                                    dadosIndisponiveisLista[key].descricao\n                                ",
                                         },
-                                      ],
-                                      attrs: { type: "text" },
-                                      domProps: {
-                                        value:
-                                          _vm.dadosIndisponiveisLista[key]
-                                            .descricao,
-                                      },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.dadosIndisponiveisLista[key],
-                                            "descricao",
-                                            $event.target.value
-                                          )
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.dadosIndisponiveisLista[key],
+                                              "descricao",
+                                              $event.target.value
+                                            )
+                                          },
                                         },
-                                      },
-                                    }),
-                                  ]),
+                                      }),
+                                    ]
+                                  ),
                                   _vm._v(" "),
-                                  _c("td", { attrs: { width: "80px" } }, [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "naoDisp-item naoDisp-valor",
+                                      attrs: { width: "80px" },
+                                    },
+                                    [
+                                      _c("label", [_vm._v("Valor: ")]),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.dadosIndisponiveisLista[key]
+                                                .valor,
+                                            expression:
+                                              "dadosIndisponiveisLista[key].valor",
+                                          },
+                                        ],
+                                        attrs: { type: "number", step: "0.01" },
+                                        domProps: {
                                           value:
                                             _vm.dadosIndisponiveisLista[key]
                                               .valor,
-                                          expression:
-                                            "dadosIndisponiveisLista[key].valor",
                                         },
-                                      ],
-                                      attrs: { type: "number", step: "0.01" },
-                                      domProps: {
-                                        value:
-                                          _vm.dadosIndisponiveisLista[key]
-                                            .valor,
-                                      },
-                                      on: {
-                                        input: function ($event) {
-                                          if ($event.target.composing) {
-                                            return
-                                          }
-                                          _vm.$set(
-                                            _vm.dadosIndisponiveisLista[key],
-                                            "valor",
-                                            $event.target.value
-                                          )
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.dadosIndisponiveisLista[key],
+                                              "valor",
+                                              $event.target.value
+                                            )
+                                          },
                                         },
-                                      },
-                                    }),
-                                  ]),
+                                      }),
+                                    ]
+                                  ),
                                   _vm._v(" "),
                                   _c(
-                                    "td",
-                                    { staticClass: "tributavel_container" },
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "naoDisp-item naoDisp-tributavel_container",
+                                    },
                                     [
+                                      _c("label", [_vm._v("Tributável: ")]),
+                                      _vm._v(" "),
                                       _c("input", {
                                         directives: [
                                           {
@@ -43525,7 +43630,7 @@ var render = function () {
                                               _vm.dadosIndisponiveisLista[key]
                                                 .tributavel,
                                             expression:
-                                              "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
+                                              "\n                                dadosIndisponiveisLista[key].tributavel\n                            ",
                                           },
                                         ],
                                         attrs: { type: "radio", value: "1" },
@@ -43558,7 +43663,7 @@ var render = function () {
                                               _vm.dadosIndisponiveisLista[key]
                                                 .tributavel,
                                             expression:
-                                              "\n                                    dadosIndisponiveisLista[key].tributavel\n                                ",
+                                              "\n                                dadosIndisponiveisLista[key].tributavel\n                            ",
                                           },
                                         ],
                                         attrs: {
@@ -43589,9 +43694,14 @@ var render = function () {
                                   ),
                                   _vm._v(" "),
                                   _c(
-                                    "td",
-                                    { staticClass: "tributavel_container" },
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "naoDisp-item naoDisp-tributavel_container",
+                                    },
                                     [
+                                      _c("label", [_vm._v("Tipo: ")]),
+                                      _vm._v(" "),
                                       _c("input", {
                                         directives: [
                                           {
@@ -43664,14 +43774,11 @@ var render = function () {
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("td", [
-                                    _c("img", {
-                                      staticClass: "btn_delete_row",
-                                      attrs: {
-                                        src: "/svg/x.svg",
-                                        title: "Excluir linha",
-                                        alt: "Botão excluir",
-                                      },
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "naoDisp-item naoDisp-bt_excluir",
                                       on: {
                                         click: function ($event) {
                                           return _vm.dadosIndisponiveisLista_delete(
@@ -43679,14 +43786,26 @@ var render = function () {
                                           )
                                         },
                                       },
-                                    }),
-                                  ]),
-                                ])
-                              }
-                            ),
-                            0
+                                    },
+                                    [
+                                      _c("span", [_vm._v("Excluir item")]),
+                                      _vm._v(" "),
+                                      _c("img", {
+                                        staticClass: "btn_delete_row",
+                                        attrs: {
+                                          src: "/svg/x.svg",
+                                          title: "Excluir linha",
+                                          alt: "Botão excluir",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              )
+                            }
                           ),
-                        ]),
+                          0
+                        ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -43718,18 +43837,45 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c(
-            "router-link",
-            { staticClass: "btn_gerar", attrs: { to: "/ficha-auxiliar" } },
-            [_c("span", [_vm._v("GERAR CONTRACHEQUE")])]
+            "div",
+            { attrs: { id: "gerenciar_formulario" } },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "btn_gerar resetar",
+                  on: { click: _vm.cleanForm },
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/svg/clean.svg",
+                      id: "icon_clean",
+                      alt: "Botão Adicionar",
+                    },
+                  }),
+                  _vm._v("Limpar formulário"),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                { staticClass: "btn_gerar", attrs: { to: "/ficha-auxiliar" } },
+                [
+                  _c("img", {
+                    attrs: {
+                      id: "icon_paper-fold",
+                      src: "/svg/paper-fold.svg",
+                      alt: "Botão Adicionar",
+                    },
+                  }),
+                  _c("span", [_vm._v("Gerar contracheque")]),
+                ]
+              ),
+            ],
+            1
           ),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "btn_gerar resetar", on: { click: _vm.cleanForm } },
-            [_vm._v("LIMPAR FORMULÁRIO")]
-          ),
-        ],
-        1
+        ]
       )
     : _c("loading-component")
 }
@@ -44626,24 +44772,6 @@ var staticRenderFns = [
       ]),
     ])
   },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Descrição")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Valor")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Tributável")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Tipo")]),
-        _vm._v(" "),
-        _c("th"),
-      ]),
-    ])
-  },
 ]
 render._withStripped = true
 
@@ -44875,6 +45003,21 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { attrs: { id: "index-container" } }, [
+      _c("div", { staticClass: "logo" }, [
+        _c("img", {
+          attrs: {
+            src: "/image/logo.png",
+            alt: "Logo Exame de Pagamento",
+            title: "App Exame de Pagamento",
+          },
+        }),
+        _vm._v(" "),
+        _c("span", [
+          _vm._v("App | "),
+          _c("strong", [_vm._v("Exame de Pagamento")]),
+        ]),
+      ]),
+      _vm._v(" "),
       _c("div", { attrs: { id: "index-header" } }, [
         _c("h1", [_vm._v("👋🏽 Bem vindo ao App Exame de Pagamento.")]),
         _vm._v(" "),
@@ -45228,7 +45371,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "logo" } }, [
+    return _c("div", { staticClass: "logo" }, [
       _c("img", {
         attrs: {
           src: "/image/logo.png",
@@ -45458,7 +45601,7 @@ var render = function () {
                 _vm.paginaAtiva == "link1"
                   ? _c("div", { attrs: { id: "link1" } }, [
                       _c("ul", [
-                        _c("li", { staticClass: "firt-li" }, [
+                        _c("li", { staticClass: "first-li" }, [
                           _c("h3", [
                             _vm._v(
                               "\n                                Versão 1.1\n                                "
@@ -45635,7 +45778,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "sidebar" } }, [
+    return _c("div", { attrs: { id: "wellcome_sidebar" } }, [
       _c("div", { attrs: { id: "dev" } }, [
         _c("div", { staticClass: "sidebar-footer" }, [
           _c("img", {

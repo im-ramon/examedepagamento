@@ -2,7 +2,7 @@
     <section id="home">
         <transition name="sidebar">
             <aside id="sidebar" v-if="showSidebar">
-                <div id="logo">
+                <div class="logo">
                     <img
                         src="/image/logo.png"
                         alt="Logo Exame de Pagamento"
@@ -14,12 +14,20 @@
                 <nav>
                     <router-link class="navbutton" to="/">
                         <img src="/svg/home.svg" alt="icone casa" />
-                        <span class="navbutton_title">Página inicial</span>
+                        <span
+                            @click="showSidebar = false"
+                            class="navbutton_title"
+                            >Página inicial</span
+                        >
                     </router-link>
 
                     <router-link class="navbutton" to="/gerar-contracheque">
                         <img src="/svg/make.svg" alt="icone computador" />
-                        <span class="navbutton_title">Gerar contracheque</span>
+                        <span
+                            @click="showSidebar = false"
+                            class="navbutton_title"
+                            >Gerar contracheque</span
+                        >
                     </router-link>
 
                     <router-link class="navbutton" to="/gerenciar-contracheque">
@@ -27,19 +35,29 @@
                             src="/svg/search_database.svg"
                             alt="icone computador"
                         />
-                        <span class="navbutton_title"
+                        <span
+                            @click="showSidebar = false"
+                            class="navbutton_title"
                             >Gerenciar contracheques</span
                         >
                     </router-link>
 
                     <router-link class="navbutton" to="/perfil">
                         <img src="/svg/user.svg" alt="icone usuário" />
-                        <span class="navbutton_title">Meu perfil</span>
+                        <span
+                            @click="showSidebar = false"
+                            class="navbutton_title"
+                            >Meu perfil</span
+                        >
                     </router-link>
 
                     <router-link class="navbutton" to="/legislacao">
                         <img src="/svg/books.svg" alt="icone livro" />
-                        <span class="navbutton_title">Legislação</span>
+                        <span
+                            @click="showSidebar = false"
+                            class="navbutton_title"
+                            >Legislação</span
+                        >
                     </router-link>
                 </nav>
                 <div
@@ -69,12 +87,11 @@
 
         <main>
             <div @click="showSidebar = !showSidebar" id="btn_hide_sibdebar">
-                <span
-                    ><img
-                        :class="showSidebar ? '' : 'reverse'"
-                        src="/svg/arrow.svg"
-                        alt="Ícone de seta para esquerda"
-                /></span>
+                <img
+                    :class="showSidebar ? '' : 'reverse'"
+                    :src="showSidebar ? '/svg/x.svg' : '/svg/hamburger.svg'"
+                    alt="Ícone de menu hamburger/ fechar"
+                />
             </div>
             <section id="main_header">
                 <div id="saudacao">

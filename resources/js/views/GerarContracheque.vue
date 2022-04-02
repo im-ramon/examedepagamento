@@ -2458,86 +2458,80 @@
                     Nenhuma linha foi adicionada. Clique no botão abaixo para
                     adicionar.
                 </h3>
-                <table v-else class="question_root">
-                    <thead>
-                        <tr>
-                            <th>Descrição</th>
-                            <th>Valor</th>
-                            <th>Tributável</th>
-                            <th>Tipo</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="(item, key) in dadosIndisponiveisLista"
-                            :key="key"
+                <div v-else class="question_root">
+                    <div
+                        class="naoDisp-linha"
+                        v-for="(item, key) in dadosIndisponiveisLista"
+                        :key="key"
+                    >
+                        <div class="naoDisp-item naoDisp-descricao">
+                            <label>Descrição: </label>
+                            <input
+                                type="text"
+                                v-model="dadosIndisponiveisLista[key].descricao"
+                            />
+                        </div>
+                        <div class="naoDisp-item naoDisp-valor" width="80px">
+                            <label>Valor: </label>
+                            <input
+                                type="number"
+                                step="0.01"
+                                v-model="dadosIndisponiveisLista[key].valor"
+                            />
+                        </div>
+                        <div class="naoDisp-item naoDisp-tributavel_container">
+                            <label>Tributável: </label>
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="
+                                    dadosIndisponiveisLista[key].tributavel
+                                "
+                            />
+                            <label>Sim</label>
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="
+                                    dadosIndisponiveisLista[key].tributavel
+                                "
+                                checked
+                            />
+                            <label>Não</label>
+                        </div>
+
+                        <div class="naoDisp-item naoDisp-tributavel_container">
+                            <label>Tipo: </label>
+                            <input
+                                type="radio"
+                                value="1"
+                                v-model="dadosIndisponiveisLista[key].tipo"
+                            />
+                            <label>Receita</label>
+
+                            <input
+                                type="radio"
+                                value="0"
+                                v-model="dadosIndisponiveisLista[key].tipo"
+                                checked
+                            />
+                            <label>Desconto</label>
+                        </div>
+
+                        <div
+                            @click="dadosIndisponiveisLista_delete(key)"
+                            class="naoDisp-item naoDisp-bt_excluir"
                         >
-                            <td>
-                                <input
-                                    type="text"
-                                    v-model="
-                                        dadosIndisponiveisLista[key].descricao
-                                    "
-                                />
-                            </td>
-                            <td width="80px">
-                                <input
-                                    type="number"
-                                    step="0.01"
-                                    v-model="dadosIndisponiveisLista[key].valor"
-                                />
-                            </td>
-                            <td class="tributavel_container">
-                                <input
-                                    type="radio"
-                                    value="1"
-                                    v-model="
-                                        dadosIndisponiveisLista[key].tributavel
-                                    "
-                                />
-                                <label>Sim</label>
-
-                                <input
-                                    type="radio"
-                                    value="0"
-                                    v-model="
-                                        dadosIndisponiveisLista[key].tributavel
-                                    "
-                                    checked
-                                />
-                                <label>Não</label>
-                            </td>
-
-                            <td class="tributavel_container">
-                                <input
-                                    type="radio"
-                                    value="1"
-                                    v-model="dadosIndisponiveisLista[key].tipo"
-                                />
-                                <label>Receita</label>
-
-                                <input
-                                    type="radio"
-                                    value="0"
-                                    v-model="dadosIndisponiveisLista[key].tipo"
-                                    checked
-                                />
-                                <label>Desconto</label>
-                            </td>
-
-                            <td>
-                                <img
-                                    @click="dadosIndisponiveisLista_delete(key)"
-                                    src="/svg/x.svg"
-                                    title="Excluir linha"
-                                    class="btn_delete_row"
-                                    alt="Botão excluir"
-                                />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <span>Excluir item</span>
+                            <img
+                                src="/svg/x.svg"
+                                title="Excluir linha"
+                                class="btn_delete_row"
+                                alt="Botão excluir"
+                            />
+                        </div>
+                    </div>
+                </div>
                 <div
                     id="plus_container"
                     @click="
@@ -2553,10 +2547,22 @@
                 </div>
             </section>
         </section>
-        <router-link class="btn_gerar" to="/ficha-auxiliar">
-            <span>GERAR CONTRACHEQUE</span>
-        </router-link>
-        <a @click="cleanForm" class="btn_gerar resetar">LIMPAR FORMULÁRIO</a>
+        <div id="gerenciar_formulario">
+            <a @click="cleanForm" class="btn_gerar resetar">
+                <img
+                    src="/svg/clean.svg"
+                    id="icon_clean"
+                    alt="Botão Adicionar"
+                />Limpar formulário</a
+            >
+            <router-link class="btn_gerar" to="/ficha-auxiliar">
+                <img
+                    id="icon_paper-fold"
+                    src="/svg/paper-fold.svg"
+                    alt="Botão Adicionar"
+                /><span>Gerar contracheque</span>
+            </router-link>
+        </div>
     </form>
     <loading-component v-else></loading-component>
 </template>
@@ -2570,8 +2576,10 @@ export default {
         return {
             loading: false,
             loading_select: false,
-            dadosIndisponiveis: "0",
-            dadosIndisponiveisLista: [],
+            dadosIndisponiveis: "1", // mudar para 0
+            dadosIndisponiveisLista: [
+                { descricao: "ATRASADO", valor: 150, tributavel: 0, tipo: 1 }, // limpar para []
+            ],
             selectPg: [],
             universo: "ativa",
             data_contracheque: "2022-01-01",

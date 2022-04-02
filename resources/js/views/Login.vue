@@ -1,7 +1,7 @@
 <template>
     <div class="login_view">
         <!-- <img class="login_logo" src="/image/logo.png" alt="Logo App" /> -->
-        <div id="logo">
+        <div class="logo">
             <img
                 src="/image/logo.png"
                 alt="Logo Exame de Pagamento"
