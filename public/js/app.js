@@ -7257,10 +7257,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -10103,15 +10099,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       loading: false,
       loading_select: false,
-      dadosIndisponiveis: "1",
+      dadosIndisponiveis: "0",
       // mudar para 0
-      dadosIndisponiveisLista: [{
-        descricao: "ATRASADO",
-        valor: 150,
-        tributavel: 0,
-        tipo: 1
-      } // limpar para []
-      ],
+      dadosIndisponiveisLista: [],
       selectPg: [],
       universo: "ativa",
       data_contracheque: "2022-01-01",
@@ -37080,14 +37070,6 @@ var render = function () {
                   _vm.$store.state.contrachequeAtivo || "Novo contracheque",
               },
             }),
-          ]),
-          _vm._v(" "),
-          _c("pre", [
-            _vm._v(
-              "            " +
-                _vm._s(_vm.$store.state.dadosFinanceiros.dadosNaoPrevitos) +
-                "\n        "
-            ),
           ]),
           _vm._v(" "),
           _c("section", [

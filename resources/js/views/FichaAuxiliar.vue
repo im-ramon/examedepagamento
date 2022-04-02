@@ -16,10 +16,6 @@
                 />
             </div>
 
-            <pre>
-                {{ $store.state.dadosFinanceiros.dadosNaoPrevitos }}
-            </pre>
-
             <section>
                 <button onClick="window.print()">
                     <span>Imprimir</span>

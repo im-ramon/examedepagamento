@@ -2576,10 +2576,8 @@ export default {
         return {
             loading: false,
             loading_select: false,
-            dadosIndisponiveis: "1", // mudar para 0
-            dadosIndisponiveisLista: [
-                { descricao: "ATRASADO", valor: 150, tributavel: 0, tipo: 1 }, // limpar para []
-            ],
+            dadosIndisponiveis: "0", // mudar para 0
+            dadosIndisponiveisLista: [],
             selectPg: [],
             universo: "ativa",
             data_contracheque: "2022-01-01",

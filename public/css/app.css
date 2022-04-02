@@ -1007,6 +1007,10 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid #e1e1e1;
+  border-radius: 6px;
+  margin: 0 30px;
+  padding: 10px 0;
 }
 #contrachequeAtivo input {
   margin-left: 0.5em;
@@ -1119,20 +1123,17 @@ label {
   justify-content: space-between;
   width: 80%;
   position: relative;
-  border: 2px solid #e1e1e1;
-  border-radius: 6px;
   padding: 0.3em;
+  max-width: 250mm;
   margin-bottom: 0.7em;
 }
 #ficha_auxiliar-head #ficha_auxiliar-voltar {
-  position: absolute;
   height: 30px;
   font-size: 16px;
   width: 30px;
   border: 2px solid #e1e1e1;
   border-radius: 6px;
   display: flex;
-  left: -70px;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -1200,6 +1201,10 @@ label {
     position: fixed;
     left: 0;
     top: 0;
+  }
+
+  #ficha_auxilitar table {
+    transform: none !important;
   }
 
   #ficha_auxilitar table * {
@@ -1547,9 +1552,32 @@ label {
   cursor: pointer;
 }
 
-@media (max-width: 400px) {
-  aside#sidebar {
-    width: 280px;
+@media (max-width: 1200px) {
+  #form_informacoes_indisponiveis_form .naoDisp-linha {
+    grid-template-columns: 1fr;
+  }
+  #form_informacoes_indisponiveis_form .naoDisp-item {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  #form_informacoes_indisponiveis_form .naoDisp-item:nth-child(5) {
+    justify-content: center;
+    border: 1px solid #d9534f;
+    border-radius: 6px;
+    background-color: #fdefef;
+    width: 50%;
+    margin: 6px 0;
+    padding: 3px 10px;
+    cursor: pointer;
+  }
+  #form_informacoes_indisponiveis_form .naoDisp-item:nth-child(5) span {
+    display: inline !important;
+    margin-right: 6px;
+  }
+}
+@media (max-width: 1000px) {
+  #ficha_auxilitar table {
+    transform: scale(0.85) translateY(-8%);
   }
 }
 @media (max-width: 800px) {
@@ -1560,9 +1588,16 @@ label {
 
   #contrachequeAtivo {
     flex-direction: column;
+    margin: 12px 0;
+    width: auto;
+    padding: 10px;
   }
   #contrachequeAtivo label {
     margin-bottom: 12px;
+    text-align: center;
+  }
+  #contrachequeAtivo input {
+    text-align: center;
   }
 
   .question_root {
@@ -1680,27 +1715,28 @@ label {
     padding: 0 18px;
     margin: 3px 0 !important;
   }
-}
-@media (max-width: 1200px) {
-  #form_informacoes_indisponiveis_form .naoDisp-linha {
-    grid-template-columns: 1fr;
-  }
-  #form_informacoes_indisponiveis_form .naoDisp-item {
-    justify-content: flex-start;
-    width: 100%;
-  }
-  #form_informacoes_indisponiveis_form .naoDisp-item:nth-child(5) {
+
+  #ficha_auxiliar-head {
+    flex-direction: column;
     justify-content: center;
-    border: 1px solid #d9534f;
-    border-radius: 6px;
-    background-color: #fdefef;
-    width: 50%;
-    margin: 6px 0;
-    padding: 3px 10px;
-    cursor: pointer;
+    align-items: center;
   }
-  #form_informacoes_indisponiveis_form .naoDisp-item:nth-child(5) span {
-    display: inline !important;
-    margin-right: 6px;
+
+  #ficha_auxilitar table {
+    transform: scale(0.5) translateY(-50%);
+  }
+}
+@media (max-width: 600px) {
+  #ficha_auxilitar table {
+    transform: scale(0.35) translateY(-90%);
+  }
+}
+@media (max-width: 400px) {
+  aside#sidebar {
+    width: 280px;
+  }
+
+  #ficha_auxilitar table {
+    transform: scale(0.37) translateY(-85%);
   }
 }
