@@ -1655,6 +1655,26 @@ label {
     width: 90%;
     text-align: center;
   }
+
+  .legislacao_item {
+    width: 100%;
+  }
+
+  #legenda section {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #legenda section div {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 18px;
+    margin: 3px 0 !important;
+  }
 }
 @media (max-width: 1200px) {
   #form_informacoes_indisponiveis_form .naoDisp-linha {
