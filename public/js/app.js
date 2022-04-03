@@ -10092,6 +10092,109 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10232,6 +10335,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   beforeRouteLeave: function beforeRouteLeave(to, from, next) {
     var _this = this;
+
+    if (to.path != "/ficha-auxiliar") {
+      this.saveForm();
+    }
 
     if (to.path == "/ficha-auxiliar") {
       if (this.pg_soldo == 1 || this.pg_real == 1) {
@@ -39413,11 +39520,57 @@ var render = function () {
                     _c("legend", [_vm._v("Salário família/ Imposto de Renda")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        Neste campo deve ser informado a quantidade de\n                        dependentes para fins de "
+                          ),
+                          _c("strong", [
+                            _vm._v("salário-família\n                        "),
+                          ]),
+                          _vm._v("\n                        e dedução no "),
+                          _c("strong", [_vm._v(" imposto de renda ")]),
+                          _vm._v(
+                            ",\n                        respectivamente. As condições que habilitam os\n                        dependentes para cada um dos benefícios diferem,\n                        portanto, atente à legislação antes de preencher.\n                        Para o  "
+                          ),
+                          _c("strong", [_vm._v("salário-família ")]),
+                          _vm._v(
+                            ', a\n                        Portaria nº 7-GB, de 8 de janeiro de 1968 é a\n                        legislação base para concessão do direito (esssa\n                        legislação não facilmente encontrada na internet,\n                        portanto, na página "legislação" do App é possível\n                        encontra-la. No caso do\n                        '
+                          ),
+                          _c("strong", [_vm._v(" imposto de renda ")]),
+                          _vm._v(
+                            ",  deve-se tomar\n                        como base o\n                        "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "http://www.planalto.gov.br/ccivil_03/decreto/d3000.htm",
+                                target: "_BLANK",
+                              },
+                            },
+                            [_vm._v("Decreto nº 3.000, de 26 de março de 1999")]
+                          ),
+                          _vm._v(".\n\n                        "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Declaração de beneficiários")]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "\n                                Demais declarações de inclusão dos\n                                dependentes\n                            "
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "\n                                Folha de alteração (publicação em boletim)\n                            "
+                              ),
+                            ]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -39506,11 +39659,37 @@ var render = function () {
                     _c("legend", [_vm._v("Auxílio Inavalidez")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        O auxílio-invalidez, segundo a\n                        "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11421.htm",
+                                target: "_BLANK",
+                              },
+                            },
+                            [_vm._v("Lei nº 11.421, de 21 de dezembro de 2006")]
+                          ),
+                          _vm._v(
+                            ",  é devido, nos termos do regulamento, ao militar\n                        que necessitar de internação especializada, militar\n                        ou não, ou assistência, ou cuidados permanentes de\n                        enfermagem, devidamente constatados por Junta\n                        Militar de Saúde, e ao militar que, por prescrição\n                        médica, também homologada por Junta Militar de\n                        Saúde, receber tratamento na própria residência,\n                        necessitando assistência ou cuidados permanentes de\n                        enfermagem.\n                        "
+                          ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [
+                              _vm._v(
+                                "\n                                Portaria de concessão do Auxílio Invalidez\n                            "
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Ficha de controle")]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -39592,11 +39771,40 @@ var render = function () {
                     _c("legend", [_vm._v("Adicional Natalino")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        O valor do adicional natalino corresponde a um doze\n                        avos da remuneração no país a que o militar fizer\n                        jus no mês de dezembro, por mês de efetivo serviço,\n                        no respectivo ano. A fração igual ou superior a\n                        quinze dias será considerada mês integral.\n                        "
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        O adicional natalino será pago ao militar em\n                        atividade em duas parcelas: "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        - A primeira parcela em junho, em valor\n                        correspondente à metade da remuneração percebidos no\n                        mês anterior; e "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        - A segunda parcela até o dia vinte de dezembro de\n                        cada ano, descontado o adiantamento da primeira\n                        parcela. "
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        O Adicional Natalino integra o rendimento bruto para\n                        fins do imposto de renda, não estando, o\n                        adiantamento da primeira parcela, sujeito à\n                        incidência na fonte. "
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [
+                              _vm._v("Ficha financeira do corrente ano"),
+                            ]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -39780,11 +39988,41 @@ var render = function () {
                     _c("legend", [_vm._v("Auxílio Pré-escolar")]),
                     _vm._v(" "),
                     _c("ajuda-component", [
-                      _c("p", [
-                        _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
-                        ),
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        A assistência pré-escolar alcançará os dependentes\n                        do militar na faixa etária compreendida desde o\n                        nascimento até o mês em que completar 6 anos de\n                        idade. A geração do direito para concessão do\n                        benefício ocorre a partir da data do preenchimento\n                        da ficha cadastro pelo interessado. O militar só\n                        perde o direito a essa verba quando seu dependente\n                        completa 6 anos de idade, sendo que o fim do\n                        pagamento se dá no mês subsequente àquele em que se\n                        verifica o aniversário, qualquer que seja o dia.\n                        "
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v("Referência: ")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "https://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/22312468/do1-2016-02-18-portaria-interministerial-n-10-de-13-de-janeiro-de-2016--22312433",
+                                target: "_BLANK",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "Portaria Interministerial nº 10, de 13 janeiro\n                            de 2016"
+                              ),
+                            ]
+                          ),
+                          _vm._v(".\n                        "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha cadastro do Pré-escolar")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Certidão de nascimento")]),
+                          ]),
+                        ],
+                        1
+                      ),
                     ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
@@ -39840,8 +40078,51 @@ var render = function () {
                     _vm._v(" "),
                     _c("ajuda-component", [
                       _c("p", [
+                        _vm._v("\n                        O "),
+                        _c("strong", [_vm._v("auxílio fardamento")]),
                         _vm._v(
-                          "\n                        Hue Lorem ipsum dolor sit amet consectetur\n                        adipisicing elit. Aperiam fugiat, magnam tempore\n                        neque error assumenda a voluptates rerum tempora\n                        quibusdam aliquid doloremque obcaecati eum eveniet\n                        voluptate harum voluptatum vitae cumque?\n                    "
+                          " é o direito\n                        pecuniário devido ao militar para custear gastos com\n                        fardamento, cujo valor será calculado sobre o valor\n                        do soldo do militar vigente na data em que for\n                        efetivado o pagamento. "
+                        ),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        a. O auxílio-fardamento equivalente a 1 ½ (um e\n                        meio) soldo será pago nas seguintes situações:\n                        "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - O militar, declarado Aspirante a Oficial da Ativa\n                        (AMAN), ou promovido a Terceiro Sargento; e"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - Os nomeados Oficiais ou Sargentos, ou matriculados\n                        em escolas de formação mediante habilitação em\n                        concurso e os nomeados Capelães Militares."
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        b. O auxílio-fardamento equivalente a 1 (um) soldo\n                        será pago nas seguintes situações: - O Oficial\n                        promovido ao primeiro posto de Oficial General;"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - Os Aspirantes a Oficial, oriundos dos Órgãos de\n                        Formação de Oficiais da Reserva, convocados para a\n                        prestação do Serviço Militar (EIC);"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - Os médicos, farmacêuticos, dentistas e\n                        veterinários, quando convocados para o Serviço\n                        Militar Inicial;"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - O Oficial, Subtenente e Sargento ao ser\n                        promovido;"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - A cada 3 (três) anos no mesmo posto ou\n                        graduação;"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - O militar reincluído, convocado ou designado para\n                        o serviço ativo;"
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        - O militar que retornar à ativa por convocação,\n                        designação ou reinclusão, desde que há mais de seis\n                        meses de inatividade\n                    "
                         ),
                       ]),
                     ]),

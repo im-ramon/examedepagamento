@@ -676,11 +676,38 @@
                     <legend>Salário família/ Imposto de Renda</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Neste campo deve ser informado a quantidade de
+                            dependentes para fins de <strong
+                                >salário-família
+                            </strong>
+                            e dedução no <strong> imposto de renda </strong>,
+                            respectivamente. As condições que habilitam os
+                            dependentes para cada um dos benefícios diferem,
+                            portanto, atente à legislação antes de preencher.
+                            Para o  <strong>salário-família </strong>, a
+                            Portaria nº 7-GB, de 8 de janeiro de 1968 é a
+                            legislação base para concessão do direito (esssa
+                            legislação não facilmente encontrada na internet,
+                            portanto, na página "legislação" do App é possível
+                            encontra-la. No caso do
+                            <strong> imposto de renda </strong>,  deve-se tomar
+                            como base o
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/decreto/d3000.htm"
+                                target="_BLANK"
+                                >Decreto nº 3.000, de 26 de março de 1999</a
+                            >.
+
+                            <ondeencontrar-component>
+                                <li>Declaração de beneficiários</li>
+                                <li>
+                                    Demais declarações de inclusão dos
+                                    dependentes
+                                </li>
+                                <li>
+                                    Folha de alteração (publicação em boletim)
+                                </li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -726,11 +753,26 @@
                     <legend>Auxílio Inavalidez</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O auxílio-invalidez, segundo a
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11421.htm"
+                                target="_BLANK"
+                                >Lei nº 11.421, de 21 de dezembro de 2006</a
+                            >,  é devido, nos termos do regulamento, ao militar
+                            que necessitar de internação especializada, militar
+                            ou não, ou assistência, ou cuidados permanentes de
+                            enfermagem, devidamente constatados por Junta
+                            Militar de Saúde, e ao militar que, por prescrição
+                            médica, também homologada por Junta Militar de
+                            Saúde, receber tratamento na própria residência,
+                            necessitando assistência ou cuidados permanentes de
+                            enfermagem.
+                            <ondeencontrar-component>
+                                <li>
+                                    Portaria de concessão do Auxílio Invalidez
+                                </li>
+                                <li>Ficha de controle</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -764,11 +806,27 @@
                     <legend>Adicional Natalino</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O valor do adicional natalino corresponde a um doze
+                            avos da remuneração no país a que o militar fizer
+                            jus no mês de dezembro, por mês de efetivo serviço,
+                            no respectivo ano. A fração igual ou superior a
+                            quinze dias será considerada mês integral.
+                            <br /><br />
+                            O adicional natalino será pago ao militar em
+                            atividade em duas parcelas: <br />
+                            - A primeira parcela em junho, em valor
+                            correspondente à metade da remuneração percebidos no
+                            mês anterior; e <br />
+                            - A segunda parcela até o dia vinte de dezembro de
+                            cada ano, descontado o adiantamento da primeira
+                            parcela. <br /><br />
+                            O Adicional Natalino integra o rendimento bruto para
+                            fins do imposto de renda, não estando, o
+                            adiantamento da primeira parcela, sujeito à
+                            incidência na fonte. <br />
+                            <ondeencontrar-component>
+                                <li>Ficha financeira do corrente ano</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -848,11 +906,29 @@
                     <legend>Auxílio Pré-escolar</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            A assistência pré-escolar alcançará os dependentes
+                            do militar na faixa etária compreendida desde o
+                            nascimento até o mês em que completar 6 anos de
+                            idade. A geração do direito para concessão do
+                            benefício ocorre a partir da data do preenchimento
+                            da ficha cadastro pelo interessado. O militar só
+                            perde o direito a essa verba quando seu dependente
+                            completa 6 anos de idade, sendo que o fim do
+                            pagamento se dá no mês subsequente àquele em que se
+                            verifica o aniversário, qualquer que seja o dia.
+                            <br />
+                            <br />
+                            <strong>Referência: </strong>
+                            <a
+                                href="https://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/22312468/do1-2016-02-18-portaria-interministerial-n-10-de-13-de-janeiro-de-2016--22312433"
+                                target="_BLANK"
+                                >Portaria Interministerial nº 10, de 13 janeiro
+                                de 2016</a
+                            >.
+                            <ondeencontrar-component>
+                                <li>Ficha cadastro do Pré-escolar</li>
+                                <li>Certidão de nascimento</li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -878,13 +954,40 @@
                     <legend>Auxílio Fardamento</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
-                        </p>
-                    </ajuda-component>
+                            O <strong>auxílio fardamento</strong> é o direito
+                            pecuniário devido ao militar para custear gastos com
+                            fardamento, cujo valor será calculado sobre o valor
+                            do soldo do militar vigente na data em que for
+                            efetivado o pagamento. <br /><br />
+                            a. O auxílio-fardamento equivalente a 1 ½ (um e
+                            meio) soldo será pago nas seguintes situações:
+                            <br />
+                            - O militar, declarado Aspirante a Oficial da Ativa
+                            (AMAN), ou promovido a Terceiro Sargento; e<br />
+                            - Os nomeados Oficiais ou Sargentos, ou matriculados
+                            em escolas de formação mediante habilitação em
+                            concurso e os nomeados Capelães Militares.<br />
+                            b. O auxílio-fardamento equivalente a 1 (um) soldo
+                            será pago nas seguintes situações: - O Oficial
+                            promovido ao primeiro posto de Oficial General;<br />
+                            - Os Aspirantes a Oficial, oriundos dos Órgãos de
+                            Formação de Oficiais da Reserva, convocados para a
+                            prestação do Serviço Militar (EIC);<br />
+                            - Os médicos, farmacêuticos, dentistas e
+                            veterinários, quando convocados para o Serviço
+                            Militar Inicial;<br />
+                            - O Oficial, Subtenente e Sargento ao ser
+                            promovido;<br />
+                            - A cada 3 (três) anos no mesmo posto ou
+                            graduação;<br />
+                            - O militar reincluído, convocado ou designado para
+                            o serviço ativo;<br />
+                            - O militar que retornar à ativa por convocação,
+                            designação ou reinclusão, desde que há mais de seis
+                            meses de inatividade
+                        </p></ajuda-component
+                    >
+
                     <section class="question_body">
                         <div class="question_title">
                             <p>
@@ -2714,6 +2817,10 @@ export default {
         },
     },
     beforeRouteLeave(to, from, next) {
+        if (to.path != "/ficha-auxiliar") {
+            this.saveForm();
+        }
+
         if (to.path == "/ficha-auxiliar") {
             if (this.pg_soldo == 1 || this.pg_real == 1) {
                 alert(
