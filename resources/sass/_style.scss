@@ -676,6 +676,15 @@ form#formulario {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    .logo {
+        img {
+            width: 250px;
+        }
+        span {
+            font-size: 18px;
+        }
+    }
 }
 
 .login_container {
@@ -683,6 +692,7 @@ form#formulario {
     background: $preto;
     padding: 3em 2em;
     width: 90vw;
+    max-width: 500px;
     height: 320px;
     border-radius: $borderRadius;
     box-shadow: 15px 16px 31px -15px #848484;

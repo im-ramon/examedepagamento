@@ -600,12 +600,19 @@ form#formulario {
   justify-content: center;
   flex-direction: column;
 }
+.login_view .logo img {
+  width: 250px;
+}
+.login_view .logo span {
+  font-size: 18px;
+}
 
 .login_container {
   margin-top: 2em;
   background: #181818;
   padding: 3em 2em;
   width: 90vw;
+  max-width: 500px;
   height: 320px;
   border-radius: 6px;
   box-shadow: 15px 16px 31px -15px #848484;
