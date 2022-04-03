@@ -11426,6 +11426,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -45498,103 +45507,101 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "body",
-    { staticStyle: { "background-color": "#e1e1e1" } },
-    [
-      _c("transition", { attrs: { name: "modal_index" } }, [
-        _vm.modalAtivo
-          ? _c("div", { attrs: { id: "modal_index" } }, [
-              _c("div", { attrs: { id: "modal_container" } }, [
-                _c("img", {
-                  attrs: {
-                    src: "/svg/x.svg",
-                    title: "Fechar modal",
-                    alt: "Botão fechar",
-                  },
-                  on: {
-                    click: function ($event) {
-                      _vm.modalAtivo = false
+  return _c("div", { attrs: { id: "master" } }, [
+    _c(
+      "body",
+      { staticStyle: { "background-color": "#e1e1e1" } },
+      [
+        _c("transition", { attrs: { name: "modal_index" } }, [
+          _vm.modalAtivo
+            ? _c("div", { attrs: { id: "modal_index" } }, [
+                _c("div", { attrs: { id: "modal_container" } }, [
+                  _c("img", {
+                    attrs: {
+                      src: "/svg/x.svg",
+                      title: "Fechar modal",
+                      alt: "Botão fechar",
                     },
-                  },
-                }),
-                _vm._v(" "),
-                _c("h1", [_vm._v(_vm._s(_vm.h1))]),
-                _vm._v(" "),
-                _vm.paginaAtiva == "link1"
-                  ? _c("div", { attrs: { id: "link1" } }, [
-                      _c("ul", [
-                        _c("li", { staticClass: "first-li" }, [
-                          _c("h3", [
-                            _vm._v(
-                              "\n                                Versão 1.1\n                                "
-                            ),
-                            _c("i", [
-                              _vm._v("- Disponibilizada em 10/04/2022 -"),
+                    on: {
+                      click: function ($event) {
+                        _vm.modalAtivo = false
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("h1", [_vm._v(_vm._s(_vm.h1))]),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link1"
+                    ? _c("div", { attrs: { id: "link1" } }, [
+                        _c("ul", [
+                          _c("li", { staticClass: "first-li" }, [
+                            _c("h3", [
+                              _vm._v(
+                                "\n                                    Versão 1.1\n                                    "
+                              ),
+                              _c("i", [
+                                _vm._v("- Disponibilizada em 10/04/2022 -"),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("ul", [
+                              _c("li", [_vm._v("Item 1")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("Item 2")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("Item 3")]),
                             ]),
                           ]),
                           _vm._v(" "),
-                          _c("ul", [
-                            _c("li", [_vm._v("Item 1")]),
+                          _c("li", [
+                            _c("h3", [
+                              _vm._v(
+                                "\n                                    Versão 1.0\n                                    "
+                              ),
+                              _c("i", [
+                                _vm._v("- Disponibilizada em 29/03/2022 -"),
+                              ]),
+                            ]),
                             _vm._v(" "),
-                            _c("li", [_vm._v("Item 2")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("Item 3")]),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("h3", [
-                            _vm._v(
-                              "\n                                Versão 1.0\n                                "
-                            ),
-                            _c("i", [
-                              _vm._v("- Disponibilizada em 29/03/2022 -"),
+                            _c("ul", [
+                              _c("li", [_vm._v("Item 1")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("Item 2")]),
+                              _vm._v(" "),
+                              _c("li", [_vm._v("Item 3")]),
                             ]),
                           ]),
-                          _vm._v(" "),
-                          _c("ul", [
-                            _c("li", [_vm._v("Item 1")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("Item 2")]),
-                            _vm._v(" "),
-                            _c("li", [_vm._v("Item 3")]),
-                          ]),
                         ]),
-                      ]),
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.paginaAtiva == "link2"
-                  ? _c("div", [_vm._v("2")])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.paginaAtiva == "link3"
-                  ? _c("div", [_vm._v("3")])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.paginaAtiva == "link4"
-                  ? _c("div", [_vm._v("4")])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.paginaAtiva == "link5"
-                  ? _c("div", [_vm._v("5")])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.paginaAtiva == "link6"
-                  ? _c("div", [_vm._v("6")])
-                  : _vm._e(),
-              ]),
-            ])
-          : _vm._e(),
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "welcome_container" } }, [
-        _c("div", { attrs: { id: "menu-links" } }, [
-          _c("ul", [
-            _c("li", [
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link2"
+                    ? _c("div", [_vm._v("2")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link3"
+                    ? _c("div", [_vm._v("3")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link4"
+                    ? _c("div", [_vm._v("4")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link5"
+                    ? _c("div", [_vm._v("5")])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link6"
+                    ? _c("div", [_vm._v("6")])
+                    : _vm._e(),
+                ]),
+              ])
+            : _vm._e(),
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "welcome_container" } }, [
+          _c("div", { attrs: { id: "menu-links" } }, [
+            _c("span", [
               _c(
                 "a",
                 {
@@ -45609,7 +45616,7 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("li", [
+            _c("span", [
               _c(
                 "a",
                 {
@@ -45624,7 +45631,7 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("li", [
+            _c("span", [
               _c(
                 "a",
                 {
@@ -45639,7 +45646,7 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("li", [
+            _c("span", [
               _c(
                 "a",
                 {
@@ -45654,7 +45661,7 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("li", [
+            _c("span", [
               _c(
                 "a",
                 {
@@ -45669,7 +45676,7 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("li", [
+            _c("span", [
               _c(
                 "a",
                 {
@@ -45684,36 +45691,17 @@ var render = function () {
               ),
             ]),
           ]),
+          _vm._v(" "),
+          _vm._m(0),
         ]),
-        _vm._v(" "),
-        _vm._m(1),
-      ]),
-      _vm._v(" "),
-      _c("span", { attrs: { id: "copyrigth" } }, [
-        _vm._v("App | Exame de Pagamento © Todos direitos reservados."),
-      ]),
-    ],
-    1
-  )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "wellcome_sidebar" } }, [
-      _c("div", { attrs: { id: "dev" } }, [
-        _c("div", { staticClass: "sidebar-footer" }, [
-          _c("img", {
-            attrs: { src: "svg/logo-ramon.svg", alt: "Logo Ramon Oliveira" },
-          }),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Ramon Oliveira")]),
-          _c("span", [_vm._v("| Desenvolvedor")]),
-        ]),
-      ]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -45724,15 +45712,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                    Você está no Web\n                    "
+            "\n                        Você está no Web\n                        "
           ),
           _c("strong", [_vm._v("App Exame de Pagamento")]),
-          _vm._v(".\n                "),
+          _vm._v(".\n                    "),
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                    Desenvolvido com a finalidade de auxiliar todos aqueles\n                    que desenvolvem a atividade de exame de pagamento de\n                    pessoal, no âmbito do exército brasileiro.\n                    "
+            "\n                        Desenvolvido com a finalidade de auxiliar todos\n                        aqueles que desenvolvem a atividade de exame de\n                        pagamento de pessoal, no âmbito do exército\n                        brasileiro.\n                        "
           ),
           _c("span", { attrs: { id: "br" } }, [
             _c("b", [_vm._v("■")]),
@@ -45759,6 +45747,42 @@ var staticRenderFns = [
             alt: "Laptop",
           },
         }),
+        _vm._v(" "),
+        _c("img", {
+          attrs: {
+            id: "welcome_smartphone",
+            src: "image/smartphone.png",
+            alt: "Smartphone",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          attrs: {
+            id: "welcome_smartphone_shadow",
+            src: "image/smartphone-shadow.png",
+            alt: "Smartphone",
+          },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { attrs: { id: "welcome_footer" } }, [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("img", {
+          attrs: { src: "svg/logo-ramon.svg", alt: "Logo Ramon Oliveira" },
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Ramon Oliveira | Desenvolvedor")]),
+      ]),
+      _vm._v(" "),
+      _c("span", { attrs: { id: "copyrigth" } }, [
+        _vm._v(
+          "\n            App | Exame de Pagamento © Todos direitos reservados.\n        "
+        ),
       ]),
     ])
   },

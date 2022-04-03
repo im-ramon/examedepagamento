@@ -1,120 +1,129 @@
 <template>
-    <body style="background-color: #e1e1e1">
-        <transition name="modal_index">
-            <div v-if="modalAtivo" id="modal_index">
-                <div id="modal_container">
-                    <img
-                        src="/svg/x.svg"
-                        @click="modalAtivo = false"
-                        title="Fechar modal"
-                        alt="Botão fechar"
-                    />
-                    <h1>{{ h1 }}</h1>
-                    <div id="link1" v-if="paginaAtiva == 'link1'">
-                        <ul>
-                            <li class="first-li">
-                                <h3>
-                                    Versão 1.1
-                                    <i>- Disponibilizada em 10/04/2022 -</i>
-                                </h3>
-                                <ul>
-                                    <li>Item 1</li>
-                                    <li>Item 2</li>
-                                    <li>Item 3</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <h3>
-                                    Versão 1.0
-                                    <i>- Disponibilizada em 29/03/2022 -</i>
-                                </h3>
-                                <ul>
-                                    <li>Item 1</li>
-                                    <li>Item 2</li>
-                                    <li>Item 3</li>
-                                </ul>
-                            </li>
-                        </ul>
+    <div id="master">
+        <body style="background-color: #e1e1e1">
+            <transition name="modal_index">
+                <div v-if="modalAtivo" id="modal_index">
+                    <div id="modal_container">
+                        <img
+                            src="/svg/x.svg"
+                            @click="modalAtivo = false"
+                            title="Fechar modal"
+                            alt="Botão fechar"
+                        />
+                        <h1>{{ h1 }}</h1>
+                        <div id="link1" v-if="paginaAtiva == 'link1'">
+                            <ul>
+                                <li class="first-li">
+                                    <h3>
+                                        Versão 1.1
+                                        <i>- Disponibilizada em 10/04/2022 -</i>
+                                    </h3>
+                                    <ul>
+                                        <li>Item 1</li>
+                                        <li>Item 2</li>
+                                        <li>Item 3</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h3>
+                                        Versão 1.0
+                                        <i>- Disponibilizada em 29/03/2022 -</i>
+                                    </h3>
+                                    <ul>
+                                        <li>Item 1</li>
+                                        <li>Item 2</li>
+                                        <li>Item 3</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div v-if="paginaAtiva == 'link2'">2</div>
+                        <div v-if="paginaAtiva == 'link3'">3</div>
+                        <div v-if="paginaAtiva == 'link4'">4</div>
+                        <div v-if="paginaAtiva == 'link5'">5</div>
+                        <div v-if="paginaAtiva == 'link6'">6</div>
                     </div>
-                    <div v-if="paginaAtiva == 'link2'">2</div>
-                    <div v-if="paginaAtiva == 'link3'">3</div>
-                    <div v-if="paginaAtiva == 'link4'">4</div>
-                    <div v-if="paginaAtiva == 'link5'">5</div>
-                    <div v-if="paginaAtiva == 'link6'">6</div>
                 </div>
-            </div>
-        </transition>
+            </transition>
 
-        <div id="wellcome_sidebar">
-            <div id="dev">
-                <div class="sidebar-footer">
-                    <img src="svg/logo-ramon.svg" alt="Logo Ramon Oliveira" />
-                    <a href="#">Ramon Oliveira</a><span>| Desenvolvedor</span>
-                </div>
-            </div>
-        </div>
-        <div id="welcome_container">
-            <div id="menu-links">
-                <ul>
-                    <li>
+            <div id="welcome_container">
+                <div id="menu-links">
+                    <span>
                         <a @click="ativaModal('link1')" href="#">Novidades</a>
-                    </li>
-                    <li>
+                    </span>
+                    <span>
                         <a @click="ativaModal('link2')" href="#">Sugestões</a>
-                    </li>
-                    <li>
+                    </span>
+                    <span>
                         <a @click="ativaModal('link3')" href="#"
                             >Como acessar</a
                         >
-                    </li>
-                    <li>
+                    </span>
+                    <span>
                         <a @click="ativaModal('link4')" href="#"
                             >Desenvolvedor</a
                         >
-                    </li>
-                    <li>
+                    </span>
+                    <span>
                         <a @click="ativaModal('link5')" href="#"
                             >Solicitar acesso</a
                         >
-                    </li>
-                    <li>
+                    </span>
+                    <span>
                         <a @click="ativaModal('link6')" href="#">Apoiar</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="card">
-                <div id="text_area">
-                    <h1>Bem vindo!</h1>
-                    <p>
-                        Você está no Web
-                        <strong>App Exame de Pagamento</strong>.
-                    </p>
-                    <p>
-                        Desenvolvido com a finalidade de auxiliar todos aqueles
-                        que desenvolvem a atividade de exame de pagamento de
-                        pessoal, no âmbito do exército brasileiro.
-                        <span id="br"><b>■</b><b>■</b></span>
-                    </p>
-                    <a href="/app">Acessar App</a>
+                    </span>
                 </div>
-                <div id="laptop">
-                    <img
-                        id="welcome_laptop"
-                        src="image/laptop.png"
-                        alt="Laptop"
-                    />
-                    <img
-                        id="welcome_laptop_shadow"
-                        src="image/notebook-shadow.png"
-                        alt="Laptop"
-                    />
+                <div id="card">
+                    <div id="text_area">
+                        <h1>Bem vindo!</h1>
+                        <p>
+                            Você está no Web
+                            <strong>App Exame de Pagamento</strong>.
+                        </p>
+                        <p>
+                            Desenvolvido com a finalidade de auxiliar todos
+                            aqueles que desenvolvem a atividade de exame de
+                            pagamento de pessoal, no âmbito do exército
+                            brasileiro.
+                            <span id="br"><b>■</b><b>■</b></span>
+                        </p>
+                        <a href="/app">Acessar App</a>
+                    </div>
+                    <div id="laptop">
+                        <img
+                            id="welcome_laptop"
+                            src="image/laptop.png"
+                            alt="Laptop"
+                        />
+                        <img
+                            id="welcome_laptop_shadow"
+                            src="image/notebook-shadow.png"
+                            alt="Laptop"
+                        />
+                        <img
+                            id="welcome_smartphone"
+                            src="image/smartphone.png"
+                            alt="Smartphone"
+                        />
+                        <img
+                            id="welcome_smartphone_shadow"
+                            src="image/smartphone-shadow.png"
+                            alt="Smartphone"
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-        <span id="copyrigth"
-            >App | Exame de Pagamento © Todos direitos reservados.</span
-        >
-    </body>
+        </body>
+        <footer id="welcome_footer">
+            <a href="#">
+                <img src="svg/logo-ramon.svg" alt="Logo Ramon Oliveira" />
+                <span>Ramon Oliveira | Desenvolvedor</span>
+            </a>
+            <span id="copyrigth">
+                App | Exame de Pagamento © Todos direitos reservados.
+            </span>
+        </footer>
+    </div>
 </template>
 
 <style>
