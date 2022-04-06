@@ -74,6 +74,16 @@ $danger: #d9534f;
     box-sizing: border-box;
 }
 
+a {
+    color: #3ca53c;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transition: all 0.3s ease-in-out;
+        color: #206c20;
+    }
+}
+
 body,
 #root,
 #app,
@@ -1398,12 +1408,60 @@ label {
         width: 70%;
         border-radius: $borderRadius;
         position: relative;
-        padding: 1em 3em;
+        padding: 1em 3em 2em 3em;
         max-height: 700px;
         max-width: 900px;
         border: 2px solid #00000026;
 
-        img {
+        .modal_item {
+            overflow-y: scroll;
+            max-height: 500px;
+        }
+
+        p.ampliar_img {
+            text-align: center;
+            a {
+                color: #000;
+            }
+        }
+
+        .data_lancamento {
+            opacity: 25%;
+            font-size: 12px;
+        }
+
+        .screenshot {
+            border-radius: 6px;
+            border: 2px solid #00000017;
+            margin-left: 15%;
+            width: 70%;
+        }
+
+        #contatos_sociais {
+            margin-top: 1em;
+
+            img {
+                margin: 0 0.2em;
+                width: 20px;
+
+                &.github {
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        transition: all 0.3s ease-in-out;
+                        filter: invert(67%) sepia(60%) saturate(3862%) hue-rotate(66deg) brightness(111%) contrast(118%);
+                    }
+                }
+                &.linkedin {
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        transition: all 0.3s ease-in-out;
+                        filter: invert(29%) sepia(89%) saturate(1160%) hue-rotate(188deg) brightness(94%) contrast(105%);
+                    }
+                }
+            }
+        }
+
+        img#x {
             position: absolute;
             top: 0;
             right: 0;
@@ -1422,11 +1480,6 @@ label {
                 li {
                     list-style: circle;
                 }
-            }
-
-            i {
-                opacity: 25%;
-                font-size: 12px;
             }
         }
     }

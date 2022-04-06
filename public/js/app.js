@@ -11542,6 +11542,229 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -11551,27 +11774,27 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    ativaModal: function ativaModal(param) {
+    ativaModal: function ativaModal(param, h1) {
       this.modalAtivo = true;
 
       if (param == "link1") {
         this.paginaAtiva = param;
-        this.h1 = "Novidades";
+        this.h1 = h1;
       } else if (param == "link2") {
         this.paginaAtiva = param;
-        this.h1 = "Sugestões";
+        this.h1 = h1;
       } else if (param == "link3") {
         this.paginaAtiva = param;
-        this.h1 = "Como acessar";
+        this.h1 = h1;
       } else if (param == "link4") {
         this.paginaAtiva = param;
-        this.h1 = "Desenvolvedor";
+        this.h1 = h1;
       } else if (param == "link5") {
         this.paginaAtiva = param;
-        this.h1 = "Solicitar acesso";
+        this.h1 = h1;
       } else if (param == "link6") {
         this.paginaAtiva = param;
-        this.h1 = "Apoiar";
+        this.h1 = h1;
       }
     }
   },
@@ -45799,6 +46022,7 @@ var render = function () {
                 _c("div", { attrs: { id: "modal_container" } }, [
                   _c("img", {
                     attrs: {
+                      id: "x",
                       src: "/svg/x.svg",
                       title: "Fechar modal",
                       alt: "Botão fechar",
@@ -45812,25 +46036,60 @@ var render = function () {
                   _vm._v(" "),
                   _c("h1", [_vm._v(_vm._s(_vm.h1))]),
                   _vm._v(" "),
-                  _vm.paginaAtiva == "link1"
-                    ? _c("div", { attrs: { id: "link1" } }, [
+                  _vm.paginaAtiva == "link3"
+                    ? _c("div", [
                         _c("ul", [
                           _c("li", { staticClass: "first-li" }, [
                             _c("h3", [
                               _vm._v(
                                 "\n                                    Versão 1.1\n                                    "
                               ),
-                              _c("i", [
-                                _vm._v("- Disponibilizada em 10/04/2022 -"),
+                              _c("i", { staticClass: "data_lancamento" }, [
+                                _vm._v(
+                                  "- Disponibilizada em 15/04/2022\n                                        -"
+                                ),
                               ]),
                             ]),
                             _vm._v(" "),
                             _c("ul", [
-                              _c("li", [_vm._v("Item 1")]),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                        Adicionada a funcionalidade de\n                                        adicionar manualmente valores não\n                                        disponíveis no App.\n                                    "
+                                ),
+                              ]),
                               _vm._v(" "),
-                              _c("li", [_vm._v("Item 2")]),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                        Todos documentos página de\n                                        "
+                                ),
+                                _c("strong", [_vm._v("legislação")]),
+                                _vm._v(
+                                  "\n                                        reformulados.\n                                    "
+                                ),
+                              ]),
                               _vm._v(" "),
-                              _c("li", [_vm._v("Item 3")]),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                        Adicionado um\n                                        "
+                                ),
+                                _c(
+                                  "u",
+                                  {
+                                    staticStyle: {
+                                      "text-decoration-style": "dotted",
+                                      "text-decoration-color": "#00000050",
+                                      cursor: "default",
+                                    },
+                                    attrs: {
+                                      title: "salvamento automático dos dados",
+                                    },
+                                  },
+                                  [_vm._v("auto salve")]
+                                ),
+                                _vm._v(
+                                  "\n                                        ao sair do formulário,\n                                        possibilitando que e os dados do\n                                        formulário continuarem salvos, mesmo\n                                        saindo da página.\n                                    "
+                                ),
+                              ]),
                             ]),
                           ]),
                           _vm._v(" "),
@@ -45839,41 +46098,286 @@ var render = function () {
                               _vm._v(
                                 "\n                                    Versão 1.0\n                                    "
                               ),
-                              _c("i", [
-                                _vm._v("- Disponibilizada em 29/03/2022 -"),
+                              _c("i", { staticClass: "data_lancamento" }, [
+                                _vm._v(
+                                  "- Disponibilizada em 29/03/2022\n                                        -"
+                                ),
                               ]),
                             ]),
                             _vm._v(" "),
                             _c("ul", [
-                              _c("li", [_vm._v("Item 1")]),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                        Gerar contracheques por meido de\n                                        formulário\n                                    "
+                                ),
+                              ]),
                               _vm._v(" "),
-                              _c("li", [_vm._v("Item 2")]),
-                              _vm._v(" "),
-                              _c("li", [_vm._v("Item 3")]),
+                              _c("li", [
+                                _vm._v(
+                                  "\n                                        Salvar os contracheques gerados em\n                                        banco de dados\n                                    "
+                                ),
+                              ]),
                             ]),
                           ]),
                         ]),
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.paginaAtiva == "link2"
-                    ? _c("div", [_vm._v("2")])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.paginaAtiva == "link3"
-                    ? _c("div", [_vm._v("3")])
-                    : _vm._e(),
-                  _vm._v(" "),
                   _vm.paginaAtiva == "link4"
-                    ? _c("div", [_vm._v("4")])
+                    ? _c("div", [
+                        _c("div", [
+                          _vm._v(
+                            "\n                            Caso queira enviar alguma sugestão para\n                            implantação ou correção de alguma\n                            funcionalidade, envie um e-mail para\n                            "
+                          ),
+                          _c("strong", [
+                            _vm._v("suporte@examedepagamento.com.br"),
+                          ]),
+                          _vm._v(".\n                        "),
+                        ]),
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link2"
+                    ? _c("div", [
+                        _c("p", { staticClass: "modal_item" }, [
+                          _vm._v(
+                            "\n                            O App tem como finalidade ajudar todos que\n                            realizam a atividade de exame de pagamento de\n                            pessoal, no âmbito do Exército Brasileiro. O App\n                            realiza todos os cálculos complexos por você,\n                            reduzindo a possibilidade de erros por parte do\n                            examinador.\n                            "
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(
+                            "\n                            O funcionamento do App é muito simples!\n                            "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                            Você só precisa preencher um formulário\n                            "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/image/screenshots.png",
+                                target: "_BLANK",
+                              },
+                            },
+                            [_vm._v("(ver imagem do formulário)")]
+                          ),
+                          _vm._v(
+                            ', respondendo algumas perguntadas simples sobre\n                            o militar/ pensionista que você deseja montar o\n                            contracheque. Depois, basta clicar no botão\n                            "gerar contracheque", o App irá fazer os\n                            cálculos automaticamente e montará o\n                            contracheque para você.\n                            '
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(
+                            "\n                            Após montado, você pode salvar o contracheque em\n                            um banco de dados e voltar quando quiser para o\n                            editar.\n\n                            "
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("i", { staticStyle: { color: "#000" } }, [
+                            _vm._v(
+                              "** Em razão de algumas restrições impostas\n                                pela Lei nº 13.709, de 14 de agosto de 2018\n                                - Lei Geral de Proteção de Dados Pessoais\n                                (LGPD), quanto ao tratamento de dados\n                                pessoais de terceiros, esta aplicação não\n                                armazena ou trata nenhum dado pessoal (nome,\n                                identidade, cpf, entre outros). Os dados\n                                pessoais do examinado poderão ser inseridos\n                                "
+                            ),
+                            _c("strong", [_vm._v("apenas")]),
+                            _vm._v(
+                              " no momento da\n                                impressão do contracheque, porém não ficarão\n                                armazenados."
+                            ),
+                          ]),
+                        ]),
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.paginaAtiva == "link5"
-                    ? _c("div", [_vm._v("5")])
+                    ? _c("div", [
+                        _c("div", [
+                          _c("span", [
+                            _vm._v("Ramon Olivera - Desenvolvedor Web"),
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              "\n                                Idealizador do projeto e desenvolvedor da\n                                aplicação ."
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { attrs: { id: "contatos_sociais" } }, [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "https://github.com/im-ramon",
+                                  target: "_BLANK",
+                                  title: "Github",
+                                },
+                              },
+                              [
+                                _c("img", {
+                                  staticClass: "github",
+                                  attrs: {
+                                    src: "/svg/github.svg",
+                                    alt: "Ícone Github",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: "https://www.linkedin.com/in/ramon-oliveira-21b8571a2/",
+                                  target: "_BLANK",
+                                  title: "Linkedin",
+                                },
+                              },
+                              [
+                                _c("img", {
+                                  staticClass: "linkedin",
+                                  attrs: {
+                                    src: "/svg/linkedin.svg",
+                                    alt: "Ícone Linkedin",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]),
+                        ]),
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.paginaAtiva == "link1"
+                    ? _c("div", [
+                        _c("div", [
+                          _vm._v(
+                            "\n                            Para solicitar acesso ao\n                            "
+                          ),
+                          _c("strong", [_vm._v("App Exame de Pagamento")]),
+                          _vm._v(
+                            " envie\n                            uma solicitação para o e-mail:\n                            "
+                          ),
+                          _c("strong", [
+                            _vm._v("suporte@examedepagamento.com.br"),
+                          ]),
+                          _vm._v(
+                            "\n                            com os seguintes dados:\n                            "
+                          ),
+                          _c("ul", [
+                            _c("li", [
+                              _vm._v(
+                                "\n                                    Dados para acesso ao App:\n                                    "
+                              ),
+                              _c("ul", [
+                                _c("li", [_vm._v("Nome completo")]),
+                                _vm._v(" "),
+                                _c("li", [_vm._v("E-mail")]),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "\n                                    Dados para confecção das\n                                    "
+                              ),
+                              _c("strong", [_vm._v("fichas auxiliares")]),
+                              _vm._v(":\n                                    "),
+                              _c("ul", [
+                                _c("li", [
+                                  _vm._v(
+                                    "\n                                            Nome completo para assinatura\n                                        "
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("li", [
+                                  _vm._v(
+                                    "\n                                            Posto ou graduação do membro\n                                            responsável pela confecção\n                                        "
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("li", [
+                                  _vm._v(
+                                    "\n                                            Nome completo do chefe da equipe\n                                        "
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("li", [
+                                  _vm._v(
+                                    "\n                                            Posto ou graduação do chefe da\n                                            equipe\n                                        "
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("li", [_vm._v("OM")]),
+                                _vm._v(" "),
+                                _c("li", [_vm._v("Cidade da OM")]),
+                              ]),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                                Assim que seu cadastro for aprovado será\n                                enviado um e-mail com as informações e\n                                instruções de acesso ao App.\n                            "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                                * Essas medidas são necessárias para\n                                controlar o acesso ao App, por ser uma\n                                aplicação gratuita, possui algumas\n                                limitações.\n                            "
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", [
+                          _vm._v(
+                            "\n                            Para acessar o App\n                            "
+                          ),
+                          _c("strong", [
+                            _vm._v(
+                              "aguarde receber um e-mail avisando que seus\n                                dados foram cadastrados"
+                            ),
+                          ]),
+                          _vm._v(
+                            ". Depois, basta clicar no link de acesso, na\n                            página principal, ou acessar:\n                            "
+                          ),
+                          _c("strong", [
+                            _vm._v("www.examedepagamento.com.br/login"),
+                          ]),
+                          _vm._v(
+                            ", e informar suas credenciais de acesso.\n                        "
+                          ),
+                        ]),
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.paginaAtiva == "link6"
-                    ? _c("div", [_vm._v("6")])
+                    ? _c("div", [
+                        _c("div", [
+                          _vm._v(
+                            "\n                            A iniciativa do\n                            "
+                          ),
+                          _c("strong", [_vm._v("App Exame de Pagamento")]),
+                          _vm._v(
+                            " não tem\n                            fins lucrativos, entretanto, existem custos para\n                            manter o App on-line, custos esses que o\n                            desenvolvedor está arcando, até o momento. Caso\n                            queira contribuir com a manutenção do projeto,\n                            acesse o link abaixo e tenha acesso às\n                            informações para contribuição:\n                            "
+                          ),
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "https://apoie.examedepagamento.com.br",
+                                target: "_BLANK",
+                                title: "Apoie o projeto",
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                www.apoie.examedepagamento.com.br."
+                              ),
+                            ]
+                          ),
+                        ]),
+                      ])
                     : _vm._e(),
                 ]),
               ])
@@ -45889,67 +46393,7 @@ var render = function () {
                   attrs: { href: "#" },
                   on: {
                     click: function ($event) {
-                      return _vm.ativaModal("link1")
-                    },
-                  },
-                },
-                [_vm._v("Novidades")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _c(
-                "a",
-                {
-                  attrs: { href: "#" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ativaModal("link2")
-                    },
-                  },
-                },
-                [_vm._v("Sugestões")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _c(
-                "a",
-                {
-                  attrs: { href: "#" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ativaModal("link3")
-                    },
-                  },
-                },
-                [_vm._v("Como acessar")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _c(
-                "a",
-                {
-                  attrs: { href: "#" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ativaModal("link4")
-                    },
-                  },
-                },
-                [_vm._v("Desenvolvedor")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("span", [
-              _c(
-                "a",
-                {
-                  attrs: { href: "#" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ativaModal("link5")
+                      return _vm.ativaModal("link1", "Solicitar acesso")
                     },
                   },
                 },
@@ -45964,7 +46408,67 @@ var render = function () {
                   attrs: { href: "#" },
                   on: {
                     click: function ($event) {
-                      return _vm.ativaModal("link6")
+                      return _vm.ativaModal("link2", "Como funciona?")
+                    },
+                  },
+                },
+                [_vm._v("Como funciona?")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.ativaModal("link3", "Novidades")
+                    },
+                  },
+                },
+                [_vm._v("Novidades")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.ativaModal("link4", "Sugestões")
+                    },
+                  },
+                },
+                [_vm._v("Sugestões")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.ativaModal("link5", "Desenvolvedor")
+                    },
+                  },
+                },
+                [_vm._v("Desenvolvedor")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c(
+                "a",
+                {
+                  attrs: { href: "#" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.ativaModal("link6", "Apoiar")
                     },
                   },
                 },
@@ -46001,7 +46505,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                        Desenvolvido com a finalidade de auxiliar todos\n                        aqueles que desenvolvem a atividade de exame de\n                        pagamento de pessoal, no âmbito do exército\n                        brasileiro.\n                        "
+            "\n                        O App foi desenvolvido com a finalidade de auxiliar\n                        todos aqueles que desenvolvem a atividade de exame\n                        de pagamento de pessoal, no âmbito do exército\n                        brasileiro.\n                        "
           ),
           _c("span", { attrs: { id: "br" } }, [
             _c("b", [_vm._v("■")]),

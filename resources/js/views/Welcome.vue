@@ -5,43 +5,254 @@
                 <div v-if="modalAtivo" id="modal_index">
                     <div id="modal_container">
                         <img
+                            id="x"
                             src="/svg/x.svg"
                             @click="modalAtivo = false"
                             title="Fechar modal"
                             alt="Botão fechar"
                         />
                         <h1>{{ h1 }}</h1>
-                        <div id="link1" v-if="paginaAtiva == 'link1'">
+                        <div v-if="paginaAtiva == 'link3'">
                             <ul>
                                 <li class="first-li">
                                     <h3>
                                         Versão 1.1
-                                        <i>- Disponibilizada em 10/04/2022 -</i>
+                                        <i class="data_lancamento"
+                                            >- Disponibilizada em 15/04/2022
+                                            -</i
+                                        >
                                     </h3>
                                     <ul>
-                                        <li>Item 1</li>
-                                        <li>Item 2</li>
-                                        <li>Item 3</li>
+                                        <li>
+                                            Adicionada a funcionalidade de
+                                            adicionar manualmente valores não
+                                            disponíveis no App.
+                                        </li>
+                                        <li>
+                                            Todos documentos página de
+                                            <strong>legislação</strong>
+                                            reformulados.
+                                        </li>
+                                        <li>
+                                            Adicionado um
+                                            <u
+                                                title="salvamento automático dos dados"
+                                                style="
+                                                    text-decoration-style: dotted;
+                                                    text-decoration-color: #00000050;
+                                                    cursor: default;
+                                                "
+                                                >auto salve</u
+                                            >
+                                            ao sair do formulário,
+                                            possibilitando que e os dados do
+                                            formulário continuarem salvos, mesmo
+                                            saindo da página.
+                                        </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <h3>
                                         Versão 1.0
-                                        <i>- Disponibilizada em 29/03/2022 -</i>
+                                        <i class="data_lancamento"
+                                            >- Disponibilizada em 29/03/2022
+                                            -</i
+                                        >
                                     </h3>
                                     <ul>
-                                        <li>Item 1</li>
-                                        <li>Item 2</li>
-                                        <li>Item 3</li>
+                                        <li>
+                                            Gerar contracheques por meido de
+                                            formulário
+                                        </li>
+                                        <li>
+                                            Salvar os contracheques gerados em
+                                            banco de dados
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <div v-if="paginaAtiva == 'link2'">2</div>
-                        <div v-if="paginaAtiva == 'link3'">3</div>
-                        <div v-if="paginaAtiva == 'link4'">4</div>
-                        <div v-if="paginaAtiva == 'link5'">5</div>
-                        <div v-if="paginaAtiva == 'link6'">6</div>
+
+                        <div v-if="paginaAtiva == 'link4'">
+                            <div>
+                                Caso queira enviar alguma sugestão para
+                                implantação ou correção de alguma
+                                funcionalidade, envie um e-mail para
+                                <strong>suporte@examedepagamento.com.br</strong
+                                >.
+                            </div>
+                        </div>
+
+                        <div v-if="paginaAtiva == 'link2'">
+                            <!-- <div> -->
+                            <p class="modal_item">
+                                O App tem como finalidade ajudar todos que
+                                realizam a atividade de exame de pagamento de
+                                pessoal, no âmbito do Exército Brasileiro. O App
+                                realiza todos os cálculos complexos por você,
+                                reduzindo a possibilidade de erros por parte do
+                                examinador.
+                                <br />
+                                <br />
+                                O funcionamento do App é muito simples!
+                                <br />
+                                Você só precisa preencher um formulário
+                                <a href="/image/screenshots.png" target="_BLANK"
+                                    >(ver imagem do formulário)</a
+                                >, respondendo algumas perguntadas simples sobre
+                                o militar/ pensionista que você deseja montar o
+                                contracheque. Depois, basta clicar no botão
+                                "gerar contracheque", o App irá fazer os
+                                cálculos automaticamente e montará o
+                                contracheque para você.
+                                <br />
+                                <br />
+                                Após montado, você pode salvar o contracheque em
+                                um banco de dados e voltar quando quiser para o
+                                editar.
+
+                                <br />
+                                <br />
+                                <i style="color: #000"
+                                    >** Em razão de algumas restrições impostas
+                                    pela Lei nº 13.709, de 14 de agosto de 2018
+                                    - Lei Geral de Proteção de Dados Pessoais
+                                    (LGPD), quanto ao tratamento de dados
+                                    pessoais de terceiros, esta aplicação não
+                                    armazena ou trata nenhum dado pessoal (nome,
+                                    identidade, cpf, entre outros). Os dados
+                                    pessoais do examinado poderão ser inseridos
+                                    <strong>apenas</strong> no momento da
+                                    impressão do contracheque, porém não ficarão
+                                    armazenados.</i
+                                >
+                            </p>
+                            <!-- </div> -->
+                        </div>
+
+                        <div v-if="paginaAtiva == 'link5'">
+                            <div>
+                                <span>Ramon Olivera - Desenvolvedor Web</span>
+                                <br /><br />
+                                <span>
+                                    Idealizador do projeto e desenvolvedor da
+                                    aplicação .</span
+                                >
+                                <div id="contatos_sociais">
+                                    <a
+                                        href="https://github.com/im-ramon"
+                                        target="_BLANK"
+                                        title="Github"
+                                    >
+                                        <img
+                                            class="github"
+                                            src="/svg/github.svg"
+                                            alt="Ícone Github"
+                                        />
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/in/ramon-oliveira-21b8571a2/"
+                                        target="_BLANK"
+                                        title="Linkedin"
+                                    >
+                                        <img
+                                            class="linkedin"
+                                            src="/svg/linkedin.svg"
+                                            alt="Ícone Linkedin"
+                                        />
+                                    </a>
+                                    <!-- <img
+                                        src="/svg/whatsapp.svg"
+                                        alt="Ícone whatsapp"
+                                    /> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="paginaAtiva == 'link1'">
+                            <div>
+                                Para solicitar acesso ao
+                                <strong>App Exame de Pagamento</strong> envie
+                                uma solicitação para o e-mail:
+                                <strong>suporte@examedepagamento.com.br</strong>
+                                com os seguintes dados:
+                                <ul>
+                                    <li>
+                                        Dados para acesso ao App:
+                                        <ul>
+                                            <li>Nome completo</li>
+                                            <li>E-mail</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        Dados para confecção das
+                                        <strong>fichas auxiliares</strong>:
+                                        <ul>
+                                            <li>
+                                                Nome completo para assinatura
+                                            </li>
+                                            <li>
+                                                Posto ou graduação do membro
+                                                responsável pela confecção
+                                            </li>
+                                            <li>
+                                                Nome completo do chefe da equipe
+                                            </li>
+                                            <li>
+                                                Posto ou graduação do chefe da
+                                                equipe
+                                            </li>
+                                            <li>OM</li>
+                                            <li>Cidade da OM</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p>
+                                    Assim que seu cadastro for aprovado será
+                                    enviado um e-mail com as informações e
+                                    instruções de acesso ao App.
+                                </p>
+                                <p>
+                                    * Essas medidas são necessárias para
+                                    controlar o acesso ao App, por ser uma
+                                    aplicação gratuita, possui algumas
+                                    limitações.
+                                </p>
+                            </div>
+
+                            <div>
+                                Para acessar o App
+                                <strong
+                                    >aguarde receber um e-mail avisando que seus
+                                    dados foram cadastrados</strong
+                                >. Depois, basta clicar no link de acesso, na
+                                página principal, ou acessar:
+                                <strong
+                                    >www.examedepagamento.com.br/login</strong
+                                >, e informar suas credenciais de acesso.
+                            </div>
+                        </div>
+
+                        <div v-if="paginaAtiva == 'link6'">
+                            <div>
+                                A iniciativa do
+                                <strong>App Exame de Pagamento</strong> não tem
+                                fins lucrativos, entretanto, existem custos para
+                                manter o App on-line, custos esses que o
+                                desenvolvedor está arcando, até o momento. Caso
+                                queira contribuir com a manutenção do projeto,
+                                acesse o link abaixo e tenha acesso às
+                                informações para contribuição:
+                                <a
+                                    href="https://apoie.examedepagamento.com.br"
+                                    target="_BLANK"
+                                    title="Apoie o projeto"
+                                >
+                                    www.apoie.examedepagamento.com.br.</a
+                                >
+                            </div>
+                        </div>
                     </div>
                 </div>
             </transition>
@@ -49,28 +260,40 @@
             <div id="welcome_container">
                 <div id="menu-links">
                     <span>
-                        <a @click="ativaModal('link1')" href="#">Novidades</a>
-                    </span>
-                    <span>
-                        <a @click="ativaModal('link2')" href="#">Sugestões</a>
-                    </span>
-                    <span>
-                        <a @click="ativaModal('link3')" href="#"
-                            >Como acessar</a
-                        >
-                    </span>
-                    <span>
-                        <a @click="ativaModal('link4')" href="#"
-                            >Desenvolvedor</a
-                        >
-                    </span>
-                    <span>
-                        <a @click="ativaModal('link5')" href="#"
+                        <a
+                            @click="ativaModal('link1', 'Solicitar acesso')"
+                            href="#"
                             >Solicitar acesso</a
                         >
                     </span>
                     <span>
-                        <a @click="ativaModal('link6')" href="#">Apoiar</a>
+                        <a
+                            @click="ativaModal('link2', 'Como funciona?')"
+                            href="#"
+                            >Como funciona?</a
+                        >
+                    </span>
+                    <span>
+                        <a @click="ativaModal('link3', 'Novidades')" href="#"
+                            >Novidades</a
+                        >
+                    </span>
+                    <span>
+                        <a @click="ativaModal('link4', 'Sugestões')" href="#"
+                            >Sugestões</a
+                        >
+                    </span>
+                    <span>
+                        <a
+                            @click="ativaModal('link5', 'Desenvolvedor')"
+                            href="#"
+                            >Desenvolvedor</a
+                        >
+                    </span>
+                    <span>
+                        <a @click="ativaModal('link6', 'Apoiar')" href="#"
+                            >Apoiar</a
+                        >
                     </span>
                 </div>
                 <div id="card">
@@ -81,9 +304,9 @@
                             <strong>App Exame de Pagamento</strong>.
                         </p>
                         <p>
-                            Desenvolvido com a finalidade de auxiliar todos
-                            aqueles que desenvolvem a atividade de exame de
-                            pagamento de pessoal, no âmbito do exército
+                            O App foi desenvolvido com a finalidade de auxiliar
+                            todos aqueles que desenvolvem a atividade de exame
+                            de pagamento de pessoal, no âmbito do exército
                             brasileiro.
                             <span id="br"><b>■</b><b>■</b></span>
                         </p>
@@ -158,28 +381,27 @@ export default {
         };
     },
     methods: {
-        ativaModal(param) {
+        ativaModal(param, h1) {
             this.modalAtivo = true;
 
             if (param == "link1") {
                 this.paginaAtiva = param;
-                this.h1 = "Novidades";
+                this.h1 = h1;
             } else if (param == "link2") {
                 this.paginaAtiva = param;
-                this.h1 = "Sugestões";
+                this.h1 = h1;
             } else if (param == "link3") {
                 this.paginaAtiva = param;
-                this.h1 = "Como acessar";
+                this.h1 = h1;
             } else if (param == "link4") {
                 this.paginaAtiva = param;
-                this.h1 = "Desenvolvedor";
+                this.h1 = h1;
             } else if (param == "link5") {
                 this.paginaAtiva = param;
-                this.h1 = "Solicitar acesso";
+                this.h1 = h1;
             } else if (param == "link6") {
                 this.paginaAtiva = param;
-
-                this.h1 = "Apoiar";
+                this.h1 = h1;
             }
         },
     },
