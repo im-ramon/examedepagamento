@@ -1,5 +1,27 @@
 <template>
     <section id="home">
+        <transition name="modal_index">
+            <div v-if="modal" id="modal_index">
+                <div id="modal_container">
+                    <img
+                        id="x"
+                        src="/svg/x.svg"
+                        @click="modal = false"
+                        title="Fechar modal"
+                        alt="Botão fechar"
+                    />
+                    <div class="modal_item">
+                        <h3>Sugestões</h3>
+                        <p>
+                            Caso queira enviar alguma sugestão para implantação
+                            ou correção de alguma funcionalidade, envie sua
+                            demanda para o e-mail:
+                            <strong>suporte@examedepagamento.com.br</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </transition>
         <transition name="sidebar">
             <aside id="sidebar" v-if="showSidebar">
                 <div class="logo">
@@ -58,7 +80,9 @@
                                     Encontrou alguma falha ou tem alguma
                                     sugestão para melhoria do App? Sinta-se à
                                     vontade para nos comunicar:
-                                    <a href="#">Enviar mensagem</a>
+                                    <a href="#" @click="modal = true"
+                                        >Enviar mensagem</a
+                                    >
                                 </p>
                             </div>
                         </transition>
@@ -121,6 +145,7 @@ export default {
         return {
             sugestoes_ativa: false,
             showSidebar: true,
+            modal: false,
         };
     },
     props: ["csrf_token", "routeLogout"],

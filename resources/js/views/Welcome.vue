@@ -13,7 +13,7 @@
                         />
                         <h1>{{ h1 }}</h1>
                         <div v-if="paginaAtiva == 'link3'">
-                            <ul>
+                            <ul class="modal_item">
                                 <li class="first-li">
                                     <h3>
                                         Versão 1.1
@@ -74,7 +74,7 @@
                         </div>
 
                         <div v-if="paginaAtiva == 'link4'">
-                            <div>
+                            <div class="modal_item">
                                 Caso queira enviar alguma sugestão para
                                 implantação ou correção de alguma
                                 funcionalidade, envie um e-mail para
@@ -131,7 +131,7 @@
                         </div>
 
                         <div v-if="paginaAtiva == 'link5'">
-                            <div>
+                            <div class="modal_item">
                                 <span>Ramon Olivera - Desenvolvedor Web</span>
                                 <br /><br />
                                 <span>
@@ -170,7 +170,7 @@
                         </div>
 
                         <div v-if="paginaAtiva == 'link1'">
-                            <div>
+                            <div class="modal_item">
                                 Para solicitar acesso ao
                                 <strong>App Exame de Pagamento</strong> envie
                                 uma solicitação para o e-mail:
@@ -219,9 +219,7 @@
                                     aplicação gratuita, possui algumas
                                     limitações.
                                 </p>
-                            </div>
-
-                            <div>
+                                <br />
                                 Para acessar o App
                                 <strong
                                     >aguarde receber um e-mail avisando que seus
@@ -235,7 +233,7 @@
                         </div>
 
                         <div v-if="paginaAtiva == 'link6'">
-                            <div>
+                            <div class="modal_item">
                                 A iniciativa do
                                 <strong>App Exame de Pagamento</strong> não tem
                                 fins lucrativos, entretanto, existem custos para

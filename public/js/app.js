@@ -6739,11 +6739,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       sugestoes_ativa: false,
-      showSidebar: true
+      showSidebar: true,
+      modal: false
     };
   },
   props: ["csrf_token", "routeLogout"],
@@ -11392,8 +11417,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
 //
 //
 //
@@ -37028,6 +37051,40 @@ var render = function () {
     "section",
     { attrs: { id: "home" } },
     [
+      _c("transition", { attrs: { name: "modal_index" } }, [
+        _vm.modal
+          ? _c("div", { attrs: { id: "modal_index" } }, [
+              _c("div", { attrs: { id: "modal_container" } }, [
+                _c("img", {
+                  attrs: {
+                    id: "x",
+                    src: "/svg/x.svg",
+                    title: "Fechar modal",
+                    alt: "Botão fechar",
+                  },
+                  on: {
+                    click: function ($event) {
+                      _vm.modal = false
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal_item" }, [
+                  _c("h3", [_vm._v("Sugestões")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n                        Caso queira enviar alguma sugestão para implantação\n                        ou correção de alguma funcionalidade, envie sua\n                        demanda para o e-mail:\n                        "
+                    ),
+                    _c("strong", [_vm._v("suporte@examedepagamento.com.br")]),
+                    _vm._v(".\n                    "),
+                  ]),
+                ]),
+              ]),
+            ])
+          : _vm._e(),
+      ]),
+      _vm._v(" "),
       _c("transition", { attrs: { name: "sidebar" } }, [
         _vm.showSidebar
           ? _c("aside", { attrs: { id: "sidebar" } }, [
@@ -37170,9 +37227,18 @@ var render = function () {
                                 _vm._v(
                                   "\n                                Encontrou alguma falha ou tem alguma\n                                sugestão para melhoria do App? Sinta-se à\n                                vontade para nos comunicar:\n                                "
                                 ),
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Enviar mensagem"),
-                                ]),
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: { href: "#" },
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.modal = true
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Enviar mensagem")]
+                                ),
                               ]),
                             ])
                           : _vm._e(),
@@ -46038,7 +46104,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.paginaAtiva == "link3"
                     ? _c("div", [
-                        _c("ul", [
+                        _c("ul", { staticClass: "modal_item" }, [
                           _c("li", { staticClass: "first-li" }, [
                             _c("h3", [
                               _vm._v(
@@ -46125,7 +46191,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.paginaAtiva == "link4"
                     ? _c("div", [
-                        _c("div", [
+                        _c("div", { staticClass: "modal_item" }, [
                           _vm._v(
                             "\n                            Caso queira enviar alguma sugestão para\n                            implantação ou correção de alguma\n                            funcionalidade, envie um e-mail para\n                            "
                           ),
@@ -46191,7 +46257,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.paginaAtiva == "link5"
                     ? _c("div", [
-                        _c("div", [
+                        _c("div", { staticClass: "modal_item" }, [
                           _c("span", [
                             _vm._v("Ramon Olivera - Desenvolvedor Web"),
                           ]),
@@ -46252,7 +46318,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.paginaAtiva == "link1"
                     ? _c("div", [
-                        _c("div", [
+                        _c("div", { staticClass: "modal_item" }, [
                           _vm._v(
                             "\n                            Para solicitar acesso ao\n                            "
                           ),
@@ -46327,9 +46393,8 @@ var render = function () {
                               "\n                                * Essas medidas são necessárias para\n                                controlar o acesso ao App, por ser uma\n                                aplicação gratuita, possui algumas\n                                limitações.\n                            "
                             ),
                           ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", [
+                          _vm._v(" "),
+                          _c("br"),
                           _vm._v(
                             "\n                            Para acessar o App\n                            "
                           ),
@@ -46353,7 +46418,7 @@ var render = function () {
                   _vm._v(" "),
                   _vm.paginaAtiva == "link6"
                     ? _c("div", [
-                        _c("div", [
+                        _c("div", { staticClass: "modal_item" }, [
                           _vm._v(
                             "\n                            A iniciativa do\n                            "
                           ),
