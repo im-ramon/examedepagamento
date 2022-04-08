@@ -63,6 +63,15 @@
                         <img src="/svg/books.svg" alt="icone livro" />
                         <span class="navbutton_title">Legislação</span>
                     </router-link>
+
+                    <a
+                        href="https://apoie.examedepagamento.com.br"
+                        class="navbutton apoie"
+                        target="_BLANK"
+                    >
+                        <img src="/svg/handshake.svg" alt="icone livro" />
+                        <span class="navbutton_title">Apoie</span>
+                    </a>
                 </nav>
                 <div
                     id="sugestoes_contaneir"
