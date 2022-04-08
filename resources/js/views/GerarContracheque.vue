@@ -985,8 +985,14 @@
                             - O militar que retornar à ativa por convocação,
                             designação ou reinclusão, desde que há mais de seis
                             meses de inatividade
-                        </p></ajuda-component
-                    >
+                        </p>
+                        <ondeencontrar-component>
+                            <li>
+                                Analisando as datas de incorporação e promoções
+                                do militar
+                            </li>
+                        </ondeencontrar-component>
+                    </ajuda-component>
 
                     <section class="question_body">
                         <div class="question_title">
@@ -1019,7 +1025,8 @@
                         <div class="question_title">
                             <p>
                                 É a primeira vez que receberá o
-                                <strong>Auxílio Fardamento</strong>?
+                                <strong>Auxílio Fardamento</strong> na atual
+                                carreira?
                             </p>
                         </div>
                         <div class="question_options">
@@ -1046,17 +1053,24 @@
                     <legend>Auxílio Alimentação - Tipo "C"</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Este auxílio é devido aos Cabos e Soldados, da
+                            ativa, quando entram de férias. São pagas 30 etapas,
+                            no valor de R$ 9,00 cada.
                         </p>
+                        <ondeencontrar-component>
+                            <li>Boletim Interno/ Aditamento de férias</li>
+                            <li>
+                                Analisando o
+                                <i title="Formulário de Alteração de Pagamento"
+                                    >FAP</i
+                                >
+                            </li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
-                                O examinado irá receber
+                                O examinado receberá
                                 <strong>Auxílio Alimentação - Tipo "C"</strong>?
                             </p>
                         </div>
@@ -1080,71 +1094,103 @@
                     </section>
                 </fieldset>
 
-                <fieldset class="question_root" v-show="form_aux_alim_5x">
-                    <legend>Auxílio Alimentação - 5x</legend>
+                <fieldset class="question_root" v-show="form_aux_alim_x">
+                    <legend>Auxílio Alimentação</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Caso o militar tenha que receber o
+                            auxílio-alimentação, preencher o campo abaixo com a
+                            quantidade de etapas que ele faz jus. Lembrando que
+                            desde 2017 até a presente data, o valor da etapa é
+                            de R$ 9,00.
+
+                            <br />
+                            <br />
+                            O militar, quando não puder receber alimentação por
+                            sua organização ou por outra nas proximidades do
+                            local de serviço ou expediente, ou quando, por
+                            imposição do horário de trabalhe distância de sua
+                            residência, seja obrigado a fazer refeições fora
+                            dela, tendo para tanto despesas extraordinárias,
+                            fará jus ao auxílio-alimentação, por dia em que
+                            cumprir integralmente o expediente, cujos valores
+                            serão:
+                            <br />- 10 (dez) vezes o valor da etapa comum fixada
+                            para a localidade, quando em serviço de escala de
+                            duração de vinte e quatro horas; ou <br />- 5
+                            (cinco) vezes o valor da etapa comum fixada para a
+                            localidade, quando em serviço ou expediente de
+                            duração superior a oito horas de efetivo trabalho e
+                            inferior a vinte e quatro horas. <br /><br />O
+                            militar, quando servir em organização militar que
+                            não tenha serviço de rancho organizado e não possa
+                            ser arranchado por outra organização nas
+                            proximidades, fará jus a uma vez a etapa comum
+                            fixada para a localidade, nos dias em que cumprir
+                            expediente diário integral.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
                             <p>
                                 O examinado irá receber
-                                <strong>Auxílio Alimentação - 5x</strong>?
+                                <strong>Auxílio Alimentação</strong>?
                             </p>
                         </div>
                         <div class="question_options">
                             <input
                                 type="radio"
                                 value="1"
-                                v-model="f_aux_alim_5x"
-                                name="f_aux_alim_5x"
+                                v-model="f_aux_alim_x"
+                                name="f_aux_alim_x"
                                 id="auxalim5xsim"
                             /><label for="auxalim5xsim">Sim</label>
                             <input
                                 type="radio"
                                 value="0"
-                                v-model="f_aux_alim_5x"
-                                name="f_aux_alim_5x"
+                                v-model="f_aux_alim_x"
+                                name="f_aux_alim_x"
                                 id="auxalim5xnao"
-                                v-on:change="aux_alim_5x = 0"
+                                v-on:change="aux_alim_x = 0"
                                 checked
                             /><label for="auxalim5xsim">Não</label>
                         </div>
                     </section>
 
-                    <section
-                        class="question_body"
-                        v-show="f_aux_alim_5x == '1'"
-                    >
+                    <section class="question_body" v-show="f_aux_alim_x == '1'">
                         <div class="question_title">
-                            <p>Referente a quantos dias?</p>
+                            <p>Quantas etapas?</p>
                         </div>
                         <div class="question_options">
                             <input
                                 type="number"
-                                name="aux_alim_5x"
+                                name="aux_alim_x"
                                 min="0"
-                                v-model="aux_alim_5x"
+                                v-model="aux_alim_x"
                                 max="365"
                             />
                         </div>
                     </section>
                 </fieldset>
+
+                <!-- {{-- DESCONTOS --}} -->
+
                 <fieldset class="question_root" v-show="form_pmil">
                     <legend>Pensão Militar</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            É o desconto obrigatório incidente sobre a
+                            remuneração do militar para custeio das futuras
+                            pensões destinadas aos seus beneficiários. São
+                            contribuintes obrigatórios da pensão militar,
+                            mediante desconto mensal em folha de pagamento, os
+                            militares das Forças Armadas e os seus pensionistas,
+                            ou seja, <strong>TODOS CONTRIBUEM</strong>.
+
+                            <br /><br />
+                            O desconto da pensão militar tem alíquota de 10,5%
+                            (dez e meio por cento), conforme previsto na Lei nº
+                            13.954, de 16 de dezembro de 2019.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1226,11 +1272,23 @@
                     <legend>FuSEx 3%</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O desconto de FuSEx é destinado à manutenção da
+                            assistência médico-hospitalar do Exército
+                            Brasileiro.
+
+                            <br /><br />Alguns militares/ pensionsitas não
+                            contribuem por meio desse desconto, são eles: <br />
+                            - Os soldades em serviço militar obrigatório <br />
+                            - Os ex-combatentes<br />
+                            - Os pensionistas especiais de ex-combatentes<br />
+                            - Os militares que são dependentes de outros
+                            militares (cônjuge, filho etc)<br />
+                            - Algumas pensionistas filhas, implantadas após a
+                            <a
+                                href="http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13954.htm"
+                                target="_BLANK"
+                                >Lei nº 13.954/2019</a
+                            >
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1282,6 +1340,10 @@
                                 >Lei nº 6.880, de 9 de dezembro de 1980.</a
                             >
                         </p>
+                        <ondeencontrar-component>
+                            <li>Título de pensão</li>
+                            <li>Apostila de pensão</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1309,7 +1371,7 @@
                 <fieldset class="question_root" v-show="form_compl_ct_soldo">
                     <legend>Complemento de cota de soldo</legend>
                     <ajuda-component>
-                        <p>?</p>
+                        <p>...</p>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1368,6 +1430,11 @@
                                 >Lei nº 13.954, de 16 de dezembro de 2019.</a
                             >
                         </p>
+                        <ondeencontrar-component>
+                            <li>Ficha de controle</li>
+                            <li>Título de pensão</li>
+                            <li>Índice remissivo</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1398,7 +1465,30 @@
                             realizados com aproveitamento. Os percentuais podem
                             ser consultados no ANEXO III da Lei nº 13.954, de 16
                             de dezembro de 2019.
+                            <br />
+                            Os tipos de cursos existentes devem obedecer às
+                            seguintes condições:
+                            <br />
+                            I - de altos estudos categoria I, realizados a
+                            partir de oficiais superiores e de primeiros
+                            sargentos;<br />
+                            II - de altos estudos categoria II, realizados a
+                            partir de oficiais superiores e de segundos
+                            sargentos;<br />
+                            III - de aperfeiçoamento, realizados a partir de
+                            oficiais subalternos e de terceiros sargentos;<br />
+                            IV - de especialização, realizados a partir de
+                            aspirantes a oficial e de terceiros sargentos; e<br />
+                            V - de formação, a partir da conclusão com
+                            aproveitamento dos cursos e estágios de formação ou
+                            adaptação de oficiais e praças, realizados nas
+                            organizações militares das Forças Armadas.
                         </p>
+                        <ondeencontrar-component>
+                            <li>Ficha de controle</li>
+                            <li>Título de pensão</li>
+                            <li>Índice remissivo</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1438,12 +1528,16 @@
                     <legend>Adicional de Horas de Voo (ART24MP)</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Parcela remuneratória mensal devida ao militar para
+                            compensação de desgaste orgânico resultante do
+                            desempenho continuado de atividades especiais de
+                            voo.
                         </p>
+                        <ondeencontrar-component>
+                            <li>Ficha de controle</li>
+                            <li>Título de pensão</li>
+                            <li>Índice remissivo</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1510,12 +1604,36 @@
                     <legend>Adicional de Permanência</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            É a parcela remuneratória devida ao militar,
+                            mensalmente, incidente sobre o soldo do posto ou da
+                            graduação, referente ao período em que continuar ou
+                            tenha continuado em serviço, após ter completado o
+                            tempo mínimo de permanência no serviço ativo.
+
+                            <br />
+                            <br />
+                            Situações e percentuais a serem observados:
+                            <br />
+                            I – 5 (cinco) por cento: militar que, em atividade,
+                            a partir de 29 de dezembro de 2000, tenha completado
+                            ou venha a completar 720 (setecentos e vinte dias) a
+                            mais que o tempo requerido para a transferência para
+                            a inatividade remunerada; e
+                            <br />
+                            II – 5 (cinco) por cento a cada promoção: militar
+                            que, tendo satisfeito o requisito do item acima,
+                            venha a ser promovido em atividade ao posto ou
+                            graduação superior.
+                            <br />
+                            Os percentuais acima mencionados são acumuláveis
+                            entre si.
+                            <br />
                         </p>
+                        <ondeencontrar-component>
+                            <li>Ficha de controle</li>
+                            <li>Título de pensão</li>
+                            <li>Índice remissivo</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1541,11 +1659,13 @@
                     <legend>Adicional PTTC</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            A prestação de tarefa por tempo certo é a execução
+                            de atividades de natureza militar, atribuídas ao
+                            militar inativo, justificada pela necessidade do
+                            serviço, de caráter voluntário e por um período
+                            previamente especificado e limitado. Para isso, o
+                            militar nomeado receberá o Adicional PTTC de 30%
+                            sobre seu rendimento bruto.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1578,11 +1698,18 @@
                     <legend>Adicional de Férias</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Valor correspondente a 1/3 (um terço) da remuneração
+                            do mês de início das férias, pago antecipadamente.
+                            <ondeencontrar-component>
+                                <li>Boletim Interno/ Aditamento de férias</li>
+                                <li>
+                                    Analisando o
+                                    <i
+                                        title="Formulário de Alteração de Pagamento"
+                                        >FAP</i
+                                    >
+                                </li>
+                            </ondeencontrar-component>
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1618,12 +1745,26 @@
                     <legend>Auxílio Transporte</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Benefício que se destina a indenizar, parcialmente,
+                            as despesas com o transporte municipal,
+                            intermunicipal e interestadual do militar da ativa,
+                            do prestador de tarefa por tempo certo e do
+                            convocado para o serviço ativo.
+
+                            <br />
+
+                            Aqui deve ser inserido o valor constante na SAT
+                            (<strong>S</strong>olicitação de
+                            <strong>A</strong>uxílio
+                            <strong>T</strong>ransporte).
                         </p>
+                        <ondeencontrar-component>
+                            <li>
+                                SAT (<strong>S</strong>olicitação de
+                                <strong>A</strong>uxílio
+                                <strong>T</strong>ransporte)
+                            </li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1678,12 +1819,32 @@
                     <legend>Auxílio Natalidade</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            É o direito pecuniário devido ao militar por motivo
+                            de nascimento do filho, adoção ou reconhecimento de
+                            paternidade, conforme Decreto nº 4.307, de 18 de
+                            julho de 2002, e corresponde a uma vez o soldo do
+                            posto ou graduação.
+
+                            <br />
+                            Na hipótese de ambos os genitores serem militares, o
+                            auxílio-natalidade será pago apenas à parturiente,
+                            com base no soldo daquele que possuir a maior
+                            remuneração ou provento;
+
+                            <br />
+                            Na ocorrência de parto múltiplo, o
+                            auxílio-natalidade será acrescido de cinquenta por
+                            cento (50%) por cada recém-nascido, sendo 1 ½ soldo
+                            ao 1º filho, acrescido de ½ soldo a cada nascido.
+                            Exemplo: Parto de trigêmeos ou adoção de 3 (três)
+                            crianças: 1 soldo e 50% (1º filho) + 50% (2º filho)
+                            + 50% (3º filho) = 2,5 soldos;
                         </p>
+
+                        <ondeencontrar-component>
+                            <li>Publicações em Boletim Interno</li>
+                            <li>Certidão de nascimento</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1736,11 +1897,30 @@
                     <legend>Gratificação de Localidade Especial</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O militar em Localidade Especial Tipo “A” faz jus ao
+                            percentual de 20% (vinte por cento) do soldo e o
+                            militar em Localidade Especial Tipo “B” faz jus ao
+                            percentual de 10% (dez por cento) do soldo, nos
+                            termos da Portaria Normativa nº 13-MD, de 5 de
+                            janeiro de 2006 e suas atualizações;
+                            <br /><br />
+                            O direito do militar à gratificação de localidade
+                            especial, quando for transferido, começa no dia da
+                            sua apresentação à OM de destino e cessa no seu
+                            desligamento;
+                            <br /><br />É assegurado ao militar o direito à
+                            continuidade da percepção da gratificação de
+                            localidade especial nos afastamentos sem
+                            desligamento da OM; <br /><br />O deslocamento do
+                            militar de uma localidade especial para exercer
+                            atividades em outra localidade que não é considerada
+                            especial, por necessidade do serviço e em caráter
+                            temporário, não implicará na perda da Gratificação
+                            de Localidade Especial; e <br /><br />O militar que
+                            recebe a Gratificação de Localidade Especial Tipo B
+                            (10%) e vai exercer atividades em Localidade
+                            Especial Tipo A (20%) faz jus à diferença entre as
+                            gratificações;
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1793,11 +1973,21 @@
                     <legend>Gratificação de Representação de Comando</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Parcela remuneratória mensal devida aos
+                            oficiais-generais e aos demais oficiais em cargo de
+                            comando, direção e chefia de organização militar,
+                            conforme percentuais definidos no Anexo IV da Lei nº
+                            13.954, de 16 de dezembro de 2019.
+
+                            <br /><br />
+                            Na ocorrência de assunção interina do comando da OM
+                            por oficial, em virtude do afastamento do cargo pelo
+                            titular, por prazo superior a 30 (trinta) dias, o
+                            substituto fará jus ao recebimento da gratificação
+                            de representação de comando pelo período que exercer
+                            interinamente o cargo. Em contrapartida, deixará de
+                            fazer jus à referida gratificação, por igual
+                            período, o titular.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1834,11 +2024,19 @@
                     <legend>Gratificação de Representação 2%</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Parcela remuneratória eventual devida ao militar em
+                            viagem de representação, atividade de instrução,
+                            operação de emprego operacional ou que esteja às
+                            ordens de autoridade estrangeira no País.
+
+                            <br />
+                            <br />
+                            O cálculo do número de dias para fins de pagamento
+                            da gratificação de representação deve considerar o
+                            período superior a oito horas e inferior a vinte
+                            quatro horas como um dia, não havendo necessidade de
+                            se aguardar as primeiras vinte e quatro horas da
+                            viagem.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -1917,12 +2115,18 @@
                     </legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            As pensionistas que são
+                            <strong>ex-esposas</strong> que recebiam pessão
+                            alimentícia de ex-combatentes recebem seus
+                            redimentos todos juntos, com todo o valor devido
+                            somado.
+
+                            <br />
+                            <br />
                         </p>
+                        <ondeencontrar-component>
+                            <li>Título de pensão</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
 
                     <section class="question_body">
@@ -1972,12 +2176,32 @@
                     <legend>Pensão Militar 1.5%</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            O desconto da pensão militar de 1,5% (um e meio por
+                            cento) destina-se à manutenção dos benefícios
+                            previstos na Lei nº 3.765, de 4 de maio de 1960, ou
+                            seja, anteriores à vigência da MP 2.215-10, de 31 de
+                            agosto de 2001.
+
+                            <br />
+                            <br />
+                            O desconto tem como finalidade garantir a
+                            permanência das filhas como dependente habilitável à
+                            pensão militar, mesmo após as "perderem" a condição
+                            de dependência (casarem-se e ultrapassar os 24
+                            anos).
+
+                            <br />
+                            <br />
+
+                            Também contribui, obrigatoriamente, a pensionista
+                            que era esposa do instituidor da pensão e esse optou
+                            em  contribuir com este desconto adicional.
                         </p>
+                        <ondeencontrar-component>
+                            <li>Ficha de controle</li>
+                            <li>Título de pensão</li>
+                            <li>Índice remissivo</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -2012,12 +2236,18 @@
                     <legend>Pensão Militar 3.0%</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            A partir de 1º de janeiro de 2020, contribuirão
+                            extraordinariamente para a pensão militar, com
+                            alíquota de 3%, as pensionistas
+                            <strong>filhas</strong> não inválidas pensionistas
+                            e<strong
+                                >vitalícia (pensão não tem data para
+                                encerrar)</strong
+                            >.
                         </p>
+                        <ondeencontrar-component>
+                            <li>Título de pensão</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -2055,11 +2285,16 @@
                     <legend>Desconto de dependentes no FuSEx</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Deve ser analisado a quantidade de dependentes que o
+                            militar/ pensionista possui cadastrado como
+                            dependentes no FuSEx. Para 1 (um) dependente
+                            cadastrado, <strong
+                                >exceto o cônjuge ou companheira(o)</strong
+                            >, o desconto será de 0,4% sobre o bruto. Para 2
+                            (dois) ou mais dependentes cadastrados,   <strong
+                                >exceto o cônjuge ou companheira(o)</strong
+                            >,  o desconto será de 0,5% sobre o bruto, não
+                            ultrapassando essa alíquota.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -2108,12 +2343,26 @@
                     <legend>PNR</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            Desconto devido ao militar que ocupa PRÓPRIO
+                            NACIONAL RESIDENCIAL (PNR), nos seguintes
+                            percentuais:
+                            <br />
+                            <br />
+                            - Percentual de 5,0% (cinco vírgula zero por cento)
+                            sobre o soldo do permissionário por ocupação de
+                            próprio nacional residencial (PNR) sob a jurisdição
+                            do Exército Brasileiro
+                            <br />
+                            <br />
+                            - Quando adotado um dos sistemas de administração
+                            especial em PNR de natureza apartamento, a taxa de
+                            uso terá o valor mensal correspondente ao percentual
+                            de 3,5% (três vírgula cinco por cento) sobre o soldo
+                            do permissionário.
                         </p>
+                        <ondeencontrar-component>
+                            <li>PHPM do militar</li>
+                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -2172,11 +2421,17 @@
                     <legend>Pensão Judiciária</legend>
                     <ajuda-component>
                         <p>
-                            Hue Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Aperiam fugiat, magnam tempore
-                            neque error assumenda a voluptates rerum tempora
-                            quibusdam aliquid doloremque obcaecati eum eveniet
-                            voluptate harum voluptatum vitae cumque?
+                            É direito estabelecido nos artigos 1.694 a 1.710 da
+                            Lei nº 10.406, de 10 de janeiro de 2002 (Código
+                            Civil), que garante aos parentes, cônjuges ou
+                            companheiros a possibilidade de solicitar à outra
+                            parte auxílio financeiro.
+
+                            <br />
+                            <br />
+                            Aqui deve ser inserido o valor correto da Pensão
+                            Alimentícia, conforme consta a folha de cálculos na
+                            PHPM do militar.
                         </p>
                     </ajuda-component>
                     <section class="question_body">
@@ -2716,7 +2971,7 @@ export default {
             aux_fard: "0",
             aux_fard_primeiro: "0",
             aux_alim_c: "0",
-            aux_alim_5x: "0",
+            aux_alim_x: "0",
             aux_natalidade: "0",
             grat_loc_esp: "0",
             grat_repr_cmdo: "0",
@@ -2765,7 +3020,7 @@ export default {
             form_aux_fard: true,
             form_aux_fard_primeiro: true,
             form_aux_alim_c: true,
-            form_aux_alim_5x: true,
+            form_aux_alim_x: true,
             form_aux_natalidade: true,
             form_grat_loc_esp: true,
             form_grat_repr_cmdo: true,
@@ -2780,7 +3035,7 @@ export default {
             form_pens_judiciaria: true,
 
             f_aux_transporte: "0",
-            f_aux_alim_5x: "0",
+            f_aux_alim_x: "0",
             f_aux_natalidade: "0",
             f_hvoo: "0",
             f_grat_repr_2: "0",
@@ -2902,7 +3157,7 @@ export default {
         },
 
         async geraDadosFinanceiros() {
-            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_5x=${this.aux_alim_5x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}&php=${this.php}`;
+            let data = `_token=${this.token}&universo=${this.universo}&data_contracheque=${this.data_contracheque}&maior_65=${this.maior_65}&isento_ir=${this.isento_ir}&pg_soldo=${this.pg_soldo}&pg_real=${this.pg_real}&tipo_soldo=${this.tipo_soldo}&soldo_cota_porcentagem=${this.soldo_cota_porcentagem}&soldo_prop_cota_porcentagem=${this.soldo_prop_cota_porcentagem}&compl_ct_soldo=${this.compl_ct_soldo}&adic_tp_sv=${this.adic_tp_sv}&adic_disp=${this.adic_disp}&adic_hab_tipo=${this.adic_hab_tipo}&adic_mil=${this.adic_mil}&adic_comp_org_tipo=${this.adic_comp_org_tipo}&adic_comp_org_percet=${this.adic_comp_org_percet}&adic_comp_org_pg=${this.adic_comp_org_pg}&f_hvoo=${this.f_hvoo}&hvoo_percet=${this.hvoo_percet}&hvoo_pg=${this.hvoo_pg}&acres_25_soldo=${this.acres_25_soldo}&adic_perm=${this.adic_perm}&salario_familia_dep=${this.salario_familia_dep}&imposto_renda_dep=${this.imposto_renda_dep}&adic_ferias=${this.adic_ferias}&adic_pttc=${this.adic_pttc}&adic_natalino=${this.adic_natalino}&adic_natalino_qtd_meses=${this.adic_natalino_qtd_meses}&adic_natalino_valor_adiantamento=${this.adic_natalino_valor_adiantamento}&aux_pre_escolar_qtd=${this.aux_pre_escolar_qtd}&aux_invalidez=${this.aux_invalidez}&aux_transporte=${this.aux_transporte}&aux_fard=${this.aux_fard}&aux_fard_primeiro=${this.aux_fard_primeiro}&aux_alim_c=${this.aux_alim_c}&aux_alim_x=${this.aux_alim_x}&aux_natalidade=${this.aux_natalidade}&grat_loc_esp=${this.grat_loc_esp}&grat_repr_cmdo=${this.grat_repr_cmdo}&grat_repr_2=${this.grat_repr_2}&grat_repr_2_pg=${this.grat_repr_2_pg}&dp_excmb_art_9=${this.dp_excmb_art_9}&pmil=${this.pmil}&pmilmesmopg=${this.pmilmesmopg}&pmil_pg=${this.pmil_pg}&pmil_15=${this.pmil_15}&pmil_30=${this.pmil_30}&fusex_3=${this.fusex_3}&desc_dep_fusex=${this.desc_dep_fusex}&pnr=${this.pnr}&pens_judiciaria_1=${this.pens_judiciaria_1}&pens_judiciaria_2=${this.pens_judiciaria_2}&pens_judiciaria_3=${this.pens_judiciaria_3}&pens_judiciaria_4=${this.pens_judiciaria_4}&pens_judiciaria_5=${this.pens_judiciaria_5}&pens_judiciaria_6=${this.pens_judiciaria_6}&pens_judiciaria_adic_natal_1=${this.pens_judiciaria_adic_natal_1}&pens_judiciaria_adic_natal_2=${this.pens_judiciaria_adic_natal_2}&pens_judiciaria_adic_natal_3=${this.pens_judiciaria_adic_natal_3}&pens_judiciaria_adic_natal_4=${this.pens_judiciaria_adic_natal_4}&pens_judiciaria_adic_natal_5=${this.pens_judiciaria_adic_natal_5}&pens_judiciaria_adic_natal_6=${this.pens_judiciaria_adic_natal_6}&php=${this.php}`;
 
             await axios
                 .get(`${this.nowPath}/api/ficha-auxiliar?${data}`)
@@ -2946,7 +3201,7 @@ export default {
                 aux_fard: this.aux_fard,
                 aux_fard_primeiro: this.aux_fard_primeiro,
                 aux_alim_c: this.aux_alim_c,
-                aux_alim_5x: this.aux_alim_5x,
+                aux_alim_x: this.aux_alim_x,
                 aux_natalidade: this.aux_natalidade,
                 grat_loc_esp: this.grat_loc_esp,
                 grat_repr_cmdo: this.grat_repr_cmdo,
@@ -2994,7 +3249,7 @@ export default {
                 form_aux_fard: this.form_aux_fard,
                 form_aux_fard_primeiro: this.form_aux_fard_primeiro,
                 form_aux_alim_c: this.form_aux_alim_c,
-                form_aux_alim_5x: this.form_aux_alim_5x,
+                form_aux_alim_x: this.form_aux_alim_x,
                 form_aux_natalidade: this.form_aux_natalidade,
                 form_grat_loc_esp: this.form_grat_loc_esp,
                 form_grat_repr_cmdo: this.form_grat_repr_cmdo,
@@ -3008,7 +3263,7 @@ export default {
                 form_pnr: this.form_pnr,
                 form_pens_judiciaria: this.form_pens_judiciaria,
                 f_aux_transporte: this.f_aux_transporte,
-                f_aux_alim_5x: this.f_aux_alim_5x,
+                f_aux_alim_x: this.f_aux_alim_x,
                 f_aux_natalidade: this.f_aux_natalidade,
                 f_hvoo: this.f_hvoo,
                 f_grat_repr_2: this.f_grat_repr_2,
@@ -3063,7 +3318,7 @@ export default {
                 this.aux_fard = form.aux_fard;
                 this.aux_fard_primeiro = form.aux_fard_primeiro;
                 this.aux_alim_c = form.aux_alim_c;
-                this.aux_alim_5x = form.aux_alim_5x;
+                this.aux_alim_x = form.aux_alim_x;
                 this.aux_natalidade = form.aux_natalidade;
                 this.grat_loc_esp = form.grat_loc_esp;
                 this.grat_repr_cmdo = form.grat_repr_cmdo;
@@ -3117,7 +3372,7 @@ export default {
                 this.form_aux_fard = form.form_aux_fard;
                 this.form_aux_fard_primeiro = form.form_aux_fard_primeiro;
                 this.form_aux_alim_c = form.form_aux_alim_c;
-                this.form_aux_alim_5x = form.form_aux_alim_5x;
+                this.form_aux_alim_x = form.form_aux_alim_x;
                 this.form_aux_natalidade = form.form_aux_natalidade;
                 this.form_grat_loc_esp = form.form_grat_loc_esp;
                 this.form_grat_repr_cmdo = form.form_grat_repr_cmdo;
@@ -3131,7 +3386,7 @@ export default {
                 this.form_pnr = form.form_pnr;
                 this.form_pens_judiciaria = form.form_pens_judiciaria;
                 this.f_aux_transporte = form.f_aux_transporte;
-                this.f_aux_alim_5x = form.f_aux_alim_5x;
+                this.f_aux_alim_x = form.f_aux_alim_x;
                 this.f_aux_natalidade = form.f_aux_natalidade;
                 this.f_hvoo = form.f_hvoo;
                 this.f_grat_repr_2 = form.f_grat_repr_2;

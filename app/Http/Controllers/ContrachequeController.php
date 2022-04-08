@@ -68,7 +68,7 @@ class ContrachequeController extends Controller
                 $this->auxTransporte($formulario);
                 $this->auxFard($formulario);
                 $this->auxAlimC($formulario, $pg_real_info);
-                $this->auxAlim5x($formulario);
+                $this->auxAlimX($formulario);
                 $this->auxInvalidez($formulario);
                 $this->auxNatalidade($formulario);
                 $this->salarioFamilia($formulario);
@@ -464,10 +464,10 @@ class ContrachequeController extends Controller
         }
     }
 
-    private function auxAlim5x($formulario)
+    private function auxAlimX($formulario)
     {
-        if ($formulario["aux_alim_5x"] > 0) {
-            $this->push('receitas', 'aux_alim_5x', ($formulario["aux_alim_5x"] * 9), 'AUX ALIM 5X', 'n', '13N', 'n_pttc', 'n_descontos');
+        if ($formulario["aux_alim_x"] > 0) {
+            $this->push('receitas', 'aux_alim_x', ($formulario["aux_alim_x"] * 9), 'AUX ALIM X', 'n', '13N', 'n_pttc', 'n_descontos');
         }
     }
     private function auxNatalidade($formulario)
