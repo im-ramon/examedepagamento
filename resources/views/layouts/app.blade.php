@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>App | Exame de Pagamento</title>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('image/favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('image/favicon-small.png') }}">
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -15,6 +15,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/print.css') }}" media="print"> --}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="Faça o exame de pagamento de pessoal, no âmbito do exército brasileiro, de forma fácil e descomplicada." />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
