@@ -10484,6 +10484,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10655,7 +10656,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.compl_ct_soldo = "0";
         this.form_dp_excmb_art_9 = false;
         this.dp_excmb_art_9 = "0";
-      } else if (newValue == "inativo") {
+      } else if (newValue == "veterano") {
         this.form_soldo_cota = false;
         this.soldo_cota_porcentagem = "100.00";
         this.form_soldo_prop_cota = true;
@@ -11216,8 +11217,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     formataUniverso: function formataUniverso(v) {
       if (v == "ativa") {
         return "Ativa";
-      } else if (v == "inativo") {
-        return "Inativo";
+      } else if (v == "veterano") {
+        return "Veterano";
       } else if (v == "pens_mil") {
         return "Pensionista Militar";
       } else if (v == "pens_excmbt_2ten") {
@@ -38785,8 +38786,8 @@ var render = function () {
                         _vm._v("Militar da Ativa"),
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "inativo" } }, [
-                        _vm._v("Militar da Inativo"),
+                      _c("option", { attrs: { value: "veterano" } }, [
+                        _vm._v("Militar Veterano"),
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "pens_mil" } }, [
@@ -38965,18 +38966,6 @@ var render = function () {
                   _c(
                     "p",
                     [
-                      _c("ondeencontrar-component", [
-                        _c("li", [
-                          _vm._v("Portaria de Isenção de Imposto de Renda"),
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [_vm._v("Ficha de Controle")]),
-                        _vm._v(" "),
-                        _c("li", [_vm._v("Título de Pensão")]),
-                        _vm._v(" "),
-                        _c("li", [_vm._v("Apostila de Pensão")]),
-                      ]),
-                      _vm._v(" "),
                       _c("br"),
                       _vm._v(
                         "\n                    A Pensionista Especial de Ex-combatente que recebe o\n                    soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de\n                    renda, mesmo que em seu título de pensão não exista essa\n                    informação. Já a Pensionista Especial de Ex-combatente\n                    que recebe o soldo de 2º Sgt (Lei nº 8.059/90) não é\n                    automaticamente isenta de imposto de renda. "
@@ -38990,8 +38979,19 @@ var render = function () {
                         _vm._v("não são isentos de imposto de renda"),
                       ]),
                       _vm._v(
-                        ".\n                    Esses recebem apenas um abatimento no valor final.\n                "
+                        ".\n                    Esses recebem apenas um abatimento no valor final.\n                    "
                       ),
+                      _c("ondeencontrar-component", [
+                        _c("li", [
+                          _vm._v("Portaria de Isenção de Imposto de Renda"),
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Ficha de Controle")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Título de Pensão")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Apostila de Pensão")]),
+                      ]),
                     ],
                     1
                   ),
@@ -39072,7 +39072,7 @@ var render = function () {
                     "p",
                     [
                       _vm._v(
-                        "\n                    Deve ser selecionado o Posto/ Graduação em que o\n                    examinado recebe o soldo. No caso dos miltiares da\n                    ativa, o P/G para soldo e P/G Real são os mesmos,\n                    entretanto, no caso dos Militares Inativos e\n                    Pensionistas, essas informações poderão ser difirentes.\n                    "
+                        "\n                    Deve ser selecionado o Posto/ Graduação em que o\n                    examinado recebe o soldo. No caso dos miltiares da\n                    ativa, o P/G para soldo e P/G Real são os mesmos,\n                    entretanto, no caso dos Militares Veteranos e\n                    Pensionistas, essas informações poderão ser difirentes.\n                    "
                       ),
                       _c("ondeencontrar-component", [
                         _c("li", [_vm._v("Ficha de Controle")]),
@@ -39278,7 +39278,7 @@ var render = function () {
                         "p",
                         [
                           _vm._v(
-                            '\n                        Escolha a categoria de soldo que o examinado recebe.\n                        São duas opções, a primeira "Normal/Integral"\n                        significa que o examinado recebe o valor do seu\n                        soldo por completo, normalmente militares da ativa,\n                        inativos que completaram o tempo mínimo para reserva\n                        e seus pensionistas recebem essa categoria de soldo.\n                        A categoria " Soldo Proporcional para Cota" é\n                        devida, normalmente, aos militares que fora para a\n                        reserva antes do tempo mínimo, como no caso de\n                        militares reformados por ser julgado incapaz\n                        definitivamente. '
+                            '\n                        Escolha a categoria de soldo que o examinado recebe.\n                        São duas opções, a primeira "Normal/Integral"\n                        significa que o examinado recebe o valor do seu\n                        soldo por completo, normalmente militares da ativa,\n                        veterenos que completaram o tempo mínimo para\n                        reserva e seus pensionistas recebem essa categoria\n                        de soldo. A categoria " Soldo Proporcional para\n                        Cota" é devida, normalmente, aos militares que fora\n                        para a reserva antes do tempo mínimo, como no caso\n                        de militares reformados por ser julgado incapaz\n                        definitivamente. '
                           ),
                           _c("br"),
                           _c("br"),
@@ -40652,10 +40652,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Auxílio Fardamento")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v("\n                        O "),
                           _c("strong", [_vm._v("auxílio fardamento")]),
                           _vm._v(
@@ -40700,20 +40700,19 @@ var render = function () {
                           ),
                           _c("br"),
                           _vm._v(
-                            "\n                        - O militar que retornar à ativa por convocação,\n                        designação ou reinclusão, desde que há mais de seis\n                        meses de inatividade\n                    "
+                            "\n                        - O militar que retornar à ativa por convocação,\n                        designação ou reinclusão, desde que há mais de seis\n                        meses de inatividade\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [
-                            _vm._v(
-                              "\n                            Analisando as datas de incorporação e promoções\n                            do militar\n                        "
-                            ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [
+                              _vm._v(
+                                "\n                                Analisando as datas de incorporação e\n                                promoções do militar\n                            "
+                              ),
+                            ]),
                           ]),
-                        ]),
-                      ],
-                      1
-                    ),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(21),
@@ -40875,38 +40874,38 @@ var render = function () {
                   [
                     _c("legend", [_vm._v('Auxílio Alimentação - Tipo "C"')]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
-                            "\n                        Este auxílio é devido aos Cabos e Soldados, da\n                        ativa, quando entram de férias. São pagas 30 etapas,\n                        no valor de R$ 9,00 cada.\n                    "
+                            "\n                        Este auxílio é devido aos Cabos e Soldados, da\n                        ativa, quando entram de férias. São pagas 30 etapas,\n                        no valor de R$ 9,00 cada.\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [
-                            _vm._v("Boletim Interno/ Aditamento de férias"),
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _vm._v(
-                              "\n                            Analisando o\n                            "
-                            ),
-                            _c(
-                              "i",
-                              {
-                                attrs: {
-                                  title: "Formulário de Alteração de Pagamento",
+                          _c("ondeencontrar-component", [
+                            _c("li", [
+                              _vm._v("Boletim Interno/ Aditamento de férias"),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [
+                              _vm._v(
+                                "\n                                Analisando o\n                                "
+                              ),
+                              _c(
+                                "i",
+                                {
+                                  attrs: {
+                                    title:
+                                      "Formulário de Alteração de Pagamento",
+                                  },
                                 },
-                              },
-                              [_vm._v("FAP")]
-                            ),
+                                [_vm._v("FAP")]
+                              ),
+                            ]),
                           ]),
-                        ]),
-                      ],
-                      1
-                    ),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(23),
@@ -41490,10 +41489,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Cota-parte do Soldo")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        Esse campo é exclusivo para pensionistas. Aqui deve\n                        ser informado qual porcentagem de cota-parte o(a)\n                        pensionista recebe. Essa informação fica disponível\n                        no\n                        "
                           ),
@@ -41518,16 +41517,16 @@ var render = function () {
                             },
                             [_vm._v("Lei nº 6.880, de 9 de dezembro de 1980.")]
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Título de pensão")]),
                           _vm._v(" "),
-                          _c("li", [_vm._v("Apostila de pensão")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Título de pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Apostila de pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(30),
@@ -41673,10 +41672,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Adicional de Tempo de Serviço")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        Adicional de Tempo de Serviço é a parcela\n                        remuneratória mensal devida ao militar, inerente ao\n                        tempo de serviço e os acréscimos permitidos por lei,\n                        observado o disposto no art. 30 da Medida Provisória\n                        2215/01. Será computado 1% para cada ano de serviço\n                        anterior a 31 DEZ 2000. É vedada a concessão\n                        cumulativa do adicional de compensação por\n                        disponibilidade militar com o adicional de tempo de\n                        serviço, sendo assegurado, caso o militar faça jus a\n                        ambos os adicionais, o recebimento do mais\n                        vantajoso.\n\n                        "
                           ),
@@ -41713,18 +41712,18 @@ var render = function () {
                               ),
                             ]
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Ficha de controle")]),
                           _vm._v(" "),
-                          _c("li", [_vm._v("Título de pensão")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Índice remissivo")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Índice remissivo")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(32),
@@ -41778,10 +41777,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Adicional Habilitação")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        O Adicional de habilitação é a parcela remuneratória\n                        mensal devida ao militar, inerente aos cursos\n                        realizados com aproveitamento. Os percentuais podem\n                        ser consultados no ANEXO III da Lei nº 13.954, de 16\n                        de dezembro de 2019.\n                        "
                           ),
@@ -41807,20 +41806,19 @@ var render = function () {
                           ),
                           _c("br"),
                           _vm._v(
-                            "\n                        V - de formação, a partir da conclusão com\n                        aproveitamento dos cursos e estágios de formação ou\n                        adaptação de oficiais e praças, realizados nas\n                        organizações militares das Forças Armadas.\n                    "
+                            "\n                        V - de formação, a partir da conclusão com\n                        aproveitamento dos cursos e estágios de formação ou\n                        adaptação de oficiais e praças, realizados nas\n                        organizações militares das Forças Armadas.\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Ficha de controle")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Título de pensão")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Índice remissivo")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Índice remissivo")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(33),
@@ -41936,25 +41934,24 @@ var render = function () {
                       _vm._v("Adicional de Horas de Voo (ART24MP)"),
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
-                            "\n                        Parcela remuneratória mensal devida ao militar para\n                        compensação de desgaste orgânico resultante do\n                        desempenho continuado de atividades especiais de\n                        voo.\n                    "
+                            "\n                        Parcela remuneratória mensal devida ao militar para\n                        compensação de desgaste orgânico resultante do\n                        desempenho continuado de atividades especiais de\n                        voo.\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Ficha de controle")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Título de pensão")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Índice remissivo")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Índice remissivo")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(34),
@@ -42151,10 +42148,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Adicional de Permanência")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        É a parcela remuneratória devida ao militar,\n                        mensalmente, incidente sobre o soldo do posto ou da\n                        graduação, referente ao período em que continuar ou\n                        tenha continuado em serviço, após ter completado o\n                        tempo mínimo de permanência no serviço ativo.\n\n                        "
                           ),
@@ -42177,18 +42174,18 @@ var render = function () {
                             "\n                        Os percentuais acima mencionados são acumuláveis\n                        entre si.\n                        "
                           ),
                           _c("br"),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Ficha de controle")]),
                           _vm._v(" "),
-                          _c("li", [_vm._v("Título de pensão")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Índice remissivo")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Índice remissivo")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(37),
@@ -42245,7 +42242,7 @@ var render = function () {
                     _c("ajuda-component", [
                       _c("p", [
                         _vm._v(
-                          "\n                        A prestação de tarefa por tempo certo é a execução\n                        de atividades de natureza militar, atribuídas ao\n                        militar inativo, justificada pela necessidade do\n                        serviço, de caráter voluntário e por um período\n                        previamente especificado e limitado. Para isso, o\n                        militar nomeado receberá o Adicional PTTC de 30%\n                        sobre seu rendimento bruto.\n                    "
+                          "\n                        A prestação de tarefa por tempo certo é a execução\n                        de atividades de natureza militar, atribuídas ao\n                        militar veterano, justificada pela necessidade do\n                        serviço, de caráter voluntário e por um período\n                        previamente especificado e limitado. Para isso, o\n                        militar nomeado receberá o Adicional PTTC de 30%\n                        sobre seu rendimento bruto.\n                    "
                         ),
                       ]),
                     ]),
@@ -42441,10 +42438,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Auxílio Transporte")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        Benefício que se destina a indenizar, parcialmente,\n                        as despesas com o transporte municipal,\n                        intermunicipal e interestadual do militar da ativa,\n                        do prestador de tarefa por tempo certo e do\n                        convocado para o serviço ativo.\n\n                        "
                           ),
@@ -42457,25 +42454,28 @@ var render = function () {
                           _c("strong", [_vm._v("A")]),
                           _vm._v("uxílio\n                        "),
                           _c("strong", [_vm._v("T")]),
-                          _vm._v("ransporte).\n                    "),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [
-                            _vm._v("\n                            SAT ("),
-                            _c("strong", [_vm._v("S")]),
-                            _vm._v(
-                              "olicitação de\n                            "
-                            ),
-                            _c("strong", [_vm._v("A")]),
-                            _vm._v("uxílio\n                            "),
-                            _c("strong", [_vm._v("T")]),
-                            _vm._v("ransporte)\n                        "),
+                          _vm._v("ransporte).\n                        "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [
+                              _vm._v("\n                                SAT ("),
+                              _c("strong", [_vm._v("S")]),
+                              _vm._v(
+                                "olicitação de\n                                "
+                              ),
+                              _c("strong", [_vm._v("A")]),
+                              _vm._v(
+                                "uxílio\n                                "
+                              ),
+                              _c("strong", [_vm._v("T")]),
+                              _vm._v(
+                                "ransporte)\n                            "
+                              ),
+                            ]),
                           ]),
-                        ]),
-                      ],
-                      1
-                    ),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(40),
@@ -42617,10 +42617,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Auxílio Natalidade")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        É o direito pecuniário devido ao militar por motivo\n                        de nascimento do filho, adoção ou reconhecimento de\n                        paternidade, conforme Decreto nº 4.307, de 18 de\n                        julho de 2002, e corresponde a uma vez o soldo do\n                        posto ou graduação.\n\n                        "
                           ),
@@ -42630,18 +42630,19 @@ var render = function () {
                           ),
                           _c("br"),
                           _vm._v(
-                            "\n                        Na ocorrência de parto múltiplo, o\n                        auxílio-natalidade será acrescido de cinquenta por\n                        cento (50%) por cada recém-nascido, sendo 1 ½ soldo\n                        ao 1º filho, acrescido de ½ soldo a cada nascido.\n                        Exemplo: Parto de trigêmeos ou adoção de 3 (três)\n                        crianças: 1 soldo e 50% (1º filho) + 50% (2º filho)\n                        + 50% (3º filho) = 2,5 soldos;\n                    "
+                            "\n                        Na ocorrência de parto múltiplo, o\n                        auxílio-natalidade será acrescido de cinquenta por\n                        cento (50%) por cada recém-nascido, sendo 1 ½ soldo\n                        ao 1º filho, acrescido de ½ soldo a cada nascido.\n                        Exemplo: Parto de trigêmeos ou adoção de 3 (três)\n                        crianças: 1 soldo e 50% (1º filho) + 50% (2º filho)\n                        + 50% (3º filho) = 2,5 soldos;\n\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Publicações em Boletim Interno")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Certidão de nascimento")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [
+                              _vm._v("Publicações em Boletim Interno"),
+                            ]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Certidão de nascimento")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(42),
@@ -43229,10 +43230,10 @@ var render = function () {
                       ),
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        As pensionistas que são\n                        "
                           ),
@@ -43243,14 +43244,14 @@ var render = function () {
                           _c("br"),
                           _vm._v(" "),
                           _c("br"),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Título de pensão")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _vm._v(" "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Título de pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _vm._m(49),
                     _vm._v(" "),
@@ -43306,10 +43307,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Pensão Militar 1.5%")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        O desconto da pensão militar de 1,5% (um e meio por\n                        cento) destina-se à manutenção dos benefícios\n                        previstos na Lei nº 3.765, de 4 de maio de 1960, ou\n                        seja, anteriores à vigência da MP 2.215-10, de 31 de\n                        agosto de 2001.\n\n                        "
                           ),
@@ -43323,20 +43324,19 @@ var render = function () {
                           _vm._v(" "),
                           _c("br"),
                           _vm._v(
-                            "\n\n                        Também contribui, obrigatoriamente, a pensionista\n                        que era esposa do instituidor da pensão e esse optou\n                        em  contribuir com este desconto adicional.\n                    "
+                            "\n\n                        Também contribui, obrigatoriamente, a pensionista\n                        que era esposa do instituidor da pensão e esse optou\n                        em  contribuir com este desconto adicional.\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Ficha de controle")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Título de pensão")]),
-                          _vm._v(" "),
-                          _c("li", [_vm._v("Índice remissivo")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Ficha de controle")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Título de pensão")]),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("Índice remissivo")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(51),
@@ -43418,10 +43418,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("Pensão Militar 3.0%")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        A partir de 1º de janeiro de 2020, contribuirão\n                        extraordinariamente para a pensão militar, com\n                        alíquota de 3%, as pensionistas\n                        "
                           ),
@@ -43434,15 +43434,14 @@ var render = function () {
                               "vitalícia (pensão não tem data para\n                            encerrar)"
                             ),
                           ]),
-                          _vm._v(".\n                    "),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("Título de pensão")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _vm._v(".\n                        "),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("Título de pensão")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(52),
@@ -43661,10 +43660,10 @@ var render = function () {
                   [
                     _c("legend", [_vm._v("PNR")]),
                     _vm._v(" "),
-                    _c(
-                      "ajuda-component",
-                      [
-                        _c("p", [
+                    _c("ajuda-component", [
+                      _c(
+                        "p",
+                        [
                           _vm._v(
                             "\n                        Desconto devido ao militar que ocupa PRÓPRIO\n                        NACIONAL RESIDENCIAL (PNR), nos seguintes\n                        percentuais:\n                        "
                           ),
@@ -43678,16 +43677,15 @@ var render = function () {
                           _vm._v(" "),
                           _c("br"),
                           _vm._v(
-                            "\n                        - Quando adotado um dos sistemas de administração\n                        especial em PNR de natureza apartamento, a taxa de\n                        uso terá o valor mensal correspondente ao percentual\n                        de 3,5% (três vírgula cinco por cento) sobre o soldo\n                        do permissionário.\n                    "
+                            "\n                        - Quando adotado um dos sistemas de administração\n                        especial em PNR de natureza apartamento, a taxa de\n                        uso terá o valor mensal correspondente ao percentual\n                        de 3,5% (três vírgula cinco por cento) sobre o soldo\n                        do permissionário.\n                        "
                           ),
-                        ]),
-                        _vm._v(" "),
-                        _c("ondeencontrar-component", [
-                          _c("li", [_vm._v("PHPM do militar")]),
-                        ]),
-                      ],
-                      1
-                    ),
+                          _c("ondeencontrar-component", [
+                            _c("li", [_vm._v("PHPM do militar")]),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ]),
                     _vm._v(" "),
                     _c("section", { staticClass: "question_body" }, [
                       _vm._m(54),

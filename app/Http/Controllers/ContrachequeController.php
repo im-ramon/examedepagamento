@@ -16,7 +16,7 @@ class ContrachequeController extends Controller
     public $calculos = [
         'receitas' => [
             'bruto_total' => ['financeiro' => ['valor' => 0, 'porcentagem' => '-'], 'rubrica' => 'BRUTO TOTAL'],
-            'bruto_ir_descontos' => ['financeiro' => ['valor' => 0, 'porcentagem' => '-'], 'rubrica' => 'BRUTO PARA IR'],
+            // 'bruto_ir_descontos' => ['financeiro' => ['valor' => 0, 'porcentagem' => '-'], 'rubrica' => 'BRUTO PARA IR'],
         ],
         'descontos' => [
             'descontos_total' => ['financeiro' => ['valor' => 0, 'porcentagem' => '-'], 'rubrica' => 'DESCONTOS TOTAL']
@@ -388,7 +388,7 @@ class ContrachequeController extends Controller
     private function adicPttc($formulario)
     {
         if ($formulario["adic_pttc"] == 1) {
-            $base = $this->truncar($this->calculos['receitas']['bruto_ir_descontos']['financeiro']['valor'] * 0.3);
+            $base = $this->truncar($this->adic_pttc * 0.3);
             $this->push('receitas', 'adic_pttc', $base, 'ADICIONAL PTTC', 'ir', '13S', 'n_pttc', 'descontos');
         }
     }

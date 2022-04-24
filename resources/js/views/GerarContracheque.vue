@@ -31,7 +31,7 @@
                             id="tipo_soldo"
                         >
                             <option value="ativa">Militar da Ativa</option>
-                            <option value="inativo">Militar da Inativo</option>
+                            <option value="veterano">Militar Veterano</option>
                             <option value="pens_mil">
                                 Pensionista Militar
                             </option>
@@ -121,12 +121,6 @@
                 <legend>Isenção de Imposto de Renda</legend>
                 <ajuda-component>
                     <p>
-                        <ondeencontrar-component>
-                            <li>Portaria de Isenção de Imposto de Renda</li>
-                            <li>Ficha de Controle</li>
-                            <li>Título de Pensão</li>
-                            <li>Apostila de Pensão</li>
-                        </ondeencontrar-component>
                         <br />
                         A Pensionista Especial de Ex-combatente que recebe o
                         soldo de 2º Sgt (Lei nº 4.242/63) é isenta de imposto de
@@ -138,6 +132,12 @@
                         65 anos
                         <strong>não são isentos de imposto de renda</strong>.
                         Esses recebem apenas um abatimento no valor final.
+                        <ondeencontrar-component>
+                            <li>Portaria de Isenção de Imposto de Renda</li>
+                            <li>Ficha de Controle</li>
+                            <li>Título de Pensão</li>
+                            <li>Apostila de Pensão</li>
+                        </ondeencontrar-component>
                     </p>
                 </ajuda-component>
                 <section class="question_body">
@@ -176,7 +176,7 @@
                         Deve ser selecionado o Posto/ Graduação em que o
                         examinado recebe o soldo. No caso dos miltiares da
                         ativa, o P/G para soldo e P/G Real são os mesmos,
-                        entretanto, no caso dos Militares Inativos e
+                        entretanto, no caso dos Militares Veteranos e
                         Pensionistas, essas informações poderão ser difirentes.
                         <ondeencontrar-component>
                             <li>Ficha de Controle</li>
@@ -281,12 +281,12 @@
                             São duas opções, a primeira "Normal/Integral"
                             significa que o examinado recebe o valor do seu
                             soldo por completo, normalmente militares da ativa,
-                            inativos que completaram o tempo mínimo para reserva
-                            e seus pensionistas recebem essa categoria de soldo.
-                            A categoria " Soldo Proporcional para Cota" é
-                            devida, normalmente, aos militares que fora para a
-                            reserva antes do tempo mínimo, como no caso de
-                            militares reformados por ser julgado incapaz
+                            veterenos que completaram o tempo mínimo para
+                            reserva e seus pensionistas recebem essa categoria
+                            de soldo. A categoria " Soldo Proporcional para
+                            Cota" é devida, normalmente, aos militares que fora
+                            para a reserva antes do tempo mínimo, como no caso
+                            de militares reformados por ser julgado incapaz
                             definitivamente. <br /><br />
                             <strong>Referência: </strong>
                             <a
@@ -985,13 +985,13 @@
                             - O militar que retornar à ativa por convocação,
                             designação ou reinclusão, desde que há mais de seis
                             meses de inatividade
+                            <ondeencontrar-component>
+                                <li>
+                                    Analisando as datas de incorporação e
+                                    promoções do militar
+                                </li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>
-                                Analisando as datas de incorporação e promoções
-                                do militar
-                            </li>
-                        </ondeencontrar-component>
                     </ajuda-component>
 
                     <section class="question_body">
@@ -1056,16 +1056,17 @@
                             Este auxílio é devido aos Cabos e Soldados, da
                             ativa, quando entram de férias. São pagas 30 etapas,
                             no valor de R$ 9,00 cada.
+                            <ondeencontrar-component>
+                                <li>Boletim Interno/ Aditamento de férias</li>
+                                <li>
+                                    Analisando o
+                                    <i
+                                        title="Formulário de Alteração de Pagamento"
+                                        >FAP</i
+                                    >
+                                </li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Boletim Interno/ Aditamento de férias</li>
-                            <li>
-                                Analisando o
-                                <i title="Formulário de Alteração de Pagamento"
-                                    >FAP</i
-                                >
-                            </li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1339,11 +1340,11 @@
                                 target="_BLANK"
                                 >Lei nº 6.880, de 9 de dezembro de 1980.</a
                             >
+                            <ondeencontrar-component>
+                                <li>Título de pensão</li>
+                                <li>Apostila de pensão</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Título de pensão</li>
-                            <li>Apostila de pensão</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1429,12 +1430,12 @@
                                 target="_BLANK"
                                 >Lei nº 13.954, de 16 de dezembro de 2019.</a
                             >
+                            <ondeencontrar-component>
+                                <li>Ficha de controle</li>
+                                <li>Título de pensão</li>
+                                <li>Índice remissivo</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Ficha de controle</li>
-                            <li>Título de pensão</li>
-                            <li>Índice remissivo</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1483,12 +1484,12 @@
                             aproveitamento dos cursos e estágios de formação ou
                             adaptação de oficiais e praças, realizados nas
                             organizações militares das Forças Armadas.
+                            <ondeencontrar-component>
+                                <li>Ficha de controle</li>
+                                <li>Título de pensão</li>
+                                <li>Índice remissivo</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Ficha de controle</li>
-                            <li>Título de pensão</li>
-                            <li>Índice remissivo</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1532,12 +1533,12 @@
                             compensação de desgaste orgânico resultante do
                             desempenho continuado de atividades especiais de
                             voo.
+                            <ondeencontrar-component>
+                                <li>Ficha de controle</li>
+                                <li>Título de pensão</li>
+                                <li>Índice remissivo</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Ficha de controle</li>
-                            <li>Título de pensão</li>
-                            <li>Índice remissivo</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1628,12 +1629,12 @@
                             Os percentuais acima mencionados são acumuláveis
                             entre si.
                             <br />
+                            <ondeencontrar-component>
+                                <li>Ficha de controle</li>
+                                <li>Título de pensão</li>
+                                <li>Índice remissivo</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Ficha de controle</li>
-                            <li>Título de pensão</li>
-                            <li>Índice remissivo</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1661,7 +1662,7 @@
                         <p>
                             A prestação de tarefa por tempo certo é a execução
                             de atividades de natureza militar, atribuídas ao
-                            militar inativo, justificada pela necessidade do
+                            militar veterano, justificada pela necessidade do
                             serviço, de caráter voluntário e por um período
                             previamente especificado e limitado. Para isso, o
                             militar nomeado receberá o Adicional PTTC de 30%
@@ -1757,14 +1758,14 @@
                             (<strong>S</strong>olicitação de
                             <strong>A</strong>uxílio
                             <strong>T</strong>ransporte).
+                            <ondeencontrar-component>
+                                <li>
+                                    SAT (<strong>S</strong>olicitação de
+                                    <strong>A</strong>uxílio
+                                    <strong>T</strong>ransporte)
+                                </li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>
-                                SAT (<strong>S</strong>olicitação de
-                                <strong>A</strong>uxílio
-                                <strong>T</strong>ransporte)
-                            </li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -1839,12 +1840,12 @@
                             Exemplo: Parto de trigêmeos ou adoção de 3 (três)
                             crianças: 1 soldo e 50% (1º filho) + 50% (2º filho)
                             + 50% (3º filho) = 2,5 soldos;
-                        </p>
 
-                        <ondeencontrar-component>
-                            <li>Publicações em Boletim Interno</li>
-                            <li>Certidão de nascimento</li>
-                        </ondeencontrar-component>
+                            <ondeencontrar-component>
+                                <li>Publicações em Boletim Interno</li>
+                                <li>Certidão de nascimento</li>
+                            </ondeencontrar-component>
+                        </p>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -2123,10 +2124,10 @@
 
                             <br />
                             <br />
+                            <ondeencontrar-component>
+                                <li>Título de pensão</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Título de pensão</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
 
                     <section class="question_body">
@@ -2196,12 +2197,12 @@
                             Também contribui, obrigatoriamente, a pensionista
                             que era esposa do instituidor da pensão e esse optou
                             em  contribuir com este desconto adicional.
+                            <ondeencontrar-component>
+                                <li>Ficha de controle</li>
+                                <li>Título de pensão</li>
+                                <li>Índice remissivo</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Ficha de controle</li>
-                            <li>Título de pensão</li>
-                            <li>Índice remissivo</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -2244,10 +2245,10 @@
                                 >vitalícia (pensão não tem data para
                                 encerrar)</strong
                             >.
+                            <ondeencontrar-component>
+                                <li>Título de pensão</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>Título de pensão</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -2359,10 +2360,10 @@
                             uso terá o valor mensal correspondente ao percentual
                             de 3,5% (três vírgula cinco por cento) sobre o soldo
                             do permissionário.
+                            <ondeencontrar-component>
+                                <li>PHPM do militar</li>
+                            </ondeencontrar-component>
                         </p>
-                        <ondeencontrar-component>
-                            <li>PHPM do militar</li>
-                        </ondeencontrar-component>
                     </ajuda-component>
                     <section class="question_body">
                         <div class="question_title">
@@ -3104,7 +3105,7 @@ export default {
                 this.compl_ct_soldo = "0";
                 this.form_dp_excmb_art_9 = false;
                 this.dp_excmb_art_9 = "0";
-            } else if (newValue == "inativo") {
+            } else if (newValue == "veterano") {
                 this.form_soldo_cota = false;
                 this.soldo_cota_porcentagem = "100.00";
                 this.form_soldo_prop_cota = true;

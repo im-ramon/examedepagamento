@@ -240,8 +240,8 @@ export default {
         formataUniverso(v) {
             if (v == "ativa") {
                 return "Ativa";
-            } else if (v == "inativo") {
-                return "Inativo";
+            } else if (v == "veterano") {
+                return "Veterano";
             } else if (v == "pens_mil") {
                 return "Pensionista Militar";
             } else if (v == "pens_excmbt_2ten") {
