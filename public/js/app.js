@@ -10485,6 +10485,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10645,9 +10646,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       next();
     }
   },
-  watch: {
-    universo: function universo(newValue, oldValue) {
-      if (newValue == "ativa") {
+  methods: {
+    trocaUniverso: function trocaUniverso() {
+      if (this.universo == "ativa") {
         this.form_soldo_cota = false;
         this.soldo_cota_porcentagem = "100.00";
         this.form_soldo_prop_cota = false;
@@ -10656,7 +10657,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.compl_ct_soldo = "0";
         this.form_dp_excmb_art_9 = false;
         this.dp_excmb_art_9 = "0";
-      } else if (newValue == "veterano") {
+      } else if (this.universo == "veterano") {
         this.form_soldo_cota = false;
         this.soldo_cota_porcentagem = "100.00";
         this.form_soldo_prop_cota = true;
@@ -10665,7 +10666,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.compl_ct_soldo = "0";
         this.form_dp_excmb_art_9 = false;
         this.dp_excmb_art_9 = "0";
-      } else if (newValue == "pens_mil") {
+      } else if (this.universo == "pens_mil") {
         this.form_soldo_cota = true;
         this.soldo_cota_porcentagem = "100.00";
         this.form_soldo_prop_cota = true;
@@ -10674,7 +10675,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.compl_ct_soldo = "0";
         this.form_dp_excmb_art_9 = false;
         this.dp_excmb_art_9 = "0";
-      } else if (newValue == "pens_excmbt_2ten" || newValue == "pens_excmbt_2sgt") {
+      } else if (this.universo == "pens_excmbt_2ten" || this.universo == "pens_excmbt_2sgt") {
         this.form_soldo_cota = true;
         this.soldo_cota_porcentagem = "100.00";
         this.form_soldo_prop_cota = true;
@@ -10684,9 +10685,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.form_dp_excmb_art_9 = true;
         this.dp_excmb_art_9 = "0";
       }
-    }
-  },
-  methods: {
+    },
     dadosIndisponiveisLista_push: function dadosIndisponiveisLista_push(item) {
       this.dadosIndisponiveisLista.push(item);
     },
@@ -38766,19 +38765,24 @@ var render = function () {
                       ],
                       attrs: { name: "universo", id: "tipo_soldo" },
                       on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.universo = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
+                        change: [
+                          function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.universo = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function ($event) {
+                            return _vm.trocaUniverso()
+                          },
+                        ],
                       },
                     },
                     [

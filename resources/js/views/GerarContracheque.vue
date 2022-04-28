@@ -29,6 +29,7 @@
                             name="universo"
                             v-model="universo"
                             id="tipo_soldo"
+                            @change="trocaUniverso()"
                         >
                             <option value="ativa">Militar da Ativa</option>
                             <option value="veterano">Militar Veterano</option>
@@ -3094,9 +3095,9 @@ export default {
             next();
         }
     },
-    watch: {
-        universo(newValue, oldValue) {
-            if (newValue == "ativa") {
+    methods: {
+        trocaUniverso() {
+            if (this.universo == "ativa") {
                 this.form_soldo_cota = false;
                 this.soldo_cota_porcentagem = "100.00";
                 this.form_soldo_prop_cota = false;
@@ -3105,7 +3106,7 @@ export default {
                 this.compl_ct_soldo = "0";
                 this.form_dp_excmb_art_9 = false;
                 this.dp_excmb_art_9 = "0";
-            } else if (newValue == "veterano") {
+            } else if (this.universo == "veterano") {
                 this.form_soldo_cota = false;
                 this.soldo_cota_porcentagem = "100.00";
                 this.form_soldo_prop_cota = true;
@@ -3114,7 +3115,7 @@ export default {
                 this.compl_ct_soldo = "0";
                 this.form_dp_excmb_art_9 = false;
                 this.dp_excmb_art_9 = "0";
-            } else if (newValue == "pens_mil") {
+            } else if (this.universo == "pens_mil") {
                 this.form_soldo_cota = true;
                 this.soldo_cota_porcentagem = "100.00";
                 this.form_soldo_prop_cota = true;
@@ -3124,8 +3125,8 @@ export default {
                 this.form_dp_excmb_art_9 = false;
                 this.dp_excmb_art_9 = "0";
             } else if (
-                newValue == "pens_excmbt_2ten" ||
-                newValue == "pens_excmbt_2sgt"
+                this.universo == "pens_excmbt_2ten" ||
+                this.universo == "pens_excmbt_2sgt"
             ) {
                 this.form_soldo_cota = true;
                 this.soldo_cota_porcentagem = "100.00";
@@ -3137,8 +3138,6 @@ export default {
                 this.dp_excmb_art_9 = "0";
             }
         },
-    },
-    methods: {
         dadosIndisponiveisLista_push(item) {
             this.dadosIndisponiveisLista.push(item);
         },
