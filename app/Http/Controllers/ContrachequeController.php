@@ -371,9 +371,9 @@ class ContrachequeController extends Controller
     private function gratLocEsp($formulario)
     {
         if ($formulario["grat_loc_esp"] == 'A') {
-            $this->push('receitas', 'grat_loc_esp', ($this->soldo_base['valor'] * 0.2), 'GRAT LOC ESP A', 'ir', '13S', 'pttc', 'descontos');
+            $this->push('receitas', 'grat_loc_esp', ($this->soldo_base['valor'] * 0.2), 'GRAT LOC ESP A', 'ir', '13S', 'pttc', 'n_descontos');
         } elseif ($formulario["grat_loc_esp"] == 'B') {
-            $this->push('receitas', 'grat_loc_esp', ($this->soldo_base['valor'] * 0.1), 'GRAT LOC ESP B', 'ir', '13S', 'pttc', 'descontos');
+            $this->push('receitas', 'grat_loc_esp', ($this->soldo_base['valor'] * 0.1), 'GRAT LOC ESP B', 'ir', '13S', 'pttc', 'n_descontos');
         }
     }
 
@@ -389,7 +389,7 @@ class ContrachequeController extends Controller
     {
         if ($formulario["adic_pttc"] == 1) {
             $base = $this->truncar($this->adic_pttc * 0.3);
-            $this->push('receitas', 'adic_pttc', $base, 'ADICIONAL PTTC', 'ir', '13S', 'n_pttc', 'descontos');
+            $this->push('receitas', 'adic_pttc', $base, 'ADICIONAL PTTC', 'ir', '13S', 'n_pttc', 'n_descontos');
         }
     }
 
