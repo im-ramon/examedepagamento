@@ -192,7 +192,7 @@ class ContrachequeController extends Controller
                 $tipos = $value['tipo'] == 1 ? 'receitas' : 'descontos';
                 $abrev = strtolower($value['descricao']);
                 $abrev = '_' . str_replace(" ", "_", $abrev);
-                $valor = intval($value['valor']);
+                $valor = floatval($value['valor']);
                 $rubrica = strtoupper($value['descricao']);
                 $ir = $value['tributavel'] == 1 ? 'ir' : 'n_ir';
                 $adicNatal = '13N';
