@@ -493,8 +493,6 @@ export default {
             let data = [];
             for (const key in this.$store.state.dadosFinanceiros.descontos) {
                 if (
-                    this.$store.state.dadosFinanceiros.descontos[key].financeiro
-                        .valor > 0 &&
                     this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
                         "DESCONTOS TOTAL" &&
                     this.$store.state.dadosFinanceiros.descontos[key].rubrica !=
@@ -533,8 +531,6 @@ export default {
             let data = [];
             for (const key in this.$store.state.dadosFinanceiros.receitas) {
                 if (
-                    this.$store.state.dadosFinanceiros.receitas[key].financeiro
-                        .valor > 0 &&
                     this.$store.state.dadosFinanceiros.receitas[key].rubrica !=
                         "BRUTO TOTAL" &&
                     this.$store.state.dadosFinanceiros.receitas[key].rubrica !=

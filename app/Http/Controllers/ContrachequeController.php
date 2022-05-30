@@ -581,39 +581,70 @@ class ContrachequeController extends Controller
 
     private function pensJudiciaria($formulario)
     {
-        $this->push('descontos', 'pens_judiciaria_1', ($formulario["pens_judiciaria_1"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_2', ($formulario["pens_judiciaria_2"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_3', ($formulario["pens_judiciaria_3"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_4', ($formulario["pens_judiciaria_4"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_5', ($formulario["pens_judiciaria_5"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_6', ($formulario["pens_judiciaria_6"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        if ($formulario["pens_judiciaria_1"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_1', ($formulario["pens_judiciaria_1"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_2"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_2', ($formulario["pens_judiciaria_2"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_3"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_3', ($formulario["pens_judiciaria_3"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_4"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_4', ($formulario["pens_judiciaria_4"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_5"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_5', ($formulario["pens_judiciaria_5"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_6"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_6', ($formulario["pens_judiciaria_6"] / 1), 'PENS JUDICIARIA', 'ir', '13N', 'n_ptcc', 'n_descontos');
+        }
 
-        $this->push('descontos', 'pens_judiciaria_adic_natal_1', ($formulario["pens_judiciaria_adic_natal_1"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_adic_natal_2', ($formulario["pens_judiciaria_adic_natal_2"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_adic_natal_3', ($formulario["pens_judiciaria_adic_natal_3"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_adic_natal_4', ($formulario["pens_judiciaria_adic_natal_4"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_adic_natal_5', ($formulario["pens_judiciaria_adic_natal_5"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
-        $this->push('descontos', 'pens_judiciaria_adic_natal_6', ($formulario["pens_judiciaria_adic_natal_6"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        if ($formulario["pens_judiciaria_adic_natal_1"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_adic_natal_1', ($formulario["pens_judiciaria_adic_natal_1"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_adic_natal_2"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_adic_natal_2', ($formulario["pens_judiciaria_adic_natal_2"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_adic_natal_3"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_adic_natal_3', ($formulario["pens_judiciaria_adic_natal_3"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_adic_natal_4"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_adic_natal_4', ($formulario["pens_judiciaria_adic_natal_4"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_adic_natal_5"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_adic_natal_5', ($formulario["pens_judiciaria_adic_natal_5"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        }
+        if ($formulario["pens_judiciaria_adic_natal_6"] > 0) {
+            $this->push('descontos', 'pens_judiciaria_adic_natal_6', ($formulario["pens_judiciaria_adic_natal_6"] / 1), 'PENS JUDICIARIA 13º', 'ir_natal', '13N', 'n_ptcc', 'n_descontos');
+        }
     }
 
     private function impostoRendaMensal($formulario)
     {
         if (!$formulario["isento_ir"]) {
-            $this->push('descontos', 'imposto_renda_mensal', ($this->impostoRenda($this->bruto_ir,  $this->abatimentos_ir, $formulario["imposto_renda_dep"], $formulario["maior_65"])), 'IMPOSTO DE RENDA', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            $valor = ($this->impostoRenda($this->bruto_ir,  $this->abatimentos_ir, $formulario["imposto_renda_dep"], $formulario["maior_65"]));
+            $this->push('descontos', 'imposto_renda_mensal', $valor, 'IMPOSTO DE RENDA', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
         }
     }
 
     private function impostoRendaAdicNatal($formulario)
     {
         if (!$formulario["isento_ir"] and isset($this->calculos['receitas']['adic_natalino']['financeiro']['valor']) and isset($this->calculos['descontos']['adic_natalino_valor_adiantamento']['financeiro']['valor'])) {
-            $this->push('descontos', 'imposto_renda_mensal', ($this->impostoRenda($this->calculos['receitas']['adic_natalino']['financeiro']['valor'],  $this->abatimentos_ir_adic_natal, $formulario["imposto_renda_dep"], $formulario["maior_65"])), 'IRPF - ADIC NATAL', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            $valor = ($this->impostoRenda($this->calculos['receitas']['adic_natalino']['financeiro']['valor'],  $this->abatimentos_ir_adic_natal, $formulario["imposto_renda_dep"], $formulario["maior_65"]));
+            if ($valor > 0) {
+                $this->push('descontos', 'imposto_renda_mensal', $valor, 'IRPF - ADIC NATAL', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            }
         }
     }
 
     private function impostoRendaAdicFerias($formulario)
     {
         if (!$formulario["isento_ir"] and isset($this->calculos['receitas']['adic_ferias']['financeiro']['valor'])) {
-            $this->push('descontos', 'imposto_renda_adic_ferias', ($this->impostoRenda($this->calculos['receitas']['adic_ferias']['financeiro']['valor'],  $this->abatimentos_ir, $formulario["imposto_renda_dep"], $formulario["maior_65"])), 'IRRF-ADIC FERIAS', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            $valor = ($this->impostoRenda($this->calculos['receitas']['adic_ferias']['financeiro']['valor'],  $this->abatimentos_ir, $formulario["imposto_renda_dep"], $formulario["maior_65"]));
+            if ($valor > 0) {
+                $this->push('descontos', 'imposto_renda_adic_ferias', $valor, 'IRRF-ADIC FERIAS', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            }
         }
     }
 }

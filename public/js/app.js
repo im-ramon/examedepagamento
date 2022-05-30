@@ -7355,7 +7355,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = [];
 
       for (var key in this.$store.state.dadosFinanceiros.descontos) {
-        if (this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS TOTAL" && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS PARA IR") {
+        if (this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS TOTAL" && this.$store.state.dadosFinanceiros.descontos[key].rubrica != "DESCONTOS PARA IR") {
           if (!this.$store.state.contrachequeAtivo) {
             this.valorContrachequeDescontos.push(this.$store.state.dadosFinanceiros.descontos[key].financeiro.valor.toLocaleString("pt-BR", {
               style: "currency",
@@ -7384,7 +7384,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = [];
 
       for (var key in this.$store.state.dadosFinanceiros.receitas) {
-        if (this.$store.state.dadosFinanceiros.receitas[key].financeiro.valor > 0 && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO TOTAL" && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO PARA IR") {
+        if (this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO TOTAL" && this.$store.state.dadosFinanceiros.receitas[key].rubrica != "BRUTO PARA IR") {
           if (this.$store.state.contrachequeAtivo) {
             this.recuperaArrayValorDoContracheque();
             this.recuperaObservacoes();
