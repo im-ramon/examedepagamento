@@ -44,6 +44,7 @@ Vue.component('ondeencontrar-component', require('./components/OndeEncontrar.vue
 Vue.component('loading-component', require('./components/Loading.vue').default);
 Vue.component('botao-component', require('./components/Botao.vue').default);
 Vue.component('welcome-component', require('./views/Welcome.vue').default);
+Vue.component('register-component', require('./views/Register.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
