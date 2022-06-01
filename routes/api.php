@@ -18,12 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get(
-    '/',
-    function (Request $request) {
-        return ['foi' => 'sim'];
-    }
-);
 Route::middleware('jwt.auth')->group(function () {
     // Route::resource('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController');
     Route::get('ficha-auxiliar', 'App\Http\Controllers\ContrachequeController@gerarContracheque');
@@ -38,4 +32,5 @@ Route::middleware('jwt.auth')->group(function () {
 });
 
 Route::post('login', 'App\Http\Controllers\AuthController@login');
+Route::post('register', 'App\Http\Controllers\AuthController@register');
 Route::get('legislacao', 'App\Http\Controllers\LegislacaoController@index');

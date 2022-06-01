@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('om', 255)->default('-');
             $table->string('local_assinatura', 255)->default('-');
             $table->integer('userType')->default(2);
+            $table->date('expires')->default('full');
             $table->rememberToken();
             $table->timestamps();
         });
