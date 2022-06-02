@@ -29,7 +29,7 @@
                 <form method="POST" @submit.prevent="singup()">
                     <input type="hidden" name="_token" />
                     <fieldset>
-                        <legend>Dados do Examinador</legend>
+                        <legend>Dados do usuário/ examinador</legend>
                         <div class="auth_form-inputarea">
                             <label
                                 for="name"
@@ -167,7 +167,7 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend>Dados do Chefe da equipe</legend>
+                        <legend>Dados do chefe da equipe</legend>
                         <div class="auth_form-inputarea">
                             <label
                                 for="ch_equipe_name"
@@ -246,7 +246,7 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend>Dados complementares</legend>
+                        <legend>Dados complementares para assinaturas</legend>
                         <div class="auth_form-inputarea">
                             <label
                                 for="om"
@@ -384,7 +384,7 @@ export default {
                         this.abrirModal(
                             1,
                             "Tudo certo por aqui!",
-                            `O usuário foi criando com sucesso. Volte à página inicial para realizar o login.`
+                            `O usuário foi criado com sucesso. Volte à página inicial para realizar o login.`
                         );
                     })
                     .catch(() => {

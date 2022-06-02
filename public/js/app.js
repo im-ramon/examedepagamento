@@ -12071,7 +12071,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.usuarioRegistrado = r.data;
           _this2.erro = false;
 
-          _this2.abrirModal(1, "Tudo certo por aqui!", "O usu\xE1rio foi criando com sucesso. Volte \xE0 p\xE1gina inicial para realizar o login.");
+          _this2.abrirModal(1, "Tudo certo por aqui!", "O usu\xE1rio foi criado com sucesso. Volte \xE0 p\xE1gina inicial para realizar o login.");
         })["catch"](function () {
           _this2.erro = true;
           _this2.usuarioRegistrado = {};
@@ -47456,7 +47456,7 @@ var render = function () {
               _c("input", { attrs: { type: "hidden", name: "_token" } }),
               _vm._v(" "),
               _c("fieldset", [
-                _c("legend", [_vm._v("Dados do Examinador")]),
+                _c("legend", [_vm._v("Dados do usuário/ examinador")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "auth_form-inputarea" }, [
                   _c(
@@ -47807,7 +47807,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("fieldset", [
-                _c("legend", [_vm._v("Dados do Chefe da equipe")]),
+                _c("legend", [_vm._v("Dados do chefe da equipe")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "auth_form-inputarea" }, [
                   _c(
@@ -48036,7 +48036,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("fieldset", [
-                _c("legend", [_vm._v("Dados complementares")]),
+                _c("legend", [_vm._v("Dados complementares para assinaturas")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "auth_form-inputarea" }, [
                   _c(
