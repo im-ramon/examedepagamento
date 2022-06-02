@@ -42,9 +42,9 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
+  background: #f1f4fb;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  height: 100vh;
 }
 
 #home {
@@ -138,7 +138,6 @@ aside#sidebar {
   background: white;
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 2em 1em;
   position: relative;
   width: 360px;
@@ -617,6 +616,7 @@ form#formulario {
 .auth_form-view {
   background: #f1f4fb;
   width: 100%;
+  height: 100%;
   display: flex;
   padding: 2em;
   align-items: center;
@@ -625,7 +625,6 @@ form#formulario {
 }
 .auth_form-view .logo {
   margin: 1.7em 0;
-  cursor: pointer;
 }
 .auth_form-view .logo a {
   display: flex;
@@ -658,6 +657,11 @@ form#formulario {
   padding-bottom: 9px;
 }
 
+.cadastrar {
+  margin-top: 1em;
+  text-align: center;
+}
+
 .auth_form-body {
   width: 100%;
 }
@@ -677,15 +681,15 @@ form#formulario {
 .auth_form-body form fieldset legend {
   font-weight: bold;
 }
-.auth_form-body form fieldset .auth_form-inputarea {
+.auth_form-body form .auth_form-inputarea {
   display: flex;
   width: 100%;
   margin-bottom: 1.2em;
   position: relative;
   flex-direction: column;
 }
-.auth_form-body form fieldset .auth_form-inputarea input,
-.auth_form-body form fieldset .auth_form-inputarea select {
+.auth_form-body form .auth_form-inputarea input,
+.auth_form-body form .auth_form-inputarea select {
   border-radius: 6px;
   border: 1px solid #c5c5c5;
   width: 90%;
@@ -694,18 +698,18 @@ form#formulario {
   background: #e1e1e154;
   transition: border-color 0.3s ease-in-out;
 }
-.auth_form-body form fieldset .auth_form-inputarea input:active, .auth_form-body form fieldset .auth_form-inputarea input:focus,
-.auth_form-body form fieldset .auth_form-inputarea select:active,
-.auth_form-body form fieldset .auth_form-inputarea select:focus {
+.auth_form-body form .auth_form-inputarea input:active, .auth_form-body form .auth_form-inputarea input:focus,
+.auth_form-body form .auth_form-inputarea select:active,
+.auth_form-body form .auth_form-inputarea select:focus {
   outline: none;
   transition: border-color 0.3s ease-in-out;
   border-color: rgba(0, 0, 0, 0.658);
 }
-.auth_form-body form fieldset .auth_form-inputarea input:invalid,
-.auth_form-body form fieldset .auth_form-inputarea select:invalid {
+.auth_form-body form .auth_form-inputarea input:invalid,
+.auth_form-body form .auth_form-inputarea select:invalid {
   background: rgba(255, 0, 0, 0.219);
 }
-.auth_form-body form fieldset .auth_form-inputarea #iconeeye {
+.auth_form-body form .auth_form-inputarea #iconeeye {
   position: absolute;
   right: 8px;
   top: 2px;
@@ -729,6 +733,23 @@ form#formulario {
 .auth_form-body form button[type=submit]:hover {
   transform: scale(1.02);
   transition: 0.3s transform ease-in-out;
+}
+.auth_form-body.login form .auth_form-inputarea {
+  width: 50%;
+  min-width: 220px;
+}
+.auth_form-body.login form .auth_form-inputarea #iconeeye {
+  position: absolute;
+  right: 8px;
+  top: 2px;
+  cursor: pointer;
+  width: 25px;
+}
+
+.senha_errada {
+  color: #d9534f;
+  width: 100%;
+  text-align: center;
 }
 
 .perfil_container {
@@ -1741,6 +1762,7 @@ label {
   aside#sidebar {
     z-index: 50;
     position: fixed;
+    height: 100%;
   }
 
   #contrachequeAtivo {

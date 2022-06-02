@@ -91,9 +91,10 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
+    background: $cinza-1;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    height: 100vh;
+    // height: 100vh;
 }
 
 #home {
@@ -181,7 +182,6 @@ aside#sidebar {
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    height: 100%;
     padding: 2em 1em;
     position: relative;
     width: 360px;
@@ -696,6 +696,7 @@ form#formulario {
 .auth_form-view {
     background: $cinza-1;
     width: 100%;
+    height: 100%;
     display: flex;
     padding: 2em;
     align-items: center;
@@ -704,8 +705,6 @@ form#formulario {
 
     .logo {
         margin: 1.7em 0;
-        cursor: pointer;
-
         a {
             display: flex;
             align-items: center;
@@ -739,6 +738,11 @@ form#formulario {
     padding-bottom: 9px;
 }
 
+.cadastrar {
+    margin-top: 1em;
+    text-align: center;
+}
+
 .auth_form-body {
     width: 100%;
 
@@ -758,43 +762,43 @@ form#formulario {
             legend {
                 font-weight: bold;
             }
+        }
 
-            .auth_form-inputarea {
-                display: flex;
-                width: 100%;
-                margin-bottom: 1.2em;
-                position: relative;
-                flex-direction: column;
+        .auth_form-inputarea {
+            display: flex;
+            width: 100%;
+            margin-bottom: 1.2em;
+            position: relative;
+            flex-direction: column;
 
-                input,
-                select {
-                    border-radius: $borderRadius;
-                    border: 1px solid $cinza-transparente;
-                    width: 90%;
-                    height: 30px;
-                    text-indent: 1em;
-                    background: #e1e1e154;
+            input,
+            select {
+                border-radius: $borderRadius;
+                border: 1px solid $cinza-transparente;
+                width: 90%;
+                height: 30px;
+                text-indent: 1em;
+                background: #e1e1e154;
+                transition: border-color 0.3s ease-in-out;
+
+                &:active,
+                &:focus {
+                    outline: none;
                     transition: border-color 0.3s ease-in-out;
-
-                    &:active,
-                    &:focus {
-                        outline: none;
-                        transition: border-color 0.3s ease-in-out;
-                        border-color: rgba(0, 0, 0, 0.658);
-                    }
-
-                    &:invalid {
-                        background: rgba(255, 0, 0, 0.219);
-                    }
+                    border-color: rgba(0, 0, 0, 0.658);
                 }
 
-                #iconeeye {
-                    position: absolute;
-                    right: 8px;
-                    top: 2px;
-                    cursor: pointer;
-                    width: 25px;
+                &:invalid {
+                    background: rgba(255, 0, 0, 0.219);
                 }
+            }
+
+            #iconeeye {
+                position: absolute;
+                right: 8px;
+                top: 2px;
+                cursor: pointer;
+                width: 25px;
             }
         }
 
@@ -818,6 +822,29 @@ form#formulario {
             }
         }
     }
+
+    &.login {
+        form {
+            .auth_form-inputarea {
+                width: 50%;
+                min-width: 220px;
+
+                #iconeeye {
+                    position: absolute;
+                    right: 8px;
+                    top: 2px;
+                    cursor: pointer;
+                    width: 25px;
+                }
+            }
+        }
+    }
+}
+
+.senha_errada {
+    color: $danger;
+    width: 100%;
+    text-align: center;
 }
 
 .perfil_container {
@@ -1840,6 +1867,7 @@ label {
     aside#sidebar {
         z-index: 50;
         position: fixed;
+        height: 100%;
     }
     #contrachequeAtivo {
         flex-direction: column;

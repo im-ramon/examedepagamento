@@ -14,7 +14,7 @@
             </modal-geral>
         </transition>
         <div class="logo">
-            <a href="/">
+            <a href="/" title="Voltar à página inicial">
                 <img
                     src="/image/logo.png"
                     alt="Logo Exame de Pagamento"
@@ -301,6 +301,10 @@
                 </form>
             </div>
         </div>
+        <span class="cadastrar">
+            Voltar à página de
+            <a href="/login">Login</a>
+        </span>
     </div>
 </template>
 

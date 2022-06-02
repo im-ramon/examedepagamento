@@ -11516,18 +11516,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["token_csrf"],
   data: function data() {
@@ -11547,8 +11535,7 @@ __webpack_require__.r(__webpack_exports__);
       this.isWrongPassWord = false;
       var path = window.location.href;
       path = "".concat(path.split("/")[0], "//").concat(path.split("/")[1]).concat(path.split("/")[2]);
-      var url = "".concat(path, "/api/login"); // let url = "http://localhost:8000/api/login";
-
+      var url = "".concat(path, "/api/login");
       var config = {
         method: "post",
         body: new URLSearchParams({
@@ -11705,6 +11692,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
 //
 //
 //
@@ -47012,13 +47003,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "login_view" }, [
+  return _c("div", { staticClass: "auth_form-view" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "login_container" }, [
-      _c("div", { staticClass: "login_header" }, [_vm._v("Login")]),
+    _c("div", { staticClass: "auth_form-container" }, [
+      _c("div", { staticClass: "auth_form-header" }, [_vm._v("Login")]),
       _vm._v(" "),
-      _c("div", { staticClass: "login_body" }, [
+      _c("div", { staticClass: "auth_form-body login" }, [
         _c(
           "form",
           {
@@ -47036,7 +47027,7 @@ var render = function () {
               domProps: { value: _vm.token_csrf },
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "login_inputarea" }, [
+            _c("div", { staticClass: "auth_form-inputarea" }, [
               _c(
                 "label",
                 {
@@ -47076,7 +47067,7 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "login_inputarea" }, [
+            _c("div", { staticClass: "auth_form-inputarea" }, [
               _c(
                 "label",
                 {
@@ -47183,40 +47174,40 @@ var render = function () {
                       },
                     },
                   }),
-              _vm._v(" "),
-              _c("img", {
-                attrs: {
-                  src: _vm.seepassword
-                    ? "/svg/eye-open.svg"
-                    : "/svg/eye-slashed.svg",
-                  alt: "ver senha",
-                  id: "iconeeye",
-                  title: "Visualizar senha",
-                },
-                on: {
-                  click: function ($event) {
-                    _vm.seepassword = !_vm.seepassword
-                  },
-                },
-              }),
             ]),
             _vm._v(" "),
-            _vm.loading
-              ? _c("img", {
-                  staticClass: "icon_loading",
-                  attrs: {
-                    src: "/svg/loading.svg",
-                    alt: "Ícone de carregamento",
+            _c("img", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.loading,
+                  expression: "loading",
+                },
+              ],
+              staticClass: "icon_loading",
+              attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: !_vm.loading,
+                    expression: "!loading",
                   },
-                })
-              : _c(
-                  "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                  [_vm._v("\n                    Login\n                ")]
-                ),
+                ],
+                staticClass: "btn btn-primary",
+                attrs: { type: "submit" },
+              },
+              [_vm._v("\n                    Entrar\n                ")]
+            ),
             _vm._v(" "),
             _vm.isWrongPassWord
-              ? _c("p", { staticStyle: { color: "red" } }, [
+              ? _c("p", { staticClass: "senha_errada" }, [
                   _vm._v(
                     "\n                    Senha e/ou login incorreto(s). Tente novamente.\n                "
                   ),
@@ -47226,6 +47217,8 @@ var render = function () {
         ),
       ]),
     ]),
+    _vm._v(" "),
+    _vm._m(1),
   ])
 }
 var staticRenderFns = [
@@ -47234,18 +47227,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "logo" }, [
-      _c("img", {
-        attrs: {
-          src: "/image/logo.png",
-          alt: "Logo Exame de Pagamento",
-          title: "App Exame de Pagamento",
-        },
-      }),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v("App | "),
-        _c("strong", [_vm._v("Exame de Pagamento")]),
+      _c("a", { attrs: { href: "/", title: "Voltar à página inicial" } }, [
+        _c("img", {
+          attrs: {
+            src: "/image/logo.png",
+            alt: "Logo Exame de Pagamento",
+            title: "App Exame de Pagamento",
+          },
+        }),
+        _vm._v(" "),
+        _c("span", [
+          _vm._v("App | "),
+          _c("strong", [_vm._v("Exame de Pagamento")]),
+        ]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "cadastrar" }, [
+      _vm._v("\n        Não tem uma conta?\n        "),
+      _c("a", { attrs: { href: "/singup" } }, [_vm._v("Cadastre-se")]),
     ])
   },
 ]
@@ -48205,6 +48209,8 @@ var render = function () {
           ),
         ]),
       ]),
+      _vm._v(" "),
+      _vm._m(1),
     ],
     1
   )
@@ -48215,7 +48221,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "logo" }, [
-      _c("a", { attrs: { href: "/" } }, [
+      _c("a", { attrs: { href: "/", title: "Voltar à página inicial" } }, [
         _c("img", {
           attrs: {
             src: "/image/logo.png",
@@ -48229,6 +48235,15 @@ var staticRenderFns = [
           _c("strong", [_vm._v("Exame de Pagamento")]),
         ]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "cadastrar" }, [
+      _vm._v("\n        Voltar à página de\n        "),
+      _c("a", { attrs: { href: "/login" } }, [_vm._v("Login")]),
     ])
   },
 ]
