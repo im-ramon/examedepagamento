@@ -43,6 +43,7 @@ Vue.component('ajuda-component', require('./components/Ajuda.vue').default);
 Vue.component('ondeencontrar-component', require('./components/OndeEncontrar.vue').default);
 Vue.component('loading-component', require('./components/Loading.vue').default);
 Vue.component('botao-component', require('./components/Botao.vue').default);
+Vue.component('modal-geral', require('./components/ModalGeral.vue').default);
 Vue.component('welcome-component', require('./views/Welcome.vue').default);
 Vue.component('register-component', require('./views/Register.vue').default);
 
