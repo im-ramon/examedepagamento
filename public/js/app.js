@@ -12415,60 +12415,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -48300,8 +48246,10 @@ var render = function () {
                           _c("li", { staticClass: "first-li" }, [
                             _c("h3", [
                               _vm._v(
-                                "\n                                    Versão 1.1\n                                    "
+                                "\n                                    Versão 1.1 "
                               ),
+                              _c("i", [_vm._v("(beta)")]),
+                              _vm._v(" "),
                               _c("i", { staticClass: "data_lancamento" }, [
                                 _vm._v(
                                   "- Disponibilizada em 15/04/2022\n                                        -"
@@ -48318,11 +48266,11 @@ var render = function () {
                               _vm._v(" "),
                               _c("li", [
                                 _vm._v(
-                                  "\n                                        Todos documentos página de\n                                        "
+                                  "\n                                        Todos documentos da página de\n                                        "
                                 ),
                                 _c("strong", [_vm._v("legislação")]),
                                 _vm._v(
-                                  "\n                                        reformulados.\n                                    "
+                                  "\n                                        foram reformulados.\n                                    "
                                 ),
                               ]),
                               _vm._v(" "),
@@ -48354,8 +48302,10 @@ var render = function () {
                           _c("li", [
                             _c("h3", [
                               _vm._v(
-                                "\n                                    Versão 1.0\n                                    "
+                                "\n                                    Versão 1.0 "
                               ),
+                              _c("i", [_vm._v("(alpha)")]),
+                              _vm._v(" "),
                               _c("i", { staticClass: "data_lancamento" }, [
                                 _vm._v(
                                   "- Disponibilizada em 29/03/2022\n                                        -"
@@ -48512,97 +48462,13 @@ var render = function () {
                     ? _c("div", [
                         _c("div", { staticClass: "modal_item" }, [
                           _vm._v(
-                            "\n                            Para solicitar acesso ao\n                            "
+                            "\n                            Para utilizar o App Exame de Pagamento, basta\n                            acessar o link:\n                            "
                           ),
-                          _c("strong", [_vm._v("App Exame de Pagamento")]),
-                          _vm._v(
-                            " envie\n                            uma solicitação para o e-mail:\n                            "
-                          ),
-                          _c("strong", [
-                            _vm._v("suporte@examedepagamento.com.br"),
+                          _c("a", { attrs: { href: "/singup" } }, [
+                            _vm._v("www.examedepagamento.com.br/singup"),
                           ]),
                           _vm._v(
-                            "\n                            com os seguintes dados:\n                            "
-                          ),
-                          _c("ul", [
-                            _c("li", [
-                              _vm._v(
-                                "\n                                    Dados para acesso ao App:\n                                    "
-                              ),
-                              _c("ul", [
-                                _c("li", [_vm._v("Nome completo")]),
-                                _vm._v(" "),
-                                _c("li", [_vm._v("E-mail")]),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c("li", [
-                              _vm._v(
-                                "\n                                    Dados para confecção das\n                                    "
-                              ),
-                              _c("strong", [_vm._v("fichas auxiliares")]),
-                              _vm._v(":\n                                    "),
-                              _c("ul", [
-                                _c("li", [
-                                  _vm._v(
-                                    "\n                                            Nome completo para assinatura\n                                        "
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _vm._v(
-                                    "\n                                            Posto ou graduação do membro\n                                            responsável pela confecção\n                                        "
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _vm._v(
-                                    "\n                                            Nome completo do chefe da equipe\n                                        "
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [
-                                  _vm._v(
-                                    "\n                                            Posto ou graduação do chefe da\n                                            equipe\n                                        "
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("li", [_vm._v("OM")]),
-                                _vm._v(" "),
-                                _c("li", [_vm._v("Cidade da OM")]),
-                              ]),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "\n                                Assim que seu cadastro for aprovado será\n                                enviado um e-mail com as informações e\n                                instruções de acesso ao App.\n                            "
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "\n                                * Essas medidas são necessárias para\n                                controlar o acesso ao App, por ser uma\n                                aplicação gratuita, possui algumas\n                                limitações.\n                            "
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(
-                            "\n                            Para acessar o App\n                            "
-                          ),
-                          _c("strong", [
-                            _vm._v(
-                              "aguarde receber um e-mail avisando que seus\n                                dados foram cadastrados"
-                            ),
-                          ]),
-                          _vm._v(
-                            ". Depois, basta clicar no link de acesso, na\n                            página principal, ou acessar:\n                            "
-                          ),
-                          _c("strong", [
-                            _vm._v("www.examedepagamento.com.br/login"),
-                          ]),
-                          _vm._v(
-                            ", e informar suas credenciais de acesso.\n                        "
+                            "\n                            e realizar o seu cadastro!\n                        "
                           ),
                         ]),
                       ])
@@ -48650,11 +48516,11 @@ var render = function () {
                   attrs: { href: "#" },
                   on: {
                     click: function ($event) {
-                      return _vm.ativaModal("link1", "Solicitar acesso")
+                      return _vm.ativaModal("link1", "Como acessar")
                     },
                   },
                 },
-                [_vm._v("Solicitar acesso")]
+                [_vm._v("Como acessar")]
               ),
             ]),
             _vm._v(" "),

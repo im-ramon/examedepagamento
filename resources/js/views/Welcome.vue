@@ -16,7 +16,7 @@
                             <ul class="modal_item">
                                 <li class="first-li">
                                     <h3>
-                                        Versão 1.1
+                                        Versão 1.1 <i>(beta)</i>
                                         <i class="data_lancamento"
                                             >- Disponibilizada em 15/04/2022
                                             -</i
@@ -29,9 +29,9 @@
                                             disponíveis no App.
                                         </li>
                                         <li>
-                                            Todos documentos página de
+                                            Todos documentos da página de
                                             <strong>legislação</strong>
-                                            reformulados.
+                                            foram reformulados.
                                         </li>
                                         <li>
                                             Adicionado um
@@ -53,7 +53,7 @@
                                 </li>
                                 <li>
                                     <h3>
-                                        Versão 1.0
+                                        Versão 1.0 <i>(alpha)</i>
                                         <i class="data_lancamento"
                                             >- Disponibilizada em 29/03/2022
                                             -</i
@@ -171,64 +171,12 @@
 
                         <div v-if="paginaAtiva == 'link1'">
                             <div class="modal_item">
-                                Para solicitar acesso ao
-                                <strong>App Exame de Pagamento</strong> envie
-                                uma solicitação para o e-mail:
-                                <strong>suporte@examedepagamento.com.br</strong>
-                                com os seguintes dados:
-                                <ul>
-                                    <li>
-                                        Dados para acesso ao App:
-                                        <ul>
-                                            <li>Nome completo</li>
-                                            <li>E-mail</li>
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        Dados para confecção das
-                                        <strong>fichas auxiliares</strong>:
-                                        <ul>
-                                            <li>
-                                                Nome completo para assinatura
-                                            </li>
-                                            <li>
-                                                Posto ou graduação do membro
-                                                responsável pela confecção
-                                            </li>
-                                            <li>
-                                                Nome completo do chefe da equipe
-                                            </li>
-                                            <li>
-                                                Posto ou graduação do chefe da
-                                                equipe
-                                            </li>
-                                            <li>OM</li>
-                                            <li>Cidade da OM</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <p>
-                                    Assim que seu cadastro for aprovado será
-                                    enviado um e-mail com as informações e
-                                    instruções de acesso ao App.
-                                </p>
-                                <p>
-                                    * Essas medidas são necessárias para
-                                    controlar o acesso ao App, por ser uma
-                                    aplicação gratuita, possui algumas
-                                    limitações.
-                                </p>
-                                <br />
-                                Para acessar o App
-                                <strong
-                                    >aguarde receber um e-mail avisando que seus
-                                    dados foram cadastrados</strong
-                                >. Depois, basta clicar no link de acesso, na
-                                página principal, ou acessar:
-                                <strong
-                                    >www.examedepagamento.com.br/login</strong
-                                >, e informar suas credenciais de acesso.
+                                Para utilizar o App Exame de Pagamento, basta
+                                acessar o link:
+                                <a href="/singup"
+                                    >www.examedepagamento.com.br/singup</a
+                                >
+                                e realizar o seu cadastro!
                             </div>
                         </div>
 
@@ -258,10 +206,8 @@
             <div id="welcome_container">
                 <div id="menu-links">
                     <span>
-                        <a
-                            @click="ativaModal('link1', 'Solicitar acesso')"
-                            href="#"
-                            >Solicitar acesso</a
+                        <a @click="ativaModal('link1', 'Como acessar')" href="#"
+                            >Como acessar</a
                         >
                     </span>
                     <span>
