@@ -21,6 +21,6 @@ Route::get('/singup', function () {
     return view('singup');
 });
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/app', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
