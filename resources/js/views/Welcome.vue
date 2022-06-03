@@ -212,9 +212,9 @@
                     </span>
                     <span>
                         <a
-                            @click="ativaModal('link2', 'Como funciona?')"
+                            @click="ativaModal('link2', 'Como funciona')"
                             href="#"
-                            >Como funciona?</a
+                            >Como funciona</a
                         >
                     </span>
                     <span>

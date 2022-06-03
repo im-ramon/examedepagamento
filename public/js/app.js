@@ -48531,11 +48531,11 @@ var render = function () {
                   attrs: { href: "#" },
                   on: {
                     click: function ($event) {
-                      return _vm.ativaModal("link2", "Como funciona?")
+                      return _vm.ativaModal("link2", "Como funciona")
                     },
                   },
                 },
-                [_vm._v("Como funciona?")]
+                [_vm._v("Como funciona")]
               ),
             ]),
             _vm._v(" "),
