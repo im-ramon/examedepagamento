@@ -2860,7 +2860,7 @@
                             <label>Não</label>
                         </div>
 
-                        <div class="naoDisp-item naoDisp-tributavel_container">
+                        <div class="naoDisp-item naoDisp-tipo">
                             <label>Tipo: </label>
                             <input
                                 type="radio"
@@ -2886,7 +2886,6 @@
                             <img
                                 src="/svg/x.svg"
                                 title="Excluir linha"
-                                class="btn_delete_row"
                                 alt="Botão excluir"
                             />
                         </div>

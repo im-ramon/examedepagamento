@@ -1748,24 +1748,55 @@ label {
     .naoDisp-linha {
         justify-content: center;
         padding: 7px 10px;
-        margin: 10px;
+        margin: 15px 10px;
         border: 2px solid #00000017;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 28px;
+        grid-template:
+            "descricao valor bt_excluir"
+            "tipo tributavel_container bt_excluir"
+            / 1fr 1fr 40px;
         gap: 5px;
         place-items: center;
         transition: all 0.3s ease-in-out;
+        border-radius: $borderRadius;
 
         &:hover {
             transition: all 0.3s ease-in-out;
-            background: #e1e1e170;
+            background: #e1e1e130;
+        }
+
+        .naoDisp-descricao {
+            grid-area: descricao;
+        }
+        .naoDisp-valor {
+            grid-area: valor;
+        }
+        .naoDisp-tipo {
+            grid-area: tipo;
+        }
+        .naoDisp-tributavel_container {
+            grid-area: tributavel_container;
+        }
+        .naoDisp-bt_excluir {
+            cursor: pointer;
+            grid-area: bt_excluir;
+
+            img {
+                width: 40px;
+            }
         }
     }
 
     .naoDisp-item {
-        display: flex;
         align-items: center;
-        justify-content: center;
+        background: #f1f1f1;
+        border-radius: $borderRadius;
+        border: 1px solid #dfdfdf;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 4px 8px;
 
         &:nth-child(5) {
             justify-content: center;
@@ -1811,10 +1842,6 @@ label {
             width: 20px;
         }
     }
-
-    .btn_delete_row {
-        cursor: pointer;
-    }
 }
 
 // MEDIA QUERIES
@@ -1845,7 +1872,17 @@ label {
     }
     #form_informacoes_indisponiveis_form {
         .naoDisp-linha {
-            grid-template-columns: 1fr;
+            grid-template:
+                "descricao  valor"
+                "tipo       tributavel_container"
+                "bt_excluir bt_excluir"
+                / 1fr 1fr !important;
+
+            .naoDisp-bt_excluir {
+                img {
+                    width: 20px;
+                }
+            }
         }
 
         .naoDisp-item {
@@ -1859,7 +1896,7 @@ label {
                 background-color: #fdefef;
                 width: 50%;
                 margin: 6px 0;
-                padding: 3px 10px;
+                padding: 0px 10px;
                 cursor: pointer;
                 span {
                     display: inline !important;
@@ -2115,6 +2152,24 @@ label {
     #ficha_auxilitar {
         table {
             transform: scale(0.35) translateY(-90%);
+        }
+    }
+
+    #form_informacoes_indisponiveis_form {
+        .naoDisp-linha {
+            grid-template:
+                "descricao"
+                "valor"
+                "tipo"
+                "tributavel_container"
+                "bt_excluir"
+                / 1fr !important;
+
+            .naoDisp-bt_excluir {
+                img {
+                    width: 20px;
+                }
+            }
         }
     }
 }

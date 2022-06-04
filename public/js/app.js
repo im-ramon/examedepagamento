@@ -10514,7 +10514,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -45491,8 +45490,7 @@ var render = function () {
                                   _c(
                                     "div",
                                     {
-                                      staticClass:
-                                        "naoDisp-item naoDisp-tributavel_container",
+                                      staticClass: "naoDisp-item naoDisp-tipo",
                                     },
                                     [
                                       _c("label", [_vm._v("Tipo: ")]),
@@ -45586,7 +45584,6 @@ var render = function () {
                                       _c("span", [_vm._v("Excluir item")]),
                                       _vm._v(" "),
                                       _c("img", {
-                                        staticClass: "btn_delete_row",
                                         attrs: {
                                           src: "/svg/x.svg",
                                           title: "Excluir linha",
