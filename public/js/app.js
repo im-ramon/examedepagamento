@@ -6772,6 +6772,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -17674,7 +17681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.sugestoes-enter-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.sugestoes-enter-from,\r\n.sugestoes-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\n@-webkit-keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n@keyframes moveSidebar {\n0% {\r\n        opacity: 1;\r\n        margin-left: 0;\n}\n100% {\r\n        opacity: 0;\r\n        margin-left: -360px;\n}\n}\n.sidebar-enter-active {\r\n    animation: moveSidebar 0.7s reverse;\r\n    overflow: hidden;\n}\n.sidebar-enter-from,\r\n.sidebar-leave-to {\r\n    -webkit-animation: moveSidebar 0.7s;\r\n            animation: moveSidebar 0.7s;\r\n    overflow: hidden;\n}\n@-webkit-keyframes show {\n0% {\r\n        opacity: 0;\r\n        transform: translateX(-6em);\n}\n100% {\r\n        opacity: 1;\r\n        transform: translateX(0);\n}\n}\n@keyframes show {\n0% {\r\n        opacity: 0;\r\n        transform: translateX(-6em);\n}\n100% {\r\n        opacity: 1;\r\n        transform: translateX(0);\n}\n}\n.home-enter-active {\r\n    -webkit-animation-name: show;\r\n            animation-name: show;\r\n    -webkit-animation-duration: 0.6s;\r\n            animation-duration: 0.6s;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n            animation-timing-function: ease-in-out;\r\n    position: absolute;\n}\n.home-leave-active {\r\n    -webkit-animation-name: show;\r\n            animation-name: show;\r\n    -webkit-animation-duration: 0.3s;\r\n            animation-duration: 0.3s;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n            animation-timing-function: ease-in-out;\r\n    animation-direction: reverse;\r\n    position: absolute;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@-webkit-keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n@keyframes move {\n0% {\r\n        height: 0px;\n}\n100% {\r\n        height: 150px;\n}\n}\n.sugestoes-enter-active {\r\n    -webkit-animation: move 1s;\r\n            animation: move 1s;\r\n    overflow: hidden;\n}\n.sugestoes-enter-from,\r\n.sugestoes-leave-to {\r\n    overflow: hidden;\r\n    animation: move 1s reverse;\n}\n@-webkit-keyframes moveSidebar {\n0% {\r\n        /* opacity: 1; */\r\n        margin-left: 0;\n}\n100% {\r\n        /* opacity: 0; */\r\n        margin-left: -360px;\n}\n}\n@keyframes moveSidebar {\n0% {\r\n        /* opacity: 1; */\r\n        margin-left: 0;\n}\n100% {\r\n        /* opacity: 0; */\r\n        margin-left: -360px;\n}\n}\n.sidebar-enter-active {\r\n    animation: moveSidebar 0.7s reverse;\r\n    overflow: hidden;\n}\n.sidebar-enter-from,\r\n.sidebar-leave-to {\r\n    -webkit-animation: moveSidebar 0.7s;\r\n            animation: moveSidebar 0.7s;\r\n    overflow: hidden;\n}\n@-webkit-keyframes show {\n0% {\r\n        opacity: 0;\r\n        transform: translateX(-6em);\n}\n100% {\r\n        opacity: 1;\r\n        transform: translateX(0);\n}\n}\n@keyframes show {\n0% {\r\n        opacity: 0;\r\n        transform: translateX(-6em);\n}\n100% {\r\n        opacity: 1;\r\n        transform: translateX(0);\n}\n}\n.home-enter-active {\r\n    -webkit-animation-name: show;\r\n            animation-name: show;\r\n    -webkit-animation-duration: 0.6s;\r\n            animation-duration: 0.6s;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n            animation-timing-function: ease-in-out;\r\n    position: absolute;\n}\n.home-leave-active {\r\n    -webkit-animation-name: show;\r\n            animation-name: show;\r\n    -webkit-animation-duration: 0.3s;\r\n            animation-duration: 0.3s;\r\n    -webkit-animation-timing-function: ease-in-out;\r\n            animation-timing-function: ease-in-out;\r\n    animation-direction: reverse;\r\n    position: absolute;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38121,6 +38128,7 @@ var render = function () {
         _c(
           "div",
           {
+            class: !_vm.showSidebar && "btn_x",
             attrs: { id: "btn_hide_sibdebar" },
             on: {
               click: function ($event) {
@@ -38129,13 +38137,11 @@ var render = function () {
             },
           },
           [
-            _c("img", {
-              class: _vm.showSidebar ? "" : "reverse",
-              attrs: {
-                src: _vm.showSidebar ? "/svg/x.svg" : "/svg/hamburger.svg",
-                alt: "Ícone de menu hamburger/ fechar",
-              },
-            }),
+            _c("div", { staticClass: "line" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }),
           ]
         ),
         _vm._v(" "),

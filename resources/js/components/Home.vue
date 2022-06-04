@@ -101,12 +101,19 @@
         </transition>
 
         <main>
-            <div @click="showSidebar = !showSidebar" id="btn_hide_sibdebar">
-                <img
+            <div
+                @click="showSidebar = !showSidebar"
+                id="btn_hide_sibdebar"
+                :class="!showSidebar && 'btn_x'"
+            >
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <!-- <img
                     :class="showSidebar ? '' : 'reverse'"
                     :src="showSidebar ? '/svg/x.svg' : '/svg/hamburger.svg'"
                     alt="Ícone de menu hamburger/ fechar"
-                />
+                /> -->
             </div>
             <section id="main_header">
                 <div id="saudacao">
@@ -209,12 +216,12 @@ export default {
 
 @keyframes moveSidebar {
     0% {
-        opacity: 1;
+        /* opacity: 1; */
         margin-left: 0;
     }
 
     100% {
-        opacity: 0;
+        /* opacity: 0; */
         margin-left: -360px;
     }
 }

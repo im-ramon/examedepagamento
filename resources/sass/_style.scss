@@ -153,7 +153,7 @@ main {
     border-top-right-radius: $borderRadius;
     border-bottom-right-radius: $borderRadius;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
     height: 32px;
@@ -162,6 +162,36 @@ main {
     top: 10px;
     z-index: 80;
     user-select: none;
+    flex-direction: column;
+
+    .line {
+        width: 22px;
+        height: 3px;
+        background: $preto;
+        transition: all 1s ease-in-out;
+
+        &:nth-child(2) {
+            margin: 3px 0;
+        }
+    }
+
+    &.btn_x {
+        .line {
+            transition: all 0.3s ease-in-out;
+            background: $danger;
+
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(4px, 4px);
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -4px);
+            }
+            &:nth-child(2) {
+                margin: 3px 0;
+                opacity: 0;
+            }
+        }
+    }
 
     img {
         margin-left: 8px;
