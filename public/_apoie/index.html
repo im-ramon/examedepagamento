@@ -13,10 +13,12 @@
 <body>
     <main>
         <div id="container">
-            <a id="minha_logo" href="#">
+            <div id="minha_logo">
                 <img src="/images/logo-ramon.svg" alt="Logo Ramon Oliveira" />
-                <span>Ramon Oliveira | Desenvolvedor</span>
-            </a>
+                <a href="#">
+                    <span>Ramon Oliveira | Desenvolvedor</span>
+                </a>
+            </div>
             <div id="card">
                 <div id="logo">
                     <img src="/images/logo-black.png" alt="Logo">
@@ -24,24 +26,29 @@
                 </div>
                 <div class="card-item">
                     <h3>Tem interesse em contribuir com o projeto?</h3>
-                    <p>Ajude o App Exame de Pagamento manter-se online. Doe qualquer valor para contriubuir na manutenção do projeto.</p>
+                    <p>Ajude o <strong>App Exame de Pagamento</strong> manter-se online. Doe qualquer valor para contriubuir na manutenção do projeto.</p>
                     <br>
-                    <p id="escolha">Escolha uma forma de pagamento:</p>
+                    <p id="escolha">Método de contribuição:</p>
                     <div class="card-item">
                         <div class="card-pix">
-                            <h1>Pix</h1>
-                            <img src="/images/pix.svg" id="pix" alt="Pix logo">
-                            <h3>75 9 9153-7677</h3>
-                            <span>Iniciais da conta: <strong>R.O.D.S</strong></span>
+                            <div id="card-pix-header">
+                                <img src="/images/pix.svg" id="pix" alt="Pix logo">
+                                <h1>Pix</h1>
+                            </div>
+                            <!-- <h3 id="chave_pix">75 9 9153-7677</h3> -->
+                            <textarea disabled name="chave_pix" id="chave_pix" cols="30" rows="1">75 9 91537677</textarea>
+                            <textarea disabled name="chave_pix_hide" id="chave_pix_hide" cols="30" rows="1">75991537677</textarea>
+                            <div id="btn_copiar" onclick="copyToClipBoard()">
+                                <span id="btn_copiar-text">Copiar chave Pix</span>
+                                <img src="/images/copy.svg" id="pix" alt="Copiar">
+                            </div>
                             <div id="qrcode">
                                 <img src="/images/qrcode.png" alt="qrcode">
                             </div>
+                            <span>Iniciais da conta: <strong>R.O.D.S</strong></span>
+
                         </div>
-                        <!-- <div class="card-picpay">
-                            <h1>PicPay</h1>
-                            <img src="/images/picpay.svg" id="pix" alt="Pix logo">
-                            <h3>@im-ramon</h3>
-                        </div> -->
+
                     </div>
                 </div>
             </div>
@@ -66,7 +73,15 @@
 
     <div class="grey"></div>
 
-
+    <script>
+        function copyToClipBoard() {
+            let textoCopiado = document.getElementById("chave_pix_hide");
+            textoCopiado.select();
+            textoCopiado.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            alert("Chave Pix copiada: " + textoCopiado.value);
+        }
+    </script>
 
 </body>
 

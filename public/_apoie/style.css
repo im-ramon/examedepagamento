@@ -11,32 +11,33 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
 }
 
 #container {
-  height: 100%;
-  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   overflow-y: scroll;
+  padding: 2em 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 #container #card {
   background: #fff;
   width: 700px;
   height: 80%;
-  min-height: 770px;
   border-radius: 30px;
   border: 4px solid #00000014;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-          box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  -webkit-box-shadow: 0px 0px 26px -8px #00000073;
+          box-shadow: 0px 0px 26px -8px #00000073;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,6 +60,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 1em;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -82,11 +84,10 @@ main {
 }
 
 #container #card .card-item {
-  border: 4px solid #00000014;
   border-radius: 30px;
   width: 90%;
   height: 100%;
-  margin: 1em 0 1em 0;
+  margin: 0 0 1em 0;
   padding: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -137,12 +138,11 @@ main {
 
 #container #card .card-item .card-pix img,
 #container #card .card-item .card-picpay img {
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 #container #card .card-item .card-pix h1,
 #container #card .card-item .card-picpay h1 {
-  width: 100%;
   font-size: 36px;
   text-align: center;
 }
@@ -150,6 +150,18 @@ main {
 #container #card .card-item .card-pix h3,
 #container #card .card-item .card-picpay h3 {
   margin: 0;
+}
+
+#container #card .card-item .card-pix #card-pix-header,
+#container #card .card-item .card-picpay #card-pix-header {
+  width: 100%;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #container #card .card-item .card-pix {
@@ -168,6 +180,8 @@ main {
 
 #container #card #escolha {
   font-weight: bold;
+  font-size: 16px;
+  margin-top: 0.3em;
 }
 
 #container #card #qrcode {
@@ -181,6 +195,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 0.5em;
 }
 
 #container #card #qrcode img {
@@ -190,28 +205,36 @@ main {
 
 #container #minha_logo {
   position: fixed;
-  bottom: 1em;
-  left: 1em;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   z-index: 1002;
   text-decoration: none;
+  border-top: 1px solid #0000001f;
   color: #727272;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 7px 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-filter: invert(46%) sepia(0%) saturate(590%) hue-rotate(174deg) brightness(95%) contrast(81%);
-          filter: invert(46%) sepia(0%) saturate(590%) hue-rotate(174deg) brightness(95%) contrast(81%);
+  z-index: 10;
+  background: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   cursor: default;
 }
 
-#container #minha_logo:hover {
-  -webkit-filter: brightness(-100%);
-          filter: brightness(-100%);
+#container #minha_logo a {
+  text-decoration: none;
+  color: #828282;
 }
 
 #container #minha_logo img {
+  -webkit-filter: invert(46%) sepia(0%) saturate(590%) hue-rotate(174deg) brightness(95%) contrast(81%);
+          filter: invert(46%) sepia(0%) saturate(590%) hue-rotate(174deg) brightness(95%) contrast(81%);
   width: 25px;
   margin-right: 0.7em;
 }
@@ -359,6 +382,72 @@ main {
           filter: blur(0.5px);
   -webkit-animation-duration: 12s;
           animation-duration: 12s;
+}
+
+textarea {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  resize: none;
+  color: #171717;
+  font-weight: bold;
+  background: none;
+  font-size: 28px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-bottom: 0.5em;
+}
+
+#chave_pix_hide {
+  visibility: hidden;
+  position: absolute;
+  top: -100em;
+  left: -100em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#btn_copiar {
+  cursor: pointer;
+  background: rgba(0, 255, 64, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5em;
+  border: 1px solid #00000014;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 16px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#btn_copiar:hover {
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#btn_copiar #btn_copiar-text {
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+#btn_copiar img {
+  margin: 0 0 0 5px !important;
+  width: 26px !important;
 }
 
 @-webkit-keyframes squares {

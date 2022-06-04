@@ -14,25 +14,25 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
 }
 
 #container {
-    height: 100%;
-    width: 100%;
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     overflow-y: scroll;
+    padding: 2em 0;
+    width: 100%;
+    overflow: hidden;
 
     #card {
         background: #fff;
         width: 700px;
         height: 80%;
-        min-height: 770px;
         border-radius: $borderRadius;
         border: 4px solid $borderColor;
-        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        box-shadow: 0px 0px 26px -8px #00000073;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -42,6 +42,7 @@ main {
         #logo {
             display: flex;
             align-items: center;
+            margin-bottom: 1em;
             justify-content: center;
             flex-direction: column;
 
@@ -60,11 +61,10 @@ main {
         }
 
         .card-item {
-            border: 4px solid $borderColor;
             border-radius: $borderRadius;
             width: 90%;
             height: 100%;
-            margin: 1em 0 1em 0;
+            margin: 0 0 1em 0;
             padding: 1em;
             display: flex;
             flex-direction: column;
@@ -94,17 +94,23 @@ main {
                 margin-top: 18px;
                 padding-bottom: 1em;
                 img {
-                    margin-right: 1em;
+                    margin-right: 0.5em;
                 }
 
                 h1 {
-                    width: 100%;
                     font-size: 36px;
                     text-align: center;
                 }
 
                 h3 {
                     margin: 0;
+                }
+
+                #card-pix-header {
+                    width: 100%;
+                    padding: 10px 0;
+                    display: flex;
+                    justify-content: center;
                 }
             }
 
@@ -123,6 +129,8 @@ main {
 
         #escolha {
             font-weight: bold;
+            font-size: 16px;
+            margin-top: 0.3em;
         }
 
         #qrcode {
@@ -130,6 +138,7 @@ main {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 0.5em;
 
             img {
                 width: 30%;
@@ -139,21 +148,28 @@ main {
     }
     #minha_logo {
         position: fixed;
-        bottom: 1em;
-        left: 1em;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         z-index: 1002;
         text-decoration: none;
+        border-top: 1px solid #0000001f;
         color: #727272;
         display: flex;
+        padding: 7px 0;
         align-items: center;
-        filter: invert(46%) sepia(0%) saturate(590%) hue-rotate(174deg) brightness(95%) contrast(81%);
+        z-index: 10;
+        background: #fff;
+        justify-content: center;
         cursor: default;
 
-        &:hover {
-            filter: brightness(-100%);
+        a {
+            text-decoration: none;
+            color: #828282;
         }
 
         img {
+            filter: invert(46%) sepia(0%) saturate(590%) hue-rotate(174deg) brightness(95%) contrast(81%);
             width: 25px;
             margin-right: 0.7em;
         }
@@ -257,6 +273,55 @@ main {
         animation-delay: 6s;
         filter: blur(0.5px);
         animation-duration: 12s;
+    }
+}
+
+textarea {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    resize: none;
+    color: #171717;
+    font-weight: bold;
+    background: none;
+    font-size: 28px;
+    user-select: none;
+    margin-bottom: 0.5em;
+}
+#chave_pix_hide {
+    visibility: hidden;
+    position: absolute;
+    top: -100em;
+    left: -100em;
+    user-select: none;
+}
+#btn_copiar {
+    cursor: pointer;
+    background: rgba(0, 255, 64, 0.3);
+    display: flex;
+    margin-bottom: 0.5em;
+    border: 1px solid #00000014;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 16px;
+    border-radius: $borderRadius;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.08);
+        transition: all 0.3s ease-in-out;
+    }
+
+    #btn_copiar-text {
+        font-size: 14px !important;
+        margin: 0 !important;
+    }
+
+    img {
+        margin: 0 0 0 5px !important;
+        width: 26px !important;
     }
 }
 
