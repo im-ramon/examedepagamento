@@ -10522,7 +10522,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       loading: false,
       loading_select: false,
       dadosIndisponiveis: "0",
-      // mudar para 0
       dadosIndisponiveisLista: [],
       selectPg: [],
       universo: "ativa",
@@ -10726,9 +10725,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.loading_select = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(this.nowPath, "/api/pg-constantes")).then(function (r) {
         _this2.selectPg = r.data;
-        _this2.loading_select = false;
       })["catch"](function (e) {
-        return console.log(e);
+        _this2.selectPg = [{
+          id: "1",
+          pg_abrev: "Não foi possível carregar a lista dos P/G"
+        }];
+        console.log(e);
+      })["finally"](function () {
+        return _this2.loading_select = false;
       });
     },
     geraDadosFinanceiros: function geraDadosFinanceiros() {

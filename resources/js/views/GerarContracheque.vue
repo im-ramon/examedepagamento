@@ -2935,7 +2935,7 @@ export default {
         return {
             loading: false,
             loading_select: false,
-            dadosIndisponiveis: "0", // mudar para 0
+            dadosIndisponiveis: "0",
             dadosIndisponiveisLista: [],
             selectPg: [],
             universo: "ativa",
@@ -3150,9 +3150,18 @@ export default {
                 .get(`${this.nowPath}/api/pg-constantes`)
                 .then((r) => {
                     this.selectPg = r.data;
-                    this.loading_select = false;
                 })
-                .catch((e) => console.log(e));
+                .catch((e) => {
+                    this.selectPg = [
+                        {
+                            id: "1",
+                            pg_abrev:
+                                "Não foi possível carregar a lista dos P/G",
+                        },
+                    ];
+                    console.log(e);
+                })
+                .finally(() => (this.loading_select = false));
         },
 
         async geraDadosFinanceiros() {
