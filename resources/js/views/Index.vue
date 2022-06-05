@@ -11,7 +11,7 @@
         <div id="index-header">
             <h1>👋🏽 Bem vindo ao App Exame de Pagamento.</h1>
             <p>
-                Novo por aqui? Dê uma olhada no manual do App no seguinte link:
+                Novo por aqui? Leia o manual do App no link:
                 <a href="/docs/manual.pdf" target="_BLANK">Manual do App</a>
             </p>
             <p>

@@ -1074,7 +1074,7 @@ form#formulario {
   justify-content: center;
 }
 #input_area-data_assinatura_cc button:hover {
-  transform: scale(1.2);
+  transform: scale(1.08);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -1084,8 +1084,16 @@ label {
 }
 
 #data_assinatura_cc {
+  outline: none;
+  border: 1px solid #e1e1e1;
   border-radius: 6px;
   width: 150px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+#data_assinatura_cc:active, #data_assinatura_cc:focus {
+  border-color: #000000;
+  transition: all 0.3s ease-in-out;
 }
 
 #gererenciarContracheque_section {
@@ -1741,14 +1749,14 @@ label {
 }
 #form_informacoes_indisponiveis_form input[type=text],
 #form_informacoes_indisponiveis_form input[type=number] {
-  border: 2px dashed #e1e1e1;
+  border: 1px solid #e1e1e1;
   border-radius: 6px;
   height: 26px;
   width: 100%;
   padding-left: 8px;
 }
 #form_informacoes_indisponiveis_form .tributavel_container {
-  border: 2px dashed #e1e1e1;
+  border: 1px solid #e1e1e1;
   border-radius: 6px;
   height: 26px;
 }

@@ -1150,7 +1150,7 @@ form#formulario {
         justify-content: center;
 
         &:hover {
-            transform: scale(1.2);
+            transform: scale(1.08);
             transition: all 0.3s ease-in-out;
             cursor: pointer;
         }
@@ -1162,8 +1162,18 @@ label {
 }
 
 #data_assinatura_cc {
+    outline: none;
+    @include borda_cinza;
     border-radius: $borderRadius;
     width: 150px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+
+    &:active,
+    &:focus {
+        border-color: #000000;
+        transition: all 0.3s ease-in-out;
+    }
 }
 
 #gererenciarContracheque_section {
@@ -1851,14 +1861,14 @@ label {
 
     input[type="text"],
     input[type="number"] {
-        border: 2px dashed $branco;
+        @include borda_cinza;
         border-radius: $borderRadius;
         height: 26px;
         width: 100%;
         padding-left: 8px;
     }
     .tributavel_container {
-        border: 2px dashed $branco;
+        @include borda_cinza;
         border-radius: $borderRadius;
         height: 26px;
     }

@@ -46870,7 +46870,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n            Novo por aqui? Dê uma olhada no manual do App no seguinte link:\n            "
+            "\n            Novo por aqui? Leia o manual do App no link:\n            "
           ),
           _c("a", { attrs: { href: "/docs/manual.pdf", target: "_BLANK" } }, [
             _vm._v("Manual do App"),
