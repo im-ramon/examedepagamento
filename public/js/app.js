@@ -6779,6 +6779,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -38137,7 +38141,7 @@ var render = function () {
         _c(
           "div",
           {
-            class: !_vm.showSidebar && "btn_x",
+            class: _vm.showSidebar && "btn_x",
             attrs: { id: "btn_hide_sibdebar" },
             on: {
               click: function ($event) {
@@ -38145,13 +38149,7 @@ var render = function () {
               },
             },
           },
-          [
-            _c("div", { staticClass: "line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }),
-          ]
+          [_vm._m(0)]
         ),
         _vm._v(" "),
         _c("section", { attrs: { id: "main_header" } }, [
@@ -38166,7 +38164,7 @@ var render = function () {
               _vm._v("!\n                "),
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "form",
@@ -38209,6 +38207,20 @@ var render = function () {
   )
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn_x-border" }, [
+      _c("div", { staticClass: "btn_x-border-container" }, [
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

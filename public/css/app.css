@@ -127,15 +127,31 @@ main {
 #btn_hide_sibdebar .line:nth-child(2) {
   margin: 3px 0;
 }
+#btn_hide_sibdebar .btn_x-border {
+  border: 3px solid #00000000;
+  transition: all 1s ease-in-out;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0%;
+}
+#btn_hide_sibdebar.btn_x .btn_x-border {
+  border: 3px solid #d9534f;
+  transition: all 1s ease-in-out;
+  transform: scale(0.8);
+  border-radius: 100%;
+}
 #btn_hide_sibdebar.btn_x .line {
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease-in-out;
   background: #d9534f;
 }
 #btn_hide_sibdebar.btn_x .line:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
+  transform: rotate(45deg) translate(4px, 4px) scale(0.75);
 }
 #btn_hide_sibdebar.btn_x .line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -4px);
+  transform: rotate(-45deg) translate(5px, -4px) scale(0.75);
 }
 #btn_hide_sibdebar.btn_x .line:nth-child(2) {
   margin: 3px 0;

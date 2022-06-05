@@ -104,11 +104,15 @@
             <div
                 @click="showSidebar = !showSidebar"
                 id="btn_hide_sibdebar"
-                :class="!showSidebar && 'btn_x'"
+                :class="showSidebar && 'btn_x'"
             >
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+                <div class="btn_x-border">
+                    <div class="btn_x-border-container">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
                 <!-- <img
                     :class="showSidebar ? '' : 'reverse'"
                     :src="showSidebar ? '/svg/x.svg' : '/svg/hamburger.svg'"
