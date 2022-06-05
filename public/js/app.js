@@ -10526,6 +10526,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["form_token"],
@@ -10641,6 +10648,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   computed: {
+    tipoDeContracheque: function tipoDeContracheque() {
+      if (this.$store.state.contrachequeAtivo) {
+        return "Voc\xEA est\xE1 editando o contracheque n\xBA: ";
+      } else {
+        return "Você está criando um contracheque novo";
+      }
+    },
     php: function php() {
       var str = "";
       this.dadosIndisponiveisLista.forEach(function (element) {
@@ -39321,17 +39335,33 @@ var render = function () {
           }),
           _vm._v(" "),
           _c("div", { attrs: { id: "gerar_contracheque-head" } }, [
-            _c("div", { attrs: { id: "contrachequeAtivo" } }, [
-              _c("label", [_vm._v("Código do contracheque ativo: ")]),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "text", disabled: "" },
-                domProps: {
-                  value:
-                    _vm.$store.state.contrachequeAtivo || "Novo contracheque",
-                },
-              }),
-            ]),
+            _c(
+              "div",
+              {
+                class: _vm.$store.state.contrachequeAtivo
+                  ? "warning-light-border"
+                  : "success-light-border",
+                attrs: { id: "contrachequeAtivo" },
+              },
+              [
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.tipoDeContracheque) +
+                    "\n            "
+                ),
+                _c("strong", [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(
+                        _vm.$store.state.contrachequeAtivo
+                          ? _vm.$store.state.contrachequeAtivo
+                          : ""
+                      ) +
+                      "\n            "
+                  ),
+                ]),
+              ]
+            ),
           ]),
           _vm._v(" "),
           _c("section", { attrs: { id: "form_informacoes_pessoais" } }, [

@@ -37,6 +37,10 @@ $danger: #d9534f;
     margin: 1em 0.7em;
 }
 
+@mixin borda_cinza {
+    border: 1px solid $branco;
+}
+
 @mixin cabecalhoNaPagina {
     width: 100%;
     text-align: center;
@@ -67,6 +71,20 @@ $danger: #d9534f;
 
 .success {
     background: $success;
+}
+
+.success-light-border {
+    background: #e0ffe0 !important;
+    border: 2px solid #5cb85c78 !important;
+}
+
+.warning {
+    background: $warning;
+}
+
+.warning-light-border {
+    background: #fdf2c2 !important;
+    border: 2px solid #f0d24e !important;
 }
 
 .hidden {
@@ -805,7 +823,7 @@ form#formulario {
 
         fieldset {
             width: 100%;
-            border: 1px solid $branco;
+            @include borda_cinza;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             border-radius: $borderRadius;
@@ -1005,7 +1023,7 @@ form#formulario {
     display: flex;
     justify-content: center;
     margin: 1em 0;
-    border: 2px solid $branco;
+    @include borda_cinza;
     padding: 0.4em 0;
     background-color: #fff;
 
@@ -1019,9 +1037,10 @@ form#formulario {
             display: flex;
 
             & > div {
-                border: 2px solid $branco;
+                @include borda_cinza();
                 background: #fff;
-                border-radius: $borderRadius;
+                border-bottom-right-radius: $borderRadius;
+                border-top-right-radius: $borderRadius;
                 padding: 1px 5px;
                 margin-left: 1em;
                 user-select: none;
@@ -1029,38 +1048,39 @@ form#formulario {
         }
 
         #item1 {
-            border-left: 2px solid $success;
+            border-left: 3px solid $success;
         }
 
         #item2 {
-            border-left: 2px solid $danger;
+            border-left: 3px solid $danger;
         }
 
         #item3 {
-            border-left: 2px solid $primary;
+            border-left: 3px solid $primary;
         }
     }
 }
 
 .legislacao_item {
-    width: 40%;
-    padding: 1em 2em;
-    height: 70px;
-    border-radius: $borderRadius;
-    font-size: 14px;
-    border: 2px solid #d8d8d86b;
+    @include borda_cinza;
+    align-items: center;
     background-color: #ffffff;
+    border-bottom-right-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    color: $preto;
+    display: flex;
+    font-size: 14px;
+    height: 70px;
+    justify-content: center;
     margin: 0.7em 0.7em;
-    transition: box-shadow 0.3s;
+    padding: 1em 2em;
     position: relative;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
     text-decoration: underline solid rgba(168, 168, 168, 0.555);
-    color: $preto;
     transition: all 0.5s ease-in-out;
+    transition: box-shadow 0.3s;
+    width: 40%;
 
     &:hover {
         text-decoration: underline;
@@ -1069,13 +1089,13 @@ form#formulario {
 }
 
 .legislacao_item-receitas {
-    border-left: 2px solid $success;
+    border-left: 3px solid $success;
 }
 .legislacao_item-descontos {
-    border-left: 2px solid $danger;
+    border-left: 3px solid $danger;
 }
 .legislacao_item-leis {
-    border-left: 2px solid $primary;
+    border-left: 3px solid $primary;
 }
 
 #gererenciarContracheque_body {
@@ -1101,7 +1121,7 @@ form#formulario {
     align-items: center;
     background: #fff;
     border-radius: $borderRadius;
-    border: 2px dashed $branco;
+    @include borda_cinza;
     display: flex;
     height: 50px;
     margin-bottom: 1em;
@@ -1153,7 +1173,7 @@ label {
         align-items: center;
         background: #fff;
         border-radius: $borderRadius;
-        border: 2px dashed $branco;
+        @include borda_cinza;
         height: 50px;
         display: grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -1205,7 +1225,6 @@ label {
 }
 
 #contrachequeAtivo {
-    // background: #0275d8;
     width: 80%;
     display: flex;
     align-items: center;
@@ -1213,10 +1232,11 @@ label {
     border: 2px solid $branco;
     border-radius: $borderRadius;
     margin: 0 30px;
-    padding: 10px 0;
+    padding: 4px 0;
+    font-size: 14px;
 
-    input {
-        margin-left: 0.5em;
+    strong {
+        margin-left: 4px;
     }
 }
 
@@ -1388,12 +1408,6 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    div {
-        border: 2px solid $branco;
-        border-radius: $borderRadius;
-        padding: 0.3em;
-    }
 }
 
 // ------ PRINT ------ //
@@ -1877,7 +1891,7 @@ label {
     align-items: center;
     border-radius: $borderRadius;
     padding: 7px 10px;
-    border: 1px solid #c5c5c561;
+    @include borda_cinza;
     margin: 10px 0;
     transition: all 0.3s ease-in-out;
 
@@ -1897,6 +1911,7 @@ label {
 
 #perfil_aviso {
     padding: 0 36px;
+    margin-top: 12px;
     font-size: 12px;
     text-align: center;
 }

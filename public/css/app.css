@@ -22,6 +22,20 @@
   background: #5cb85c;
 }
 
+.success-light-border {
+  background: #e0ffe0 !important;
+  border: 2px solid #5cb85c78 !important;
+}
+
+.warning {
+  background: #f0ad4e;
+}
+
+.warning-light-border {
+  background: #fdf2c2 !important;
+  border: 2px solid #f0d24e !important;
+}
+
 .hidden {
   display: none;
 }
@@ -922,7 +936,7 @@ form#formulario {
   display: flex;
   justify-content: center;
   margin: 1em 0;
-  border: 2px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
   padding: 0.4em 0;
   background-color: #fff;
 }
@@ -936,9 +950,10 @@ form#formulario {
   display: flex;
 }
 #legenda section > div > div {
-  border: 2px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
   background: #fff;
-  border-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
   padding: 1px 5px;
   margin-left: 1em;
   -webkit-user-select: none;
@@ -947,35 +962,36 @@ form#formulario {
           user-select: none;
 }
 #legenda section #item1 {
-  border-left: 2px solid #5cb85c;
+  border-left: 3px solid #5cb85c;
 }
 #legenda section #item2 {
-  border-left: 2px solid #d9534f;
+  border-left: 3px solid #d9534f;
 }
 #legenda section #item3 {
-  border-left: 2px solid #0275d8;
+  border-left: 3px solid #0275d8;
 }
 
 .legislacao_item {
-  width: 40%;
-  padding: 1em 2em;
-  height: 70px;
-  border-radius: 6px;
-  font-size: 14px;
-  border: 2px solid #d8d8d86b;
+  border: 1px solid #e1e1e1;
+  align-items: center;
   background-color: #ffffff;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #181818;
+  display: flex;
+  font-size: 14px;
+  height: 70px;
+  justify-content: center;
   margin: 0.7em 0.7em;
-  transition: box-shadow 0.3s;
+  padding: 1em 2em;
   position: relative;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   -webkit-text-decoration: underline solid rgba(168, 168, 168, 0.555);
           text-decoration: underline solid rgba(168, 168, 168, 0.555);
-  color: #181818;
   transition: all 0.5s ease-in-out;
+  transition: box-shadow 0.3s;
+  width: 40%;
 }
 .legislacao_item:hover {
   text-decoration: underline;
@@ -983,15 +999,15 @@ form#formulario {
 }
 
 .legislacao_item-receitas {
-  border-left: 2px solid #5cb85c;
+  border-left: 3px solid #5cb85c;
 }
 
 .legislacao_item-descontos {
-  border-left: 2px solid #d9534f;
+  border-left: 3px solid #d9534f;
 }
 
 .legislacao_item-leis {
-  border-left: 2px solid #0275d8;
+  border-left: 3px solid #0275d8;
 }
 
 #gererenciarContracheque_body {
@@ -1031,7 +1047,7 @@ form#formulario {
   align-items: center;
   background: #fff;
   border-radius: 6px;
-  border: 2px dashed #e1e1e1;
+  border: 1px solid #e1e1e1;
   display: flex;
   height: 50px;
   margin-bottom: 1em;
@@ -1078,7 +1094,7 @@ label {
   align-items: center;
   background: #fff;
   border-radius: 6px;
-  border: 2px dashed #e1e1e1;
+  border: 1px solid #e1e1e1;
   height: 50px;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -1127,10 +1143,11 @@ label {
   border: 2px solid #e1e1e1;
   border-radius: 6px;
   margin: 0 30px;
-  padding: 10px 0;
+  padding: 4px 0;
+  font-size: 14px;
 }
-#contrachequeAtivo input {
-  margin-left: 0.5em;
+#contrachequeAtivo strong {
+  margin-left: 4px;
 }
 
 #index-container {
@@ -1301,11 +1318,6 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-#gerar_contracheque-head div {
-  border: 2px solid #e1e1e1;
-  border-radius: 6px;
-  padding: 0.3em;
 }
 
 @media print {
@@ -1768,7 +1780,7 @@ label {
   align-items: center;
   border-radius: 6px;
   padding: 7px 10px;
-  border: 1px solid #c5c5c561;
+  border: 1px solid #e1e1e1;
   margin: 10px 0;
   transition: all 0.3s ease-in-out;
 }
@@ -1788,6 +1800,7 @@ label {
 
 #perfil_aviso {
   padding: 0 36px;
+  margin-top: 12px;
   font-size: 12px;
   text-align: center;
 }

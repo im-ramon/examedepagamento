@@ -2,15 +2,22 @@
     <form id="formulario" v-on:submit.prevent v-if="!loading">
         <input type="hidden" name="_token" :value="form_token" />
         <div id="gerar_contracheque-head">
-            <div id="contrachequeAtivo">
-                <label>Código do contracheque ativo: </label>
-                <input
-                    type="text"
-                    disabled
-                    :value="
-                        $store.state.contrachequeAtivo || 'Novo contracheque'
-                    "
-                />
+            <div
+                id="contrachequeAtivo"
+                :class="
+                    $store.state.contrachequeAtivo
+                        ? 'warning-light-border'
+                        : 'success-light-border'
+                "
+            >
+                {{ tipoDeContracheque }}
+                <strong>
+                    {{
+                        $store.state.contrachequeAtivo
+                            ? $store.state.contrachequeAtivo
+                            : ""
+                    }}
+                </strong>
             </div>
         </div>
         <section id="form_informacoes_pessoais">
@@ -3045,6 +3052,13 @@ export default {
         };
     },
     computed: {
+        tipoDeContracheque() {
+            if (this.$store.state.contrachequeAtivo) {
+                return `Você está editando o contracheque nº: `;
+            } else {
+                return "Você está criando um contracheque novo";
+            }
+        },
         php() {
             let str = "";
             this.dadosIndisponiveisLista.forEach((element) => {
