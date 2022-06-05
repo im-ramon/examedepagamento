@@ -6811,6 +6811,13 @@ __webpack_require__.r(__webpack_exports__);
       user = user.split("=")[1];
       user = JSON.parse(user);
       this.$store.state.activeUser = user;
+    },
+    testingWindowWidth: function testingWindowWidth() {
+      var width = window.screen.width;
+
+      if (width <= 800) {
+        this.showSidebar = false;
+      }
     }
   },
   mounted: function mounted() {
@@ -37967,6 +37974,13 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "nav",
+                {
+                  on: {
+                    click: function ($event) {
+                      return _vm.testingWindowWidth()
+                    },
+                  },
+                },
                 [
                   _c(
                     "router-link",

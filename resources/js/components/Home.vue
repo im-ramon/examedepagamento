@@ -33,7 +33,7 @@
                     <span>App | <strong>Exame de Pagamento</strong></span>
                 </div>
 
-                <nav>
+                <nav @click="testingWindowWidth()">
                     <router-link class="navbutton" to="/">
                         <img src="/svg/home.svg" alt="icone casa" />
                         <span class="navbutton_title">Página inicial</span>
@@ -190,6 +190,12 @@ export default {
             user = user.split("=")[1];
             user = JSON.parse(user);
             this.$store.state.activeUser = user;
+        },
+        testingWindowWidth() {
+            let width = window.screen.width;
+            if (width <= 800) {
+                this.showSidebar = false;
+            }
         },
     },
     mounted() {
