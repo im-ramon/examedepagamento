@@ -368,12 +368,12 @@ form#formulario {
 
 #form_informacoes_pessoais .question_root {
   width: 47%;
-  margin: 2em 0;
+  margin: 8px 0;
 }
 
 #form_informacoes_financeiras .question_root {
   width: 99%;
-  margin: 2em 0;
+  margin: 16px 0;
 }
 #form_informacoes_financeiras #form_informacoes_financeiras_col1,
 #form_informacoes_financeiras #form_informacoes_financeiras_col2 {
@@ -1905,7 +1905,6 @@ label {
 
   .question_root {
     width: 100% !important;
-    margin: 10px 0 !important;
   }
 
   #form_informacoes_financeiras #form_informacoes_financeiras_col1,
