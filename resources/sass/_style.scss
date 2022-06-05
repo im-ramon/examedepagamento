@@ -768,7 +768,7 @@ form#formulario {
     padding-bottom: 9px;
 }
 
-.cadastrar {
+.footer_auth {
     margin-top: 1em;
     text-align: center;
 }
@@ -1842,6 +1842,34 @@ label {
             width: 20px;
         }
     }
+}
+
+.alert-success,
+.invalid-feedback {
+    background: $success;
+    padding: 4px 12px;
+    border-radius: $borderRadius;
+}
+
+.invalid-feedback {
+    background: $warning;
+    width: 90%;
+    margin-top: 12px;
+}
+
+.link-reset_password {
+    width: 90%;
+    text-align: right;
+    font-size: 12px;
+}
+
+.button_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 // MEDIA QUERIES

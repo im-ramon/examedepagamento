@@ -301,7 +301,7 @@
                 </form>
             </div>
         </div>
-        <span class="cadastrar">
+        <span class="footer_auth">
             Voltar à página de
             <a href="/login">Login</a>
         </span>

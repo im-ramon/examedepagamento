@@ -51,6 +51,10 @@
                             v-model="password"
                         />
 
+                        <a class="link-reset_password" href="/password/reset/"
+                            >Esqueci minha senha</a
+                        >
+
                         <!-- <img
                             @click="seepassword = !seepassword"
                             :src="
@@ -71,20 +75,22 @@
                         alt="Ícone de carregamento"
                     />
 
-                    <button
-                        v-show="!loading"
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-                        Entrar
-                    </button>
+                    <div class="button_container">
+                        <button
+                            v-show="!loading"
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Entrar
+                        </button>
+                    </div>
                     <p class="senha_errada" v-if="isWrongPassWord">
                         Senha e/ou login incorreto(s). Tente novamente.
                     </p>
                 </form>
             </div>
         </div>
-        <span class="cadastrar">
+        <span class="footer_auth">
             Não tem uma conta?
             <a href="/singup">Cadastre-se</a>
         </span>

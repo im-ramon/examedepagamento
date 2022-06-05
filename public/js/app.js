@@ -11526,6 +11526,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["token_csrf"],
   data: function data() {
@@ -47127,6 +47133,15 @@ var render = function () {
                       },
                     },
                   }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "link-reset_password",
+                  attrs: { href: "/password/reset/" },
+                },
+                [_vm._v("Esqueci minha senha")]
+              ),
             ]),
             _vm._v(" "),
             _c("img", {
@@ -47142,22 +47157,28 @@ var render = function () {
               attrs: { src: "/svg/loading.svg", alt: "Ícone de carregamento" },
             }),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.loading,
-                    expression: "!loading",
-                  },
-                ],
-                staticClass: "btn btn-primary",
-                attrs: { type: "submit" },
-              },
-              [_vm._v("\n                    Entrar\n                ")]
-            ),
+            _c("div", { staticClass: "button_container" }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !_vm.loading,
+                      expression: "!loading",
+                    },
+                  ],
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "submit" },
+                },
+                [
+                  _vm._v(
+                    "\n                        Entrar\n                    "
+                  ),
+                ]
+              ),
+            ]),
             _vm._v(" "),
             _vm.isWrongPassWord
               ? _c("p", { staticClass: "senha_errada" }, [
@@ -47200,7 +47221,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "cadastrar" }, [
+    return _c("span", { staticClass: "footer_auth" }, [
       _vm._v("\n        Não tem uma conta?\n        "),
       _c("a", { attrs: { href: "/singup" } }, [_vm._v("Cadastre-se")]),
     ])
@@ -48194,7 +48215,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "cadastrar" }, [
+    return _c("span", { staticClass: "footer_auth" }, [
       _vm._v("\n        Voltar à página de\n        "),
       _c("a", { attrs: { href: "/login" } }, [_vm._v("Login")]),
     ])

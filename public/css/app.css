@@ -681,7 +681,7 @@ form#formulario {
   padding-bottom: 9px;
 }
 
-.cadastrar {
+.footer_auth {
   margin-top: 1em;
   text-align: center;
 }
@@ -1734,6 +1734,34 @@ label {
 }
 #form_informacoes_indisponiveis_form #plus_container img {
   width: 20px;
+}
+
+.alert-success,
+.invalid-feedback {
+  background: #5cb85c;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.invalid-feedback {
+  background: #f0ad4e;
+  width: 90%;
+  margin-top: 12px;
+}
+
+.link-reset_password {
+  width: 90%;
+  text-align: right;
+  font-size: 12px;
+}
+
+.button_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 @media (max-width: 1200px) {
