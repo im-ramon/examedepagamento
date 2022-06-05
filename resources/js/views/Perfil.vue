@@ -1,6 +1,6 @@
 <template>
     <div class="perfil_container">
-        <h2>Perfil</h2>
+        <h2>Dados do meu perfil</h2>
         <form>
             <div class="perfil_input">
                 <label for="perfil_nome"><strong>Usuário:</strong></label>
@@ -89,6 +89,13 @@
                 />
             </div>
         </form>
+        <span id="perfil_aviso"
+            >Na versão atual do App ainda não é possível alterar os dados
+            pessoais do seu perfil. Caso tenha cadastrado algum dados
+            incorrento, envie um e-mail para
+            <strong>suporte@examedepagamento.com.br</strong> com as informações
+            que deseja alterar.</span
+        >
     </div>
 </template>
 
@@ -96,18 +103,4 @@
 export default {};
 </script>
 
-<style>
-.perfil_container form {
-    padding-left: 1.2em;
-    width: calc(100% - 1.2em);
-}
-.perfil_input {
-    width: 100%;
-    display: flex;
-}
-.perfil_container input {
-    margin-bottom: 0.7em;
-    flex: 1;
-    margin-left: 1em;
-}
-</style>
+<style></style>

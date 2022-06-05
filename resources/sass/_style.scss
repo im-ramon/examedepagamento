@@ -1866,6 +1866,41 @@ label {
     }
 }
 
+.perfil_container form {
+    padding-left: 1.2em;
+    width: calc(100% - 1.2em);
+}
+.perfil_input {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: $borderRadius;
+    padding: 7px 10px;
+    border: 1px solid #c5c5c561;
+    margin: 10px 0;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transition: all 0.3s ease-in-out;
+        box-shadow: 5px 7px 10px -5px #a4a6ad41;
+        transform: scale(1.02);
+    }
+}
+.perfil_container input {
+    flex: 1;
+    border-radius: $borderRadius;
+    height: 28px;
+    border: 1px solid $cinza-transparente;
+    padding: 8px;
+}
+
+#perfil_aviso {
+    padding: 0 36px;
+    font-size: 12px;
+    text-align: center;
+}
+
 .alert-success,
 .invalid-feedback {
     background: $success;
