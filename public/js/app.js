@@ -7332,6 +7332,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7349,6 +7356,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
+    tipoDeContracheque: function tipoDeContracheque() {
+      if (this.$store.state.contrachequeAtivo) {
+        return "Voc\xEA est\xE1 editando o contracheque n\xBA: ";
+      } else {
+        return "Você está criando um contracheque novo";
+      }
+    },
     liquidoDoContracheque: function liquidoDoContracheque() {
       return this.somaValoresContrachequeReceitas - this.somaValoresContrachequeDescontos;
     },
@@ -38358,17 +38372,33 @@ var render = function () {
             [_c("img", { attrs: { src: "/svg/back.svg", alt: "Ícone sair" } })]
           ),
           _vm._v(" "),
-          _c("div", { attrs: { id: "contrachequeAtivo" } }, [
-            _c("label", [_vm._v("Código do contracheque ativo: ")]),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "text", disabled: "" },
-              domProps: {
-                value:
-                  _vm.$store.state.contrachequeAtivo || "Novo contracheque",
-              },
-            }),
-          ]),
+          _c(
+            "div",
+            {
+              class: _vm.$store.state.contrachequeAtivo
+                ? "warning-light-border"
+                : "success-light-border",
+              attrs: { id: "contrachequeAtivo" },
+            },
+            [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.tipoDeContracheque) +
+                  "\n            "
+              ),
+              _c("strong", [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(
+                      _vm.$store.state.contrachequeAtivo
+                        ? _vm.$store.state.contrachequeAtivo
+                        : ""
+                    ) +
+                    "\n            "
+                ),
+              ]),
+            ]
+          ),
           _vm._v(" "),
           _c("section", [
             _vm._m(0),
@@ -38390,7 +38420,7 @@ var render = function () {
                     },
                   })
                 : _c("img", {
-                    attrs: { src: "/svg/save.svg", alt: "Ícone de Imprimir" },
+                    attrs: { src: "/svg/save.svg", alt: "Ícone disquete" },
                   }),
             ]),
           ]),
@@ -38981,11 +39011,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { attrs: { onClick: "window.print()" } }, [
-      _c("span", [_vm._v("Imprimir")]),
-      _vm._v(" "),
-      _c("img", { attrs: { src: "/svg/print.svg", alt: "Ícone de Imprimir" } }),
-    ])
+    return _c(
+      "button",
+      { staticClass: "info-light", attrs: { onClick: "window.print()" } },
+      [
+        _c("span", [_vm._v("Imprimir")]),
+        _vm._v(" "),
+        _c("img", {
+          attrs: { src: "/svg/print.svg", alt: "Ícone de Imprimir" },
+        }),
+      ]
+    )
   },
   function () {
     var _vm = this

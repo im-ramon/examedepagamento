@@ -5,19 +5,26 @@
                 <img src="/svg/back.svg" alt="Ícone sair" />
             </router-link>
 
-            <div id="contrachequeAtivo">
-                <label>Código do contracheque ativo: </label>
-                <input
-                    type="text"
-                    disabled
-                    :value="
-                        $store.state.contrachequeAtivo || 'Novo contracheque'
-                    "
-                />
+            <div
+                id="contrachequeAtivo"
+                :class="
+                    $store.state.contrachequeAtivo
+                        ? 'warning-light-border'
+                        : 'success-light-border'
+                "
+            >
+                {{ tipoDeContracheque }}
+                <strong>
+                    {{
+                        $store.state.contrachequeAtivo
+                            ? $store.state.contrachequeAtivo
+                            : ""
+                    }}
+                </strong>
             </div>
 
             <section>
-                <button onClick="window.print()">
+                <button onClick="window.print()" class="info-light">
                     <span>Imprimir</span>
                     <img src="/svg/print.svg" alt="Ícone de Imprimir" />
                 </button>
@@ -31,7 +38,7 @@
                         src="/svg/loading.svg"
                         alt="Ícone de carregamento"
                     />
-                    <img v-else src="/svg/save.svg" alt="Ícone de Imprimir" />
+                    <img v-else src="/svg/save.svg" alt="Ícone disquete" />
                 </button>
             </section>
         </div>
@@ -441,6 +448,13 @@ export default {
         };
     },
     computed: {
+        tipoDeContracheque() {
+            if (this.$store.state.contrachequeAtivo) {
+                return `Você está editando o contracheque nº: `;
+            } else {
+                return "Você está criando um contracheque novo";
+            }
+        },
         liquidoDoContracheque() {
             return (
                 this.somaValoresContrachequeReceitas -
