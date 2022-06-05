@@ -68,6 +68,10 @@ $danger: #d9534f;
 .success {
     background: $success;
 }
+
+.hidden {
+    display: none;
+}
 // ------------- --------- ------------- //
 
 * {
@@ -1888,6 +1892,29 @@ label {
     align-items: center;
     padding: 0;
     margin: 0;
+}
+
+#app_version {
+    position: fixed;
+    bottom: -2px;
+    right: 16px;
+    user-select: none;
+    font-size: 10px;
+    padding: 9px 2px;
+    border-bottom-right-radius: $borderRadius;
+    border: 1px solid $cinza-transparente;
+    border-top: none;
+    border-left: none;
+    color: #00000050;
+    background: $cinza-1;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+        transition: color 0.3s ease-in-out;
+        color: $preto;
+    }
 }
 
 // MEDIA QUERIES

@@ -155,6 +155,7 @@
                     <router-view></router-view>
                 </transition>
             </section>
+            <span id="app_version" class="hidden">Versão: 1.1.2 (beta)</span>
         </main>
     </section>
 </template>
