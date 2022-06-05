@@ -43,7 +43,7 @@ class RedefinirSenhaNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = 'http://localhost:8000/password/reset/' . $this->token . '?email=' . $this->email;
+        $url = 'https://examedepagamento.com.br/password/reset/' . $this->token . '?email=' . $this->email;
         return (new MailMessage)
             ->subject(Lang::get('Atualização de senha'))
             ->greeting('Olá!')
