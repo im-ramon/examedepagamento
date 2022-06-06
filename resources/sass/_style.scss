@@ -140,7 +140,7 @@ main {
     transform: translateY(-30px);
 }
 
-#saudacao {
+#saudacao-container {
     align-items: center;
     display: flex;
     height: 50px;
@@ -148,28 +148,80 @@ main {
     padding: 0 1em;
     width: 100%;
     user-select: none;
-    & > span > span {
-        text-decoration: underline;
-    }
+    z-index: 10;
 
-    a {
-        text-transform: uppercase;
-    }
+    #saudacao-body {
+        height: 32px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0px 22px;
+        position: relative;
+        font-size: 15px;
 
-    #btn_logout {
-        border-radius: $borderRadius;
-        padding: 0.2em 0.9em;
-        border: 2px solid rgba(255, 255, 255, 0);
-        transition: border 0.3s;
-
-        &:hover {
-            border: 2px solid $preto;
-            transition: border 0.3s;
+        #saudacao-user_name {
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
         }
-    }
-    a {
-        color: $preto;
-        text-decoration: none;
+
+        img#saudacao-botao {
+            width: 22px;
+            margin-left: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: $preto;
+        }
+
+        #saudacao-box_itens {
+            @include borda_cinza;
+            display: none;
+            background: #fff;
+            border-radius: $borderRadius;
+            box-shadow: -4px 6px 10px 2px #0000001c;
+            position: absolute;
+            right: 24px;
+            top: 32px;
+            width: 100%;
+
+            .saudacao-item {
+                width: 100%;
+                display: block;
+                padding: 4px 16px;
+                text-align: right;
+                transition: all 0.3s ease-in-out;
+
+                &:nth-child(1) {
+                    border-top-left-radius: $borderRadius;
+                    border-top-right-radius: $borderRadius;
+                }
+
+                &:hover {
+                    background: $preto;
+                    color: #fff;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &.sair {
+                    border-top: 1px solid $cinza-transparente;
+                    border-bottom: none;
+                    &:hover {
+                        border-bottom-left-radius: $borderRadius;
+                        border-bottom-right-radius: $borderRadius;
+                    }
+                    a {
+                        color: $danger;
+                    }
+                }
+            }
+        }
+        &:hover {
+            #saudacao-box_itens {
+                display: block !important;
+            }
+        }
     }
 }
 
@@ -934,28 +986,6 @@ form#formulario {
 
     h2 {
         @include cabecalhoNaPagina;
-    }
-}
-
-#btn_sair {
-    align-items: center;
-    align-self: center;
-    // background: $danger;
-    // border-radius: $borderRadius;
-    border-bottom: 2px solid $danger;
-    color: $preto;
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-    margin-left: 1em;
-    padding: 2px 7px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        transform: scale(1.2);
-        transition: all 0.3s ease-in-out;
     }
 }
 

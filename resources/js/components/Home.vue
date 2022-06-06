@@ -120,35 +120,62 @@
                 /> -->
             </div>
             <section id="main_header">
-                <div id="saudacao">
-                    <span>
-                        Bem vindo,
-                        <span style="text-transform: capitalize">
-                            {{ userFirstName }}</span
-                        >!
-                    </span>
-                    <a
-                        href="/logout"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                        id="btn_sair"
-                    >
-                        Sair
-                        <img src="/svg/exit.svg" alt="Ícone sair" />
-                    </a>
-                    <form
-                        id="logout-form"
-                        :action="routeLogout"
-                        method="POST"
-                        class="d-none"
-                    >
-                        <input
-                            type="hidden"
-                            name="_token"
-                            :value="csrf_token"
-                        />
-                    </form>
+                <div id="saudacao-container">
+                    <div id="saudacao-body">
+                        <span id="saudacao-user_name">
+                            Olá, {{ userFirstName }}!
+                            <img
+                                id="saudacao-botao"
+                                src="/svg/menu-lateral.svg"
+                                alt="Menu"
+                            />
+                        </span>
+                        <div id="saudacao-box_itens">
+                            <router-link to="/perfil" class="saudacao-item">
+                                Meu perfil
+                            </router-link>
+
+                            <a
+                                href="/docs/manual.pdf"
+                                target="_BLANK"
+                                class="saudacao-item"
+                            >
+                                Manual do App
+                            </a>
+
+                            <a
+                                href="/docs/FAQ.pdf"
+                                class="saudacao-item"
+                                target="_BLANK"
+                            >
+                                FAQ
+                            </a>
+
+                            <div class="saudacao-item sair">
+                                <div id="saudacao-logout">
+                                    <a
+                                        href="/logout"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    >
+                                        Sair
+                                    </a>
+                                    <form
+                                        id="logout-form"
+                                        :action="routeLogout"
+                                        method="POST"
+                                        class="d-none"
+                                    >
+                                        <input
+                                            type="hidden"
+                                            name="_token"
+                                            :value="csrf_token"
+                                        />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="logout"></div>
             </section>
             <section id="main_body">
                 <transition name="home">

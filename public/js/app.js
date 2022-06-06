@@ -6784,6 +6784,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -38140,39 +38167,105 @@ var render = function () {
         ),
         _vm._v(" "),
         _c("section", { attrs: { id: "main_header" } }, [
-          _c("div", { attrs: { id: "saudacao" } }, [
-            _c("span", [
-              _vm._v("\n                    Bem vindo,\n                    "),
-              _c("span", { staticStyle: { "text-transform": "capitalize" } }, [
+          _c("div", { attrs: { id: "saudacao-container" } }, [
+            _c("div", { attrs: { id: "saudacao-body" } }, [
+              _c("span", { attrs: { id: "saudacao-user_name" } }, [
                 _vm._v(
-                  "\n                        " + _vm._s(_vm.userFirstName)
+                  "\n                        Olá, " +
+                    _vm._s(_vm.userFirstName) +
+                    "!\n                        "
                 ),
-              ]),
-              _vm._v("!\n                "),
-            ]),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                staticClass: "d-none",
-                attrs: {
-                  id: "logout-form",
-                  action: _vm.routeLogout,
-                  method: "POST",
-                },
-              },
-              [
-                _c("input", {
-                  attrs: { type: "hidden", name: "_token" },
-                  domProps: { value: _vm.csrf_token },
+                _c("img", {
+                  attrs: {
+                    id: "saudacao-botao",
+                    src: "/svg/menu-lateral.svg",
+                    alt: "Menu",
+                  },
                 }),
-              ]
-            ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { attrs: { id: "saudacao-box_itens" } },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "saudacao-item", attrs: { to: "/perfil" } },
+                    [
+                      _vm._v(
+                        "\n                            Meu perfil\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "saudacao-item",
+                      attrs: { href: "/docs/manual.pdf", target: "_BLANK" },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Manual do App\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "saudacao-item",
+                      attrs: { href: "/docs/FAQ.pdf", target: "_BLANK" },
+                    },
+                    [
+                      _vm._v(
+                        "\n                            FAQ\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "saudacao-item sair" }, [
+                    _c("div", { attrs: { id: "saudacao-logout" } }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "/logout",
+                            onclick:
+                              "event.preventDefault(); document.getElementById('logout-form').submit();",
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Sair\n                                "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "form",
+                        {
+                          staticClass: "d-none",
+                          attrs: {
+                            id: "logout-form",
+                            action: _vm.routeLogout,
+                            method: "POST",
+                          },
+                        },
+                        [
+                          _c("input", {
+                            attrs: { type: "hidden", name: "_token" },
+                            domProps: { value: _vm.csrf_token },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ]),
+                ],
+                1
+              ),
+            ]),
           ]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "logout" } }),
         ]),
         _vm._v(" "),
         _c(
@@ -38211,26 +38304,6 @@ var staticRenderFns = [
         _c("div", { staticClass: "line" }),
       ]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        attrs: {
-          href: "/logout",
-          onclick:
-            "event.preventDefault(); document.getElementById('logout-form').submit();",
-          id: "btn_sair",
-        },
-      },
-      [
-        _vm._v("\n                    Sair\n                    "),
-        _c("img", { attrs: { src: "/svg/exit.svg", alt: "Ícone sair" } }),
-      ]
-    )
   },
 ]
 render._withStripped = true
