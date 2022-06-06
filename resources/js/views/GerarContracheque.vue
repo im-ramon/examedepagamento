@@ -3158,24 +3158,28 @@ export default {
             this.dadosIndisponiveisLista.splice(key, 1);
         },
         carregaSelectPg() {
-            this.loading_select = true;
-
-            axios
-                .get(`${this.nowPath}/api/pg-constantes`)
-                .then((r) => {
-                    this.selectPg = r.data;
-                })
-                .catch((e) => {
-                    this.selectPg = [
-                        {
-                            id: "1",
-                            pg_abrev:
-                                "Não foi possível carregar a lista dos P/G",
-                        },
-                    ];
-                    console.log(e);
-                })
-                .finally(() => (this.loading_select = false));
+            if (this.$store.state.listaPG) {
+                this.selectPg = this.$store.state.listaPG;
+            } else {
+                this.loading_select = true;
+                axios
+                    .get(`${this.nowPath}/api/pg-constantes`)
+                    .then((r) => {
+                        this.selectPg = r.data;
+                        this.$store.state.listaPG = r.data;
+                    })
+                    .catch((e) => {
+                        this.selectPg = [
+                            {
+                                id: "1",
+                                pg_abrev:
+                                    "Houve um erro ao carregar a lista dos P/G",
+                            },
+                        ];
+                        console.log(e);
+                    })
+                    .finally(() => (this.loading_select = false));
+            }
         },
 
         async geraDadosFinanceiros() {

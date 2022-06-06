@@ -10789,18 +10789,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     carregaSelectPg: function carregaSelectPg() {
       var _this2 = this;
 
-      this.loading_select = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(this.nowPath, "/api/pg-constantes")).then(function (r) {
-        _this2.selectPg = r.data;
-      })["catch"](function (e) {
-        _this2.selectPg = [{
-          id: "1",
-          pg_abrev: "Não foi possível carregar a lista dos P/G"
-        }];
-        console.log(e);
-      })["finally"](function () {
-        return _this2.loading_select = false;
-      });
+      if (this.$store.state.listaPG) {
+        this.selectPg = this.$store.state.listaPG;
+      } else {
+        this.loading_select = true;
+        axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(this.nowPath, "/api/pg-constantes")).then(function (r) {
+          _this2.selectPg = r.data;
+          _this2.$store.state.listaPG = r.data;
+        })["catch"](function (e) {
+          _this2.selectPg = [{
+            id: "1",
+            pg_abrev: "Houve um erro ao carregar a lista dos P/G"
+          }];
+          console.log(e);
+        })["finally"](function () {
+          return _this2.loading_select = false;
+        });
+      }
     },
     geraDadosFinanceiros: function geraDadosFinanceiros() {
       var _this3 = this;
@@ -12581,7 +12586,8 @@ var store = new Vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     contrachequeAtivo: false,
     valorDescontosCC_array_atual: '-',
     valorReceitasCC_array_atual: '-',
-    observacoes: '-'
+    observacoes: '-',
+    listaPG: null
   }
 });
 /**
