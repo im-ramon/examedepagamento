@@ -15,8 +15,14 @@
                 <a href="/docs/manual.pdf" target="_BLANK">Manual do App</a>
             </p>
             <p>
-                Já conhece o sistema? Então escolha uma das funcionalidades do
-                App e siga em frente.
+                Em caso de dúvidas, acesse o link e veja se ela está entre as
+                mais frequetes:
+                <a href="/docs/FAQ.pdf" target="_BLANK">FAQ</a>
+            </p>
+            <br />
+            <p>
+                Já conhece o App? Então escolha uma das funcionalidades e siga
+                em frente.
             </p>
         </div>
         <div id="index-main">

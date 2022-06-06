@@ -11352,6 +11352,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -46879,7 +46885,18 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n            Já conhece o sistema? Então escolha uma das funcionalidades do\n            App e siga em frente.\n        "
+            "\n            Em caso de dúvidas, acesse o link e veja se ela está entre as\n            mais frequetes:\n            "
+          ),
+          _c("a", { attrs: { href: "/docs/FAQ.pdf", target: "_BLANK" } }, [
+            _vm._v("FAQ"),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n            Já conhece o App? Então escolha uma das funcionalidades e siga\n            em frente.\n        "
           ),
         ]),
       ]),
