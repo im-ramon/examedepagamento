@@ -25,6 +25,7 @@
                         <input
                             id="email"
                             type="email"
+                            placeholder="Digite seu e-mail"
                             class="form-control"
                             name="email"
                             required
@@ -46,6 +47,7 @@
                             :type="!seepassword ? 'password' : 'text'"
                             class="form-control"
                             name="password"
+                            placeholder="Digite sua senha"
                             required
                             autocomplete="current-password"
                             v-model="password"

@@ -42,6 +42,7 @@
                                 type="text"
                                 class="form-control"
                                 name="name"
+                                placeholder="Digite seu nome completo"
                                 minlength="2"
                                 required
                                 autofocus
@@ -60,6 +61,7 @@
                             <input
                                 id="email"
                                 type="email"
+                                placeholder="Digite seu e-mail"
                                 class="form-control"
                                 name="email"
                                 required
@@ -82,6 +84,7 @@
                                 name="password"
                                 minlength="8"
                                 maxlength="64"
+                                placeholder="Escolha uma senha"
                                 required
                                 autocomplete="current-password"
                                 v-model="password"
@@ -103,6 +106,7 @@
                                 class="form-control"
                                 name="passwordcheck"
                                 required
+                                placeholder="Digite novamente a senha escolhida"
                                 autocomplete="current-password"
                                 v-model="passwordcheck"
                             />
@@ -181,6 +185,7 @@
                                 class="form-control"
                                 name="ch_equipe_name"
                                 required
+                                placeholder="Digite o nome completo do chefe da equipe"
                                 minlength="2"
                                 autocomplete="ch_equipe_name"
                                 v-model="ch_equipe_name"
@@ -261,6 +266,7 @@
                                 name="om"
                                 minlength="2"
                                 required
+                                placeholder="Digite a sigla do Organização Militar"
                                 autocomplete="om"
                                 v-model="om"
                             />
@@ -279,6 +285,7 @@
                                 class="form-control"
                                 name="local_assinatura"
                                 required
+                                placeholder="Digite a cidade e UF de assinatura"
                                 autocomplete="local_assinatura"
                                 v-model="local_assinatura"
                             />

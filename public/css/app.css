@@ -812,10 +812,6 @@ form#formulario {
   transition: border-color 0.3s ease-in-out;
   border-color: rgba(0, 0, 0, 0.658);
 }
-.auth_form-body form .auth_form-inputarea input:invalid,
-.auth_form-body form .auth_form-inputarea select:invalid {
-  background: rgba(255, 0, 0, 0.219);
-}
 .auth_form-body form .auth_form-inputarea #iconeeye {
   position: absolute;
   right: 8px;
@@ -1871,6 +1867,13 @@ label {
   align-items: center;
   padding: 0;
   margin: 0;
+}
+
+.alert {
+  width: 100%;
+  width: 80%;
+  margin-bottom: 11px;
+  border: 1px solid #00000059;
 }
 
 #app_version {
