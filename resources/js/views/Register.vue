@@ -316,8 +316,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
     data() {
         return {
@@ -365,6 +363,8 @@ export default {
             }, 10000);
         },
         singup() {
+            let url = `${this.path}/api/register`;
+
             if (this.password !== this.passwordcheck) {
                 this.abrirModal(
                     0,
@@ -373,9 +373,9 @@ export default {
                 );
             } else {
                 this.loading = true;
-                let url = `${this.path}/api/register`;
-                axios
-                    .post(url, {
+                let config = {
+                    method: "post",
+                    body: new URLSearchParams({
                         name: this.name,
                         email: this.email,
                         password: this.password,
@@ -384,7 +384,9 @@ export default {
                         ch_equipe_pg: this.ch_equipe_pg,
                         om: this.om,
                         local_assinatura: this.local_assinatura,
-                    })
+                    }),
+                };
+                fetch(url, config)
                     .then((r) => {
                         this.usuarioRegistrado = r.data;
                         this.erro = false;

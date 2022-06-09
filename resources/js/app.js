@@ -48,6 +48,9 @@ Vue.component('modal-geral', require('./components/ModalGeral.vue').default);
 Vue.component('welcome-component', require('./views/Welcome.vue').default);
 Vue.component('register-component', require('./views/Register.vue').default);
 
+// Modo de produção:
+Vue.config.productionTip = false
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

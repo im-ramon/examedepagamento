@@ -16,6 +16,34 @@
                             <ul class="modal_item">
                                 <li class="first-li">
                                     <h3>
+                                        Versão 1.1.1 <i>(beta)</i>
+                                        <i class="data_lancamento"
+                                            >- Disponibilizada em 09/06/2022
+                                            -</i
+                                        >
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            Implementação da página de cadastro
+                                            de usuários.
+                                        </li>
+                                        <li>
+                                            Implementação da recuperação de
+                                            senha por e-mail.
+                                        </li>
+                                        <li>Publicação do Manual do App.</li>
+                                        <li>
+                                            Crianção da página de perguntas
+                                            frequêntes (FAQ).
+                                        </li>
+                                        <li>
+                                            Correção de diversos <i>bugs</i>.
+                                        </li>
+                                        <li>Diversas melhorias visuais.</li>
+                                    </ul>
+                                </li>
+                                <li class="first-li">
+                                    <h3>
                                         Versão 1.1 <i>(beta)</i>
                                         <i class="data_lancamento"
                                             >- Disponibilizada em 15/04/2022
@@ -348,9 +376,6 @@ export default {
                 this.h1 = h1;
             }
         },
-    },
-    mounted() {
-        console.log("Component mounted.");
     },
     components: {},
 };
