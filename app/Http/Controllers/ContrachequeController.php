@@ -624,7 +624,9 @@ class ContrachequeController extends Controller
     {
         if (!$formulario["isento_ir"]) {
             $valor = ($this->impostoRenda($this->bruto_ir,  $this->abatimentos_ir, $formulario["imposto_renda_dep"], $formulario["maior_65"]));
-            $this->push('descontos', 'imposto_renda_mensal', $valor, 'IMPOSTO DE RENDA', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            if ($valor > 10) { //Art. 67 da Lei nº 9.430/99
+                $this->push('descontos', 'imposto_renda_mensal', $valor, 'IMPOSTO DE RENDA', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
+            }
         }
     }
 
@@ -632,7 +634,7 @@ class ContrachequeController extends Controller
     {
         if (!$formulario["isento_ir"] and isset($this->calculos['receitas']['adic_natalino']['financeiro']['valor']) and isset($this->calculos['descontos']['adic_natalino_valor_adiantamento']['financeiro']['valor'])) {
             $valor = ($this->impostoRenda($this->calculos['receitas']['adic_natalino']['financeiro']['valor'],  $this->abatimentos_ir_adic_natal, $formulario["imposto_renda_dep"], $formulario["maior_65"]));
-            if ($valor > 0) {
+            if ($valor > 10) { //Art. 67 da Lei nº 9.430/99
                 $this->push('descontos', 'imposto_renda_mensal', $valor, 'IRPF - ADIC NATAL', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
             }
         }
@@ -642,7 +644,7 @@ class ContrachequeController extends Controller
     {
         if (!$formulario["isento_ir"] and isset($this->calculos['receitas']['adic_ferias']['financeiro']['valor'])) {
             $valor = ($this->impostoRenda($this->calculos['receitas']['adic_ferias']['financeiro']['valor'],  $this->abatimentos_ir, $formulario["imposto_renda_dep"], $formulario["maior_65"]));
-            if ($valor > 0) {
+            if ($valor > 10) { //Art. 67 da Lei nº 9.430/99
                 $this->push('descontos', 'imposto_renda_adic_ferias', $valor, 'IRRF-ADIC FERIAS', 'n_ir', '13N', 'n_ptcc', 'n_descontos');
             }
         }
