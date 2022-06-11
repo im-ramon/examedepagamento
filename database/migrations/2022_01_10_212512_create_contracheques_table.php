@@ -16,14 +16,13 @@ class CreateContrachequesTable extends Migration
         Schema::create('contracheques', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('contracheque_dados_id');
-            $table->unsignedBigInteger('users_id');
-            $table->unsignedBigInteger('contracheque_rubricas_id');
+            $table->string('ficha_auxiliar_json', 8000);
+            $table->string('valorReceitasCC_array', 512)->default('-');
+            $table->string('valorDescontosCC_array', 512)->default('-');
+            $table->string('observacoes', 1024)->default('-');
+            $table->string('user_email');
 
-            // Constraints (FKs)
-            $table->foreign('contracheque_dados_id')->references('id')->on('contracheque_dados');
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('contracheque_rubricas_id')->references('id')->on('contracheque_rubricas');
+            $table->foreign('user_email')->references('email')->on('users');
         });
     }
 

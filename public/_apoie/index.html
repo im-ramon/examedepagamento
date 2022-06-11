@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoie | App Exame de Pagamento</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+</head>
+
+<body>
+    <main>
+        <div id="container">
+            <div id="minha_logo">
+                <img src="/images/logo-ramon.svg" alt="Logo Ramon Oliveira" />
+                <a href="#">
+                    <span>Ramon Oliveira | Desenvolvedor</span>
+                </a>
+            </div>
+            <div id="card">
+                <div id="logo">
+                    <img src="/images/logo-black.png" alt="Logo">
+                    <h1><span>App</span> | Exame de Pagamento</h1>
+                </div>
+                <div class="card-item">
+                    <h3>Tem interesse em contribuir com o projeto?</h3>
+                    <p>Ajude o <strong>App Exame de Pagamento</strong> manter-se online. Doe qualquer valor para contriubuir na manutenção do projeto.</p>
+                    <br>
+                    <p id="escolha">Método de contribuição:</p>
+                    <div class="card-item">
+                        <div class="card-pix">
+                            <div id="card-pix-header">
+                                <img src="/images/pix.svg" id="pix" alt="Pix logo">
+                                <h1>Pix</h1>
+                            </div>
+                            <!-- <h3 id="chave_pix">75 9 9153-7677</h3> -->
+                            <textarea disabled name="chave_pix" id="chave_pix" cols="30" rows="1">75 9 91537677</textarea>
+                            <textarea disabled name="chave_pix_hide" id="chave_pix_hide" cols="30" rows="1">75991537677</textarea>
+                            <div id="btn_copiar" onclick="copyToClipBoard()">
+                                <span id="btn_copiar-text">Copiar chave Pix</span>
+                                <img src="/images/copy.svg" id="pix" alt="Copiar">
+                            </div>
+                            <div id="qrcode">
+                                <img src="/images/qrcode.png" alt="qrcode">
+                            </div>
+                            <span>Iniciais da conta: <strong>R.O.D.S</strong></span>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="white">
+        <div class="squares">
+
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+    </div>
+
+
+    <div class="grey"></div>
+
+    <script>
+        function copyToClipBoard() {
+            let textoCopiado = document.getElementById("chave_pix_hide");
+            textoCopiado.select();
+            textoCopiado.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            alert("Chave Pix copiada: " + textoCopiado.value);
+        }
+    </script>
+
+</body>
+
+</html>

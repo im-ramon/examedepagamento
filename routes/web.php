@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\MensagemPadrao;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::prefix('/app')->group(function () {
-    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('app.home');
-    Route::get('/formulario', [\App\Http\Controllers\ContrachequeController::class, 'formulario'])->name('app.formulario');
-    Route::post('/fichaauxiliar', [\App\Http\Controllers\ContrachequeController::class, 'fichaauxiliar'])->name('app.fichaauxiliar');
+Route::get('/singup', function () {
+    return view('singup');
 });
+
+Route::get('/app', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// -- Rota de teste para o modelo de e-mail -- //
+
+// Route::get('/teste-email', function() {
+//     return new MensagemPadrao();
+// });
+
+Auth::routes();
