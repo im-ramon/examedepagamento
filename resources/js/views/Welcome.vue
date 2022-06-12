@@ -16,6 +16,22 @@
                             <ul class="modal_item">
                                 <li class="first-li">
                                     <h3>
+                                        Versão 1.1.2 <i>(beta)</i>
+                                        <i class="data_lancamento"
+                                            >- Disponibilizada em 11/06/2022
+                                            -</i
+                                        >
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            Correção do cálculo de imposto de
+                                            renda, adequando-o à Lei nº
+                                            9.430/1996.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="first-li">
+                                    <h3>
                                         Versão 1.1.1 <i>(beta)</i>
                                         <i class="data_lancamento"
                                             >- Disponibilizada em 09/06/2022
