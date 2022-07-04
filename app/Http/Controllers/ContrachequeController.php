@@ -255,10 +255,10 @@ class ContrachequeController extends Controller
         $tpsv = $pg_soldo_info["soldo"] * $formulario["adic_tp_sv"];
         $adic_disp = $pg_real_info["soldo"] * $pg_real_info["adic_disp"];
 
-        if ($tpsv > $adic_disp) {
+        if ($tpsv > $adic_disp || ($formulario["adic_disp"] != '1' && $tpsv > 0)) {
             $valor = $this->truncar($this->soldo_base['valor'] * ($formulario["adic_tp_sv"]) / 100);
             $this->push('receitas', 'adic_tp_sv', $valor, 'ADIC TP SV', 'ir', '13S', 'pttc', 'descontos', $formulario["adic_tp_sv"]);
-        } elseif ($formulario["adic_disp"] == '1') {
+        } elseif ($tpsv <= $adic_disp) {
             $valor = $this->truncar($this->soldo_pg_real_base['valor'] * ($pg_real_info["adic_disp"]) / 100);
             $this->push('receitas', 'adic_comp_disp', $valor, 'AD C DISP MIL', 'ir', '13S', 'pttc', 'descontos', $pg_real_info["adic_disp"]);
         }
