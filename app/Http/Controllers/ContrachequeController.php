@@ -45,7 +45,7 @@ class ContrachequeController extends Controller
             $todos_pg_info = \App\Models\PgConstante::all()->toArray();
             $pg_real_info = \App\Models\PgConstante::find($formulario['pg_real'])->toArray();
             $pg_soldo_info = \App\Models\PgConstante::find($formulario['pg_soldo'])->toArray();
-            $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<', $formulario['data_contracheque'])->where('periodo_fim', '>', $formulario['data_contracheque'])->get()->toArray()[0];
+            $adic_hab_info = \App\Models\AdicHabilitacao::where('periodo_ini', '<=', $formulario['data_contracheque'])->where('periodo_fim', '>=', $formulario['data_contracheque'])->get()->toArray()[0];
             $this->calculos['informacoes']['date'] = $formulario['data_contracheque'];
             $this->calculos['informacoes']['pg_real_info'] = $pg_real_info;
 
