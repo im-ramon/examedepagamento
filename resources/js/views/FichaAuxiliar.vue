@@ -336,9 +336,11 @@
             <tr>
                 <td class="td_assinatura" colspan="11">
                     <p>
-                        <strong
-                            >{{ $store.state.activeUser.name }} -
-                            {{ $store.state.activeUser.post_grad }}</strong
+                        <strong>
+                            <span style="text-transform: uppercase">
+                                {{ $store.state.activeUser.name }}
+                            </span>
+                            - {{ $store.state.activeUser.post_grad }}</strong
                         >
                     </p>
                     <p>Membro da Equipe</p>
@@ -362,9 +364,11 @@
             <tr>
                 <td class="td_assinatura" colspan="11">
                     <p>
-                        <strong
-                            >{{ $store.state.activeUser.ch_equipe_name }} -
-                            {{ $store.state.activeUser.ch_equipe_pg }}</strong
+                        <strong>
+                            <span style="text-transform: uppercase">
+                                {{ $store.state.activeUser.ch_equipe_name }}
+                            </span>
+                            - {{ $store.state.activeUser.ch_equipe_pg }}</strong
                         >
                     </p>
                 </td>
