@@ -871,7 +871,7 @@
                         v-show="adic_natalino == '1'"
                     >
                         <div class="question_title">
-                            <p>Referenta a quantos meses?</p>
+                            <p>Referente a quantos meses?</p>
                         </div>
                         <div class="question_options">
                             <input
